@@ -18,9 +18,12 @@ npm start
 yarn start  # If you have yarn installed
 ```
 
+[See it in action][6]
+
 
   [1]: https://www.typescriptlang.org
   [2]: http://webpack.github.io
   [3]: http://animejs.com/
   [4]: http://animejs.com/documentation/assets/js/fireworks.js
   [5]: http://sass-lang.com
+  [6]: https://fan.melchor9000.me/2019
