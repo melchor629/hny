@@ -1,0 +1,61 @@
+@import '~bootstrap/scss/bootstrap-reboot';
+
+body {
+    background: #161722;
+    overflow: hidden;
+}
+
+.container {
+    background: #161722;
+    width: calc(100vw);
+    height: calc(100vh);
+
+    .anime {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        color: #eee;
+        font-size: 2rem;
+        visibility: hidden;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+
+        &.bottom-center {
+            bottom: 10vh;
+            justify-content: center;
+            text-align: center;
+        }
+
+        @import '_anime';
+    }
+}
+
+.btn {
+    padding: .25rem .5rem;
+    background-color: transparent;
+    border: 1px solid rgb(73, 73, 126);
+    color: white;
+    border-radius: 3px;
+    margin: 0 5px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 1.2rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    outline: none;
+    transition: background-color .2s ease-in-out,
+                border-color .2s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(184, 207, 255, 0.2);
+        border-color: lighten(rgb(73, 73, 126), 30);
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
