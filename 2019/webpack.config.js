@@ -18,7 +18,6 @@ module.exports = {
         filename: isProd ? "[name].js" : "[name].debug.js",
         path: __dirname + "/dist",
         crossOriginLoading: 'anonymous', //https://w3c.github.io/webappsec-subresource-integrity/#cross-origin-data-leakage
-        //publicPath: isProd ? (process.env.PUBLIC_PATH || 'https://md.recasound.es/player/') : undefined,
     },
 
     // Configure development server

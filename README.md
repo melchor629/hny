@@ -2,7 +2,7 @@
 
 You can see the source code of the _Happy New Year_ of every year I made one. Not all pages are in english, some could be in spanish.
 
-You can prepare a docker image with all of them by running `./build.sh` script.
+You can prepare a docker image with all of them by running `./build.sh` script. To run the server, simply execute `docker container run --rm -it -p 80:80 hny-melchor9000` and go to [http://localhost](http://localhost).
 
 Have fun :)
 
