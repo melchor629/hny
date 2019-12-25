@@ -11,7 +11,7 @@
   "scripts": {
     "build": "lerna run build",
     "clean": "rm -rf dist && lerna run clean",
-    "dist": "mkdir -p dist && lerna run copyDistTo \"$PWD/dist\"",
+    "dist": "./scripts/copy-to-dist.sh",
     "lerna": "lerna",
     "postinstall": "lerna bootstrap"
   },

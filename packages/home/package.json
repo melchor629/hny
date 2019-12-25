@@ -35,9 +35,9 @@
       "not ie <= 11"
     ],
     "development": [
-      "latest 1 chrome version",
-      "latest 1 safari version",
-      "latest 1 firefox version"
+      "last 1 chrome version",
+      "last 1 safari version",
+      "last 1 firefox version"
     ]
   }
 }

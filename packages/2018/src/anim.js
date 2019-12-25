@@ -1,4 +1,5 @@
-const { styler, tween, chain, svg, easing, everyFrame, keyframes } = window.popmotion;
+import { styler, tween, chain, svg, easing, everyFrame, keyframes } from 'popmotion';
+import coolAndGoodImage from './img/c&g.png';
 
 if(document.body.clientWidth <= 1200) {
     alert("Debes usar un ordenador para ver esto, y que sea 1280px mínimo")
@@ -29,12 +30,11 @@ class AudioContext {
             ogg: a.canPlayType('audio/ogg; codecs="vorbis"'),
             wav: a.canPlayType('audio/wav; codecs="1"')
         };
-        this._ctx.resume();
     }
 
     _doLoad(file, cbk) {
         let request = new XMLHttpRequest();
-        request.open('GET', file);
+        request.open('GET', `snd/${file}`);
         request.responseType = 'arraybuffer';
         request.onload = (e) => {
             this._ctx.decodeAudioData(request.response, buffer => {
@@ -45,7 +45,7 @@ class AudioContext {
     }
 
     load(name, snd1, snd2) {
-        return new window.Promise((resolve, reject) => {
+        return new Promise((resolve, reject) => {
             this._doLoad(snd1, buffer => {
                 if(buffer) {
                     this._sounds[name] = buffer;
@@ -75,6 +75,10 @@ class AudioContext {
             buffer.onended = resolve;
         });
     }
+
+    resume() {
+        this._ctx.resume();
+    }
 }
 
 const actx = new AudioContext();
@@ -89,6 +93,7 @@ const actx = new AudioContext();
             boton.removeAttribute('disabled', null);
             boton.onclick = (e) => {
                 e.preventDefault();
+                actx.resume();
                 tween({ from: { opacity: 1 }, to: { opacity: 0 }, duration: 750 }).start({
                     update: styler(mensaje).set,
                     complete: () => {
@@ -131,7 +136,7 @@ const effect = () => {
         parte.classList.remove('notClicked');
         tween({
             from: { translateY: 0, scaleY: +1, originX: 0, originY: 0 },
-            to: { translateY: -68, scaleY: -1, originX: 0, originY: 0 },
+            to: { translateY: 0, scaleY: -1, originX: 0, originY: 0 },
             duration: 750
         }).start({ update: parteStyler.set, complete: crazySobre });
     };
@@ -234,7 +239,7 @@ const showText = () => {
         duration: 2000
     }).start({ update: f2Styler.set, complete: () => {
         actx.play("c&g");
-        document.querySelector('#self').setAttribute('src', 'c&g.png');
+        document.querySelector('#self').setAttribute('src', coolAndGoodImage);
         keyframes({
             values: [
                 { opacity: 1, translateX: document.body.clientWidth - 800 },
