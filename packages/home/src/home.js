@@ -12,12 +12,12 @@ if (
   (now.getMonth() === 11 && now.getDate() >= 30)
 ) {
   const year = now.getFullYear()
-  window.location.assign('/' + year)
+  window.location.assign(`/${year}/`)
 } else {
   const yearsListElement = document.getElementById('years-list')
   for (let year of years) {
     const linkElement = document.createElement('a')
-    linkElement.href = '/' + year
+    linkElement.href = `/${year}/`
     linkElement.target = '_blank'
     linkElement.text = year.toString()
     linkElement.classList.add('blue', 'dim')

@@ -1,5 +1,5 @@
 {
-  "name": "home-fan",
+  "name": "fanhome",
   "version": "1.0.0",
   "description": "Home of the \"Feliz Año Nuevo\" web page",
   "main": "src/index.html.js",

@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "Feliz Año Nuevo 2019",
   "main": "src/index.html",
+  "repository": "https://github.com/melchor629/hny",
   "author": "melchor9000",
   "license": "MIT",
   "private": true,
   "scripts": {
     "start": "parcel src/index.html --port 3000 --open",
-    "build": "parcel build --experimental-scope-hoisting src/index.html",
+    "build": "parcel build --public-url /2019/ src/index.html",
     "clean": "rm -rf .cache dist"
   },
   "dependencies": {

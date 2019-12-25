@@ -2,3 +2,5 @@
 **/*.md
 **/*.MD
 **/.DS_Store
+**/dist/
+**/.cache/

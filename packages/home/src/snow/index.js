@@ -77,11 +77,11 @@ const animate = time => {
 
 export default container => {
   resize()
-  ;(container || document.body).appendChild(renderer.domElement)
+    ; (container || document.body).appendChild(renderer.domElement)
 
   window.addEventListener('resize', resize, { passive: true })
-  window.addEventListener('blur', blur)
-  window.addEventListener('focus', focus)
+  window.addEventListener('blur', blur, { passive: true })
+  window.addEventListener('focus', focus, { passive: true })
 
   requestAnimationFrame(animate)
 }

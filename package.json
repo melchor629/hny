@@ -13,10 +13,12 @@
     "clean": "rm -rf dist && lerna run clean",
     "dist": "./scripts/copy-to-dist.sh",
     "lerna": "lerna",
-    "postinstall": "lerna bootstrap"
+    "postinstall": "lerna bootstrap",
+    "serve": "serve -l 3000 dist"
   },
   "dependencies": {
     "lerna": "^3.19.0",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "serve": "^11.2.0"
   }
 }

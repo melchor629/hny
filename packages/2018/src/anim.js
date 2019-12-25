@@ -7,7 +7,7 @@ if(document.body.clientWidth <= 1200) {
 }
 
 const sobre = document.querySelector('#sobreContainer');
-const parte = document.querySelector('#parteQueSeAbre');
+const parte = document.querySelector('#parteQueSeAbre') || document.querySelector('.parteQueSeAbre');
 const otherStuff = document.querySelector('.otherStuff');
 const textNoice = document.querySelector('.textNoice');
 const f1 = document.querySelector('#f1');
