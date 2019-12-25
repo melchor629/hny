@@ -1,7 +1,9 @@
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 import anime from 'animejs';
 
 import { EventListener, PressListener } from './press-listener';
-import { wait, randomPosOnScreen, zip } from './utils';
+import { wait, randomPosOnScreen } from './utils';
 
 import './styles.scss';
 

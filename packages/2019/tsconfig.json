@@ -1,22 +1,22 @@
 {
-    "compilerOptions": {
-        "outDir": "./dist/",
-        "sourceMap": true,
-        "noImplicitAny": true,
-        "module": "esnext",
-        "target": "es5",
-        "jsx": "react",
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "esnext",
+    "target": "es5",
+    "jsx": "react",
 
-        "allowSyntheticDefaultImports": true,
-        "baseUrl": ".",
-        "paths": {
-            "src/*": [ "src/*", "src/*.js" ]
-        },
-        "moduleResolution": "node",
-        "lib": ["es6", "dom"],
-        "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "src/*": [ "src/*", "src/*.js" ]
     },
-    "include": [
-        "./src/**/*"
-    ]
+    "moduleResolution": "node",
+    "lib": ["es6", "dom"],
+    "resolveJsonModule": true,
+  },
+  "include": [
+    "./src/**/*"
+  ]
 }
