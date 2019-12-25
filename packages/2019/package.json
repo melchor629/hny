@@ -9,7 +9,8 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "rm -r dist/*; NODE_ENV=production webpack",
-    "build-dev": "rm -r dist/*; webpack"
+    "build-dev": "rm -r dist/*; webpack",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "animejs": "^2.2.0",

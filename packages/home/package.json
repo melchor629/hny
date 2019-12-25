@@ -1,0 +1,43 @@
+{
+  "name": "home-fan",
+  "version": "1.0.0",
+  "description": "Home of the \"Feliz Año Nuevo\" web page",
+  "main": "src/index.html.js",
+  "repository": "https://github.com/melchor629/hny",
+  "author": "melchor9000",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "parcel src/index.html --port 3000 --open",
+    "build": "parcel build --experimental-scope-hoisting src/index.html",
+    "format": "prettier 'src/**/*.js' --write",
+    "clean": "rm -rf .cache dist"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@types/lodash-es": "^4.17.3",
+    "core-js": "^3.6.1",
+    "glslify-bundle": "^5.1.1",
+    "glslify-deps": "^1.3.1",
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.15",
+    "tachyons": "^4.11.1",
+    "three": "^0.112.0"
+  },
+  "browserslist": {
+    "production": [
+      ">1%",
+      "not dead",
+      "not op_mini all",
+      "not ie <= 11"
+    ],
+    "development": [
+      "latest 1 chrome version",
+      "latest 1 safari version",
+      "latest 1 firefox version"
+    ]
+  }
+}

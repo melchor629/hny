@@ -1,0 +1,22 @@
+{
+  "name": "hny",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/melchor629/hny"
+  },
+  "scripts": {
+    "build": "lerna run build",
+    "clean": "rm -rf dist && lerna run clean",
+    "dist": "mkdir -p dist && lerna run copyDistTo \"$PWD/dist\"",
+    "lerna": "lerna",
+    "postinstall": "lerna bootstrap"
+  },
+  "dependencies": {
+    "lerna": "^3.19.0",
+    "prettier": "^1.19.1"
+  }
+}
