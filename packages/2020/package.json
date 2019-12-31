@@ -1,0 +1,42 @@
+{
+  "name": "fan2020",
+  "version": "1.0.0",
+  "description": "Feliz año nuevo 2020",
+  "main": "src/index.html",
+  "repository": "https://github.com/melchor629/hny",
+  "author": "melchor9000",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "parcel src/index.html --port 3000 --open",
+    "build": "parcel build --public-url /2020/ src/index.html",
+    "clean": "rm -rf .cache dist"
+  },
+  "dependencies": {
+    "d3-ease": "1.0.6",
+    "lodash-es": "4.17.15",
+    "three": "0.112.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.0",
+    "parcel-plugin-static-files-copy": "2.2.1",
+    "parcel-bundler": "^1.6.1"
+  },
+  "staticFiles": {
+    "staticPath": "public",
+    "watcherGlob": "**"
+  },
+  "browserslist": {
+    "production": [
+      ">1%",
+      "not dead",
+      "not op_mini all",
+      "not ie <= 11"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 safari version",
+      "last 1 firefox version"
+    ]
+  }
+}

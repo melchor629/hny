@@ -14,7 +14,8 @@
     "dist": "./scripts/copy-to-dist.sh",
     "lerna": "lerna",
     "postinstall": "lerna bootstrap",
-    "serve": "serve -l 3000 dist"
+    "serve": "serve -l 3000 dist",
+    "docker": "docker image build -t hny-melchor9000 -f docker/build.dockerfile ."
   },
   "dependencies": {
     "lerna": "^3.19.0",

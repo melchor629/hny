@@ -1,0 +1,16 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  overflow: hidden;
+  background-color: #111;
+}
+
+body > canvas {
+  touch-action: none;
+}
+
+body > #mode {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
