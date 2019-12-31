@@ -9,7 +9,7 @@
   "private": true,
   "scripts": {
     "start": "parcel src/index.html --port 3000 --open",
-    "build": "parcel build --public-url /2018/ --experimental-scope-hoisting src/index.html",
+    "build": "parcel build --public-url /2018/ src/index.html",
     "clean": "rm -rf .cache dist/*.*"
   },
   "dependencies": {

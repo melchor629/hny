@@ -4,7 +4,10 @@ import createPostProcessComposer from './post-process'
 import renderLoop from './render-loop'
 
 const getAspectRatio = () => window.innerWidth / window.innerHeight
+
 let throttle = 1
+let lastTime = 0
+let throttleFps = 0
 
 const scene = new Scene()
 const camera = new PerspectiveCamera(75, getAspectRatio(), 0.1, 50)
@@ -45,6 +48,7 @@ const blur = () => {
 const focus = () => {
   changePixelRatio(window.devicePixelRatio)
   throttle = 1
+  lastTime = 0
   console.log('focus')
 }
 
@@ -52,8 +56,6 @@ const focus = () => {
 // 7.3475 6 -2.5
 // 3.9815 4.084 0
 
-let lastTime = 0
-let throttleFps = 0
 const animate = time => {
   if (lastTime === 0) {
     lastTime = time
@@ -76,8 +78,8 @@ const animate = time => {
 }
 
 export default container => {
-  resize()
-    ; (container || document.body).appendChild(renderer.domElement)
+  resize();
+  (container || document.body).appendChild(renderer.domElement)
 
   window.addEventListener('resize', resize, { passive: true })
   window.addEventListener('blur', blur, { passive: true })

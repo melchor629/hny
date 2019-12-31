@@ -1,8 +1,8 @@
 import { random } from 'lodash-es'
 
 export const generateRandomPos = (allowInside = false) => [
-  random(-10, 10, true),
-  random(allowInside ? 5 : 8, allowInside ? 25 : 12, true),
+  random(-15, 8, true),
+  random(allowInside ? 3 : 8, allowInside ? 17 : 9, true),
   random(-1, -5, true),
 ]
 

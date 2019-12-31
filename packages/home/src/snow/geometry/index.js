@@ -2,7 +2,7 @@ import { BufferGeometry, DynamicDrawUsage, Float32BufferAttribute } from 'three'
 import { generateRandomInitialAcceleration, generateRandomPos, generateRandomSize } from './utils'
 export { generateRandomInitialAcceleration, generateRandomPos, generateRandomSize } from './utils'
 
-const numParticles = 1000
+const numParticles = 1500
 const positions = []
 const sizes = []
 const speeds = []

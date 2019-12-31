@@ -14,8 +14,7 @@ const renderLoop = delta => {
     pos[i + 1] += (speed[1] + geometry.accumSpeed[i + 1]) * delta
     pos[i + 2] += (speed[2] + geometry.accumSpeed[i + 2]) * delta
 
-    if (!inRange(pos[i], -10, 10) || !inRange(pos[i + 1], -5 + 4 * (pos[i + 2] / 5), 25)) {
-      //console.log(`reset ${i}`)
+    if (!inRange(pos[i], -10, 15) || !inRange(pos[i + 1], -5 + 4 * (pos[i + 2] / 5), 25)) {
       const newPos = generateRandomPos()
       const newInitialAccel = generateRandomInitialAcceleration()
       pos[i + 0] = newPos[0]
