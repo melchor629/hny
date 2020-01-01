@@ -5,7 +5,4 @@
 **/dist/
 **/.cache/
 
-
-!packages/2018/dist
-packages/2018/dist/*
-!packages/2018/dist/snd
+/dist/

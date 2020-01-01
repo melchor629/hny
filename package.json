@@ -11,11 +11,12 @@
   "scripts": {
     "build": "lerna run build",
     "clean": "rm -rf dist && lerna run clean",
-    "dist": "./scripts/copy-to-dist.sh",
+    "dist": "./scripts/copy-to-dist.sh && ./scripts/compress-dist-files.sh",
     "lerna": "lerna",
     "postinstall": "lerna bootstrap",
     "serve": "serve -l 3000 dist",
-    "docker": "docker image build -t hny-melchor9000 -f docker/build.dockerfile ."
+    "docker": "docker image build -t hny-melchor9000 -f docker/build.dockerfile .",
+    "serve:docker": "docker container run --rm -p 3000:80 -v $PWD/docker/nginx:/etc/nginx/conf.d -v $PWD/dist:/usr/share/nginx/html nginx:alpine"
   },
   "dependencies": {
     "lerna": "^3.19.0",
