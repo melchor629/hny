@@ -40,13 +40,11 @@ const resize = () => {
 }
 
 const blur = () => {
-  changePixelRatio(0.5)
   throttle = 4
   console.log('blur')
 }
 
 const focus = () => {
-  changePixelRatio(window.devicePixelRatio)
   throttle = 1
   lastTime = 0
   console.log('focus')

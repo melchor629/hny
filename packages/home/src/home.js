@@ -14,7 +14,7 @@ const years = [...Array(now.getFullYear() - fromYear + 1)].map((_, i) => fromYea
       (now.getMonth() === 11 && now.getDate() >= 30)
     )
   ) {
-    const year = now.getFullYear() + 1
+    const year = now.getFullYear() + (now.getMonth() === 0 ? 0 : 1)
     const res = await fetch(`/${year}/`, { method: 'HEAD' })
     if (res.ok) {
       window.location.assign(`/${year}/`)
