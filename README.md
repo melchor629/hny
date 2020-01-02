@@ -1,5 +1,7 @@
 # Happy New Years
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/melchor629/hny.svg)](https://greenkeeper.io/)
+
 You can see the source code of the _Happy New Year_ of every year I made one. Not all pages are in english, some could be in spanish.
 
 - Run `yarn` to install all packages
