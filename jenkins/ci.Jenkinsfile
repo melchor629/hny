@@ -24,6 +24,10 @@ pipeline {
     }
 
     stage('Build') {
+      when {
+        changeRequest()
+      }
+
       steps {
         sh 'yarn build'
       }
