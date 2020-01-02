@@ -11,7 +11,9 @@ pipeline {
   stages {
     stage('Build image') {
       steps {
-        docker.build(IMAGE_NAME, '--pull -f docker/build.Dockerfile .')
+        script {
+          docker.build(IMAGE_NAME, '--pull -f docker/build.Dockerfile .')
+        }
       }
     }
 
@@ -28,8 +30,10 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        withCredentials([string(credentialsId: 'deploy-webhook-url', variable: 'WEBHOOK_URL')]) {
-          sh 'curl -X POST $WEBHOOK_URL'
+        script {
+          withCredentials([string(credentialsId: 'deploy-webhook-url', variable: 'WEBHOOK_URL')]) {
+            sh 'curl -X POST $WEBHOOK_URL'
+          }
         }
       }
     }
