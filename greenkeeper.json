@@ -1,0 +1,13 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "package.json",
+        "packages/2018/package.json",
+        "packages/2019/package.json",
+        "packages/2020/package.json",
+        "packages/home/package.json"
+      ]
+    }
+  }
+}
