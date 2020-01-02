@@ -13,6 +13,7 @@
     "clean": "rm -rf dist && lerna run clean",
     "dist": "./scripts/copy-to-dist.sh && ./scripts/compress-dist-files.sh",
     "lerna": "lerna",
+    "lint": "lerna run lint",
     "postinstall": "lerna bootstrap",
     "serve": "serve -l 3000 dist",
     "docker": "docker image build -t hny-melchor9000 -f docker/build.dockerfile .",

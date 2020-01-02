@@ -89,7 +89,7 @@ const state = {
         throw new Error(`Mode ${newMode} is not declared in modes.js`)
       }
     })
-  }
+  },
 }
 let mode = modes[state.mode]
 

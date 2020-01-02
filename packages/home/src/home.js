@@ -5,14 +5,12 @@ import 'core-js/stable'
 
 const fromYear = 2018
 const now = new Date()
-const years = [...Array(now.getFullYear() - fromYear + 1)].map((_, i) => fromYear + i);
+const years = [...Array(now.getFullYear() - fromYear + 1)].map((_, i) => fromYear + i)
 
-(async () => {
+;(async () => {
   if (
-    process.env.NODE_ENV === 'production' && (
-      (now.getMonth() === 0 && now.getDate() <= 6) ||
-      (now.getMonth() === 11 && now.getDate() >= 30)
-    )
+    process.env.NODE_ENV === 'production' &&
+    ((now.getMonth() === 0 && now.getDate() <= 6) || (now.getMonth() === 11 && now.getDate() >= 30))
   ) {
     const year = now.getFullYear() + (now.getMonth() === 0 ? 0 : 1)
     const res = await fetch(`/${year}/`, { method: 'HEAD' })
