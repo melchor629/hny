@@ -12,7 +12,7 @@ pipeline {
     stage('Build image') {
       steps {
         script {
-          docker.build(IMAGE_NAME, '--pull -f docker/build.Dockerfile .')
+          docker.build(IMAGE_NAME, '--pull -f docker/build.dockerfile .')
         }
       }
     }
