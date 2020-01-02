@@ -1,8 +1,4 @@
 pipeline {
-  when {
-    branch 'master'
-  }
-
   agent {
     label 'docker'
   }
