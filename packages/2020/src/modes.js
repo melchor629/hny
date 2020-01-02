@@ -16,10 +16,10 @@ export const user = {
       animRot: (_, { mousePos }) => Math.PI * ((1.0 - mousePos.x) * 0.8 + 0.1),
       animR0t: (_, { mousePos }) => Math.PI * (mousePos.y - 0.5) * 0.8,
     },
-  }
+  },
 }
 
-export const transitionToNormal = (startTime) => {
+export const transitionToNormal = startTime => {
   let fromY = null
   const toY = 15
   return {
@@ -35,7 +35,7 @@ export const transitionToNormal = (startTime) => {
                 fromY = value
               }
 
-              return ((toY - fromY) * easeSinInOut(time / 2) + fromY)
+              return (toY - fromY) * easeSinInOut(time / 2) + fromY
             },
           },
         },
@@ -47,7 +47,7 @@ export const transitionToNormal = (startTime) => {
   }
 }
 
-export const anvilSmash = (startTime) => ({
+export const anvilSmash = startTime => ({
   time: time => ((time - startTime) / 1000) % 4.363,
   keyframes: {
     0.0: { effect: 1, animRot: Math.PI / 2 },
@@ -60,7 +60,7 @@ export const anvilSmash = (startTime) => ({
   },
 })
 
-export const brushTrain = (startTime) => ({
+export const brushTrain = startTime => ({
   time: time => ((time - startTime) / 1000) % 2.181,
   keyframes: {
     0.0: { effect: 1, animRot: Math.PI * 0.5, color: 0, animR0t: Math.PI * 0.25 },
@@ -74,7 +74,7 @@ export const brushTrain = (startTime) => ({
   },
 })
 
-export const funkyShuffle = (startTime) => ({
+export const funkyShuffle = startTime => ({
   time: time => ((time - startTime) / 1000) % 2.181,
   keyframes: {
     0.0: { effect: 0.8, animRot: Math.PI / 2 },
@@ -89,7 +89,7 @@ export const funkyShuffle = (startTime) => ({
   },
 })
 
-export const matchboxBeat = (startTime) => ({
+export const matchboxBeat = startTime => ({
   time: time => ((time - startTime) / 1000) % 4.363,
   keyframes: {
     0.0: { effect: 0.8, animRot: Math.PI * 0.75, color: c => c + 1 },
@@ -103,7 +103,7 @@ export const matchboxBeat = (startTime) => ({
   },
 })
 
-export const minimalDisco = (startTime) => ({
+export const minimalDisco = startTime => ({
   time: time => ((time - startTime) / 1000) % 4.363,
   keyframes: {
     0.0: { effect: 0.8, animRot: Math.PI * 0.25, color: c => c + 1 },
@@ -118,7 +118,7 @@ export const minimalDisco = (startTime) => ({
   },
 })
 
-export const space = (startTime) => ({
+export const space = startTime => ({
   time: time => ((time - startTime) / 1000) % 9.6,
   keyframes: {
     0: { color: 0, animR0t: Math.PI * 0.25 },
@@ -126,8 +126,8 @@ export const space = (startTime) => ({
   },
 })
 
-export default ({
+export default {
   keyframes: {
     _: { animRot: updateRotation, animR0t: Math.PI * 0.25 },
   },
-})
+}

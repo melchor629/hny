@@ -1,10 +1,5 @@
 import { random } from 'lodash-es'
-import {
-  BufferGeometry,
-  Float32BufferAttribute,
-  Points,
-  PointsMaterial,
-} from 'three'
+import { BufferGeometry, Float32BufferAttribute, Points, PointsMaterial } from 'three'
 
 const numParticles = 1500
 const positions = []

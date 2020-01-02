@@ -76,8 +76,8 @@ const animate = time => {
 }
 
 export default container => {
-  resize();
-  (container || document.body).appendChild(renderer.domElement)
+  resize()
+  container.appendChild(renderer.domElement)
 
   window.addEventListener('resize', resize, { passive: true })
   window.addEventListener('blur', blur, { passive: true })

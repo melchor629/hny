@@ -10,7 +10,8 @@
   "scripts": {
     "start": "parcel src/index.html --port 3000 --open",
     "build": "parcel build --public-url /2020/ src/index.html",
-    "clean": "rm -rf .cache dist"
+    "clean": "rm -rf .cache dist",
+    "lint": "prettier -c 'src/**'"
   },
   "dependencies": {
     "d3-ease": "1.0.6",
