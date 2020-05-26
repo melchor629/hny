@@ -15,6 +15,7 @@
     "lerna": "lerna",
     "lint": "lerna run lint",
     "postinstall": "lerna bootstrap",
+    "start": "function __() { lerna run --scope fan$1 start; }; __",
     "serve": "serve -l 3000 dist",
     "docker": "docker image build -t hny-melchor9000 -f docker/build.dockerfile .",
     "serve:docker": "docker container run --rm -p 3000:80 -v $PWD/docker/nginx:/etc/nginx/conf.d -v $PWD/dist:/usr/share/nginx/html nginx:alpine"
@@ -23,5 +24,15 @@
     "lerna": "^3.19.0",
     "prettier": "^1.19.1",
     "serve": "^11.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-typescript": "^7.9.0",
+    "core-js": "^3.6.5",
+    "parcel-bundler": "^1.12.4",
+    "regenerator-runtime": "^0.13.5",
+    "sass": "^1.26.5",
+    "typescript": "^3.9.3"
   }
 }

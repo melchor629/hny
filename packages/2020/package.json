@@ -16,17 +16,13 @@
   "dependencies": {
     "d3-ease": "1.0.6",
     "lodash-es": "4.17.15",
-    "three": "0.112.1"
+    "three": "0.116.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-0",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.7.4",
-    "@babel/plugin-proposal-optional-chaining": "^7.7.5",
-    "@babel/preset-env": "^7.7.7",
+    "@babel/core": "^7.9.6",
     "@types/d3-ease": "^1.0.9",
     "@types/lodash-es": "^4.17.3",
-    "parcel-bundler": "^1.6.1",
-    "parcel-plugin-static-files-copy": "2.2.1"
+    "parcel-plugin-static-files-copy": "^2.3.1"
   },
   "staticFiles": {
     "staticPath": "public",
