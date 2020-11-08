@@ -1,12 +1,15 @@
 {
-  "name": "hny-scripts",
-  "version": "1.0.0",
+  "name": "@melchor629/hny-scripts",
+  "version": "0.1.0",
   "description": "Scripts that helps develop and build other HNY projects",
-  "main": "index.js",
-  "repository": "https://github.com/melchor629/hny",
+  "main": "bin/hny-scripts.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/melchor629/hny",
+    "directory": "packages/hny-scripts"
+  },
   "author": "melchor9000",
   "license": "MIT",
-  "private": true,
   "bin": {
     "hny-scripts": "./bin/hny-scripts.js"
   },
@@ -42,5 +45,10 @@
     "typescript": "^4.0.5",
     "url-loader": "^4.1.1",
     "webpack": "^5.4.0"
-  }
+  },
+  "files": [
+    "bin",
+    "config",
+    "scripts"
+  ]
 }

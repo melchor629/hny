@@ -1,9 +1,13 @@
 {
-  "name": "fan2018",
+  "name": "@melchor629/hny-2018",
   "version": "1.0.0",
   "description": "Feliz Año Nuevo 2018",
-  "main": "src/index.html",
-  "repository": "https://github.com/melchor629/hny",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/melchor629/hny",
+    "directory": "packages/2018"
+  },
   "author": "melchor9000",
   "license": "MIT",
   "private": true,
@@ -18,7 +22,7 @@
     "popmotion": "8.1.24"
   },
   "devDependencies": {
-    "hny-scripts": "^1.0.0"
+    "@melchor629/hny-scripts": "^0.1.0"
   },
   "homepage": "/2018/",
   "browserslist": {

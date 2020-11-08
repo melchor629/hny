@@ -1,5 +1,5 @@
 {
-  "name": "hny",
+  "name": "@melchor629/hny",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -16,7 +16,7 @@
     "lint": "lerna run --no-bail --stream lint",
     "format": "lerna run --no-bail --stream format",
     "postinstall": "lerna bootstrap",
-    "start": "function __() { lerna run --stream --scope fan$1 start; }; __",
+    "start": "function __() { lerna run --stream --scope @melchor629/hny-$1 start; }; __",
     "serve": "serve -l 3000 dist",
     "docker": "docker image build -t hny-melchor9000 -f docker/build.dockerfile .",
     "serve:docker": "docker container run --rm -p 3000:80 -v $PWD/docker/nginx:/etc/nginx/conf.d -v $PWD/dist:/usr/share/nginx/html nginx:alpine"

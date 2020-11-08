@@ -1,9 +1,13 @@
 {
-  "name": "fan2019",
+  "name": "@melchor629/hny-2019",
   "version": "1.0.0",
   "description": "Feliz Año Nuevo 2019",
   "main": "src/index.html",
-  "repository": "https://github.com/melchor629/hny",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/melchor629/hny",
+    "directory": "packages/2019"
+  },
   "author": "melchor9000",
   "license": "MIT",
   "private": true,
@@ -20,7 +24,7 @@
   },
   "devDependencies": {
     "@types/animejs": "^3.1.1",
-    "hny-scripts": "^1.0.0"
+    "@melchor629/hny-scripts": "^0.1.0"
   },
   "homepage": "/2019/",
   "browserslist": {

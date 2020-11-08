@@ -1,9 +1,13 @@
 {
-  "name": "fanhome",
+  "name": "@melchor629/hny-home",
   "version": "1.0.0",
   "description": "Home of the \"Feliz Año Nuevo\" web page",
   "main": "src/index.html.js",
-  "repository": "https://github.com/melchor629/hny",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/melchor629/hny",
+    "directory": "packages/home"
+  },
   "author": "melchor9000",
   "license": "MIT",
   "private": true,
@@ -16,7 +20,7 @@
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.3",
-    "hny-scripts": "^1.0.0"
+    "@melchor629/hny-scripts": "^0.1.0"
   },
   "dependencies": {
     "lodash-es": "^4.17.15",
