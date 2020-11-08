@@ -45,8 +45,8 @@ const getAudioExts = async () => {
     return (
       await Promise.all(
         types
-          .map(t => ({ type: 'file', audio: t }))
-          .map(t => navigator.mediaCapabilities.decodingInfo(t).then(r => [t, r])),
+          .map((t) => ({ type: 'file', audio: t }))
+          .map((t) => navigator.mediaCapabilities.decodingInfo(t).then((r) => [t, r])),
       )
     )
       .filter(([, r]) => r.supported)
@@ -54,7 +54,7 @@ const getAudioExts = async () => {
   }
 
   const audio = document.createElement('audio')
-  return types.filter(t => audio.canPlayType(t.contentType))
+  return types.filter((t) => audio.canPlayType(t.contentType))
 }
 
 const loadSounds = async ({ listener, audioObjects }) => {
@@ -62,11 +62,11 @@ const loadSounds = async ({ listener, audioObjects }) => {
   const ext = exts[0].ext
   const loader = new AudioLoader()
 
-  const loadAudio = name =>
+  const loadAudio = (name) =>
     new Promise((resolve, reject) => loader.load(`snd/${name}.${ext}`, resolve, undefined, reject))
 
   await Promise.all(
-    audios.map(async audioName => {
+    audios.map(async (audioName) => {
       const buffer = await loadAudio(audioName)
       const audio = new Audio(listener)
       audio.setBuffer(buffer)

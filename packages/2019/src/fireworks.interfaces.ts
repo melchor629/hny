@@ -1,9 +1,9 @@
 export interface FireworkEvents {
-    explode?: () => void;
+  explode?: () => void
 }
 
 export interface IFireworks {
-    startListening(): void;
-    destroy(): void;
-    throwFirework(x: number, y: number): FireworkEvents;
+  startListening(): void
+  destroy(): void
+  throwFirework(x: number, y: number): FireworkEvents
 }

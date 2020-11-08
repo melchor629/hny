@@ -25,13 +25,13 @@ export default (renderer, scene, camera) => {
   composer.addPass(copyPass)
 
   return {
-    setPixelRatio: pixelRatio => {
+    setPixelRatio: (pixelRatio) => {
       composer.setPixelRatio(pixelRatio)
     },
     setSize: (width, height) => {
       composer.setSize(width, height)
       unrealBloomPass.resolution = new Vector2(width, height)
     },
-    render: delta => composer.render(delta),
+    render: (delta) => composer.render(delta),
   }
 }

@@ -24,6 +24,6 @@ const colors = [
     '#9E9E9E',
     '#607D8B',
   ]),
-].map(c => new Color(c))
+].map((c) => new Color(c))
 
 export default colors

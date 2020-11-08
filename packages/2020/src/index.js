@@ -18,6 +18,7 @@ import loadData from './loaders'
 import * as modes from './modes'
 import createComposer from './post-processing'
 import stars from './stars'
+import './styles.css'
 
 Cache.enabled = true
 
@@ -148,7 +149,7 @@ renderer.domElement.addEventListener(
 const mousePos = new Vector2(0, 0)
 window.addEventListener(
   'pointermove',
-  e => {
+  (e) => {
     if (e.pointerType === 'mouse') {
       mousePos.x = e.clientX / window.innerWidth
       mousePos.y = e.clientY / window.innerHeight
@@ -167,7 +168,7 @@ window.addEventListener(
 let playingAudio = null
 document.querySelector('#mode').addEventListener(
   'change',
-  e => {
+  (e) => {
     if (playingAudio) {
       playingAudio.stop()
       playingAudio = null
@@ -203,7 +204,7 @@ const getKeyframeNewValue = (val, curr, opts) => {
 
 //Render loop
 let lastTime = null
-const animate = time => {
+const animate = (time) => {
   if (!lastTime) {
     lastTime = time - 1 / 60
   }
@@ -231,7 +232,7 @@ const animate = time => {
         mousePos,
       }
 
-      for (let valueKey of Object.keys(values).filter(k => k in state)) {
+      for (let valueKey of Object.keys(values).filter((k) => k in state)) {
         state[valueKey] = getKeyframeNewValue(values[valueKey], state[valueKey], opts)
       }
 

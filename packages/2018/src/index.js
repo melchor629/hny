@@ -1,5 +1,6 @@
 import { styler, tween, chain, svg, easing, everyFrame, keyframes } from 'popmotion'
-import coolAndGoodImage from './img/c&g.png'
+import './material.css'
+import './styles.css'
 
 if (document.body.clientWidth <= 1200) {
   alert('Debes usar un ordenador para ver esto, y que sea 1280px mínimo')
@@ -36,8 +37,8 @@ class AudioContext {
     let request = new XMLHttpRequest()
     request.open('GET', `snd/${file}`)
     request.responseType = 'arraybuffer'
-    request.onload = e => {
-      this._ctx.decodeAudioData(request.response, buffer => {
+    request.onload = (e) => {
+      this._ctx.decodeAudioData(request.response, (buffer) => {
         cbk(buffer)
       })
     }
@@ -46,13 +47,13 @@ class AudioContext {
 
   load(name, snd1, snd2) {
     return new Promise((resolve, reject) => {
-      this._doLoad(snd1, buffer => {
+      this._doLoad(snd1, (buffer) => {
         if (buffer) {
           this._sounds[name] = buffer
           console.log(name)
           resolve(name)
         } else {
-          this._doLoad(snd2, buffer => {
+          this._doLoad(snd2, (buffer) => {
             if (buffer) {
               this._sounds[name] = buffer
               console.log(name)
@@ -96,7 +97,7 @@ const actx = new AudioContext()
       let boton = document.querySelector('#dale')
       let mensaje = document.querySelector('.mensaje')
       boton.removeAttribute('disabled', null)
-      boton.onclick = e => {
+      boton.onclick = (e) => {
         e.preventDefault()
         actx.resume()
         tween({ from: { opacity: 1 }, to: { opacity: 0 }, duration: 750 }).start({
@@ -114,7 +115,7 @@ const actx = new AudioContext()
     actx
       .load(audio[0].substr(0, audio[0].indexOf('.')), audio[0], audio[1])
       .then(thenCbk)
-      .catch(e => console.error(e))
+      .catch((e) => console.error(e))
   }
 })()
 
@@ -136,13 +137,13 @@ const effect = () => {
     }),
   ).start(sobreStyler.set)
 
-  parte.onclick = e => {
+  parte.onclick = (e) => {
     stop.stop()
     parte.onclick = null
     parte.classList.remove('notClicked')
     tween({
       from: { translateY: 0, scaleY: +1, originX: 0, originY: 0 },
-      to: { translateY: 0, scaleY: -1, originX: 0, originY: 0 },
+      to: { translateY: -67, scaleY: -1, originX: 0, originY: 0 },
       duration: 750,
     }).start({ update: parteStyler.set, complete: crazySobre })
   }
@@ -156,7 +157,7 @@ const crazySobre = () => {
   const rotateZ = Number(rRes[3])
   let selfAppearing = false
   actx.play('noice')
-  const stop = everyFrame().start(t => {
+  const stop = everyFrame().start((t) => {
     sobreStyler.set({
       translateX: x + Math.sqrt(t) * (Math.random() - 0.5),
       translateY: y + Math.sqrt(t) * (Math.random() - 0.5),
@@ -218,7 +219,7 @@ const selfStanding = () => {
     loop: Infinity,
     duration: 5000,
   }).start(otherStuffStyler.set)
-  document.querySelector('.otherStuff img').onclick = function() {
+  document.querySelector('.otherStuff img').onclick = function () {
     setTimeout(showText, 1000)
     this.onclick = null
     this.onmouseover = null
@@ -259,7 +260,8 @@ const showText = () => {
     update: f2Styler.set,
     complete: () => {
       actx.play('c&g')
-      document.querySelector('#self').setAttribute('src', coolAndGoodImage)
+      const coolAndGoodImage = new URL('./c&g.png', import.meta.url)
+      document.querySelector('#self').setAttribute('src', coolAndGoodImage.toString())
       keyframes({
         values: [
           { opacity: 1, translateX: document.body.clientWidth - 800 },
@@ -279,11 +281,11 @@ const showText = () => {
 const cykabliat = () => {
   actx.play('cb').then(() => (window.location = 'about:blank'))
   setTimeout(() => (window.location = 'about:blank'), 9000) //Para Safari
-  everyFrame().start(t => {
+  everyFrame().start((t) => {
     t = ((t / 1000) * 145) / 60
     const tt = (Math.trunc(t) % 7) + 1
     const tCycle = t - Math.trunc(t)
-    document.body.classList.forEach(v => document.body.classList.remove(v))
+    document.body.classList.forEach((v) => document.body.classList.remove(v))
     document.body.classList.add('bg' + tt)
     f1Styler.set({ scale: 1 + 0.5 * tCycle })
     f2Styler.set({ scale: 1 + 0.5 * (1 - tCycle) })

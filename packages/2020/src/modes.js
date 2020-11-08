@@ -19,11 +19,11 @@ export const user = {
   },
 }
 
-export const transitionToNormal = startTime => {
+export const transitionToNormal = (startTime) => {
   let fromY = null
   const toY = 15
   return {
-    time: time => (time - startTime) / 1000,
+    time: (time) => (time - startTime) / 1000,
     keyframes: {
       _: {
         animRot: updateRotation,
@@ -47,21 +47,21 @@ export const transitionToNormal = startTime => {
   }
 }
 
-export const anvilSmash = startTime => ({
-  time: time => ((time - startTime) / 1000) % 4.363,
+export const anvilSmash = (startTime) => ({
+  time: (time) => ((time - startTime) / 1000) % 4.363,
   keyframes: {
     0.0: { effect: 1, animRot: Math.PI / 2 },
     0.54: { effect: 1 },
-    1.09: { effect: 1, animRot: Math.PI * 0.75, color: c => c + 2 },
+    1.09: { effect: 1, animRot: Math.PI * 0.75, color: (c) => c + 2 },
     2.19: { effect: 1, animRot: Math.PI / 2 },
     2.73: { effect: 1 },
-    3.27: { effect: 1, animRot: Math.PI * 0.25, color: c => c + 2 },
+    3.27: { effect: 1, animRot: Math.PI * 0.25, color: (c) => c + 2 },
     4.09: { effect: 1, animRot: Math.PI / 2 },
   },
 })
 
-export const brushTrain = startTime => ({
-  time: time => ((time - startTime) / 1000) % 2.181,
+export const brushTrain = (startTime) => ({
+  time: (time) => ((time - startTime) / 1000) % 2.181,
   keyframes: {
     0.0: { effect: 1, animRot: Math.PI * 0.5, color: 0, animR0t: Math.PI * 0.25 },
     0.27: { effect: 1, animR0t: -Math.PI * 0.4 },
@@ -74,52 +74,52 @@ export const brushTrain = startTime => ({
   },
 })
 
-export const funkyShuffle = startTime => ({
-  time: time => ((time - startTime) / 1000) % 2.181,
+export const funkyShuffle = (startTime) => ({
+  time: (time) => ((time - startTime) / 1000) % 2.181,
   keyframes: {
     0.0: { effect: 0.8, animRot: Math.PI / 2 },
     0.43: { effect: 0.9 },
-    0.53: { effect: 1, animRot: Math.PI * 1.5, color: c => c + 1 },
+    0.53: { effect: 1, animRot: Math.PI * 1.5, color: (c) => c + 1 },
     0.83: { effect: 1, animRot: Math.PI * 1.75 },
     0.97: { effect: 0.8, animRot: Math.PI / 2 },
-    1.25: { effect: 1, animRot: Math.PI * 1.5, color: c => c + 1 },
+    1.25: { effect: 1, animRot: Math.PI * 1.5, color: (c) => c + 1 },
     1.36: { effect: 1, animRot: Math.PI * 1.75 },
     1.65: { effect: 1, animRot: Math.PI / 2 },
     1.91: { effect: 0.8 },
   },
 })
 
-export const matchboxBeat = startTime => ({
-  time: time => ((time - startTime) / 1000) % 4.363,
+export const matchboxBeat = (startTime) => ({
+  time: (time) => ((time - startTime) / 1000) % 4.363,
   keyframes: {
-    0.0: { effect: 0.8, animRot: Math.PI * 0.75, color: c => c + 1 },
-    0.54: { effect: 1, animRot: Math.PI * 0.25, color: c => c + 1 },
-    1.09: { effect: 0.8, animRot: Math.PI * 0.75, color: c => c + 1 },
-    1.62: { effect: 1, animRot: Math.PI * 0.25, color: c => c + 1 },
-    2.16: { effect: 0.8, animRot: Math.PI * 0.75, color: c => c + 1 },
-    2.71: { effect: 1, animRot: Math.PI * 0.25, color: c => c + 1 },
-    3.26: { effect: 0.8, animRot: Math.PI * 0.75, color: c => c + 1 },
-    3.81: { effect: 1, animRot: Math.PI * 0.25, color: c => c + 1 },
+    0.0: { effect: 0.8, animRot: Math.PI * 0.75, color: (c) => c + 1 },
+    0.54: { effect: 1, animRot: Math.PI * 0.25, color: (c) => c + 1 },
+    1.09: { effect: 0.8, animRot: Math.PI * 0.75, color: (c) => c + 1 },
+    1.62: { effect: 1, animRot: Math.PI * 0.25, color: (c) => c + 1 },
+    2.16: { effect: 0.8, animRot: Math.PI * 0.75, color: (c) => c + 1 },
+    2.71: { effect: 1, animRot: Math.PI * 0.25, color: (c) => c + 1 },
+    3.26: { effect: 0.8, animRot: Math.PI * 0.75, color: (c) => c + 1 },
+    3.81: { effect: 1, animRot: Math.PI * 0.25, color: (c) => c + 1 },
   },
 })
 
-export const minimalDisco = startTime => ({
-  time: time => ((time - startTime) / 1000) % 4.363,
+export const minimalDisco = (startTime) => ({
+  time: (time) => ((time - startTime) / 1000) % 4.363,
   keyframes: {
-    0.0: { effect: 0.8, animRot: Math.PI * 0.25, color: c => c + 1 },
-    0.54: { effect: 1, animRot: Math.PI * 0.75, color: c => c + 1 },
-    1.09: { effect: 0.8, animRot: Math.PI * 0.25, color: c => c + 1 },
-    1.62: { effect: 1, animRot: Math.PI * 0.75, color: c => c + 1 },
-    2.16: { effect: 0.8, animRot: Math.PI * 0.25, color: c => c + 1 },
-    2.71: { effect: 1, animRot: Math.PI * 0.75, color: c => c + 1 },
-    3.26: { effect: 0.8, animRot: Math.PI * 0.25, color: c => c + 1 },
-    3.81: { effect: 1, animRot: Math.PI * 0.75, color: c => c + 1 },
-    3.96: { effect: 1, animRot: Math.PI * 1.5, color: c => c + 1 },
+    0.0: { effect: 0.8, animRot: Math.PI * 0.25, color: (c) => c + 1 },
+    0.54: { effect: 1, animRot: Math.PI * 0.75, color: (c) => c + 1 },
+    1.09: { effect: 0.8, animRot: Math.PI * 0.25, color: (c) => c + 1 },
+    1.62: { effect: 1, animRot: Math.PI * 0.75, color: (c) => c + 1 },
+    2.16: { effect: 0.8, animRot: Math.PI * 0.25, color: (c) => c + 1 },
+    2.71: { effect: 1, animRot: Math.PI * 0.75, color: (c) => c + 1 },
+    3.26: { effect: 0.8, animRot: Math.PI * 0.25, color: (c) => c + 1 },
+    3.81: { effect: 1, animRot: Math.PI * 0.75, color: (c) => c + 1 },
+    3.96: { effect: 1, animRot: Math.PI * 1.5, color: (c) => c + 1 },
   },
 })
 
-export const space = startTime => ({
-  time: time => ((time - startTime) / 1000) % 9.6,
+export const space = (startTime) => ({
+  time: (time) => ((time - startTime) / 1000) % 9.6,
   keyframes: {
     0: { color: 0, animR0t: Math.PI * 0.25 },
     _: { animRot: updateRotation },

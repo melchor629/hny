@@ -1,179 +1,148 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Un sobre cualquiera</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./material.css">
-    <style>
-        html, body {
-            margin: 0;
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            overflow: hidden;
-
-            background-color: var(--palette-Grey-100);
-            transition: background-color 2s;
-        }
-
-        body.trascending {
-            background-color: var(--palette-Grey-900);
-        }
-
-        .otherStuff {
-            position: absolute;
-            bottom: 0;
-            display: none;
-            z-index: 3;
-        }
-
-        .otherStuff img.clickable {
-            cursor: pointer;
-        }
-
-        #sobreContainer {
-            position: absolute;
-            z-index: 1;
-        }
-
-        #parteQueSeAbre.notClicked {
-            cursor: pointer;
-        }
-
-        .textNoice {
-            opacity: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 1;
-        }
-
-        .textNoice.nope {
-            display: none;
-        }
-
-        .textNoice > img {
-            width: 100vh;
-        }
-
-        .mensaje {
-            width: 100vw;
-            height: 100vh;
-            background-color: var(--palette-Light-Blue);
-            font-size: 56px;
-            position: absolute;
-            z-index: 10;
-            text-align: center;
-            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-        }
-
-        body.bg1 { transition: background-color .1s; background-color: var(--palette-Deep-Purple) }
-        body.bg2 { transition: background-color .1s; background-color: var(--palette-Indigo) }
-        body.bg3 { transition: background-color .1s; background-color: var(--palette-Teal) }
-        body.bg4 { transition: background-color .1s; background-color: var(--palette-Lime) }
-        body.bg5 { transition: background-color .1s; background-color: var(--palette-Deep-Orange) }
-        body.bg6 { transition: background-color .1s; background-color: var(--palette-Red-900) }
-        body.bg7 { transition: background-color .1s; background-color: var(--palette-Grey-700) }
-    </style>
-</head>
-<body>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
     <div class="mensaje">
-      <h1>Para visualizar esto de forma guay, ponlo en pantalla completa y el volumen que se oiga</h1>
+      <h1>
+        Para visualizar esto de forma guay, ponlo en pantalla completa y el volumen que se oiga
+      </h1>
       <button type="submit" id="dale" disabled>Estoy listo :)</button>
     </div>
     <div class="textNoice">
-        <img src="./img/hns.png" id="f1" alt="HNS">
-        <img src="./img/3742.png" id="f2" alt="3742">
+      <img src="./img/hns.png" id="f1" alt="HNS" />
+      <img src="./img/3742.png" id="f2" alt="3742" />
     </div>
-    <div id="hhm" style="opacity: 0;position: absolute;top: 400px;left: 0;font-size: 40px;color: var(--palette-White);z-index:10"><h1>hhm...</h1></div>
-    <div id="cg" style="opacity: 0;position: absolute;top: 400px;left: 0;font-size: 40px;color: var(--palette-Green);z-index:10"><h1>Cool &amp; good</h1></div>
-    <div id="sobreContainer" style="transform: translateX(-400px) translateY(300px) rotateZ(-45deg) translateZ(0px)">
+    <div
+      id="hhm"
+      style="
+        opacity: 0;
+        position: absolute;
+        top: 400px;
+        left: 0;
+        font-size: 40px;
+        color: var(--palette-White);
+        z-index: 10;
+      "
+    >
+      <h1>hhm...</h1>
+    </div>
+    <div
+      id="cg"
+      style="
+        opacity: 0;
+        position: absolute;
+        top: 400px;
+        left: 0;
+        font-size: 40px;
+        color: var(--palette-Green);
+        z-index: 10;
+      "
+    >
+      <h1>Cool &amp; good</h1>
+    </div>
+    <div
+      id="sobreContainer"
+      style="transform: translateX(-400px) translateY(300px) rotateZ(-45deg) translateZ(0px)"
+    >
       <svg
-       xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
-       xmlns:dc="http://purl.org/dc/elements/1.1/"
-       xmlns:cc="http://creativecommons.org/ns#"
-       xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-       xmlns:svg="http://www.w3.org/2000/svg"
-       xmlns="http://www.w3.org/2000/svg"
-       xmlns:xlink="http://www.w3.org/1999/xlink"
-       id="sobre"
-       version="1.1"
-       viewBox="0 0 210 210"
-       height="210mm"
-       width="210mm">
-      <defs
-         id="defs2">
-        <linearGradient
-           id="linearGradient5988">
-          <stop
-             id="stop5984"
-             offset="0"
-             style="stop-color:#ffffff;stop-opacity:1" />
-          <stop
-             style="stop-color:#e6e6e6;stop-opacity:1"
-             offset="0.48861104"
-             id="stop5992" />
-          <stop
-             id="stop5986"
-             offset="1"
-             style="stop-color:#ffffff;stop-opacity:0.99669969" />
-        </linearGradient>
-        <linearGradient
-           osb:paint="solid"
-           id="linearGradient5974">
-          <stop
-             id="stop5972"
-             offset="0"
-             style="stop-color:#000000;stop-opacity:1;" />
-        </linearGradient>
-        <linearGradient
-           gradientTransform="translate(0,47.625024)"
-           gradientUnits="userSpaceOnUse"
-           y2="236.86435"
-           x2="149.13638"
-           y1="122.74027"
-           x1="74.568199"
-           id="linearGradient5990"
-           xlink:href="#linearGradient5988" />
-      </defs>
-      <metadata
-         id="metadata5">
-        <rdf:RDF>
-          <cc:Work
-             rdf:about="">
-            <dc:format>image/svg+xml</dc:format>
-            <dc:type
-               rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-            <dc:title></dc:title>
-          </cc:Work>
-        </rdf:RDF>
-      </metadata>
-      <g
-         transform="translate(0,-87)"
-         id="layer1">
-        <path
-           id="rect3707"
-           d="M 10.423512,169.83103 H 200.45214 V 285.02419 H 10.423512 Z"
-           style="fill:url(#linearGradient5990);fill-opacity:1;stroke:#646464;stroke-width:0.76499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-        <path
-           style="fill:#f9f9f9;fill-opacity:1;stroke:#646464;stroke-width:0.76499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           d="m 10.423512,169.83103 v 0 l 96.484298,59.86837 93.54433,-59.86837 v 0 115.19316 H 10.423512 Z"
-           id="sobreDelante" />
-        <path
-           id="parteQueSeAbre" class="notClicked parteQueSeAbre"
-           d="m 10.423512,169.83103 -1e-6,6.41447 96.217029,60.93745 93.8116,-58.26475 v -9.08717 z"
-           style="fill:#ffffff;fill-opacity:1;stroke:#5f5f5f;stroke-width:0.76499999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      </g>
-    </svg>
-    <div class="otherStuff">
+        xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+        xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:cc="http://creativecommons.org/ns#"
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:svg="http://www.w3.org/2000/svg"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        id="sobre"
+        version="1.1"
+        viewBox="0 0 210 210"
+        height="210mm"
+        width="210mm"
+      >
+        <defs id="defs2">
+          <linearGradient id="linearGradient5988">
+            <stop id="stop5984" offset="0" style="stop-color: #ffffff; stop-opacity: 1" />
+            <stop style="stop-color: #e6e6e6; stop-opacity: 1" offset="0.48861104" id="stop5992" />
+            <stop id="stop5986" offset="1" style="stop-color: #ffffff; stop-opacity: 0.99669969" />
+          </linearGradient>
+          <linearGradient osb:paint="solid" id="linearGradient5974">
+            <stop id="stop5972" offset="0" style="stop-color: #000000; stop-opacity: 1" />
+          </linearGradient>
+          <linearGradient
+            gradientTransform="translate(0,47.625024)"
+            gradientUnits="userSpaceOnUse"
+            y2="236.86435"
+            x2="149.13638"
+            y1="122.74027"
+            x1="74.568199"
+            id="linearGradient5990"
+            xlink:href="#linearGradient5988"
+          />
+        </defs>
+        <metadata id="metadata5">
+          <rdf:RDF>
+            <cc:Work rdf:about="">
+              <dc:format>image/svg+xml</dc:format>
+              <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+              <dc:title></dc:title>
+            </cc:Work>
+          </rdf:RDF>
+        </metadata>
+        <g transform="translate(0,-87)" id="layer1">
+          <path
+            id="rect3707"
+            d="M 10.423512,169.83103 H 200.45214 V 285.02419 H 10.423512 Z"
+            style="
+              fill: url(#linearGradient5990);
+              fill-opacity: 1;
+              stroke: #646464;
+              stroke-width: 0.76499999;
+              stroke-miterlimit: 4;
+              stroke-dasharray: none;
+              stroke-opacity: 1;
+            "
+          />
+          <path
+            style="
+              fill: #f9f9f9;
+              fill-opacity: 1;
+              stroke: #646464;
+              stroke-width: 0.76499999;
+              stroke-miterlimit: 4;
+              stroke-dasharray: none;
+              stroke-opacity: 1;
+            "
+            d="m 10.423512,169.83103 v 0 l 96.484298,59.86837 93.54433,-59.86837 v 0 115.19316 H 10.423512 Z"
+            id="sobreDelante"
+          />
+          <path
+            id="parteQueSeAbre"
+            class="notClicked parteQueSeAbre"
+            d="m 10.423512,169.83103 -1e-6,6.41447 96.217029,60.93745 93.8116,-58.26475 v -9.08717 z"
+            style="
+              fill: #ffffff;
+              fill-opacity: 1;
+              stroke: #5f5f5f;
+              stroke-width: 0.76499999;
+              stroke-linecap: butt;
+              stroke-linejoin: miter;
+              stroke-miterlimit: 4;
+              stroke-dasharray: none;
+              stroke-opacity: 1;
+            "
+          />
+        </g>
+      </svg>
+      <div class="otherStuff">
         <img
-         class="clickable"
-         style="transform: scaleX(-1);margin-left: 40vw; width:368px; height:420px"
-         id="self"
-         src="./img/self.png" />
+          class="clickable"
+          style="transform: scaleX(-1); margin-left: 40vw; width: 368px; height: 420px"
+          id="self"
+          src="./img/self.png"
+        />
+      </div>
     </div>
-  </div>
-  <script src="./anim.js"></script>
-</body>
+  </body>
 </html>

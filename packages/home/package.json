@@ -8,23 +8,22 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "parcel src/index.html --port 3000 --open",
-    "build": "parcel build --experimental-scope-hoisting src/index.html",
-    "format": "prettier 'src/**/*.js' --write",
-    "lint": "prettier -c 'src/**'",
-    "clean": "rm -rf .cache dist"
+    "start": "hny-scripts start",
+    "build": "hny-scripts build",
+    "clean": "hny-scripts clean",
+    "lint": "hny-scripts lint",
+    "format": "hny-scripts lint --format"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
     "@types/lodash-es": "^4.17.3",
-    "glslify-bundle": "^5.1.1",
-    "glslify-deps": "^1.3.1"
+    "hny-scripts": "^1.0.0"
   },
   "dependencies": {
     "lodash-es": "^4.17.15",
-    "tachyons": "^4.11.1",
-    "three": "^0.112.0"
+    "tachyons": "^4.12.0",
+    "three": "^0.122.0"
   },
+  "homepage": "/",
   "browserslist": {
     "production": [
       ">1%",

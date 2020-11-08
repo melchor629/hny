@@ -2,16 +2,20 @@ body {
   background-color: rgb(25, 25, 25);
 }
 
-.b--hide-last > :last-of-type {
-  border: none;
-}
-
 .no-select {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   pointer-events: none;
+}
+
+.o-animate {
+  transition-property: opacity;
+}
+
+.anim-1000 {
+  transition-duration: 1s;
 }
 
 .z--1 {

@@ -8,21 +8,19 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "parcel src/index.html --port 3000 --open",
-    "build": "parcel build --public-url /2018/ src/index.html",
-    "clean": "rm -rf .cache dist/*.*"
+    "start": "hny-scripts start",
+    "build": "hny-scripts build",
+    "clean": "hny-scripts clean",
+    "lint": "hny-scripts lint",
+    "format": "hny-scripts lint --format"
   },
   "dependencies": {
     "popmotion": "8.1.24"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "parcel-plugin-static-files-copy": "^2.3.1"
+    "hny-scripts": "^1.0.0"
   },
-  "staticFiles": {
-    "staticPath": "public",
-    "watcherGlob": "**"
-  },
+  "homepage": "/2018/",
   "browserslist": {
     "production": [
       ">1%",

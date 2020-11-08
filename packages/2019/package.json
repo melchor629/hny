@@ -8,18 +8,21 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "parcel src/index.html --port 3000 --open",
-    "build": "parcel build --public-url /2019/ src/index.html",
-    "clean": "rm -rf .cache dist"
+    "start": "hny-scripts start",
+    "build": "hny-scripts build",
+    "clean": "hny-scripts clean",
+    "lint": "hny-scripts lint",
+    "format": "hny-scripts lint --format"
   },
   "dependencies": {
     "animejs": "^3.2.0",
     "bootstrap": "^4.5.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@types/animejs": "^3.1.1"
+    "@types/animejs": "^3.1.1",
+    "hny-scripts": "^1.0.0"
   },
+  "homepage": "/2019/",
   "browserslist": {
     "production": [
       ">1%",

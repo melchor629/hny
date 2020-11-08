@@ -7,7 +7,7 @@ const positions = []
 const sizes = []
 const speeds = []
 for (let i = 0; i < numParticles; i++) {
-  positions.push(generateRandomPos(true))
+  positions.push(generateRandomPos())
   sizes.push(generateRandomSize())
   speeds.push(generateRandomInitialAcceleration())
 }

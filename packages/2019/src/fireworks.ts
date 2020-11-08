@@ -50,7 +50,7 @@ function createParticule(x: number, y: number, color: Color): Particule {
     radius: 0.001,
     bigRadius: anime.random(16, 32),
     endPos: setParticuleDirection({ x, y }),
-    draw: function(ctx) {
+    draw: function (ctx) {
       if (Math.abs(this.radius) > 0.01) {
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, true)
@@ -71,7 +71,7 @@ function createCircle(x: number, y: number): Circle {
     radius: 0.01,
     alpha: 0.5,
     lineWidth: 6,
-    draw: function(ctx) {
+    draw: function (ctx) {
       if (Math.abs(this.radius) > 0.01) {
         ctx.globalAlpha = this.alpha
         ctx.beginPath()
@@ -88,7 +88,6 @@ function createCircle(x: number, y: number): Circle {
 }
 
 function createTrail(x: number, y: number): Trail {
-  const final = { x, y }
   const trail: Trail = {
     x:
       x +
@@ -98,8 +97,9 @@ function createTrail(x: number, y: number): Trail {
     trail: [],
     t: 0,
     easing: Math.random() < 0.35 ? 'easeOutBack' : Math.random() < 0.35 ? 'easeOutCirc' : 'linear',
-    draw: function(ctx) {
-      const t = anime.easing(this.easing)(this.t)
+    draw: function (ctx) {
+      const easingFunction = (anime as any).easing(this.easing) as (t: number) => number
+      const t = easingFunction(this.t)
       const posX = this.t * (x - this.x) + this.x
       const posY = t * (y - this.y) + this.y
 

@@ -5,9 +5,9 @@ import renderLoop from './render-loop'
 
 const getAspectRatio = () => window.innerWidth / window.innerHeight
 
-let throttle = 1
+let blurred = false
 let lastTime = 0
-let throttleFps = 0
+let renderLoopHandle = null
 
 const scene = new Scene()
 const camera = new PerspectiveCamera(75, getAspectRatio(), 0.1, 50)
@@ -22,7 +22,7 @@ camera.position.z = 5
 
 const composer = createPostProcessComposer(renderer, scene, camera)
 
-const changePixelRatio = pixelRatio => {
+const changePixelRatio = (pixelRatio) => {
   renderer.setPixelRatio(pixelRatio)
   composer.setPixelRatio(pixelRatio)
   particles.changeDevicePixelRatio(pixelRatio)
@@ -40,42 +40,45 @@ const resize = () => {
 }
 
 const blur = () => {
-  throttle = 4
-  console.log('blur')
+  blurred = true
+  cancelAnimationFrame(renderLoopHandle)
 }
 
 const focus = () => {
-  throttle = 1
+  blurred = false
   lastTime = 0
-  console.log('focus')
+  renderLoopHandle = requestAnimationFrame(animate)
 }
 
-// 9.71323 7.92 -5
-// 7.3475 6 -2.5
-// 3.9815 4.084 0
-
-const animate = time => {
+const animate = (time) => {
   if (lastTime === 0) {
-    lastTime = time
+    lastTime = time - 1 / 60
   }
 
   const delta = (time - lastTime) / 1000
-  throttleFps += 1
-
-  if (throttleFps % throttle === 0) {
-    renderLoop(delta)
-
-    //renderer.render(scene, camera)
-    composer.render(delta)
-
-    lastTime = time
-    throttleFps = 0
+  if (delta > 2) {
+    // for some reason, I get big delta times, so to avoid big issues, I will reset this value
+    // to a more acceptable one...
+    console.warn('Big delta time!!', lastTime)
+    delta = 1 / 60
   }
 
-  requestAnimationFrame(animate)
+  renderLoop(delta, camera)
+
+  composer.render(delta)
+
+  lastTime = time
+
+  if (!blurred) {
+    renderLoopHandle = requestAnimationFrame(animate)
+  }
 }
 
-export default container => {
+/**
+ * Initializes the snow background
+ * @param container {HTMLDivElement} container
+ */
+export default (container) => {
   resize()
   container.appendChild(renderer.domElement)
 
@@ -83,5 +86,21 @@ export default container => {
   window.addEventListener('blur', blur, { passive: true })
   window.addEventListener('focus', focus, { passive: true })
 
-  requestAnimationFrame(animate)
+  if (document.fullscreenEnabled || document.webkitFullscreenEnabled) {
+    document.addEventListener(
+      'keypress',
+      (e) => {
+        const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement
+        if (e.key.toLowerCase() === 'f' && !fullscreenElement) {
+          ;('requestFullscreen' in container
+            ? container.requestFullscreen({ navigationUI: 'hide' })
+            : container.webkitRequestFullscreen({ navigationUI: 'hide' }) || Promise.resolve()
+          ).then(() => container.requestPointerLock())
+        }
+      },
+      false,
+    )
+  }
+
+  renderLoopHandle = requestAnimationFrame(animate)
 }

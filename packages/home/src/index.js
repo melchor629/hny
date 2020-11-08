@@ -1,7 +1,7 @@
 import snow from './snow'
-
+import hnyContainer from './hny-container'
 import 'tachyons'
-import 'core-js/stable'
+import './home.css'
 
 const fromYear = 2018
 const now = new Date()
@@ -25,24 +25,24 @@ const years = [...Array(now.getFullYear() - fromYear + 1)].map((_, i) => fromYea
     linkElement.href = `/${year}/`
     linkElement.target = '_blank'
     linkElement.text = year.toString()
-    linkElement.classList.add('blue', 'dim')
+    linkElement.classList.add(
+      'dib',
+      'pv2',
+      'ph4',
+      'br3',
+      'no-underline',
+      'white',
+      'bg-dark-green',
+      'dim',
+    )
 
     const liElement = document.createElement('li')
-    liElement.classList.add(
-      'lh-copy',
-      'pv3',
-      'ph4',
-      'ba',
-      'bl-0',
-      'bt-0',
-      'br-0',
-      'b--dotted',
-      'b--white-30',
-    )
+    liElement.classList.add('lh-copy', 'mb2')
     liElement.appendChild(linkElement)
 
     yearsListElement.appendChild(liElement)
-
-    snow(document.body.querySelector('#canvas-container'))
   }
+
+  snow(document.body.querySelector('#canvas-container'))
+  hnyContainer(document.body.querySelector('#hny-container'))
 })()

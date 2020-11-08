@@ -1,0 +1,93 @@
+html,
+body {
+  margin: 0;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+
+  background-color: var(--palette-Grey-100);
+  transition: background-color 2s;
+}
+
+body.trascending {
+  background-color: var(--palette-Grey-900);
+}
+
+.otherStuff {
+  position: absolute;
+  bottom: 0;
+  display: none;
+  z-index: 3;
+}
+
+.otherStuff img.clickable {
+  cursor: pointer;
+}
+
+#sobreContainer {
+  position: absolute;
+  z-index: 1;
+}
+
+#parteQueSeAbre.notClicked {
+  cursor: pointer;
+}
+
+.textNoice {
+  opacity: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.textNoice.nope {
+  display: none;
+}
+
+.textNoice > img {
+  width: 100vh;
+}
+
+.mensaje {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--palette-Light-Blue);
+  font-size: 56px;
+  position: absolute;
+  z-index: 10;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+body.bg1 {
+  transition: background-color 0.1s;
+  background-color: var(--palette-Deep-Purple);
+}
+body.bg2 {
+  transition: background-color 0.1s;
+  background-color: var(--palette-Indigo);
+}
+body.bg3 {
+  transition: background-color 0.1s;
+  background-color: var(--palette-Teal);
+}
+body.bg4 {
+  transition: background-color 0.1s;
+  background-color: var(--palette-Lime);
+}
+body.bg5 {
+  transition: background-color 0.1s;
+  background-color: var(--palette-Deep-Orange);
+}
+body.bg6 {
+  transition: background-color 0.1s;
+  background-color: var(--palette-Red-900);
+}
+body.bg7 {
+  transition: background-color 0.1s;
+  background-color: var(--palette-Grey-700);
+}

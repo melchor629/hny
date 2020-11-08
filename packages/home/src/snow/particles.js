@@ -4,7 +4,7 @@ import material from './material'
 
 const particles = new Points(geometry, material)
 
-particles.changeDevicePixelRatio = pixelRatio => {
+particles.changeDevicePixelRatio = (pixelRatio) => {
   material.uniforms.devicePixelRatio.value = pixelRatio || window.devicePixelRatio
 }
 

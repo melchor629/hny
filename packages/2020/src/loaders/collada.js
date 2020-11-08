@@ -5,7 +5,7 @@ const loadDae = ({ scene }) =>
   new Promise((resolve, reject) =>
     new ColladaLoader().load(
       'untitled.dae',
-      collada => {
+      (collada) => {
         const [elTexto] = collada.scene.children
         elTexto.scale.set(5, 5, 5)
         elTexto.material = new MeshStandardMaterial()
