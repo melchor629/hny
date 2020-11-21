@@ -6,7 +6,7 @@ import { randomPosOnScreen, centerElementOn, wait } from './utils'
 export abstract class TextAnimation {
   constructor(private fireworks: IFireworks) {}
 
-  public abstract async animate(): Promise<void>
+  public abstract animate(): Promise<void>
 
   protected doAnimation(
     element: HTMLDivElement,
