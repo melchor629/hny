@@ -22,6 +22,8 @@ try {
   process.exit(1)
 }
 
+const devServer = new WebpackDevServer(compiler, require('../config/webpackDevServer.config')())
+
 let tsMessagesPromise
 let tsMessagesResolver
 compiler.hooks.invalid.tap('invalid', () => {
@@ -36,21 +38,22 @@ if (paths.useTypeScript) {
     })
   })
 
-  ForkTsCheckerWebpackPlugin.getCompilerHooks(compiler).receive.tap(
+  ForkTsCheckerWebpackPlugin.getCompilerHooks(compiler).issues.tap(
     'afterTypeScriptCheck',
-    (diagnostics, lints) => {
-      const allMessages = [...diagnostics, ...lints]
+    (issues) => {
+      const allMessages = issues
       const format = (message) => {
         const color = message.severity === 'warning' ? chalk.yellow : chalk.red
         const color2 = chalk.bold.cyan
+        const location = message.location
+          ? `(${message.location.start.line},${message.location.start.column})`
+          : ''
         return {
           message: [
-            chalk.underline(message.file)`${color.bold(message.severity)} in ${color2(
-              `${message.file}(${message.line},${message.column})`,
-            )}`,
-            `${message.message} (${color.underline(`TS${message.code}`)})`,
+            `${color.bold(message.severity)} in ${color2(`${message.file}${location}`)}`,
+            `  ${message.message} (${color.underline(`TS${message.code}`)})`,
           ].join('\n'),
-          moduleName: message.file,
+          moduleName: message.origin,
         }
       }
       tsMessagesResolver({
@@ -81,9 +84,19 @@ compiler.hooks.done.tap('done', async (stats) => {
     statsData.errors.push(...messages.errors)
     statsData.warnings.push(...messages.warnings)
 
+    stats.compilation.errors.push(...messages.errors)
+    stats.compilation.warnings.push(...messages.warnings)
+
+    if (messages.errors.length > 0) {
+      devServer.sockWrite(devServer.sockets, 'errors', messages.errors)
+    } else if (messages.warnings.length > 0) {
+      devServer.sockWrite(devServer.sockets, 'warnings', messages.warnings)
+    }
+
     clearConsole()
   }
 
+  const messages = formatWebpackMessages(statsData)
   if (!messages.errors.length && !messages.warnings.length) {
     console.log(chalk.green('Compilation done successfully!'))
   } else if (messages.errors.length) {
@@ -92,14 +105,13 @@ compiler.hooks.done.tap('done', async (stats) => {
     }
 
     console.log(chalk.red('Failed to compile!'))
-    console.error(messages.errors.map(formatMessage).join('\n\n'))
+    console.error(messages.errors.join('\n\n'))
   } else {
     console.log(chalk.yellow('Compiled with warnings!'))
-    console.error(messages.warnings.map(formatMessage).join('\n\n'))
+    console.error(messages.warnings.join('\n\n'))
   }
 })
 
-const devServer = new WebpackDevServer(compiler, require('../config/webpackDevServer.config')())
 devServer.listen(port, host, (err) => {
   if (err) {
     return console.log(err)
@@ -126,4 +138,14 @@ function formatMessage({ moduleName, message }) {
   }
 
   return message
+}
+
+function formatWebpackMessages(json) {
+  const formattedErrors = json.errors.map(formatMessage)
+  const formattedWarnings = json.warnings.map(formatMessage)
+  const result = { errors: formattedErrors, warnings: formattedWarnings }
+  if (result.errors.some((m) => m.includes('Syntax Error:'))) {
+    result.errors = result.errors.filter((m) => m.includes('Syntax Error:'))
+  }
+  return result
 }

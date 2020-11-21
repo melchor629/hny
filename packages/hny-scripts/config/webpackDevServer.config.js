@@ -8,14 +8,8 @@ module.exports = function webpackDevServerConfig() {
     client: {
       logging: 'none',
     },
-    // clientLogLevel: 'none',
-    // contentBase: paths.publicDirPath,
-    // contentBasePublicPath: paths.publicPath,
-    // watchContentBase: true,
     hot: true,
     transportMode: 'ws',
-    // publicPath: paths.publicPath.slice(0, -1),
-    // quiet: true,
     host,
     overlay: true,
     historyApiFallback: {

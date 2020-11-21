@@ -4,8 +4,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const safePostCssParser = require('postcss-safe-parser')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 module.exports = function webpackConfig(webpackEnv) {
   const isDevelopmentEnv = webpackEnv === 'development'
@@ -95,10 +94,11 @@ module.exports = function webpackConfig(webpackEnv) {
         config: [__filename],
       },
     },
+    infrastructureLogging: prodDevValue(undefined, { level: 'none' }),
     output: {
       path: isProductionEnv ? paths.buildPath : undefined,
       pathinfo: isDevelopmentEnv,
-      filename: prodDevValue('static/js/[name].[contenthash:8].js', 'static/js/bundle.js'),
+      filename: prodDevValue('static/js/[name].[contenthash:8].js', 'static/js/[name].js'),
       chunkFilename: prodDevValue(
         'static/js/[name].[contenthash:8].chunk.js',
         'static/js/[name].chunk.js',
@@ -123,16 +123,10 @@ module.exports = function webpackConfig(webpackEnv) {
             },
           },
         }),
-        new OptimizeCSSAssetsPlugin({
-          cssProcessorOptions: {
-            parser: safePostCssParser,
-            map: {
-              inline: false,
-              annotation: true,
-            },
-          },
-          cssProcessorPluginOptions: {
-            preset: ['default', { minifyFontValues: { removeQuotes: false } }],
+        new CssMinimizerPlugin({
+          sourceMap: true,
+          minimizerOptions: {
+            preset: ['default', { discardComments: { removeAll: true } }],
           },
         }),
       ],
