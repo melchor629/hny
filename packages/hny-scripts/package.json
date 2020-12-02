@@ -44,7 +44,7 @@
     "typescript": "^4.0.5",
     "url-loader": "^4.1.1",
     "webpack": "^5.4.0",
-    "webpack-dev-server": "https://github.com/webpack/webpack-dev-server#v4"
+    "webpack-dev-server": "^4.0.0-beta.0"
   },
   "files": [
     "bin",
