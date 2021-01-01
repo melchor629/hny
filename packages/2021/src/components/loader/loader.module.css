@@ -1,0 +1,9 @@
+.loader-container {
+  position: fixed;
+  text-align: center;
+  width: 250px;
+  top: 0;
+  left: -125px;
+  color: wheat;
+  pointer-events: none;
+}

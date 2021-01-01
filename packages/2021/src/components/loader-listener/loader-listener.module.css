@@ -1,0 +1,13 @@
+.loaded-container {
+  position: fixed;
+  text-align: center;
+  width: 250px;
+  top: -50px;
+  left: -125px;
+  color: white;
+  pointer-events: none;
+}
+
+.hint {
+  color: lightblue;
+}

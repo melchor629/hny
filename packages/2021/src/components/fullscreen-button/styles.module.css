@@ -1,0 +1,18 @@
+.button {
+  position: fixed;
+  width: 3rem;
+  height: 3rem;
+  bottom: 32px;
+  right: 32px;
+  border-radius: 4rem;
+  border: none;
+  background-color: rgb(200 200 200 / 0.88);
+  opacity: 0.44;
+  transition: background-color 75ms ease-in-out, opacity 75ms ease-in-out;
+}
+
+.button:hover {
+  background-color: rgb(255 255 255 / 0.88);
+  opacity: 1;
+  cursor: pointer;
+}

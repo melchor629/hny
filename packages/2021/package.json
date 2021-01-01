@@ -1,0 +1,49 @@
+{
+  "name": "@melchor629/hny-2021",
+  "version": "1.0.0",
+  "description": "Feliz año nuevo 2021",
+  "main": "src/index.html",
+  "author": "melchor9000",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@react-spring/three": "9.0.0-rc.3",
+    "@react-three/drei": "^2.2.12",
+    "@react-three/postprocessing": "^1.5.0",
+    "@styled-icons/material": "^10.23.0",
+    "lodash-es": "^4.17.20",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-three-fiber": "^5.3.10",
+    "styled-components": "^5.2.1",
+    "three": "0.123.0",
+    "zustand": "^3.2.0"
+  },
+  "devDependencies": {
+    "@melchor629/hny-scripts": "^0.1.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0"
+  },
+  "scripts": {
+    "start": "hny-scripts start",
+    "build": "hny-scripts build",
+    "clean": "hny-scripts clean",
+    "lint": "hny-scripts lint",
+    "format": "hny-scripts lint --format"
+  },
+  "homepage": "/2021/",
+  "browserslist": {
+    "production": [
+      ">1%",
+      "not dead",
+      "not op_mini all",
+      "not ie <= 11"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 safari version",
+      "last 1 firefox version"
+    ]
+  }
+}

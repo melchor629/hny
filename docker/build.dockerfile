@@ -9,6 +9,7 @@ COPY ./packages/home/package.json ./packages/home/package.json
 COPY ./packages/2018/package.json ./packages/2018/package.json
 COPY ./packages/2019/package.json ./packages/2019/package.json
 COPY ./packages/2020/package.json ./packages/2020/package.json
+COPY ./packages/2021/package.json ./packages/2021/package.json
 RUN yarn install
 
 COPY ./ /app/

@@ -1,0 +1,23 @@
+@media (max-aspect-ratio: 21/9) {
+  .canvas {
+    width: 100vw;
+    height: calc(100vw / 2.333333333333333);
+  }
+}
+
+@media (min-aspect-ratio: 21/9) {
+  .canvas {
+    width: calc(100vh * 2.333333333333333);
+    height: 100vh;
+  }
+}
+
+.app-container {
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  height: 100vh;
+}
