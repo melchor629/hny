@@ -165,9 +165,15 @@ module.exports = function webpackConfig(webpackEnv) {
                     {
                       useBuiltIns: 'entry',
                       corejs: 3,
-                      modules: false,
-                      loose: false,
                       exclude: ['transform-typeof-symbol'],
+                    },
+                  ],
+                  paths.useReact && [
+                    require('@babel/preset-react').default,
+                    {
+                      development: isDevelopmentEnv,
+                      useBuiltIns: true,
+                      runtime: 'automatic',
                     },
                   ],
                   paths.useTypeScript && [
@@ -178,6 +184,7 @@ module.exports = function webpackConfig(webpackEnv) {
                   ],
                 ].filter(Boolean),
                 plugins: [
+                  require('babel-plugin-macros'),
                   [
                     require('@babel/plugin-proposal-class-properties').default,
                     { loose: isProductionEnv },
@@ -188,13 +195,20 @@ module.exports = function webpackConfig(webpackEnv) {
                     require('@babel/plugin-proposal-object-rest-spread').default,
                     { useBuiltIns: true },
                   ],
-                  isProductionEnv && [
+                  [
                     require('@babel/plugin-transform-runtime').default,
                     {
                       corejs: false,
                       helpers: true,
+                      version: require('@babel/runtime/package.json').version,
                       regenerator: true,
                       useESModules: true,
+                    },
+                  ],
+                  isProductionEnv && [
+                    require('babel-plugin-transform-react-remove-prop-types').default,
+                    {
+                      removeImport: true,
                     },
                   ],
                 ].filter(Boolean),
@@ -241,6 +255,12 @@ module.exports = function webpackConfig(webpackEnv) {
               // be emitted and the URL will point to the file.
               // see https://webpack.js.org/guides/asset-modules/
               type: 'asset',
+            },
+
+            {
+              // TODO workaround https://github.com/pmndrs/react-spring/issues/1069
+              test: /@react-spring/,
+              sideEffects: true,
             },
           ],
         },

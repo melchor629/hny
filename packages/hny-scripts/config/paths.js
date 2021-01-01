@@ -33,6 +33,7 @@ const indexPath = () => {
 module.exports = {
   extensions,
   useTypeScript,
+  useReact: Object.keys(packageJson.dependencies).includes('react'),
   publicPath,
   indexPath,
   sourcePath: resolveSrc('src'),

@@ -1,6 +1,6 @@
 {
   "name": "@melchor629/hny-scripts",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Scripts that helps develop and build other HNY projects",
   "main": "bin/hny-scripts.js",
   "repository": {
@@ -21,8 +21,11 @@
     "@babel/core": "^7.12.3",
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
     "@babel/preset-typescript": "^7.12.1",
     "babel-loader": "^8.1.0",
+    "babel-plugin-macros": "^3.0.1",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "browserslist": "^4",
     "chalk": "^4.1.0",
     "css-loader": "^5.0.1",
