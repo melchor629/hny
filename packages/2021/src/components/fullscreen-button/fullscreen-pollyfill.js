@@ -32,7 +32,7 @@ if (!('requestFullscreen' in Element.prototype)) {
 }
 
 let _fullscreenChangeEventName = 'fullscreenchange'
-if ('onwebkitfullscreenchange' in document.body) {
+if ('onwebkitfullscreenchange' in document.body && !('onfullscreenchange' in document.body)) {
   _fullscreenChangeEventName = 'webkitfullscreenchange'
 }
 
