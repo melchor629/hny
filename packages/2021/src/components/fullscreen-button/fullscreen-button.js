@@ -3,24 +3,27 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { Fullscreen } from '@styled-icons/material/Fullscreen'
 import { FullscreenExit } from '@styled-icons/material/FullscreenExit'
 import styles from './styles.module.css'
+import fullscreenChangeEventName from './fullscreen-pollyfill'
 
 const FullscreenButton = ({ target }) => {
   const [isFullscreen, setFullscreen] = useState()
 
   useEffect(() => {
     const listener = (e) => setFullscreen(document.fullscreenElement === e.target)
-    target.addEventListener('fullscreenchange', listener, false)
+    target.addEventListener(fullscreenChangeEventName, listener, false)
     listener({ target })
 
-    return () => target.removeEventListener('fullscreenchange', listener, false)
+    return () => target.removeEventListener(fullscreenChangeEventName, listener, false)
   }, [target])
 
   const toggleFullscreen = useCallback(() => {
     let promise
     if (isFullscreen) {
-      promise = document.exitFullscreen()
+      promise = document.exitFullscreen().then(() => window.screen.orientation?.unlock())
     } else {
-      promise = target.requestFullscreen({ nav: 'hide' })
+      promise = target
+        .requestFullscreen({ nav: 'hide' })
+        .then(() => window.screen.orientation?.lock('landscape'))
     }
 
     promise.catch((error) => console.error('Failed toggleFullscreen', error))
