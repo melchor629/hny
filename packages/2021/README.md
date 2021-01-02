@@ -6,6 +6,7 @@ This _happy new year_ project is a mix of a pre-rendered scene and some cards re
 
 ## Credits
 
+- [Blender Guru](https://www.blenderguru.com/tutorials/how-to-make-a-christmas-tree) for the texture for the tree and its wonderful tutorial
 - <vecteezy.com> for a Fireworks vectorial image
 - [Playfair Display](https://fonts.google.com/specimen/Playfair+Display?query=play#standard-styles) font
 - [three.js](https://threejs.org) for its wonderful library
