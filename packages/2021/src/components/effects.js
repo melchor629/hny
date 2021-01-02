@@ -1,13 +1,13 @@
 import { EffectComposer, Noise, Bloom, SSAO } from '@react-three/postprocessing'
-import { useDetectGPU } from '@react-three/drei'
 import React from 'react'
+import useGameSettings from '../hooks/use-game-settings/use-game-settings'
 
 const Effects = () => {
-  const gpu = useDetectGPU()
+  const { useSSAO } = useGameSettings()
 
   return (
     <EffectComposer>
-      {!((gpu?.isMobile ?? true) || (gpu?.tier ?? 1) === 1) && <SSAO />}
+      {useSSAO && <SSAO />}
       <Bloom luminanceThreshold={0.5} luminanceSmoothing={0.9} height={300} />
       <Noise opacity={0.03} />
     </EffectComposer>

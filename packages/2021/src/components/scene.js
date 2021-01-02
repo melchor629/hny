@@ -29,9 +29,9 @@ const Scene = ({ container }) => (
 
       <Background />
       <LoaderListener container={container} />
-    </Suspense>
 
-    <Effects />
+      <Effects />
+    </Suspense>
   </>
 )
 

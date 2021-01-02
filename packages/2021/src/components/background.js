@@ -1,16 +1,18 @@
 import React, { useMemo } from 'react'
 import { useLoader, useThree, useUpdate } from 'react-three-fiber'
 import { TextureLoader, Vector3 } from 'three'
+import useGameSettings from '../hooks/use-game-settings/use-game-settings'
 import { usePhasesStore } from '../stores'
 
 const Background = (props) => {
   const { camera, viewport } = useThree()
   const { width, height } = viewport
+  const { backgroundSuffix } = useGameSettings()
   const [bg1, bg2, bg3, bg4] = [
-    useLoader(TextureLoader, 'assets/textures/background/1.png'),
-    useLoader(TextureLoader, 'assets/textures/background/2.png'),
-    useLoader(TextureLoader, 'assets/textures/background/3.png'),
-    useLoader(TextureLoader, 'assets/textures/background/4.png'),
+    useLoader(TextureLoader, `assets/textures/background/1${backgroundSuffix}`),
+    useLoader(TextureLoader, `assets/textures/background/2${backgroundSuffix}`),
+    useLoader(TextureLoader, `assets/textures/background/3${backgroundSuffix}`),
+    useLoader(TextureLoader, `assets/textures/background/4${backgroundSuffix}`),
   ]
   const { phase } = usePhasesStore()
   const bgRef = useUpdate(

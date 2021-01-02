@@ -5,32 +5,23 @@ import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useMemo } from 'react'
 import { useLoader, useThree } from 'react-three-fiber'
 import { TextureLoader } from 'three'
+import useGameSettings from '../hooks/use-game-settings/use-game-settings'
 import { useCardsStore, usePhasesStore } from '../stores'
-
-const maxWindowSideSize = Math.max(window.screen.width, window.screen.height)
-const textureSuffix = (() => {
-  if (maxWindowSideSize <= 2000) {
-    return '@1024'
-  } else if (maxWindowSideSize <= 4000) {
-    return '@2048'
-  }
-
-  return ''
-})()
 
 const canOpen = () => usePhasesStore.getState().phase === 4
 const isOpen = (cardName) => useCardsStore.getState().openCard === cardName
 
 function Card({ position, rotation, scale, cardName }) {
   const { gl, camera } = useThree()
+  const { cardSuffix } = useGameSettings()
   const cosa = useGLTF('assets/models/card.glb')
   const backTexture = useLoader(
     TextureLoader,
-    `assets/textures/cards/${cardName}/back${textureSuffix}.png`,
+    `assets/textures/cards/${cardName}/back${cardSuffix}`,
   )
   const frontTexture = useLoader(
     TextureLoader,
-    `assets/textures/cards/${cardName}/front${textureSuffix}.png`,
+    `assets/textures/cards/${cardName}/front${cardSuffix}`,
   )
 
   const [cardBack, cardFront] = useMemo(() => {
