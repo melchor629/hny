@@ -22,13 +22,13 @@ const publicPath = (() => {
 
   return '/'
 })()
-const indexPath = () => {
+const indexPath = (() => {
   const partialPath = resolveSrc('src/index')
   return (
     extensions.map((e) => `${partialPath}.${e}`).find((p) => fs.existsSync(p)) ||
     resolveSrc('src/index.js')
   )
-}
+})()
 
 module.exports = {
   extensions,

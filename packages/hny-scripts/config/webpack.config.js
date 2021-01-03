@@ -45,16 +45,15 @@ module.exports = function webpackConfig(webpackEnv) {
           postcssOptions: {
             ident: 'postcss',
             map: { inline: false },
-            plugins: () =>
-              [
-                require('postcss-preset-env')({
-                  autoprefixer: {
-                    flexbox: 'no-2009',
-                  },
-                  stage: 3,
-                }),
-                require('postcss-normalize')(),
-              ].filter(Boolean),
+            plugins: [
+              require('postcss-preset-env')({
+                autoprefixer: {
+                  flexbox: 'no-2009',
+                },
+                stage: 3,
+              }),
+              require('postcss-normalize')(),
+            ],
           },
           sourceMap: true,
         },
@@ -205,12 +204,13 @@ module.exports = function webpackConfig(webpackEnv) {
                       useESModules: true,
                     },
                   ],
-                  isProductionEnv && [
-                    require('babel-plugin-transform-react-remove-prop-types').default,
-                    {
-                      removeImport: true,
-                    },
-                  ],
+                  isProductionEnv &&
+                    paths.useReact && [
+                      require('babel-plugin-transform-react-remove-prop-types').default,
+                      {
+                        removeImport: true,
+                      },
+                    ],
                 ].filter(Boolean),
                 babelrc: false,
                 configFile: false,
