@@ -21,7 +21,7 @@ module.exports = function webpackDevServerConfig() {
       publicPath: paths.publicPath,
       watch: true,
     },
-    public: `localhost:${process.env.PORT || '3000'}`,
+    public: `localhost:${process.env.PORT || '3000'}${paths.publicPath.replace(/\/$/, '')}`,
     open: true,
   }
 }
