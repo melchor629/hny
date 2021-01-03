@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "lerna": "^3.22.1",
-    "prettier": "^2.1.2",
+    "prettier": "^2.2.1",
     "serve": "^11.3.2"
   },
   "devDependencies": {}
