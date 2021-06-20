@@ -11,7 +11,6 @@ module.exports = function webpackDevServerConfig() {
     hot: true,
     transportMode: 'ws',
     host,
-    overlay: true,
     historyApiFallback: {
       disableDotRule: true,
       index: paths.publicPath,
