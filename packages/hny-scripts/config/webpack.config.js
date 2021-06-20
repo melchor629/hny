@@ -183,7 +183,7 @@ module.exports = function webpackConfig(webpackEnv) {
                 ].filter(Boolean),
                 plugins: [
                   require('babel-plugin-macros'),
-                  [require('@babel/plugin-proposal-class-properties').default, {}],
+                  [require('@babel/plugin-proposal-class-properties').default, { loose: false }],
                   require('@babel/plugin-proposal-optional-chaining').default,
                   require('@babel/plugin-proposal-nullish-coalescing-operator').default,
                   isProductionEnv && [
