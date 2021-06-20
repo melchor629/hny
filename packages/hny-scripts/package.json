@@ -1,6 +1,6 @@
 {
   "name": "@melchor629/hny-scripts",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Scripts that helps develop and build other HNY projects",
   "main": "bin/hny-scripts.js",
   "repository": {
