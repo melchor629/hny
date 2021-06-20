@@ -22,9 +22,9 @@
     "serve:docker": "docker container run --rm -p 3000:80 -v $PWD/docker/nginx:/etc/nginx/conf.d -v $PWD/dist:/usr/share/nginx/html nginx:alpine"
   },
   "dependencies": {
-    "lerna": "^3.22.1",
+    "lerna": "^4.0.0",
     "prettier": "^2.2.1",
-    "serve": "^11.3.2"
+    "serve": "^12.0.0"
   },
   "devDependencies": {}
 }
