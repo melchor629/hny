@@ -42,7 +42,7 @@ export class EventListener<EventType extends Event = Event> {
 
 export class PressListener extends EventListener<TouchEvent | MouseEvent> {
   private static event =
-    'ontouchstart' in window || navigator.msMaxTouchPoints ? 'touchstart' : 'mousedown'
+    'ontouchstart' in window || navigator.maxTouchPoints ? 'touchstart' : 'mousedown'
 
   constructor(elem: Element | Document) {
     super(elem, PressListener.event)
