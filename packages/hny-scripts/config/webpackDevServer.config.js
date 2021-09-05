@@ -1,16 +1,17 @@
 const paths = require('./paths')
 
 const host = process.env.HOST || '0.0.0.0'
+const port = parseInt(process.env.PORT || '3000', 10)
 
 module.exports = function webpackDevServerConfig() {
   return {
-    compress: true,
     client: {
       logging: 'none',
+      overlay: true,
     },
     hot: true,
-    transportMode: 'ws',
     host,
+    port,
     historyApiFallback: {
       disableDotRule: true,
       index: paths.publicPath,
@@ -20,7 +21,9 @@ module.exports = function webpackDevServerConfig() {
       publicPath: paths.publicPath,
       watch: false,
     },
-    public: `localhost:${process.env.PORT || '3000'}${paths.publicPath.replace(/\/$/, '')}`,
-    open: true,
+    open:
+      host === '0.0.0.0' || host === '::'
+        ? `http://localhost:${port}${paths.publicPath}`
+        : paths.publicPath,
   }
 }

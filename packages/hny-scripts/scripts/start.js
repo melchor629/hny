@@ -22,7 +22,7 @@ try {
   process.exit(1)
 }
 
-const devServer = new WebpackDevServer(compiler, require('../config/webpackDevServer.config')())
+const devServer = new WebpackDevServer(require('../config/webpackDevServer.config')(), compiler)
 
 let tsMessagesPromise
 let tsMessagesResolver
@@ -112,14 +112,15 @@ compiler.hooks.done.tap('done', async (stats) => {
   }
 })
 
-devServer.listen(port, host, (err) => {
-  if (err) {
-    return console.log(err)
-  }
-  clearConsole()
-
-  console.log(chalk.cyan('Starting the development server...'))
-})
+devServer
+  .start(port, host)
+  .then(() => {
+    clearConsole()
+    console.log(chalk.cyan('Starting the development server...'))
+  })
+  .catch((err) => {
+    console.log(err)
+  })
 ;[('SIGINT', 'SIGTERM')].forEach((sig) =>
   process.on(sig, () => {
     devServer.close(() => process.exit())

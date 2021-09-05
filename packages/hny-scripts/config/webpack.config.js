@@ -28,7 +28,7 @@ module.exports = function webpackConfig(webpackEnv) {
         loader: MiniCssExtractPlugin.loader,
         options: {
           esModule: true,
-          publicPath: paths.publicPath.startsWith('.') ? '../../' : undefined,
+          publicPath: 'auto',
         },
       },
       {
@@ -86,6 +86,7 @@ module.exports = function webpackConfig(webpackEnv) {
     bail: isProductionEnv,
     devtool: prodDevValue('source-map', 'cheap-module-source-map'),
     performance: false,
+    stats: false,
     entry: paths.indexPath,
     cache: {
       type: 'filesystem',
@@ -245,7 +246,7 @@ module.exports = function webpackConfig(webpackEnv) {
               ),
             },
             {
-              exclude: /\.(js|jsx|ts|tsx|html|json)$/,
+              exclude: /\.(js|jsx|mjs|ts|tsx|html|json)$/,
               // this is equivalent to use `url-loader`, but managed by webpack itself:
               // so if the file is small enough, it will be stored in the URL, if not, a file will
               // be emitted and the URL will point to the file.
