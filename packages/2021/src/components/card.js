@@ -1,15 +1,15 @@
 import { a, useSpring } from '@react-spring/three'
 import { useGLTF } from '@react-three/drei'
+import { useLoader, useThree } from '@react-three/fiber'
 import { debounce } from 'lodash-es'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useMemo } from 'react'
-import { useLoader, useThree } from 'react-three-fiber'
 import { TextureLoader } from 'three'
 import useGameSettings from '../hooks/use-game-settings/use-game-settings'
 import { useCardsStore, usePhasesStore } from '../stores'
 
 const canOpen = () => usePhasesStore.getState().phase === 4
-const isOpen = (cardName) => useCardsStore.getState().openCard === cardName
+const isOpen = (cardName) => useCardsStore.getState().openCard?.name === cardName
 
 function Card({ position, rotation, scale, cardName }) {
   const { gl, camera } = useThree()
@@ -57,32 +57,32 @@ function Card({ position, rotation, scale, cardName }) {
 
   const open = useCallback(() => {
     cardFront.userData.open = true
-    setFrontProps({
+    setFrontProps.start({
       position: [0, 0, 0.0],
       rotation: [0, -Math.PI * 0.95, 0],
     })
-    setGroupProps({
+    setGroupProps.start({
       position: [camera.position.x, camera.position.y - 0.3, camera.position.z - 1.4],
       rotation: [(Math.PI / 180) * 10, 0, 0],
       scale: [5, 5, 5],
     })
-    setBackProps({
+    setBackProps.start({
       rotation: [0, -Math.PI * 0.05, 0],
     })
   }, [setFrontProps, setGroupProps, setBackProps, cardFront, camera])
 
   const close = useCallback(() => {
     cardFront.userData.open = false
-    setFrontProps({
+    setFrontProps.start({
       position: [0, 0, 0.004079808946698904],
       rotation: [0, -Math.PI * 0.1, 0],
     })
-    setGroupProps({
+    setGroupProps.start({
       position,
       rotation,
       scale,
     })
-    setBackProps({
+    setBackProps.start({
       rotation: [0, 0, 0],
     })
   }, [setFrontProps, setGroupProps, setBackProps, cardFront, position, rotation, scale])
@@ -111,7 +111,7 @@ function Card({ position, rotation, scale, cardName }) {
           close()
         }
       },
-      (state) => state.openCard,
+      (state) => state.openCard?.name,
       (a, b) => a === b,
     )
 
@@ -127,10 +127,8 @@ function Card({ position, rotation, scale, cardName }) {
       if (!canOpen() || !isOpen(cardName)) return
       isDown = true
       wasMoved = false
-      setGroupProps((_, ctrl) => {
-        ctrl.stop('rotation')
-        ctrl.update({ rotation: grabRotation })
-      })
+      setGroupProps.stop('rotation')
+      setGroupProps.start({ rotation: grabRotation })
     }
     const onPointerUp = (e) => {
       if (!canOpen()) return
@@ -145,10 +143,8 @@ function Card({ position, rotation, scale, cardName }) {
     const applyMove = (movementX, e) => {
       const c = (2 * Math.PI) / (e.target.clientHeight * 0.75)
       grabRotation[1] += movementX * c
-      setGroupProps((_, ctrl) => {
-        ctrl.stop('rotation')
-        ctrl.update({ rotation: grabRotation })
-      })
+      setGroupProps.stop('rotation')
+      setGroupProps.start({ rotation: grabRotation })
     }
     const onPointerMove = (e) => {
       if (!isDown || !isOpen(cardName) || !canOpen()) {
@@ -177,21 +173,21 @@ function Card({ position, rotation, scale, cardName }) {
     }
 
     const { domElement } = gl
-    domElement.addEventListener('pointerdown', onPointerDown, false)
-    domElement.addEventListener('pointerup', onPointerUp, false)
+    domElement.addEventListener('pointerdown', onPointerDown, { capture: false })
+    domElement.addEventListener('pointerup', onPointerUp, { capture: false })
     domElement.addEventListener('mousemove', onPointerMove, { passive: true })
     domElement.addEventListener('touchmove', onTouchMove, { passive: true })
 
     return () => {
-      domElement.removeEventListener('pointerdown', onPointerDown, false)
-      domElement.removeEventListener('pointerup', onPointerUp, false)
+      domElement.removeEventListener('pointerdown', onPointerDown, { capture: false })
+      domElement.removeEventListener('pointerup', onPointerUp, { capture: false })
       domElement.removeEventListener('mousemove', onPointerMove, { passive: true })
       domElement.removeEventListener('touchmove', onTouchMove, { passive: true })
     }
   }, [cardName, gl, setGroupProps])
 
   return (
-    <a.group rotation={rotation} scale={scale} {...groupProps} onPointerUp={toggleOpen}>
+    <a.group onPointerUp={toggleOpen} {...groupProps}>
       <a.primitive object={cardBack} {...frontProps} />
       <a.primitive object={cardFront} {...backProps} />
     </a.group>

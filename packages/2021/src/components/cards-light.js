@@ -1,14 +1,14 @@
-import React, { useLayoutEffect } from 'react'
-import { useUpdate } from 'react-three-fiber'
+import React, { useCallback, useLayoutEffect, useRef } from 'react'
 import { usePhasesStore } from '../stores'
 
 const CardsLight = () => {
   const { phase } = usePhasesStore()
-  const lightRef = useUpdate((light) => {
+  const onLightUpdated = useCallback((light) => {
     light.shadow.camera.far = 10
     light.target.position.set(-0.630352 - 0.5, 0, 0.623453)
   }, [])
-  const light2Ref = useUpdate(() => {}, [])
+  const lightRef = useRef()
+  const light2Ref = useRef()
 
   useLayoutEffect(() => {
     lightRef.current.intensity = phase >= 4 ? 1 : 0
@@ -19,6 +19,7 @@ const CardsLight = () => {
     <>
       <directionalLight
         ref={lightRef}
+        onUpdate={onLightUpdated}
         color="#F6FFEE"
         intensity={0}
         decay={2}
