@@ -119,7 +119,8 @@ const actx = new AudioContext()
   }
 })()
 
-const r = /translateX\((-?\d+\.?\d*)px\) translateY\((-?\d+\.?\d*)px\) rotateZ\((-?\d+\.?\d*)deg\) translateZ\(-?\d+\.?\d*px\)/
+const r =
+  /translateX\((-?\d+\.?\d*)px\) translateY\((-?\d+\.?\d*)px\) rotateZ\((-?\d+\.?\d*)deg\) translateZ\(-?\d+\.?\d*px\)/
 
 const effect = () => {
   const stop = chain(
