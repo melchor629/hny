@@ -95,6 +95,9 @@ module.exports = function webpackConfig(webpackEnv) {
       },
     },
     infrastructureLogging: prodDevValue(undefined, { level: 'none' }),
+    experiments: {
+      backCompat: false,
+    },
     output: {
       path: isProductionEnv ? paths.buildPath : undefined,
       pathinfo: isDevelopmentEnv,
