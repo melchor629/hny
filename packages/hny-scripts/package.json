@@ -1,6 +1,6 @@
 {
   "name": "@melchor629/hny-scripts",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Scripts that helps develop and build other HNY projects",
   "exports": "./bin/hny-scripts.js",
   "type": "module",
