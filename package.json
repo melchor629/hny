@@ -24,7 +24,7 @@
   "dependencies": {
     "lerna": "^4.0.0",
     "prettier": "^2.2.1",
-    "serve": "^12.0.0"
+    "serve": "^13.0.2"
   },
   "devDependencies": {}
 }
