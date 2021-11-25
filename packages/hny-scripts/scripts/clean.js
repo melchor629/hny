@@ -1,13 +1,13 @@
-const chalk = require('chalk')
-const fs = require('fs-extra')
-const paths = require('../config/paths')
+import chalk from 'chalk'
+import fs from 'fs-extra'
+import { buildPath, cachePath } from '../config/paths.js'
 
 console.log(chalk.yellow('Cleaning build folder'))
-fs.emptyDirSync(paths.buildPath)
-fs.rmdir(paths.buildPath)
+fs.emptyDirSync(buildPath)
+fs.rmdir(buildPath)
 
 console.log(chalk.yellow('Cleaning cache folder'))
-fs.emptyDirSync(paths.cachePath)
-fs.rmdir(paths.cachePath)
+fs.emptyDirSync(cachePath)
+fs.rmdir(cachePath)
 
 console.log(chalk.green('Clean done'))

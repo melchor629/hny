@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-const { spawnSync } = require('child_process')
+import { spawnSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
 
 const args = process.argv.slice(2)
 const scripts = ['build', 'start', 'clean', 'lint']
@@ -9,7 +10,7 @@ if (script) {
   const extraArgs = args.slice(args.indexOf(script))
   const result = spawnSync(
     process.execPath,
-    [require.resolve(`../scripts/${script}`), ...extraArgs],
+    [fileURLToPath(new URL(`../scripts/${script}`, import.meta.url)), ...extraArgs],
     {
       stdio: 'inherit',
     },

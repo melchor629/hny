@@ -1,13 +1,14 @@
-const fs = require('fs')
-const path = require('path')
+import { realpathSync, existsSync, readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 
-const projectPath = fs.realpathSync(process.cwd())
-const resolveSrc = (relativePath) => path.resolve(projectPath, relativePath)
+const projectPath = realpathSync(process.cwd())
+const resolveSrc = (relativePath) => resolve(projectPath, relativePath)
 
-const packageJson = require(resolveSrc('package.json'))
-const extensions = ['js', 'jsx', 'ts', 'tsx', 'json']
-const useTypeScript = fs.existsSync(resolveSrc('tsconfig.json'))
-const publicPath = (() => {
+const packageJson = JSON.parse(readFileSync(resolveSrc('package.json'), { encoding: 'utf-8' }))
+export const extensions = ['js', 'jsx', 'ts', 'tsx', 'json']
+export const useTypeScript = existsSync(resolveSrc('tsconfig.json'))
+export const useReact = Object.keys(packageJson.dependencies).includes('react')
+export const publicPath = (() => {
   let { homepage } = packageJson
   if (homepage) {
     homepage = homepage.endsWith('/') ? homepage : `${homepage}/`
@@ -22,25 +23,17 @@ const publicPath = (() => {
 
   return '/'
 })()
-const indexPath = (() => {
+export const indexPath = (() => {
   const partialPath = resolveSrc('src/index')
   return (
-    extensions.map((e) => `${partialPath}.${e}`).find((p) => fs.existsSync(p)) ||
+    extensions.map((e) => `${partialPath}.${e}`).find((p) => existsSync(p)) ||
     resolveSrc('src/index.js')
   )
 })()
-
-module.exports = {
-  extensions,
-  useTypeScript,
-  useReact: Object.keys(packageJson.dependencies).includes('react'),
-  publicPath,
-  indexPath,
-  sourcePath: resolveSrc('src'),
-  buildPath: resolveSrc('dist'),
-  htmlPath: resolveSrc('src/index.html'),
-  publicDirPath: resolveSrc('public'),
-  nodeModules: resolveSrc('node_modules'),
-  cachePath: resolveSrc('node_modules/.cache'),
-  tsconfigPath: resolveSrc('tsconfig.json'),
-}
+export const sourcePath = resolveSrc('src')
+export const buildPath = resolveSrc('dist')
+export const htmlPath = resolveSrc('src/index.html')
+export const publicDirPath = resolveSrc('public')
+export const nodeModules = resolveSrc('node_modules')
+export const cachePath = resolveSrc('node_modules/.cache')
+export const tsconfigPath = resolveSrc('tsconfig.json')

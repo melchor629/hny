@@ -1,11 +1,11 @@
-const fs = require('fs-extra')
-const klaw = require('klaw')
-const prettier = require('prettier')
-const chalk = require('chalk')
-
+import fs from 'fs-extra'
+import klaw from 'klaw'
+import prettier from 'prettier'
+import chalk from 'chalk'
+import { sep } from 'node:path'
 ;(async () => {
   try {
-    const path = process.cwd() + require('path').sep
+    const path = process.cwd() + sep
     const formatMode = process.argv.includes('--format')
     const prettierConfig = await prettier.resolveConfig(path, { editorconfig: true })
     let hasInvalid = false

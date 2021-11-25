@@ -1,12 +1,30 @@
-const paths = require('./paths')
-const webpack = require('webpack')
-const TerserPlugin = require('terser-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+import webpack from 'webpack'
+import TerserPlugin from 'terser-webpack-plugin'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
 
-module.exports = function webpackConfig(webpackEnv) {
+import PostcssPresetEnv from 'postcss-preset-env'
+import PostcssNormalize from 'postcss-normalize'
+import BabelPresetEnv from '@babel/preset-env'
+import BabelPresetReact from '@babel/preset-react'
+import BabelPresetTypescript from '@babel/preset-typescript'
+import BabelPluginMacros from 'babel-plugin-macros'
+import BabelPluginProposalClassProperties from '@babel/plugin-proposal-class-properties'
+import BabelPluginProposalOptionalChaining from '@babel/plugin-proposal-optional-chaining'
+import BabelPluginProposalNullishCoalescingOperator from '@babel/plugin-proposal-nullish-coalescing-operator'
+import BabelPluginProposalObjectRestSpread from '@babel/plugin-proposal-object-rest-spread'
+import BabelPluginTransformRuntime from '@babel/plugin-transform-runtime'
+import BabelPluginTransformReactRemovePropTypes from 'babel-plugin-transform-react-remove-prop-types'
+
+import { createRequire } from 'node:module'
+import { fileURLToPath } from 'node:url'
+import * as paths from './paths.js'
+
+const require = createRequire(import.meta.url)
+
+export default function webpackConfig(webpackEnv) {
   const isDevelopmentEnv = webpackEnv === 'development'
   const isProductionEnv = webpackEnv === 'production'
   const prodDevValue = (prodValue, devValue) => {
@@ -46,13 +64,13 @@ module.exports = function webpackConfig(webpackEnv) {
             ident: 'postcss',
             map: { inline: false },
             plugins: [
-              require('postcss-preset-env')({
+              PostcssPresetEnv({
                 autoprefixer: {
                   flexbox: 'no-2009',
                 },
                 stage: 3,
               }),
-              require('postcss-normalize')(),
+              PostcssNormalize(),
             ],
           },
           sourceMap: true,
@@ -91,7 +109,7 @@ module.exports = function webpackConfig(webpackEnv) {
     cache: {
       type: 'filesystem',
       buildDependencies: {
-        config: [__filename],
+        config: [fileURLToPath(import.meta.url)],
       },
     },
     infrastructureLogging: prodDevValue(undefined, { level: 'none' }),
@@ -163,7 +181,7 @@ module.exports = function webpackConfig(webpackEnv) {
               options: {
                 presets: [
                   [
-                    require('@babel/preset-env').default,
+                    BabelPresetEnv,
                     {
                       useBuiltIns: 'entry',
                       corejs: 3,
@@ -171,7 +189,7 @@ module.exports = function webpackConfig(webpackEnv) {
                     },
                   ],
                   paths.useReact && [
-                    require('@babel/preset-react').default,
+                    BabelPresetReact,
                     {
                       development: isDevelopmentEnv,
                       useBuiltIns: true,
@@ -179,23 +197,20 @@ module.exports = function webpackConfig(webpackEnv) {
                     },
                   ],
                   paths.useTypeScript && [
-                    require('@babel/preset-typescript').default,
+                    BabelPresetTypescript,
                     {
                       onlyRemoveTypeImports: true,
                     },
                   ],
                 ].filter(Boolean),
                 plugins: [
-                  require('babel-plugin-macros'),
-                  [require('@babel/plugin-proposal-class-properties').default, { loose: false }],
-                  require('@babel/plugin-proposal-optional-chaining').default,
-                  require('@babel/plugin-proposal-nullish-coalescing-operator').default,
-                  isProductionEnv && [
-                    require('@babel/plugin-proposal-object-rest-spread').default,
-                    { useBuiltIns: true },
-                  ],
+                  BabelPluginMacros,
+                  [BabelPluginProposalClassProperties, { loose: false }],
+                  BabelPluginProposalOptionalChaining,
+                  BabelPluginProposalNullishCoalescingOperator,
+                  isProductionEnv && [BabelPluginProposalObjectRestSpread, { useBuiltIns: true }],
                   [
-                    require('@babel/plugin-transform-runtime').default,
+                    BabelPluginTransformRuntime,
                     {
                       corejs: false,
                       helpers: true,
@@ -206,7 +221,7 @@ module.exports = function webpackConfig(webpackEnv) {
                   ],
                   isProductionEnv &&
                     paths.useReact && [
-                      require('babel-plugin-transform-react-remove-prop-types').default,
+                      BabelPluginTransformReactRemovePropTypes,
                       {
                         removeImport: true,
                       },

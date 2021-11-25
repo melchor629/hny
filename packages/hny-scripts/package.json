@@ -2,11 +2,15 @@
   "name": "@melchor629/hny-scripts",
   "version": "0.1.6",
   "description": "Scripts that helps develop and build other HNY projects",
-  "main": "bin/hny-scripts.js",
+  "exports": "./bin/hny-scripts.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/melchor629/hny",
     "directory": "packages/hny-scripts"
+  },
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
   "author": "melchor9000",
   "license": "MIT",
@@ -32,7 +36,7 @@
     "css-minimizer-webpack-plugin": "^3.0.1",
     "fork-ts-checker-webpack-plugin": "^6.2.12",
     "fs-extra": "^10.0.0",
-    "gzip-size": "^6.0.0",
+    "gzip-size": "^7.0.0",
     "html-webpack-plugin": "^5.3.1",
     "klaw": "^4.0.1",
     "mini-css-extract-plugin": "^2.2.1",

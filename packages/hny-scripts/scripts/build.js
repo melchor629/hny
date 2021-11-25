@@ -1,21 +1,21 @@
 process.env.BABEL_ENV = 'production'
 process.env.NODE_ENV = 'production'
 
-const chalk = require('chalk')
-const fs = require('fs-extra')
-const path = require('path')
-const webpack = require('webpack')
-const calculateGzipSize = require('gzip-size').sync
-const configFactory = require('../config/webpack.config')
-const paths = require('../config/paths')
+import chalk from 'chalk'
+import fs from 'fs-extra'
+import { join, dirname, basename, sep } from 'node:path'
+import webpack from 'webpack'
+import { gzipSizeSync as calculateGzipSize } from 'gzip-size'
+import configFactory from '../config/webpack.config.js'
+import { buildPath, publicDirPath, publicPath } from '../config/paths.js'
 
 const config = configFactory('production')
 
 console.log('Cleaning build path...')
-fs.emptyDirSync(paths.buildPath)
-if (fs.existsSync(paths.publicDirPath)) {
+fs.emptyDirSync(buildPath)
+if (fs.existsSync(publicDirPath)) {
   console.log('Copying public assets...')
-  fs.copySync(paths.publicDirPath, paths.buildPath, {
+  fs.copySync(publicDirPath, buildPath, {
     dereference: true,
   })
 }
@@ -74,19 +74,19 @@ compiler.run((error, stats) => {
     console.log(chalk.green('Built succesfully.\n'))
   }
 
-  console.log(`  Files are located inside ${chalk.cyan(paths.buildPath)}`)
-  console.log(`  Public URL is ${chalk.cyan(paths.publicPath)}\n`)
+  console.log(`  Files are located inside ${chalk.cyan(buildPath)}`)
+  console.log(`  Public URL is ${chalk.cyan(publicPath)}\n`)
   stats
     .toJson({ all: false, assets: true })
     .assets.filter(({ name }) => /\.(js|css)/.test(name))
     .map((asset) => {
-      const assetPath = path.join(paths.buildPath, asset.name)
+      const assetPath = join(buildPath, asset.name)
       const assetContents = fs.readFileSync(assetPath)
       const { size } = fs.statSync(assetPath)
       const gzipSize = calculateGzipSize(assetContents)
       return {
-        folder: path.dirname(assetPath),
-        name: path.basename(assetPath),
+        folder: dirname(assetPath),
+        name: basename(assetPath),
         size,
         gzipSize,
       }
@@ -101,7 +101,7 @@ compiler.run((error, stats) => {
         ? chalk.yellow(humanByteSize(asset.gzipSize))
         : humanByteSize(asset.gzipSize)
       console.log(
-        `    ${chalk.dim(asset.folder + path.sep)}${chalk.cyan(asset.name)}  ${gzipSize} (${size})`,
+        `    ${chalk.dim(asset.folder + sep)}${chalk.cyan(asset.name)}  ${gzipSize} (${size})`,
       )
     })
   console.log()

@@ -1,12 +1,15 @@
 process.env.BABEL_ENV = 'development'
 process.env.NODE_ENV = 'development'
 
-const chalk = require('chalk')
-const webpack = require('webpack')
-const WebpackDevServer = require('webpack-dev-server')
-const configFactory = require('../config/webpack.config')
-const paths = require('../config/paths')
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+import chalk from 'chalk'
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
+import webpack from 'webpack'
+import WebpackDevServer from 'webpack-dev-server'
+import configFactory from '../config/webpack.config.js'
+import { useTypeScript } from '../config/paths.js'
+import createWebpackDevServerConfig from '../config/webpackDevServer.config.js'
+
+const { red, yellow, bold, green, cyan, underline } = chalk
 
 const config = configFactory('development')
 const port = parseInt(process.env.PORT, 10) || 3000
@@ -16,13 +19,13 @@ let compiler
 try {
   compiler = webpack(config)
 } catch (e) {
-  console.log(chalk.red('Failed to compile.\n'))
+  console.log(red('Failed to compile.\n'))
   console.log(e.message)
   console.log(e.stack)
   process.exit(1)
 }
 
-const devServer = new WebpackDevServer(require('../config/webpackDevServer.config')(), compiler)
+const devServer = new WebpackDevServer(createWebpackDevServerConfig(), compiler)
 
 let tsMessagesPromise
 let tsMessagesResolver
@@ -31,7 +34,7 @@ compiler.hooks.invalid.tap('invalid', () => {
   console.log('Compiling...')
 })
 
-if (paths.useTypeScript) {
+if (useTypeScript) {
   compiler.hooks.beforeCompile.tap('beforeCompile', () => {
     tsMessagesPromise = new Promise((resolve) => {
       tsMessagesResolver = (msgs) => resolve(msgs)
@@ -43,8 +46,8 @@ if (paths.useTypeScript) {
     (issues) => {
       const allMessages = issues
       const format = (message) => {
-        const color = message.severity === 'warning' ? chalk.yellow : chalk.red
-        const color2 = chalk.bold.cyan
+        const color = message.severity === 'warning' ? yellow : red
+        const color2 = bold.cyan
         const location = message.location
           ? `(${message.location.start.line},${message.location.start.column})`
           : ''
@@ -73,9 +76,9 @@ compiler.hooks.done.tap('done', async (stats) => {
     errors: true,
   })
 
-  if (paths.useTypeScript && !statsData.errors.length) {
+  if (useTypeScript && !statsData.errors.length) {
     const tsCheckHandle = setTimeout(
-      () => console.log(chalk.yellow('Compilation done, waiting for TS results...')),
+      () => console.log(yellow('Compilation done, waiting for TS results...')),
       100,
     )
 
@@ -98,16 +101,16 @@ compiler.hooks.done.tap('done', async (stats) => {
 
   const messages = formatWebpackMessages(statsData)
   if (!messages.errors.length && !messages.warnings.length) {
-    console.log(chalk.green('Compilation done successfully!'))
+    console.log(green('Compilation done successfully!'))
   } else if (messages.errors.length) {
     if (messages.errors.length > 1) {
       messages.errors.length = 1
     }
 
-    console.log(chalk.red('Failed to compile!'))
+    console.log(red('Failed to compile!'))
     console.error(messages.errors.join('\n\n'))
   } else {
-    console.log(chalk.yellow('Compiled with warnings!'))
+    console.log(yellow('Compiled with warnings!'))
     console.error(messages.warnings.join('\n\n'))
   }
 })
@@ -116,7 +119,7 @@ devServer
   .start(port, host)
   .then(() => {
     clearConsole()
-    console.log(chalk.cyan('Starting the development server...'))
+    console.log(cyan('Starting the development server...'))
   })
   .catch((err) => {
     console.log(err)
@@ -135,7 +138,7 @@ function clearConsole() {
 
 function formatMessage({ moduleName, message }) {
   if (moduleName) {
-    return `${chalk.underline(moduleName)}: ${message}`
+    return `${underline(moduleName)}: ${message}`
   }
 
   return message
