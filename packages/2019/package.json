@@ -24,7 +24,7 @@
     "bootstrap": "^4.5.0"
   },
   "devDependencies": {
-    "@melchor629/hny-scripts": "^0.1.0",
+    "@melchor629/hny-scripts": "^0.2.0",
     "@types/animejs": "^3.1.1"
   },
   "homepage": "/2019/",
