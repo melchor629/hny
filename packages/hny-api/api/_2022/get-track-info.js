@@ -70,7 +70,7 @@ const getTrackInfo = (trackId, redis, log) =>
   getCachedValue(
     `st:${trackId}`,
     async () => {
-      const accessToken = await getAccessToken(redis)
+      const accessToken = await getAccessToken(redis, log)
       log.debug('Sending request to get track info', { trackId })
       const response = await fetch(`https://api.spotify.com/v1/tracks/${trackId}?market=ES`, {
         method: 'GET',

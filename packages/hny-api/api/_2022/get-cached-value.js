@@ -15,7 +15,7 @@ const getCachedValue = async (key, fn, redis) => {
 
   const { expiresIn, data } = await fn()
   if (typeof expiresIn === 'number') {
-    await redis.set(cacheKey, JSON.stringify(data), 'PX', Math.trunc(expiresIn * 1000))
+    await redis.set(cacheKey, JSON.stringify(data), 'PX', Math.trunc(expiresIn))
   } else {
     await redis.set(cacheKey, JSON.stringify(data))
   }

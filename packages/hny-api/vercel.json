@@ -5,5 +5,11 @@
       "source": "/api/2022/(.*)",
       "destination": "/api/2022.js"
     }
-  ]
+  ],
+  "functions": {
+    "api/2022.js": {
+      "memory": 256,
+      "maxDuration": 5
+    }
+  }
 }

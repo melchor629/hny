@@ -18,16 +18,16 @@
   "scripts": {
     "lint": "prettier -c '{api,src}/**'",
     "format": "prettier '{api,src}/**/*.js' --write",
-    "start": "vercel dev --listen=3001"
+    "start": "cd ../.. ; npx vercel dev --listen=3001"
   },
   "devDependencies": {
-    "@types/ioredis": "^4.28.5",
-    "vercel": "^23.1.2"
+    "@types/ioredis": "^4.28.5"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
     "fastify": "^3.25.3",
     "fastify-cors": "^6.0.2",
+    "fastify-rate-limit": "^5.7.0",
     "fastify-redis": "^4.3.3",
     "ioredis": "^4.28.2",
     "node-fetch": "^3.1.0"
