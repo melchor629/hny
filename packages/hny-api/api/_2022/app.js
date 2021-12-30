@@ -27,8 +27,29 @@ app.register(redis, {
 app.get('/', (_, reply) => reply.send({ hello: '👍' }))
 
 app.get('/:trackId([a-zA-Z0-9]{22,22})', async (req, reply) => {
-  const trackInfo = await getTrackInfo(req.params.trackId, app.redis)
-  reply.send(trackInfo)
+  try {
+    const trackInfo = await getTrackInfo(
+      req.params.trackId,
+      app.redis,
+      req.log.child('get-track-info'),
+    )
+    reply.send(trackInfo)
+  } catch (e) {
+    if (e.body) {
+      reply.status(500).send({
+        statusCode: 500,
+        error: 'Server Internal Error',
+        message: e.message,
+        response: {
+          body: e.body,
+          status: e.status,
+          headers: e.headers,
+        },
+      })
+    }
+
+    throw e
+  }
 })
 
 export default app

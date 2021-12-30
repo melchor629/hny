@@ -13,7 +13,8 @@ const spotifyClientSettings = {
 const checkInvalidContentType = async (response) => {
   if (response.headers.get('Content-Type') !== 'application/json') {
     const error = new Error('Unexpected error from Spotify API: not a json')
-    error.response = response
+    error.status = response.status
+    error.headers = Object.fromEntries(response.headers.entries())
     error.body = await response.text()
     throw error
   }
@@ -26,16 +27,18 @@ const checkInvalidContentType = async (response) => {
 const checkBadStatusCode = async (response, body) => {
   if (!response.ok) {
     const error = new Error(`Spotify API failed with ${response.status} ${response.statusText}`)
-    error.response = response
+    error.status = response.status
+    error.headers = Object.fromEntries(response.headers.entries())
     error.body = body
     throw error
   }
 }
 
-const getAccessToken = (redis) =>
+const getAccessToken = (redis, log) =>
   getCachedValue(
     'sak',
     async () => {
+      log.debug('Sending request to get a new access token')
       const res = await fetch('https://accounts.spotify.com/api/token', {
         method: 'POST',
         body: new URLSearchParams({
@@ -49,11 +52,11 @@ const getAccessToken = (redis) =>
         },
       })
 
-      await checkInvalidContentType(res)
+      await checkInvalidContentType(res, log)
 
       const response = await res.json()
 
-      await checkBadStatusCode(res, response)
+      await checkBadStatusCode(res, response, log)
 
       return {
         data: response.access_token,
@@ -63,11 +66,12 @@ const getAccessToken = (redis) =>
     redis,
   )
 
-const getTrackInfo = (trackId, redis) =>
+const getTrackInfo = (trackId, redis, log) =>
   getCachedValue(
     `st:${trackId}`,
     async () => {
       const accessToken = await getAccessToken(redis)
+      log.debug('Sending request to get track info', { trackId })
       const response = await fetch(`https://api.spotify.com/v1/tracks/${trackId}?market=ES`, {
         method: 'GET',
         headers: {
@@ -75,11 +79,11 @@ const getTrackInfo = (trackId, redis) =>
         },
       })
 
-      await checkInvalidContentType(response)
+      await checkInvalidContentType(response, log)
 
       const trackInfo = await response.json()
 
-      await checkBadStatusCode(response, trackInfo)
+      await checkBadStatusCode(response, trackInfo, log)
 
       return {
         expiresIn: 24 * 60 * 60 * 1000,

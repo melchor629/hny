@@ -17,7 +17,8 @@
   "license": "MIT",
   "scripts": {
     "lint": "prettier -c '{api,src}/**'",
-    "format": "prettier '{api,src}/**/*.js' --write"
+    "format": "prettier '{api,src}/**/*.js' --write",
+    "start": "vercel dev --listen=3001"
   },
   "devDependencies": {
     "@types/ioredis": "^4.28.5",
