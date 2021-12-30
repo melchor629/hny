@@ -1,4 +1,5 @@
 {
+  "regions": ["dub1"],
   "rewrites": [
     {
       "source": "/api/2022/(.*)",
