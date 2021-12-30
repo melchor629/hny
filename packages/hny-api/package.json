@@ -1,0 +1,34 @@
+{
+  "name": "@melchor629/hny-api",
+  "private": true,
+  "version": "0.0.1",
+  "description": "APIs for HNY projects",
+  "exports": "./api/hny-scripts.js",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/melchor629/hny",
+    "directory": "packages/hny-api"
+  },
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
+  "author": "melchor9000",
+  "license": "MIT",
+  "scripts": {
+    "lint": "prettier -c '{api,src}/**'",
+    "format": "prettier '{api,src}/**/*.js' --write"
+  },
+  "devDependencies": {
+    "@types/ioredis": "^4.28.5",
+    "vercel": "^23.1.2"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "fastify": "^3.25.3",
+    "fastify-cors": "^6.0.2",
+    "fastify-redis": "^4.3.3",
+    "ioredis": "^4.28.2",
+    "node-fetch": "^3.1.0"
+  }
+}
