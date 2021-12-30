@@ -11,7 +11,7 @@ const spotifyClientSettings = {
  * @param {Response} response
  */
 const checkInvalidContentType = async (response) => {
-  if (response.headers.get('Content-Type') !== 'application/json') {
+  if (!response.headers.get('Content-Type').startsWith('application/json')) {
     const error = new Error('Unexpected error from Spotify API: not a json')
     error.status = response.status
     error.headers = Object.fromEntries(response.headers.entries())
