@@ -26,5 +26,7 @@
     "prettier": "^2.2.1",
     "serve": "^13.0.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "vercel": "^23.1.2"
+  }
 }

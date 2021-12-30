@@ -28,7 +28,10 @@ function can_be_compressed() {
     image/svg* ) return 0 ;;
     text/* ) return 0 ;;
     ** )
-      return 1 ;;
+      case "$2" in
+        *.glb ) return 0 ;;
+        ** ) return 1 ;;
+      esac
   esac
 }
 
@@ -36,16 +39,25 @@ function compress() {
   if [ ! -z "${has_gzip}" ]; then
     echo "Compressing $1 using gzip"
     gzip -k9 "$1" || return $?
+
+    if [ $(get_file_size "$1") -le $(get_file_size "$1.gz") ]; then
+      echo "  !! File did not compress well, removing"
+      rm "$1.gz"
+    fi
   fi
   #if [ ! -z "${has_brotli}" ]; then
   #  echo "Compressing $1 using brotli"
   #  brotli -kZ "$1" || return $?
+  #  if [ $(get_file_size "$1") -le $(get_file_size "$1.br") ]; then
+  #    echo "  !! File did not compress well, removing"
+  #    rm "$1.br"
+  #  fi
   #fi
 }
 
 for file in `find dist -type f`; do
   mime_type=$(get_mime_type "${file}")
-  if can_be_compressed "${mime_type}"; then
+  if can_be_compressed "${mime_type}" "${file}"; then
     file_size=$(get_file_size "${file}")
     if [ ${file_size} -ge 1000 ]; then
       compress "${file}"
