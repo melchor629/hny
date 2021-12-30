@@ -38,6 +38,7 @@ export default function webpackConfig(webpackEnv) {
 
   const env = {
     PUBLIC_URL: paths.publicPath,
+    NODE_ENV: webpackEnv,
   }
 
   const getStyleLoaders = (cssOptions = {}, preProcessor) => {
@@ -309,7 +310,11 @@ export default function webpackConfig(webpackEnv) {
         ),
       ),
       // defines some variable environments in JS
-      new webpack.DefinePlugin(env),
+      new webpack.DefinePlugin(
+        Object.fromEntries(
+          Object.entries(env).map(([key, value]) => [`process.env.${key}`, JSON.stringify(value)]),
+        ),
+      ),
       // HMR for development
       isDevelopmentEnv && new webpack.HotModuleReplacementPlugin(),
       // extracts processed css into files
