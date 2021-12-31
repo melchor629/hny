@@ -27,6 +27,7 @@ const years = [...Array(now.getFullYear() - fromYear + 1)].map((_, i) => fromYea
     linkElement.text = year.toString()
     linkElement.classList.add(
       'dib',
+      'w-100',
       'pv2',
       'ph4',
       'br3',
