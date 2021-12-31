@@ -4,6 +4,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
 import PostcssPresetEnv from 'postcss-preset-env'
 import PostcssNormalize from 'postcss-normalize'
@@ -17,6 +18,7 @@ import BabelPluginProposalNullishCoalescingOperator from '@babel/plugin-proposal
 import BabelPluginProposalObjectRestSpread from '@babel/plugin-proposal-object-rest-spread'
 import BabelPluginTransformRuntime from '@babel/plugin-transform-runtime'
 import BabelPluginTransformReactRemovePropTypes from 'babel-plugin-transform-react-remove-prop-types'
+import ReactRefreshBabel from 'react-refresh/babel.js'
 
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
@@ -101,6 +103,7 @@ export default function webpackConfig(webpackEnv) {
   }
 
   return {
+    target: ['browserslist'],
     mode: prodDevValue('production', 'development'),
     bail: isProductionEnv,
     devtool: prodDevValue('source-map', 'cheap-module-source-map'),
@@ -109,7 +112,9 @@ export default function webpackConfig(webpackEnv) {
     entry: paths.indexPath,
     cache: {
       type: 'filesystem',
+      store: 'pack',
       buildDependencies: {
+        defaultWebpack: ['webpack/lib/'],
         config: [fileURLToPath(import.meta.url)],
       },
     },
@@ -166,6 +171,7 @@ export default function webpackConfig(webpackEnv) {
       modules: ['node_modules', paths.nodeModules],
     },
     module: {
+      strictExportPresence: true,
       rules: [
         {
           oneOf: [
@@ -227,6 +233,7 @@ export default function webpackConfig(webpackEnv) {
                         removeImport: true,
                       },
                     ],
+                  isDevelopmentEnv && ReactRefreshBabel,
                 ].filter(Boolean),
                 babelrc: false,
                 configFile: false,
@@ -317,6 +324,8 @@ export default function webpackConfig(webpackEnv) {
       ),
       // HMR for development
       isDevelopmentEnv && new webpack.HotModuleReplacementPlugin(),
+      // Fast Refresh for React
+      isDevelopmentEnv && paths.useReact && new ReactRefreshWebpackPlugin({ overlay: false }),
       // extracts processed css into files
       new MiniCssExtractPlugin({
         filename: 'static/css/[name].[contenthash:8].css',
