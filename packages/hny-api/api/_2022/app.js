@@ -5,19 +5,13 @@ import Fastify from 'fastify'
 import cors from 'fastify-cors'
 import rateLimit from 'fastify-rate-limit'
 import redis from 'fastify-redis'
-import Redis from 'ioredis'
 import getTrackInfo from './get-track-info.js'
 
 const createFastifyApp = async () => {
-  // --- redis ---
-  const redisClient = new Redis({
-    url: process.env.REDIS_URL,
-    keyPrefix: 'hny:2022:',
-  })
-
   // --- app setup ---
   const app = Fastify({
     logger: true,
+    trustProxy: true,
     rewriteUrl: (req) => req.url.replace(/^\/api\/2022/, ''),
   })
 
@@ -28,13 +22,15 @@ const createFastifyApp = async () => {
         : ['http://localhost:3000'],
   })
   await app.register(redis, {
-    client: redisClient,
-    closeClient: true,
+    url: process.env.REDIS_URL,
+    keyPrefix: 'hny:2022:',
+    enableOfflineQueue: true,
+    connectTimeout: 4000,
   })
   await app.register(rateLimit, {
     max: 15,
     timeWindow: '10s',
-    redis: redisClient,
+    redis: app.redis,
   })
 
   // --- routes ---

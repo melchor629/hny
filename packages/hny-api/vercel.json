@@ -8,8 +8,7 @@
   ],
   "functions": {
     "api/2022.js": {
-      "memory": 256,
-      "maxDuration": 5
+      "memory": 256
     }
   }
 }
