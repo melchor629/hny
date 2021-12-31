@@ -32,5 +32,5 @@ Have fun :)
 [8]: https://fan.melchor9000.me/
 [9]: https://github.com/melchor629/hny/tree/master/packages/2021
 [10]: https://fan.melchor9000.me/2021/
-[9]: https://github.com/melchor629/hny/tree/master/packages/2022
-[10]: https://fan.melchor9000.me/2022/
+[11]: https://github.com/melchor629/hny/tree/master/packages/2022
+[12]: https://fan.melchor9000.me/2022/
