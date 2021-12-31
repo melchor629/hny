@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  color: rgb(var(--text-color));
+}
+
+.object-load-info {
+  color: rgb(var(--text-color) / 0.75);
+  font-size: 0.75rem;
+}

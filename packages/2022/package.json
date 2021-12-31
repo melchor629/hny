@@ -1,0 +1,49 @@
+{
+  "name": "@melchor629/hny-2022",
+  "version": "1.0.0",
+  "description": "Feliz año nuevo 2022",
+  "main": "src/index.html",
+  "author": "melchor9000",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@react-spring/web": "^9.3.2",
+    "@react-three/drei": "^8.3.1",
+    "@react-three/fiber": "^7.0.24",
+    "@react-three/postprocessing": "^2.1.2",
+    "js-yaml": "^4.1.0",
+    "lodash-es": "^4.17.21",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "three": "^0.135.0",
+    "zustand": "^3.6.8"
+  },
+  "devDependencies": {
+    "@melchor629/hny-scripts": "^0.2.0",
+    "@types/lodash-es": "^4.17.5",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/three": "^0.135.0"
+  },
+  "scripts": {
+    "start": "hny-scripts start",
+    "build": "hny-scripts build",
+    "clean": "hny-scripts clean",
+    "lint": "hny-scripts lint",
+    "format": "hny-scripts lint --format"
+  },
+  "homepage": "/2022/",
+  "browserslist": {
+    "production": [
+      ">1%",
+      "not dead",
+      "not op_mini all",
+      "not ie <= 11"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 safari version",
+      "last 1 firefox version"
+    ]
+  }
+}

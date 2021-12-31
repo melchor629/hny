@@ -8,11 +8,14 @@ COPY ./packages/2018/package.json ./packages/2018/yarn.lock ./packages/2018/
 COPY ./packages/2019/package.json ./packages/2019/yarn.lock ./packages/2019/
 COPY ./packages/2020/package.json ./packages/2020/yarn.lock ./packages/2020/
 COPY ./packages/2021/package.json ./packages/2021/yarn.lock ./packages/2021/
+COPY ./packages/2022/package.json ./packages/2022/yarn.lock ./packages/2022/
 RUN yarn install
 
-COPY ./ /app/
-RUN yarn build && \
-    yarn dist
+COPY ./packages/ /app/packages/
+RUN yarn build
+
+COPY ./scripts/ /app/scripts/
+RUN yarn dist
 
 
 FROM nginx:alpine
