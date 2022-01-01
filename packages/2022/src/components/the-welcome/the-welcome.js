@@ -5,6 +5,11 @@ import { useAudioListener } from '../../hooks'
 import { usePartyStore } from '../../stores'
 import styles from './the-welcome.module.scss'
 
+const appleRegex = /iPhone|iPad/g
+const isApple =
+  ['iPhone', 'iPad'].includes(window.navigator.platform) ||
+  appleRegex.exec(window.navigator.userAgent)
+
 const TheWelcome = () => {
   const letsParty = usePartyStore((state) => state.letsParty)
   const size = useThree((e) => e.size)
@@ -36,6 +41,12 @@ const TheWelcome = () => {
       {size.width < size.height && (
         <div className={styles['text-container']}>
           Detecto que tienes el dispositivo en vertical, lo mismo es mejor en horizontal...
+        </div>
+      )}
+      {isApple && (
+        <div className={styles['text-container']}>
+          Detecto que tienes un dispositivo móvil de Apple. Si tienes el "Modo Silencio" activado no
+          sonará la música.
         </div>
       )}
       <div className={styles['text-container']}>
