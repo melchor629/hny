@@ -15,12 +15,12 @@ Have fun :)
 
 ## Years
 
-- [home][7] (well that's is only the [home page][8])
+- [home][7] (well that is only the [home page][8])
 - [2018][1] ([see it in action][3])
 - [2019][2] ([see it in action][4])
 - [2020][5] ([see it in action][6])
 - [2021][9] ([see it in action][10])
-- [2022][11] ([see it in action[12]])
+- [2022][11] ([see it in action][12])
 
 [1]: https://github.com/melchor629/hny/tree/master/packages/2018
 [2]: https://github.com/melchor629/hny/tree/master/packages/2019
