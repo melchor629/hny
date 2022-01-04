@@ -8,17 +8,6 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
 import PostcssPresetEnv from 'postcss-preset-env'
 import PostcssNormalize from 'postcss-normalize'
-import BabelPresetEnv from '@babel/preset-env'
-import BabelPresetReact from '@babel/preset-react'
-import BabelPresetTypescript from '@babel/preset-typescript'
-import BabelPluginMacros from 'babel-plugin-macros'
-import BabelPluginProposalClassProperties from '@babel/plugin-proposal-class-properties'
-import BabelPluginProposalOptionalChaining from '@babel/plugin-proposal-optional-chaining'
-import BabelPluginProposalNullishCoalescingOperator from '@babel/plugin-proposal-nullish-coalescing-operator'
-import BabelPluginProposalObjectRestSpread from '@babel/plugin-proposal-object-rest-spread'
-import BabelPluginTransformRuntime from '@babel/plugin-transform-runtime'
-import BabelPluginTransformReactRemovePropTypes from 'babel-plugin-transform-react-remove-prop-types'
-import ReactRefreshBabel from 'react-refresh/babel.js'
 
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
@@ -138,6 +127,7 @@ export default function webpackConfig(webpackEnv) {
       minimize: isProductionEnv,
       minimizer: [
         new TerserPlugin({
+          parallel: true,
           terserOptions: {
             parse: { ecma: 8 },
             compress: {
@@ -151,6 +141,7 @@ export default function webpackConfig(webpackEnv) {
           },
         }),
         new CssMinimizerPlugin({
+          parallel: true,
           minimizerOptions: {
             preset: ['default', { discardComments: { removeAll: true } }],
           },
@@ -168,7 +159,7 @@ export default function webpackConfig(webpackEnv) {
         .filter((e) => paths.useTypeScript || !e.includes('ts'))
         .map((e) => `.${e}`),
       // first load modules from our package then load modules from the package using this script
-      modules: ['node_modules', paths.nodeModules],
+      modules: [`${import.meta.url.slice(0, -25)}/node_modules`.slice(7), paths.nodeModules],
     },
     module: {
       strictExportPresence: true,
@@ -184,62 +175,46 @@ export default function webpackConfig(webpackEnv) {
             {
               test: /\.(js|jsx|ts|tsx)$/,
               include: paths.sourcePath,
-              loader: require.resolve('babel-loader'),
+              loader: require.resolve('swc-loader'),
               options: {
-                presets: [
-                  [
-                    BabelPresetEnv,
-                    {
-                      useBuiltIns: 'entry',
-                      corejs: 3,
-                      exclude: ['transform-typeof-symbol'],
-                    },
-                  ],
-                  paths.useReact && [
-                    BabelPresetReact,
-                    {
-                      development: isDevelopmentEnv,
-                      useBuiltIns: true,
-                      runtime: 'automatic',
-                    },
-                  ],
-                  paths.useTypeScript && [
-                    BabelPresetTypescript,
-                    {
-                      onlyRemoveTypeImports: true,
-                    },
-                  ],
-                ].filter(Boolean),
-                plugins: [
-                  BabelPluginMacros,
-                  [BabelPluginProposalClassProperties, { loose: false }],
-                  BabelPluginProposalOptionalChaining,
-                  BabelPluginProposalNullishCoalescingOperator,
-                  isProductionEnv && [BabelPluginProposalObjectRestSpread, { useBuiltIns: true }],
-                  [
-                    BabelPluginTransformRuntime,
-                    {
-                      corejs: false,
-                      helpers: true,
-                      version: require('@babel/runtime/package.json').version,
-                      regenerator: true,
-                      useESModules: true,
-                    },
-                  ],
-                  isProductionEnv &&
-                    paths.useReact && [
-                      BabelPluginTransformReactRemovePropTypes,
-                      {
-                        removeImport: true,
+                jsc: {
+                  externalHelpers: true,
+                  parser: paths.useTypeScript
+                    ? {
+                        syntax: 'typescript',
+                        tsx: paths.useReact,
+                      }
+                    : {
+                        syntax: 'ecmascript',
+                        jsx: paths.useReact,
                       },
-                    ],
-                  isDevelopmentEnv && ReactRefreshBabel,
-                ].filter(Boolean),
-                babelrc: false,
-                configFile: false,
+                  transform: {
+                    react: {
+                      runtime: 'automatic',
+                      useBuiltins: true,
+                      refresh: isDevelopmentEnv,
+                    },
+                  },
+                },
+                env: {
+                  // browserslist is not read automatically
+                  targets:
+                    paths.packageJson.browserslist?.[
+                      isProductionEnv ? 'production' : 'development'
+                    ] ||
+                    paths.packageJson.browserslist?.default ||
+                    paths.packageJson.browserslist,
+                  mode: 'entry',
+                  coreJs: 3,
+                  dynamicImport: true,
+                  exclude: ['transform-typeof-symbol'],
+                },
+                module: {
+                  type: 'es6',
+                },
+
                 cacheDirectory: true,
                 cacheCompression: false,
-                compact: isProductionEnv,
               },
             },
             {
@@ -278,12 +253,6 @@ export default function webpackConfig(webpackEnv) {
               // be emitted and the URL will point to the file.
               // see https://webpack.js.org/guides/asset-modules/
               type: 'asset',
-            },
-
-            {
-              // TODO workaround https://github.com/pmndrs/react-spring/issues/1069
-              test: /@react-spring/,
-              sideEffects: true,
             },
           ],
         },

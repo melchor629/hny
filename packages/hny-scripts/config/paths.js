@@ -4,7 +4,9 @@ import { resolve } from 'node:path'
 const projectPath = realpathSync(process.cwd())
 const resolveSrc = (relativePath) => resolve(projectPath, relativePath)
 
-const packageJson = JSON.parse(readFileSync(resolveSrc('package.json'), { encoding: 'utf-8' }))
+export const packageJson = JSON.parse(
+  readFileSync(resolveSrc('package.json'), { encoding: 'utf-8' }),
+)
 export const extensions = ['js', 'jsx', 'ts', 'tsx', 'json']
 export const useTypeScript = existsSync(resolveSrc('tsconfig.json'))
 export const useReact = Object.keys(packageJson.dependencies).includes('react')

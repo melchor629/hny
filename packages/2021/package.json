@@ -16,7 +16,6 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "styled-components": "^5.2.1",
     "three": "0.130.1",
     "zustand": "^3.3.3"
   },
