@@ -159,7 +159,11 @@ export default function webpackConfig(webpackEnv) {
         .filter((e) => paths.useTypeScript || !e.includes('ts'))
         .map((e) => `.${e}`),
       // first load modules from our package then load modules from the package using this script
-      modules: [`${import.meta.url.slice(0, -25)}/node_modules`.slice(7), paths.nodeModules],
+      modules: [
+        `${import.meta.url.slice(0, -25)}/node_modules`.slice(7),
+        paths.nodeModules,
+        'node_modules',
+      ],
     },
     module: {
       strictExportPresence: true,

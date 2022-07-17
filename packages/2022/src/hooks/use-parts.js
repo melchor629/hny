@@ -1,6 +1,6 @@
 import { useLoader } from '@react-three/fiber'
 import { useDebugValue } from 'react'
-import { useAsset } from 'use-asset'
+import { peek } from 'suspend-react'
 import { partsUrl } from '../constants'
 import { YamlLoader } from '../fns'
 
@@ -10,7 +10,7 @@ import { YamlLoader } from '../fns'
 //       preload is done, but in a future reload the asset will
 //       fully loaded, so not a problem :))
 const useParts = () => {
-  const [parts] = useAsset.peek(YamlLoader, partsUrl) || []
+  const [parts] = peek([YamlLoader, partsUrl]) || []
   useDebugValue(parts)
   return parts
 }

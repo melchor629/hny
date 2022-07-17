@@ -8,22 +8,22 @@
   "private": true,
   "dependencies": {
     "@react-spring/web": "^9.3.2",
-    "@react-three/drei": "^8.3.1",
-    "@react-three/fiber": "^7.0.24",
+    "@react-three/drei": "^9.17.1",
+    "@react-three/fiber": "^8.2.0",
     "@react-three/postprocessing": "^2.1.2",
     "js-yaml": "^4.1.0",
     "lodash-es": "^4.17.21",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "three": "^0.135.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "three": "^0.141.0",
     "zustand": "^3.6.8"
   },
   "devDependencies": {
     "@melchor629/hny-scripts": "^0.2.0",
     "@types/lodash-es": "^4.17.5",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "@types/three": "^0.135.0"
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@types/three": "^0.141.0"
   },
   "scripts": {
     "start": "hny-scripts start",

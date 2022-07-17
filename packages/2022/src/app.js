@@ -9,7 +9,6 @@ export default function App() {
   return (
     <>
       <Canvas
-        concurrent
         gl={{ stencil: false }}
         onCreated={({ camera }) => {
           camera.position.set(0, 1, 5)

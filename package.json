@@ -8,25 +8,17 @@
     "type": "git",
     "url": "https://github.com/melchor629/hny"
   },
+  "workspaces": ["./packages/*"],
   "scripts": {
-    "build": "lerna run --stream --concurrency 1 build",
-    "clean": "rm -rf dist && lerna run --no-bail --stream clean",
+    "clean": "rm -rf dist && npm run clean --workspaces",
     "dist": "./scripts/copy-to-dist.sh && ./scripts/compress-dist-files.sh",
-    "lerna": "lerna",
-    "lint": "lerna run --no-bail --stream lint",
-    "format": "lerna run --no-bail --stream format",
-    "postinstall": "lerna bootstrap",
-    "start": "function __() { lerna run --stream --scope @melchor629/hny-$1 start; }; __",
     "serve": "serve -l 3000 dist",
     "docker": "docker image build -t hny-melchor9000 -f docker/build.dockerfile .",
     "serve:docker": "docker container run --rm -p 3000:80 -v $PWD/docker/nginx:/etc/nginx/conf.d -v $PWD/dist:/usr/share/nginx/html nginx:alpine"
   },
-  "dependencies": {
-    "lerna": "^4.0.0",
-    "prettier": "^2.2.1",
-    "serve": "^13.0.2"
-  },
   "devDependencies": {
-    "vercel": "^23.1.2"
+    "prettier": "^2.7.1",
+    "serve": "^14.0.1",
+    "vercel": "^27.1.5"
   }
 }

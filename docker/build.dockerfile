@@ -1,21 +1,21 @@
-FROM node:14 AS builder
+FROM node:16 AS builder
 
 WORKDIR /app
-COPY package.json yarn.lock lerna.json .npmrc ./
-COPY ./packages/hny-scripts/package.json ./packages/hny-scripts/yarn.lock ./packages/hny-scripts/
-COPY ./packages/home/package.json ./packages/home/yarn.lock ./packages/home/
-COPY ./packages/2018/package.json ./packages/2018/yarn.lock ./packages/2018/
-COPY ./packages/2019/package.json ./packages/2019/yarn.lock ./packages/2019/
-COPY ./packages/2020/package.json ./packages/2020/yarn.lock ./packages/2020/
-COPY ./packages/2021/package.json ./packages/2021/yarn.lock ./packages/2021/
-COPY ./packages/2022/package.json ./packages/2022/yarn.lock ./packages/2022/
-RUN yarn install
+COPY package.json package-lock.json .npmrc ./
+COPY ./packages/hny-scripts/package.json ./packages/hny-scripts/
+COPY ./packages/home/package.json ./packages/home/
+COPY ./packages/2018/package.json ./packages/2018/
+COPY ./packages/2019/package.json ./packages/2019/
+COPY ./packages/2020/package.json ./packages/2020/
+COPY ./packages/2021/package.json ./packages/2021/
+COPY ./packages/2022/package.json ./packages/2022/
+RUN npm ci
 
 COPY ./packages/ /app/packages/
-RUN yarn build
+RUN npm run build --workspaces
 
 COPY ./scripts/ /app/scripts/
-RUN yarn dist
+RUN npm run dist
 
 
 FROM nginx:alpine
