@@ -2,14 +2,14 @@
 
 You can see the source code of the _Happy New Year_ of every year I made one. Not all pages are in english, some could be in spanish.
 
-- Run `yarn` to install all packages
-- Run `yarn build` to build all packages
-- Run `yarn dist` to prepare the `dist` folder with all built packages on it
-- Run `yarn serve` to serve the `dist` folder locally at port 3000
-- Run `yarn serve:docker` to serve the `dist` folder locally using the custom nginx configuration at port 3000
-- Run `yarn docker` to build the docker image
+- Run `npm i` to install all packages
+- Run `npm run build -ws` to build all packages
+- Run `npm run dist` to prepare the `dist` folder with all built packages on it
+- Run `npm run serve` to serve the `dist` folder locally at port 3000
+- Run `npm run serve:docker` to serve the `dist` folder locally using the custom nginx configuration at port 3000
+- Run `npm run docker` to build the docker image
 - Run `docker container run --rm -it -p 80:80 hny-melchor9000` to run the docker image, and go to [http://localhost](http://localhost) to see the web in action.
-- Some projects require the API to be up, go to `packages/hny-api` and run `yarn start`. It requires a vercel account btw...
+- Some projects require the API to be up, run `npm start -w packages/hny-api`. It requires a vercel account btw...
 
 Have fun :)
 

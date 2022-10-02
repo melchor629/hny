@@ -2,9 +2,6 @@ import * as dotenv from 'dotenv'
 dotenv.config()
 
 import Fastify from 'fastify'
-import cors from 'fastify-cors'
-import rateLimit from 'fastify-rate-limit'
-import redis from 'fastify-redis'
 import getTrackInfo from './get-track-info.js'
 
 const createFastifyApp = async () => {
@@ -15,19 +12,19 @@ const createFastifyApp = async () => {
     rewriteUrl: (req) => req.url.replace(/^\/api\/2022/, ''),
   })
 
-  await app.register(cors, {
+  await app.register(import('@fastify/cors'), {
     origin:
       process.env.VERCEL_ENV === 'production'
         ? ['https://fan.melchor9000.me']
         : ['http://localhost:3000'],
   })
-  await app.register(redis, {
+  await app.register(import('@fastify/redis'), {
     url: process.env.REDIS_URL,
     keyPrefix: 'hny:2022:',
     enableOfflineQueue: true,
     connectTimeout: 4000,
   })
-  await app.register(rateLimit, {
+  await app.register(import('@fastify/rate-limit'), {
     max: 15,
     timeWindow: '10s',
     redis: app.redis,

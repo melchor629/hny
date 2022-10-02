@@ -20,16 +20,13 @@
     "format": "prettier '{api,src}/**/*.js' --write",
     "start": "cd ../.. ; npx vercel dev --listen=3001"
   },
-  "devDependencies": {
-    "@types/ioredis": "^4.28.5"
-  },
   "dependencies": {
-    "dotenv": "^10.0.0",
-    "fastify": "^3.25.3",
-    "fastify-cors": "^6.0.2",
-    "fastify-rate-limit": "^5.7.0",
-    "fastify-redis": "^4.3.3",
-    "ioredis": "^4.28.2",
-    "node-fetch": "^3.1.0"
+    "dotenv": "^16.0.3",
+    "fastify": "^4.7.0",
+    "@fastify/cors": "^8.1.0",
+    "@fastify/rate-limit": "^7.4.0",
+    "@fastify/redis": "^6.0.1",
+    "ioredis": "^5.2.3",
+    "node-fetch": "^3.2.10"
   }
 }

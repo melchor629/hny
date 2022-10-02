@@ -8,7 +8,9 @@
     "type": "git",
     "url": "https://github.com/melchor629/hny"
   },
-  "workspaces": ["./packages/*"],
+  "workspaces": [
+    "./packages/*"
+  ],
   "scripts": {
     "clean": "rm -rf dist && npm run clean --workspaces",
     "dist": "./scripts/copy-to-dist.sh && ./scripts/compress-dist-files.sh",
@@ -18,7 +20,6 @@
   },
   "devDependencies": {
     "prettier": "^2.7.1",
-    "serve": "^14.0.1",
-    "vercel": "^27.1.5"
+    "serve": "^14.0.1"
   }
 }

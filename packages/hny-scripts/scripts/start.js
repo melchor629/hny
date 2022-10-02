@@ -91,9 +91,9 @@ compiler.hooks.done.tap('done', async (stats) => {
     stats.compilation.warnings.push(...messages.warnings)
 
     if (messages.errors.length > 0) {
-      devServer.sockWrite(devServer.sockets, 'errors', messages.errors)
+      devServer.sendMessage(devServer.sockets, 'errors', messages.errors)
     } else if (messages.warnings.length > 0) {
-      devServer.sockWrite(devServer.sockets, 'warnings', messages.warnings)
+      devServer.sendMessage(devServer.sockets, 'warnings', messages.warnings)
     }
 
     clearConsole()
