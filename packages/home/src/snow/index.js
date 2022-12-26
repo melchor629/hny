@@ -55,7 +55,7 @@ const animate = (time) => {
     lastTime = time - 1 / 60
   }
 
-  const delta = (time - lastTime) / 1000
+  let delta = (time - lastTime) / 1000
   if (delta > 2) {
     // for some reason, I get big delta times, so to avoid big issues, I will reset this value
     // to a more acceptable one...

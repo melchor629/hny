@@ -1,8 +1,9 @@
 process.env.BABEL_ENV = 'production'
 process.env.NODE_ENV = 'production'
 
+import fs from 'node:fs'
 import chalk from 'chalk'
-import fs from 'fs-extra'
+import { emptyDirSync, copySync } from 'fs-extra/esm'
 import { join, dirname, basename, sep } from 'node:path'
 import webpack from 'webpack'
 import { gzipSizeSync as calculateGzipSize } from 'gzip-size'
@@ -12,10 +13,10 @@ import { buildPath, publicDirPath, publicPath } from '../config/paths.js'
 const config = configFactory('production')
 
 console.log('Cleaning build path...')
-fs.emptyDirSync(buildPath)
+emptyDirSync(buildPath)
 if (fs.existsSync(publicDirPath)) {
   console.log('Copying public assets...')
-  fs.copySync(publicDirPath, buildPath, {
+  copySync(publicDirPath, buildPath, {
     dereference: true,
   })
 }

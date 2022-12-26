@@ -103,17 +103,13 @@ function Card({ position, rotation, scale, cardName }) {
   )
 
   useEffect(() => {
-    const unsub = useCardsStore.subscribe(
-      (openCard) => {
-        if (openCard === cardName) {
-          open()
-        } else {
-          close()
-        }
-      },
-      (state) => state.openCard?.name,
-      (a, b) => a === b,
-    )
+    const unsub = useCardsStore.subscribe(({ openCard }) => {
+      if (openCard?.name === cardName) {
+        open()
+      } else {
+        close()
+      }
+    })
 
     return () => unsub()
   }, [cardName, open, close])

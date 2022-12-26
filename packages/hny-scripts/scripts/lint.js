@@ -1,4 +1,5 @@
-import fs from 'fs-extra'
+import { readFile, writeFile } from 'node:fs/promises'
+import anymatch from 'anymatch'
 import klaw from 'klaw'
 import prettier from 'prettier'
 import chalk from 'chalk'
@@ -10,21 +11,27 @@ import { sep } from 'node:path'
     const prettierConfig = await prettier.resolveConfig(path, { editorconfig: true })
     let hasInvalid = false
 
+    const ignoredPaths = await readFile(`${path}${sep}.prettierignore`, { encoding: 'utf-8' })
+      .then((t) => t.split('\n').filter((v) => !!v))
+      .catch(() => [])
+    const ignoredPathsMatcher = anymatch(ignoredPaths)
+
     console.log(
       formatMode ? `Formatting files inside ${path}src` : `Checking format for ${path}src`,
     )
     for await (const file of klaw('src')) {
       if (!file.stats.isFile()) continue
+      if (ignoredPathsMatcher(file.path.replace(path, ''))) continue
 
       const { ignored, inferredParser } = await prettier.getFileInfo(file.path)
       if (ignored || !inferredParser) continue
 
-      const contents = await fs.readFile(file.path, { encoding: 'utf-8' })
+      const contents = await readFile(file.path, { encoding: 'utf-8' })
       if (formatMode) {
         const start = +new Date()
         process.stdout.write(file.path.replace(path, ''))
         const formatted = prettier.format(contents, { ...prettierConfig, parser: inferredParser })
-        await fs.writeFile(file.path, formatted, { encoding: 'utf-8' })
+        await writeFile(file.path, formatted, { encoding: 'utf-8' })
         process.stdout.write(` ${+new Date() - start}ms\n`)
       } else if (!prettier.check(contents, { ...prettierConfig, parser: inferredParser })) {
         console.warn(chalk.yellow(file.path.replace(path, '')))
