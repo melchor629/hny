@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.4",
-    "@types/three": "0.146.0",
+    "@types/three": "0.147.1",
     "@melchor629/hny-scripts": "^0.2.0"
   },
   "dependencies": {
