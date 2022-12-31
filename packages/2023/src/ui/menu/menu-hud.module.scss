@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: black;
+}
+
+.options {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  user-select: none;
+
+  &.intro1 {
+    top: calc(59px * var(--game-scale));
+    left: calc(10px * var(--game-scale));
+    row-gap: calc(24px * var(--game-scale));
+    transform: rotateZ(1.1deg) rotateY(-3deg);
+
+    > h1 {
+      color: #242714;
+      transform: rotateZ(-0.2deg);
+      text-shadow: 0 0 24px rgb(20 20 20 / 50%);
+    }
+
+    button {
+      border-color: #242714;
+      color: #242714;
+      text-shadow: 0 0 24px rgb(20 20 20 / 50%);
+      box-shadow: 0 0 20px rgb(20 20 20 / 40%);
+
+      &:focus {
+        background-color: rgb(36 39 20 / 0.25);
+        box-shadow: 0 0 24px 1px rgb(20 20 20 / 40%);
+      }
+    }
+  }
+
+  &.intro2 {
+    top: calc(44px * var(--game-scale));
+    left: calc(40px * var(--game-scale));
+    row-gap: calc(66px * var(--game-scale));
+    transform: rotateX(8deg) rotateY(6deg) rotateZ(0.5deg);
+
+    > h1 {
+      color: #fec63f;
+      text-shadow: 0 0 20px rgb(254 198 63 / 50%);
+    }
+
+    button {
+      border-color: #fec63f;
+      color: #fec63f;
+
+      &:focus {
+        background-color: rgb(254 198 63 / 0.25);
+      }
+    }
+  }
+
+  &.intro3 {
+    top: calc(56px * var(--game-scale));
+    left: calc(158px * var(--game-scale));
+    row-gap: calc(41px * var(--game-scale));
+    transform: rotateZ(4.8deg) rotateY(9deg);
+
+    > h1 {
+      color: #a22a18;
+      text-shadow: 0 0 20px rgb(162 42 24 / 0.75);
+    }
+
+    button {
+      border-color: hsl(8deg 74% 55%);
+      color: hsl(8deg 74% 55%);
+      text-shadow: 0 0 24px rgb(20 20 20 / 50%);
+      box-shadow: 0 0 20px rgb(20 20 20 / 40%);
+
+      &:focus {
+        background-color: hsl(8deg 74% 55% / 0.25);
+        box-shadow: 0 0 24px 1px rgb(20 20 20 / 40%);
+      }
+    }
+  }
+
+  > h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: calc(1rem * var(--game-scale));
+    margin: 0;
+  }
+
+  button {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+      Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  button {
+    border: transparent calc(1px * var(--game-scale)) solid;
+    border-radius: calc(1px * var(--game-scale));
+    background-color: transparent;
+    outline: none;
+    margin-inline: calc(0.125rem * var(--game-scale));
+    padding: calc(0.25rem * var(--game-scale)) calc(0.5rem * var(--game-scale));
+    font-size: calc(0.35rem * var(--game-scale));
+    opacity: 0.8;
+
+    &:focus {
+      opacity: 1;
+      transition: background-color 125ms ease-in-out, opacity 125ms ease-in-out;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.controls {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  font-family: 'Mali';
+  font-size: calc(0.4rem * var(--game-scale));
+  color: rgb(240 240 240 / 0.8);
+  backdrop-filter: blur(4px) brightness(1.25);
+
+  &.intro1,
+  &.intro3 {
+    backdrop-filter: blur(4px) brightness(0.75);
+  }
+
+  > div {
+    width: calc(100% - 1rem * var(--game-scale) * 2);
+    height: calc(100% - 1rem * var(--game-scale) * 2);
+    padding: calc(1rem * var(--game-scale));
+  }
+}

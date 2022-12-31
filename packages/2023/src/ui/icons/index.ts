@@ -1,0 +1,7 @@
+export { default as ArrowLeft } from './arrow-left'
+export { default as Fullscreen } from './fullscreen'
+export { default as FullscreenExit } from './fullscreen-exit'
+export { default as Instagram } from './instagram'
+export { default as Github } from './github'
+export { default as PersonHeart } from './person-heart'
+export { default as Twitter } from './twitter'

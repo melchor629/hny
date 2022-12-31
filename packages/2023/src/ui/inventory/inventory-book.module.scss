@@ -1,0 +1,95 @@
+.container {
+  overflow-y: scroll;
+  position: relative;
+
+  > .element {
+    height: calc(50px * var(--game-scale));
+    margin-block-end: calc(0.25rem * var(--game-scale));
+    padding: calc(0.125rem * var(--game-scale)) calc(0.25rem * var(--game-scale));
+    background-color: rgb(192 192 192 / 0.75);
+    border: calc(1px * var(--game-scale)) solid transparent;
+    border-radius: calc(3px * var(--game-scale));
+    transition: border-color 125ms ease-in-out;
+
+    display: grid;
+    column-gap: calc(0.25rem * var(--game-scale));
+    grid-auto-columns: max-content;
+    grid-template-columns: calc(50px * var(--game-scale)) auto calc(0.5rem * var(--game-scale));
+
+    &.element-selected {
+      border-color: hsl(262deg, 52%, 47%);
+    }
+
+    > div {
+      user-select: none;
+      font-size: calc(0.5rem * var(--game-scale));
+    }
+
+    > .element-photo {
+      width: calc(50px * var(--game-scale));
+      height: calc(50px * var(--game-scale));
+      background-position: center;
+      background-size: cover;
+      border-radius: calc(2px * var(--game-scale));
+    }
+
+    > .element-content {
+      word-break: break-word;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    > .element-new {
+      writing-mode: vertical-lr;
+      text-orientation: upright;
+      font-weight: bold;
+      color: hsl(262deg, 52%, 47%);
+    }
+  }
+
+  > .empty {
+    text-align: center;
+  }
+}
+
+.big-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(var(--game-width) - 0.5rem * var(--game-scale));
+  height: calc(var(--game-height) - 0.5rem * var(--game-scale)) !important; // sorry :(
+  display: flex;
+  justify-content: center;
+  background-color: rgb(208 202 192 / 0.75);
+  padding: calc(0.25rem * var(--game-scale)) !important; // sorry again :(((((
+
+  > figure {
+    max-width: calc(var(--game-width) - 3rem * var(--game-scale));
+    max-height: calc(var(--game-height) - 3rem * var(--game-scale));
+    margin: 0;
+    text-align: center;
+    border-radius: calc(2px * var(--game-scale));
+    border: calc(1px * var(--game-scale)) solid hsl(262deg, 52%, 47%);
+    background-color: antiquewhite;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    > figcaption {
+      margin-block-start: calc(0.125rem * var(--game-scale));
+      border-radius: calc(2px * var(--game-scale));
+      border: calc(1px * var(--game-scale)) solid hsl(262deg, 52%, 47%);
+      background-color: antiquewhite;
+      padding: calc(0.0625rem * var(--game-scale)) calc(0.125rem * var(--game-scale));
+
+      svg {
+        width: calc(0.4rem * var(--game-scale));
+        height: calc(0.4rem * var(--game-scale));
+        margin-inline-end: calc(0.1rem * var(--game-scale));
+      }
+    }
+  }
+}

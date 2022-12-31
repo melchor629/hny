@@ -8,11 +8,9 @@ const now = new Date()
 const years = [...Array(now.getFullYear() - fromYear + 1)].map((_, i) => fromYear + i)
 
 ;(async () => {
-  if (
-    process.env.NODE_ENV === 'production' &&
-    ((now.getMonth() === 0 && now.getDate() <= 6) || (now.getMonth() === 11 && now.getDate() >= 30))
-  ) {
-    const year = now.getFullYear() + (now.getMonth() === 0 ? 0 : 1)
+  const month = now.getMonth() + 1
+  if (process.env.NODE_ENV === 'production' && month === 1 && now.getDate() <= 6) {
+    const year = now.getFullYear() + (month === 1 ? 0 : 1)
     const res = await fetch(`/${year}/`, { method: 'HEAD' })
     if (res.ok) {
       window.location.assign(`/${year}/`)

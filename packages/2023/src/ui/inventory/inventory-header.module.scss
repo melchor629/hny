@@ -1,0 +1,46 @@
+.container {
+  --active-color: hsl(262 52% 47%);
+
+  display: flex;
+  padding: calc(0.25rem * var(--game-scale));
+  justify-content: center;
+  column-gap: calc(0.5rem * var(--game-scale));
+
+  > .button {
+    font-size: calc(0.75rem * var(--game-scale));
+    font-family: 'Mali';
+    padding-inline: calc(0.125rem * var(--game-scale));
+    border-block-end: calc(1px * var(--game-scale)) solid transparent;
+    cursor: pointer;
+    transition: all 75ms ease-in-out;
+
+    &:hover {
+      color: var(--active-color);
+    }
+
+    &.selected-button {
+      color: var(--active-color);
+    }
+
+    &.focused {
+      border-block-end-color: var(--active-color);
+    }
+  }
+
+  > .close-button {
+    border-radius: 9999px;
+    border: calc(1px * var(--game-scale)) solid black;
+    width: calc(1rem * var(--game-scale));
+    height: calc(1rem * var(--game-scale));
+    font-size: calc(0.85rem * var(--game-scale));
+    line-height: 1.2;
+    text-align: center;
+    cursor: pointer;
+    transition: all 75ms ease-in-out;
+
+    &:hover {
+      color: var(--active-color);
+      border-color: var(--active-color);
+    }
+  }
+}

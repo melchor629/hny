@@ -1,0 +1,111 @@
+.container {
+  --button-size: 42px;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 4rem);
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-block-end: 2rem;
+  padding-inline: 2rem;
+  touch-action: none;
+}
+
+.joystick {
+  --joystick-size: 100px;
+  --stick-size: calc(var(--joystick-size) / 3);
+
+  position: relative;
+  border-radius: 9999px;
+  background-color: hsla(262, 100%, 90%, 0.25);
+  border: 4px solid hsla(262, 60%, 60%, 0.75);
+  width: var(--joystick-size);
+  height: var(--joystick-size);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > .stick {
+    position: absolute;
+    border-radius: 9999px;
+    background-color: hsla(262, 52%, 47%, 0.75);
+    width: var(--stick-size);
+    height: var(--stick-size);
+    box-shadow: 0 0 10px 1px rgb(10 10 10 / 0.75);
+  }
+}
+
+.buttons {
+  > .interact-button,
+  > .cancel-interact-button {
+    width: var(--button-size);
+    height: var(--button-size);
+    border-radius: 9999px;
+    background-color: hsla(262 52% 47% / 0.75);
+    box-shadow: 0 0 10px 1px rgb(10 10 10 / 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans',
+      'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+      'Noto Color Emoji';
+    font-size: 1.5rem;
+    color: rgb(255 255 255 / 0.75);
+
+    &:active {
+      background-color: hsla(262 52% 47% / 0.95);
+    }
+  }
+
+  > .interact-button {
+    margin-block-end: 0.25rem;
+  }
+
+  > .cancel-interact-button {
+    transform: translateX(-30px);
+  }
+}
+
+.fullscreen-button {
+  width: var(--button-size);
+  height: var(--button-size);
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  border-radius: 9999px;
+  background-color: hsla(262 52% 47% / 1);
+  box-shadow: 0 0 10px 1px rgb(10 10 10 / 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  opacity: 0.45;
+
+  &:active {
+    opacity: 0.75;
+  }
+}
+
+.back-button {
+  width: var(--button-size);
+  height: var(--button-size);
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  border-radius: 9999px;
+  background-color: hsla(262 52% 47% / 1);
+  box-shadow: 0 0 10px 1px rgb(10 10 10 / 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  opacity: 0.45;
+
+  &:active {
+    opacity: 0.75;
+  }
+}

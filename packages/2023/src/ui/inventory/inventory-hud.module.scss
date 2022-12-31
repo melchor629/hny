@@ -1,0 +1,21 @@
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(230 230 230 / 0.75);
+  backdrop-filter: blur(2px) brightness(0.75);
+
+  --inventory-hud-header-height: 34px * var(--game-scale);
+
+  > .content {
+    font-family: 'Mali';
+    font-size: calc(0.4rem * var(--game-scale));
+    min-height: calc(var(--game-height) - var(--inventory-hud-header-height));
+
+    > div {
+      padding-block: calc(0.25rem * var(--game-scale));
+      padding-inline: calc(0.5rem * var(--game-scale));
+      height: calc(var(--game-height) - var(--inventory-hud-header-height));
+    }
+  }
+}

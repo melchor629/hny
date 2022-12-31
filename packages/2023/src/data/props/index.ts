@@ -1,0 +1,18 @@
+export {
+  doorClosedBottomLeftProp,
+  doorClosedBottomRightProp,
+  doorClosedLeftDownProp,
+  doorClosedLeftUpProp,
+  doorClosedRightDownProp,
+  doorClosedRightUpProp,
+  doorClosedTopLeftProp,
+  doorClosedTopRightProp,
+  doorOpenedBottomLeftProp,
+  doorOpenedBottomRightProp,
+  doorOpenedLeftDownProp,
+  doorOpenedLeftUpProp,
+  doorOpenedRightDownProp,
+  doorOpenedRightUpProp,
+  doorOpenedTopLeftProp,
+  doorOpenedTopRightProp,
+} from './doors'

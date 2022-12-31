@@ -5,5 +5,4 @@
 **/dist/
 **/.cache/
 /packages/*/files/
-
-/dist/
+/packages/*/.priv

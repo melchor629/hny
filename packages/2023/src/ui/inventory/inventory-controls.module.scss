@@ -1,0 +1,46 @@
+.container {
+  overflow-y: scroll;
+
+  h1 {
+    font-size: calc(0.75rem * var(--game-scale));
+    margin-block-start: 0;
+    margin-block-end: calc(0.5rem * var(--game-scale));
+  }
+
+  kbd {
+    display: inline-block;
+    color: hsl(262deg, 52%, 47%);
+    border: calc(1px * var(--game-scale)) solid hsl(262deg, 52%, 47%);
+    padding: calc(0.075rem * var(--game-scale)) calc(0.125rem * var(--game-scale));
+    border-radius: calc(2px * var(--game-scale));
+
+    &.small {
+      font-size: calc(0.25rem * var(--game-scale));
+      padding: calc(0.0375rem * var(--game-scale)) calc(0.0625rem * var(--game-scale));
+      vertical-align: text-bottom;
+    }
+  }
+
+  figure {
+    margin-block: calc(0.5rem * var(--game-scale));
+    margin-inline: calc(0.75rem * var(--game-scale));
+
+    > figcaption {
+      font-size: calc(0.37rem * var(--game-scale));
+    }
+  }
+
+  table {
+    vertical-align: baseline;
+
+    > thead {
+      font-size: calc(0.36rem * var(--game-scale));
+      border-block-end: calc(1px * var(--game-scale)) solid black;
+    }
+  }
+
+  > .marginator {
+    // an -inator that creates some margin
+    margin-block: calc(0.25rem * var(--game-scale));
+  }
+}

@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:ital@0;1&display=swap');
+
+.container {
+  flex-grow: 1;
+  font-family: 'Mali';
+  line-height: 1.15;
+
+  --effect-size: (var(--game-scale) - 1);
+}
+
+.finished-player,
+.finished-npc {
+  position: absolute;
+  display: inline-block;
+  bottom: calc(0.5rem * var(--game-scale));
+  font-family: 'Mali';
+  line-height: 1;
+  animation: next 5s ease-out infinite;
+}
+
+.finished-player {
+  right: calc(0.5rem * var(--game-scale));
+}
+
+.finished-npc {
+  right: calc((0.5rem + 32px + 0.5rem + 0.25rem) * var(--game-scale));
+}
+
+.choices {
+  position: absolute;
+  bottom: calc(((1rem + 30px) + 0.5rem + 0.25rem) * var(--game-scale));
+  right: calc(0.25rem * var(--game-scale));
+  padding: 0.125rem calc(0.25rem * var(--game-scale));
+  background-color: rgb(200 200 200 / 0.75);
+  border-radius: calc(1px * var(--game-scale));
+  display: flex;
+  flex-direction: column;
+  row-gap: calc(0.125rem * var(--game-scale));
+}
+
+.choice {
+  font-size: calc(10px * var(--game-scale));
+  padding-inline-start: calc(0.125rem * var(--game-scale));
+  padding-inline-end: calc(0.125rem * var(--game-scale));
+
+  &::before {
+    content: '>';
+    color: transparent;
+    padding-inline-end: calc(0.125rem * var(--game-scale));
+    font-size: calc(8px * var(--game-scale));
+    transition: color 75ms ease-in-out;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.choice-selected {
+    &::before {
+      color: black;
+    }
+  }
+}
+
+.crazy {
+  display: inline-block;
+  animation: crazy 500ms infinite;
+}
+
+@for $i from 1 to 10 {
+  .crazy-#{$i} {
+    animation-delay: $i * -50ms;
+  }
+}
+
+.wave {
+  display: inline-block;
+  animation: wave 600ms ease-in-out infinite alternate;
+}
+
+@for $i from 1 to 8 {
+  .wave-#{$i} {
+    animation-delay: $i * -125ms;
+  }
+}
+
+// TODO animation does not scale with HUD
+@keyframes next {
+  0% {
+    transform: translateX(0px);
+  }
+  5% {
+    transform: translateX(calc(1px * var(--effect-size)));
+  }
+  10% {
+    transform: translateX(0px);
+  }
+  15% {
+    transform: translateX(calc(1px * var(--effect-size)));
+  }
+  20% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes crazy {
+  0% {
+    transform: translate(calc(1px * var(--effect-size)), 0px);
+  }
+  10% {
+    transform: translate(calc(-1px * var(--effect-size)), calc(1px * var(--effect-size)));
+  }
+  20% {
+    transform: translate(calc(1px * var(--effect-size)), calc(-1px * var(--effect-size)));
+  }
+  30% {
+    transform: translate(calc(-1px * var(--effect-size)), calc(1px * var(--effect-size)));
+  }
+  40% {
+    transform: translate(0px, calc(1px * var(--effect-size)));
+  }
+  50% {
+    transform: translate(calc(-1px * var(--effect-size)), calc(-1px * var(--effect-size)));
+  }
+  60% {
+    transform: translate(0px, calc(1px * var(--effect-size)));
+  }
+  70% {
+    transform: translate(calc(-1px * var(--effect-size)), 0px);
+  }
+  80% {
+    transform: translate(calc(1px * var(--effect-size)), calc(-1px * var(--effect-size)));
+  }
+  90% {
+    transform: translate(0px, calc(1px * var(--effect-size)));
+  }
+  to {
+    transform: translate(calc(-1px * var(--effect-size)), 0px);
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translateY(calc(-1px * var(--effect-size)));
+  }
+  to {
+    transform: translateY(calc(1px * var(--effect-size)));
+  }
+}

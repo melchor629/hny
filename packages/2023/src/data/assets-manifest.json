@@ -1,0 +1,79 @@
+{
+  "assets": [
+    {
+      "type": "texture",
+      "name": "bricks-floor.png",
+      "src": "assets/textures/bricks-floor.png"
+    },
+    {
+      "type": "texture",
+      "name": "Walls.png",
+      "src": "assets/textures/Walls.png"
+    },
+    {
+      "type": "texture",
+      "name": "pj.png",
+      "src": "assets/textures/pj.png"
+    },
+    {
+      "type": "texture",
+      "name": "pj-mask.png",
+      "src": "assets/textures/pj-mask.png"
+    },
+    {
+      "type": "texture",
+      "name": "doors.png",
+      "src": "assets/textures/doors.png"
+    },
+    {
+      "type": "texture",
+      "name": "stuff.png",
+      "src": "assets/textures/stuff.png"
+    },
+    {
+      "type": "texture",
+      "name": "whodis.png",
+      "src": "assets/textures/whodis.png"
+    },
+    {
+      "type": "texture",
+      "name": "doge-samurai.png",
+      "src": "assets/textures/doge-samurai.png"
+    },
+    {
+      "type": "texture",
+      "name": "tomeu.png",
+      "src": "assets/textures/tomeu.png"
+    },
+    {
+      "type": "texture",
+      "name": "marina.png",
+      "src": "assets/textures/marina.png"
+    },
+    {
+      "type": "texture",
+      "name": "marisa.png",
+      "src": "assets/textures/marisa.png"
+    },
+    {
+      "type": "texture",
+      "name": "chris.png",
+      "src": "assets/textures/chris.png"
+    },
+    {
+      "type": "texture",
+      "name": "nap-guy-1.png",
+      "src": "assets/textures/nap-guy-1.png"
+    },
+    {
+      "type": "texture",
+      "name": "nap-guy-2.png",
+      "src": "assets/textures/nap-guy-2.png"
+    },
+    {
+      "type": "texture",
+      "name": "academia-room.png",
+      "src": "assets/textures/academia-room.png"
+    }
+  ]
+}

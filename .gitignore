@@ -3,5 +3,6 @@ dist
 build
 .cache/
 *.log
+.priv
 
 .vercel
