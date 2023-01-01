@@ -9,7 +9,7 @@ const stop = (e: any) => e.stopPropagation()
 
 function Link({ children, href }: PropsWithChildren<{ href: string }>) {
   return (
-    <a href={href} target="_blank" rel="noreferer" onPointerDown={stop}>
+    <a href={href} target="_blank" rel="noopener noreferrer" onPointerDown={stop}>
       {children}
     </a>
   )

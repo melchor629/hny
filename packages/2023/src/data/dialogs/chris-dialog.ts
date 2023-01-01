@@ -144,7 +144,7 @@ export const chrisAskingFavourDialog = newDialog('chris-asking-favour', null)
       b
         .text('Espera, ')
         .pause(900)
-        .text('¿fuiste tu el de la explosión mágica?')
+        .text('¿fuiste tu el de la explosión mágica? ')
         .pause(1400)
         .text('Encima, ')
         .pause(600)

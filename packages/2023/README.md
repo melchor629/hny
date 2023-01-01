@@ -2,7 +2,18 @@
 
 Let's play together!
 
-A small game, 2D isometric-like in your browser, to celebrate the new year. You are a wizard student (_aprendiz de mago_) which experiments with a spell that goes wrong. Your mission is to fix the mess down the dungeon. In there, you will have to solve several puzzles but also learn more about the world. Find them all!
+A small game, 2D isometric-like in your browser, to celebrate the new year. You are a wizard student (_aprendiz de mago_) which experiments with a spell that goes wrong. Your mission is to fix the mess down the dungeon. In there, you will have to solve several puzzles, talk to some people and also learn more about the world. Find them all!
+
+## Game Tips
+
+- Photos can be opened and will show them completely. Don't miss any of the photos!
+- Use your gamepad, if you like.
+- Mouse is useless - Touch controls work somehow - Keyboard or Gamepad are best.
+- Press F to fullscreen.
+- Some people will talk to you about the world (_lore time_).
+- There's more lore inside the code (dialogs in fact).
+- There are 3 easter eggs ;)
+- You can restart the game or complete the game in the book shelf in the first scenario.
 
 ## Internals
 
