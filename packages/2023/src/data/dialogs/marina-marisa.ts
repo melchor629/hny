@@ -820,7 +820,7 @@ export const marinaDialog = newDialog('marina', () => Math.trunc(Math.random() *
   .addEntry('q3:2', 'player', (builder) =>
     builder.setText((b) =>
       b
-        .text('No solo haré lo promeido, ')
+        .text('No solo haré lo prometido, ')
         .pause(1250)
         .text(' sino que también me pasaré a visitaros. ')
         .pause(1500)

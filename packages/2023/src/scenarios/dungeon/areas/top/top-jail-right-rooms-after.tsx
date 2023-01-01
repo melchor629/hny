@@ -16,9 +16,7 @@ import RightDoor from '../../doors/right-door'
 
 export default function TopJailRightRoomsAfter() {
   const isDoor6Open = useDungeonState((s) => s.doors.door6.isOpen)
-  const hasSpecialObject = useInventory(
-    (i) => !!i.inventory.find((i) => i.id === 'special-object')?.count,
-  )
+  const hasSpecialObject = useInventory((i) => !!i.inventory.find((i) => i.id === 'special-object'))
   const hasOpenedCrack = useDungeonState((s) => s.puzzle17 !== 'closed')
   const [isBlocked, setIsBlocked] = useState(false)
 

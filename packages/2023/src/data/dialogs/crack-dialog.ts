@@ -4,8 +4,7 @@ import { newDialog } from '../../types/dialogs'
 
 const crackDialog = newDialog('crack', () => ({
   hasShovel: !!useInventory.getState().inventory.find((i) => i.id === 'shovel')?.count,
-  hasSpecialObject: !!useInventory.getState().inventory.find((i) => i.id === 'special-object')
-    ?.count,
+  hasSpecialObject: !!useInventory.getState().inventory.find((i) => i.id === 'special-object'),
 }))
   .addEntry('text', 'player', (builder) =>
     builder.setText((b) =>

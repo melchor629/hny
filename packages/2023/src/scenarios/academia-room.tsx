@@ -127,7 +127,7 @@ function AcademiaRoomScenario({ onMapUpdate }: ScenarioProps) {
 
     loaded()
     if (previousScenario === 'dungeon') {
-      playerRef.current?.moveTo(128 + 94, 76)
+      playerRef.current?.moveTo(128 + 94, 96)
       playerRef.current!.dir = 'down'
     } else if (!intro) {
       if (playerRef.current) {

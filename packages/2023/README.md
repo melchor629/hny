@@ -1,6 +1,6 @@
 # Happy New Year 2023
 
-Let's play together!
+![player profile icon](public/assets/textures/pj-profile.png) Let's play together!
 
 A small game, 2D isometric-like in your browser, to celebrate the new year. You are a wizard student (_aprendiz de mago_) which experiments with a spell that goes wrong. Your mission is to fix the mess down the dungeon. In there, you will have to solve several puzzles, talk to some people and also learn more about the world. Find them all!
 
