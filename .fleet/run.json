@@ -1,0 +1,10 @@
+{
+  "configurations": [
+    {
+      "type": "command",
+      "name": "2023",
+      "program": "npm",
+      "args": ["start", "-w", "packages/2023"],
+    },
+  ]
+}
