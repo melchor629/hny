@@ -145,13 +145,13 @@ const photos: Readonly<Record<string, Photo>> = {
     thumbnailPath: 'assets/photos/photo-19-thumb.webp',
     path: 'assets/photos/photo-19.webp',
     text: 'Ir caminando sin rumbo y hallar la paz que no buscaba',
-    tip: 'Por la mazmorra, cerca del final.',
+    tip: 'Por la mazmorra, después de un boss, cerca del final.',
   },
   'photo-20': {
     thumbnailPath: 'assets/photos/photo-20-thumb.webp',
     path: 'assets/photos/photo-20.webp',
     text: 'Debts have to be paid.',
-    tip: 'Entre una puerta y un portal.',
+    tip: 'Entre una puerta rota y un portal. Mucho más cerca del final.',
   },
   'photo-21': {
     thumbnailPath: 'assets/photos/photo-21-thumb.webp',

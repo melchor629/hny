@@ -147,7 +147,10 @@ function AcademiaRoomScenario({ onMapUpdate }: ScenarioProps) {
           zoom: 2,
         })
 
-        await wait(3000)
+        fakeInput.focus()
+        await wait(1000)
+        fakeInput.focus()
+        await wait(1000)
         await useDialog.getState().reset(introDialog)
         fakeInput.focus()
 

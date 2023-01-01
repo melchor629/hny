@@ -1,6 +1,15 @@
-import { TouchEventHandler, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import {
+  TouchEventHandler,
+  useCallback,
+  useDeferredValue,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import { createPortal } from 'react-dom'
 import useDialog from '../../hooks/use-dialog'
+import useInput from '../../hooks/use-input'
 import useInventory from '../../hooks/use-inventory'
 import useScenario from '../../hooks/use-scenario'
 import handleFullscreen from '../../utils/handle-fullscreen'
@@ -27,10 +36,11 @@ export default function TouchInputHandler({
   const stickRef = useRef<HTMLDivElement>(null)
   const touchIdRef = useRef<number>()
   const touchStateRef = useRef<{ x: -1 | 0 | 1; y: -1 | 0 | 1 }>({ x: 0, y: 0 })
-  const isDialogOpen = useDialog((s) => s.dialog != null)
-  const isInventoryOpen = useInventory((s) => s.isOpen)
   const hasScenario = useScenario(useCallback((s) => (s.nextScenario || s.scenario) != null, []))
   const [isFullscreen, setFullscreen] = useState(false)
+  const [showControls, setShowControls] = useState(false)
+  const deferredShowControls = useDeferredValue(showControls)
+  const input = useInput()
 
   const joystickTranslation = useMemo(() => {
     if (!joystickCenter) {
@@ -193,11 +203,19 @@ export default function TouchInputHandler({
     return () => document.removeEventListener('fullscreenchange', handler, false)
   }, [])
 
+  useEffect(
+    () =>
+      input.onFocusChange((focus) => {
+        setShowControls(focus === 'player')
+      }),
+    [],
+  )
+
   if (navigator.maxTouchPoints === 0) {
     return null
   }
 
-  if (!hasScenario || isDialogOpen || isInventoryOpen) {
+  if (!hasScenario || !deferredShowControls) {
     return createPortal(
       <div className={styles.container}>
         {handleFullscreen.isEnabled && (
