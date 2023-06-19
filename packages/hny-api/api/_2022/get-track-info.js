@@ -1,4 +1,3 @@
-import fetch from 'node-fetch'
 import getCachedValue from './get-cached-value.js'
 
 const spotifyClientSettings = {
