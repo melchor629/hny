@@ -14,4 +14,4 @@ RUN npm run dist
 FROM nginx:alpine
 
 COPY docker/nginx/ /etc/nginx/conf.d/
-COPY --from=builder /app/dist/ /usr/share/nginx/html
+COPY --from=builder --chown=nginx:nginx /app/dist/ /usr/share/nginx/html
