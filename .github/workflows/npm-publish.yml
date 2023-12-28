@@ -3,7 +3,7 @@ name: Node.js Package
 on:
   # Publish npm package when this tag is created
   push:
-    tags: [ '@melchor629/hny-scripts@*.*.*' ]
+    tags: ['@melchor629/hny-scripts@*.*.*']
 
 jobs:
   publish:
@@ -12,8 +12,8 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 14
           registry-url: https://npm.pkg.github.com
