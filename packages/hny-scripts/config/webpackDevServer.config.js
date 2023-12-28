@@ -2,6 +2,7 @@ import * as paths from './paths.js'
 
 const host = process.env.HOST || '0.0.0.0'
 const port = parseInt(process.env.PORT || '3000', 10)
+const all = host === '0.0.0.0' || host === '::'
 
 export default function webpackDevServerConfig() {
   return {
@@ -11,6 +12,7 @@ export default function webpackDevServerConfig() {
     },
     hot: true,
     host,
+    allowedHosts: all ? 'all' : undefined,
     port,
     historyApiFallback: {
       disableDotRule: true,
@@ -22,7 +24,7 @@ export default function webpackDevServerConfig() {
       watch: false,
     },
     open:
-      host === '0.0.0.0' || host === '::'
+    all
         ? `http://localhost:${port}${paths.publicPath}`
         : paths.publicPath,
   }
