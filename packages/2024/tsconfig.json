@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "ES2022",
+    "target": "ES2022",
+    "jsx": "react-jsx",
+    "strict": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "noEmit": true
+  }
+}

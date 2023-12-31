@@ -1,0 +1,87 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: 100dvh;
+  background-color: rgb(0 0 0 / 66%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  user-select: none;
+
+  > div {
+    padding-inline: 1rem;
+    text-align: center;
+  }
+
+  .text1 {
+    font-size: 2rem;
+  }
+
+  .text2 {
+    font-size: 4rem;
+    margin-block: 1rem;
+    background: linear-gradient(
+      325deg,
+      hsl(0deg 70% 60%),
+      hsl(45deg 70% 60%),
+      hsl(90deg 70% 60%),
+      hsl(135deg 70% 60%),
+      hsl(180deg 70% 60%),
+      hsl(225deg 70% 60%),
+      hsl(270deg 70% 60%),
+      hsl(315deg 70% 60%),
+      hsl(360deg 70% 60%)
+    );
+    background-size: 1800% 1800%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: yay2 6s linear infinite;
+  }
+
+  .button {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    font-size: 1.5rem;
+    padding-block: 0.5rem;
+    padding-inline: 0.75rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: transform 200ms ease-in-out;
+
+    &:hover {
+      transform: scale(1.15);
+      animation: yay 6s linear infinite;
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}
+
+@keyframes yay {
+  0% { color: hsl(0deg 70% 60%); border-color: hsl(0deg 70% 60%); }
+  12% { color: hsl(45deg 70% 60%); border-color: hsl(45deg 70% 60%); }
+  25% { color: hsl(90deg 70% 60%); border-color: hsl(90deg 70% 60%); }
+  37% { color: hsl(135deg 70% 60%); border-color: hsl(135deg 70% 60%); }
+  50% { color: hsl(180deg 70% 60%); border-color: hsl(180deg 70% 60%); }
+  62% { color: hsl(225deg 70% 60%); border-color: hsl(225deg 70% 60%); }
+  75% { color: hsl(270deg 70% 60%); border-color: hsl(270deg 70% 60%); }
+  87% { color: hsl(315deg 70% 60%); border-color: hsl(315deg 70% 60%); }
+  100% { color: hsl(360deg 70% 60%); border-color: hsl(360deg 70% 60%); }
+}
+
+@keyframes yay2 {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}

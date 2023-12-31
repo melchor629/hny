@@ -23,9 +23,6 @@ export default function webpackDevServerConfig() {
       publicPath: paths.publicPath,
       watch: false,
     },
-    open:
-    all
-        ? `http://localhost:${port}${paths.publicPath}`
-        : paths.publicPath,
+    open: all ? `http://localhost:${port}${paths.publicPath}` : paths.publicPath,
   }
 }

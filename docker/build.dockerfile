@@ -5,7 +5,7 @@ COPY package.json package-lock.json .npmrc ./
 COPY ./packages/ /app/packages/
 RUN npm ci
 
-RUN npm run build --workspaces
+RUN npm run build --workspaces --if-present
 
 COPY ./scripts/ /app/scripts/
 RUN npm run dist
