@@ -15,7 +15,7 @@ export default (renderer, scene, camera) => {
 
   const unrealBloomPass = new UnrealBloomPass(
     new Vector2(window.innerWidth, window.innerHeight),
-    1.5,
+    1.0,
     0.4,
     0.1,
   )
