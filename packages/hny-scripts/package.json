@@ -11,7 +11,7 @@
     "directory": "packages/hny-scripts"
   },
   "engines": {
-    "node": "^14.13.1 || >=16.0.0"
+    "node": "^>=18.0.0"
   },
   "author": "melchor9000",
   "license": "MIT",
@@ -30,8 +30,8 @@
     "browserslist": "^4.16.6",
     "chalk": "^5.2.0",
     "css-loader": "^6.2.0",
-    "css-minimizer-webpack-plugin": "^4.0.0",
-    "fork-ts-checker-webpack-plugin": "^8.0.0",
+    "css-minimizer-webpack-plugin": "^5.0.0",
+    "fork-ts-checker-webpack-plugin": "^9.0.0",
     "fs-extra": "^11.1.0",
     "gzip-size": "^7.0.0",
     "html-webpack-plugin": "^5.3.1",
@@ -40,7 +40,7 @@
     "postcss": "^8.4.31",
     "postcss-loader": "^7.0.1",
     "postcss-normalize": "^10.0.0",
-    "postcss-preset-env": "^7.0.0",
+    "postcss-preset-env": "^9.0.0",
     "react-refresh": "^0.14.0",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.35.1",

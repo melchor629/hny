@@ -7,10 +7,10 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@react-spring/three": "^9.2.4",
-    "@react-three/drei": "^9.17.1",
-    "@react-three/fiber": "^8.2.0",
-    "@react-three/postprocessing": "^2.0.5",
+    "@react-spring/three": "~9.6.0",
+    "@react-three/drei": "~9.48.0",
+    "@react-three/fiber": "~8.9.0",
+    "@react-three/postprocessing": "~2.0.5",
     "@styled-icons/material": "^10.28.0",
     "lodash-es": "^4.17.20",
     "prop-types": "^15.7.2",
@@ -18,7 +18,7 @@
     "react-dom": "^18.2.0",
     "use-asset": "^1.0.4",
     "three": "0.146.0",
-    "zustand": "^4.1.5"
+    "zustand": "~4.2.0"
   },
   "devDependencies": {
     "@melchor629/hny-scripts": "^0.2.0",
