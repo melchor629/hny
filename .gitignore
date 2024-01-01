@@ -5,4 +5,12 @@ build
 *.log
 .priv
 
+# external files
+!packages/*/public/
+packages/*/public/*
+!packages/*/public/.gitkeep
+!packages/*/files/
+packages/*/files/*
+!packages/*/files/.gitkeep
+
 .vercel
