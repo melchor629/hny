@@ -31,7 +31,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Pull assets
-        run: ./scrips/assets.sh pull
+        run: ./scripts/assets.sh pull
 
       # Log in into the registry
       - name: Log into registry ${{ env.REGISTRY }}
