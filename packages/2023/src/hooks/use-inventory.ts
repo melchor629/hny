@@ -1,5 +1,6 @@
-import createStore from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
+import { shallow } from 'zustand/shallow'
+import { createWithEqualityFn } from 'zustand/traditional'
 import serializer from './state-serializer'
 import useNotifications from './use-notifications'
 
@@ -62,7 +63,7 @@ const initialState = {
   inventoryNumbers: [-1, -1] as const,
 }
 
-const useInventory = createStore(
+const useInventory = createWithEqualityFn(
   persist(
     devtools<State>(
       (set) => ({
@@ -221,6 +222,7 @@ const useInventory = createStore(
       ...serializer,
     },
   ),
+  shallow,
 )
 
 export default useInventory

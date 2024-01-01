@@ -1,5 +1,6 @@
-import createStore from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
+import { shallow } from 'zustand/shallow'
+import { createWithEqualityFn } from 'zustand/traditional'
 import serializer from './state-serializer'
 
 interface State {
@@ -22,7 +23,7 @@ const initialState = {
   ending: false,
 }
 
-const useAcademiaRoomState = createStore(
+const useAcademiaRoomState = createWithEqualityFn(
   persist(
     devtools<State>(
       (set) => ({
@@ -67,6 +68,7 @@ const useAcademiaRoomState = createStore(
       ...serializer,
     },
   ),
+  shallow,
 )
 
 export default useAcademiaRoomState

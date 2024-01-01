@@ -1,5 +1,6 @@
-import createStore from 'zustand'
 import { devtools } from 'zustand/middleware'
+import { shallow } from 'zustand/shallow'
+import { createWithEqualityFn } from 'zustand/traditional'
 import inventory from '../data/inventory'
 import photos from '../data/photos'
 import type { PixiMovie } from '../types/pixi-movie'
@@ -22,7 +23,7 @@ interface State {
 
 let nid = 0
 
-const useNotifications = createStore(
+const useNotifications = createWithEqualityFn(
   devtools<State>(
     (set, get) => ({
       notifications: [],
@@ -93,6 +94,7 @@ const useNotifications = createStore(
     }),
     { enabled: import.meta.env.DEV, name: 'notifications' },
   ),
+  shallow,
 )
 
 export default useNotifications

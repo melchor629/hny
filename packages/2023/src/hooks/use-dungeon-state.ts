@@ -1,5 +1,6 @@
-import createStore from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
+import { shallow } from 'zustand/shallow'
+import { createWithEqualityFn } from 'zustand/traditional'
 import serializer from './state-serializer'
 
 type DoorIds =
@@ -70,7 +71,7 @@ const initialState = {
   napGuyState: ['sleep', 'sleep'] as const,
 }
 
-const useDungeonState = createStore(
+const useDungeonState = createWithEqualityFn(
   persist(
     devtools<State>(
       (set) => ({
@@ -205,6 +206,7 @@ const useDungeonState = createStore(
       ...serializer,
     },
   ),
+  shallow,
 )
 
 export default useDungeonState

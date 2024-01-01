@@ -2,7 +2,7 @@
   "name": "@melchor629/hny-scripts",
   "version": "0.3.0",
   "description": "Scripts that helps develop and build other HNY projects",
-  "exports": "./bin/hny-scripts.js",
+  "exports": "./types.js",
   "types": "./types.d.ts",
   "type": "module",
   "repository": {

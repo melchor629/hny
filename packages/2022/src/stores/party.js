@@ -1,6 +1,7 @@
 import { shuffle } from 'lodash-es'
 import { Color } from 'three'
-import create from 'zustand'
+import { shallow } from 'zustand/shallow'
+import { createWithEqualityFn } from 'zustand/traditional'
 
 // yep, 2014s material colors
 const colors = [
@@ -27,30 +28,33 @@ const colors = [
   '#FAFAFA',
 ].map((c) => new Color(c))
 
-const usePartyStore = create((set) => ({
-  colour: new Color('#fff'),
-  shouldExplodeIn: -1,
-  partyStarted: false,
-  endParty: false,
+const usePartyStore = createWithEqualityFn(
+  (set) => ({
+    colour: new Color('#fff'),
+    shouldExplodeIn: -1,
+    partyStarted: false,
+    endParty: false,
 
-  beat: () =>
-    set(({ colour, shouldExplodeIn }) => {
-      if (shouldExplodeIn === 1) {
-        return { shouldExplodeIn, endParty: true }
-      }
+    beat: () =>
+      set(({ colour, shouldExplodeIn }) => {
+        if (shouldExplodeIn === 1) {
+          return { shouldExplodeIn, endParty: true }
+        }
 
-      let newColour = colour
-      while (newColour.equals(colour)) {
-        ;[newColour] = shuffle(colors)
-      }
+        let newColour = colour
+        while (newColour.equals(colour)) {
+          ;[newColour] = shuffle(colors)
+        }
 
-      return {
-        colour: newColour,
-        shouldExplodeIn: Math.max(-1, shouldExplodeIn - 1),
-      }
-    }),
-  markExploding: () => set(() => ({ shouldExplodeIn: 4 })),
-  letsParty: () => set(() => ({ partyStarted: true })),
-}))
+        return {
+          colour: newColour,
+          shouldExplodeIn: Math.max(-1, shouldExplodeIn - 1),
+        }
+      }),
+    markExploding: () => set(() => ({ shouldExplodeIn: 4 })),
+    letsParty: () => set(() => ({ partyStarted: true })),
+  }),
+  shallow,
+)
 
 export default usePartyStore

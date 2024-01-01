@@ -15,7 +15,7 @@
     "react-dom": "^18.2.0",
     "three": "0.160.0",
     "ts-chacha20": "^1.2.0",
-    "zustand": "~4.2.0"
+    "zustand": "~4.4.0"
   },
   "devDependencies": {
     "@melchor629/hny-scripts": "^0.3.0",

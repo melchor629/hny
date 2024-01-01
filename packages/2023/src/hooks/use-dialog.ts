@@ -1,5 +1,6 @@
-import createStore from 'zustand'
 import { devtools } from 'zustand/middleware'
+import { shallow } from 'zustand/shallow'
+import { createWithEqualityFn } from 'zustand/traditional'
 import type { Dialog, DialogEntry } from '../types/dialogs'
 
 interface State<DialogState> {
@@ -20,7 +21,7 @@ interface State<DialogState> {
   setFinished(): void
 }
 
-const useDialog = createStore(
+const useDialog = createWithEqualityFn(
   devtools<State<any>>(
     (set) => ({
       currentEntry: null,
@@ -168,6 +169,7 @@ const useDialog = createStore(
     }),
     { enabled: import.meta.env.DEV, name: 'dialog' },
   ),
+  shallow,
 )
 
 export default useDialog

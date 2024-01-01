@@ -1,1 +1,3 @@
 import 'vite/client'
+
+export {}

@@ -1,5 +1,6 @@
-import create from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
+import { shallow } from 'zustand/shallow'
+import { createWithEqualityFn } from 'zustand/traditional'
 import { getRandomObject } from '../objects'
 import { getAllIds } from '../objects/logic'
 
@@ -22,7 +23,7 @@ type State = Readonly<{
   nextGift?: GiftId
 }>
 
-const useGiftStatus = create(
+const useGiftStatus = createWithEqualityFn(
   persist(
     devtools<State>(
       () => ({
@@ -39,6 +40,7 @@ const useGiftStatus = create(
       name: 'me.melchor9000.2024',
     },
   ),
+  shallow,
 )
 
 const appearing = () => {

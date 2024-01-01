@@ -6,7 +6,7 @@
     "strict": true,
     "strictNullChecks": true,
     "skipLibCheck": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": true,

@@ -1,5 +1,6 @@
-import createStore from 'zustand'
 import { devtools } from 'zustand/middleware'
+import { shallow } from 'zustand/shallow'
+import { createWithEqualityFn } from 'zustand/traditional'
 import type { Scenarios } from '../types/scenario'
 
 interface State {
@@ -14,7 +15,7 @@ interface State {
   isLoading(scenario: Scenarios): boolean
 }
 
-const useScenario = createStore(
+const useScenario = createWithEqualityFn(
   devtools<State>(
     (set, get) => ({
       loading: false,
@@ -60,6 +61,7 @@ const useScenario = createStore(
     }),
     { enabled: import.meta.env.DEV, name: 'scenario' },
   ),
+  shallow,
 )
 
 export default useScenario
