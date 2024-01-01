@@ -56,7 +56,7 @@ const useAcademiaRoomState = createStore(
           set(() => initialState, false, { type: 'academia-room:reset' })
         },
       }),
-      { enabled: process.env.NODE_ENV !== 'production', name: 'academia-room-state' },
+      { enabled: import.meta.env.DEV, name: 'academia-room-state' },
     ),
     {
       name: 'fan:2023:academia-room',

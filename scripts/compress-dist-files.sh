@@ -29,7 +29,6 @@ function can_be_compressed() {
     text/* ) return 0 ;;
     ** )
       case "$2" in
-        *.glb ) return 0 ;;
         ** ) return 1 ;;
       esac
   esac

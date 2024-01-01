@@ -21,13 +21,13 @@
   "dependencies": {
     "d3-ease": "^3.0.1",
     "lodash-es": "^4.17.15",
-    "three": "0.148.0"
+    "three": "0.160.0"
   },
   "devDependencies": {
-    "@types/three": "0.147.1",
+    "@types/three": "0.160.0",
     "@types/d3-ease": "^3.0.0",
     "@types/lodash-es": "^4.17.4",
-    "@melchor629/hny-scripts": "^0.2.0"
+    "@melchor629/hny-scripts": "^0.3.0"
   },
   "homepage": "/2020/",
   "browserslist": {

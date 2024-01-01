@@ -3,7 +3,6 @@ import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
 import { TheEffects, ThePart, TheProgress } from './components'
 import TheScene from './the-scene'
-import './styles.css'
 
 export default function App() {
   return (

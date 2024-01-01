@@ -1,6 +1,4 @@
 import { styler, tween, chain, svg, easing, everyFrame, keyframes } from 'popmotion'
-import './material.css'
-import './styles.css'
 
 if (document.body.clientWidth <= 1200) {
   alert('Debes usar un ordenador para ver esto, y que sea 1280px mínimo')

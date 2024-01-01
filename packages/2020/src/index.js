@@ -10,7 +10,7 @@ import {
   Vector3,
   WebGLRenderer,
 } from 'three'
-import { clamp } from 'lodash-es'
+import clamp from 'lodash-es/clamp'
 import { easeCubicIn } from 'd3-ease'
 import Stats from 'three/examples/jsm/libs/stats.module'
 import colors from './colors'
@@ -18,7 +18,6 @@ import loadData from './loaders'
 import * as modes from './modes'
 import createComposer from './post-processing'
 import stars from './stars'
-import './styles.css'
 
 Cache.enabled = true
 
@@ -28,7 +27,7 @@ const audioObjects = new Map()
 
 //Scene
 const scene = new Scene()
-scene.background = new Color(0x111111)
+scene.background = new Color(0x111111).setHex(0x111111, 'srgb-linear')
 
 //Camera
 const camera = new PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 1500)
@@ -38,11 +37,11 @@ camera.add(listener)
 const cameraTarget = new Vector3(0, 0, 0)
 
 //Lights
-const dirLight = new DirectionalLight(0xffffff, 0.256)
+const dirLight = new DirectionalLight(new Color().setHex(0xffffff, 'srgb-linear'), 0.256 * 4)
 dirLight.position.set(0, 0, 1).normalize()
 scene.add(dirLight)
 
-const pointLight = new PointLight(0xffffff, 1.5)
+const pointLight = new PointLight(dirLight.color, 1.5 * 256, 0, 1)
 pointLight.position.set(0, 100, 90)
 scene.add(pointLight)
 
@@ -57,7 +56,7 @@ const composer = createComposer(renderer, scene, camera)
 
 //Stats
 const stats = new Stats()
-if (process.env.NODE_ENV !== 'production') {
+if (import.meta.env.DEV) {
   document.body.append(stats.dom)
 }
 
@@ -265,6 +264,7 @@ const animate = (time) => {
 
   pointLight.color = colors[state.color % colors.length]
   stars.material.color = pointLight.color
+  dirLight.color = pointLight.color
 
   if (state.effect > 0) {
     state.effect -= delta
@@ -275,7 +275,7 @@ const animate = (time) => {
   requestAnimationFrame(animate)
   lastTime = time
 
-  if (process.env.NODE_ENV !== 'production') {
+  if (import.meta.env.DEV) {
     stats.update()
   }
 }

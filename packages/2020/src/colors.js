@@ -1,4 +1,4 @@
-import { shuffle } from 'lodash-es'
+import shuffle from 'lodash-es/shuffle'
 import { Color } from 'three'
 
 const colors = [
@@ -24,6 +24,6 @@ const colors = [
     '#9E9E9E',
     '#607D8B',
   ]),
-].map((c) => new Color(c))
+].map((c) => new Color().setStyle(c, 'srgb-linear'))
 
 export default colors

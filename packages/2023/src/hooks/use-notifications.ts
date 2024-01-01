@@ -91,7 +91,7 @@ const useNotifications = createStore(
         )
       },
     }),
-    { enabled: process.env.NODE_ENV !== 'production', name: 'notifications' },
+    { enabled: import.meta.env.DEV, name: 'notifications' },
   ),
 )
 

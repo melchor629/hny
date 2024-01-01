@@ -1,8 +1,8 @@
 import { useFrame } from '@react-three/fiber'
 import { forwardRef, useCallback, useEffect, useRef, useState } from 'react'
 import { Box2, Matrix3, Object3D, ShaderMaterial, Vector2 } from 'three'
-import fragmentShader from '../data/shaders/prop.frag.glsl'
-import vertexShader from '../data/shaders/prop.vert.glsl'
+import fragmentShader from '../data/shaders/prop.frag.glsl?raw'
+import vertexShader from '../data/shaders/prop.vert.glsl?raw'
 import spritesheet from '../data/spritesheets/pj.json'
 import useInput from '../hooks/use-input'
 import useSpritesheet from '../hooks/use-spritesheet'
@@ -379,7 +379,7 @@ const Player = forwardRef<Player, PlayerProps>(function Player({ collisions }, r
             ref(groupRef.current!)
           } else if (ref && typeof ref === 'object') {
             ref.current = groupRef.current!
-            if (process.env.NODE_ENV !== 'production') {
+            if (import.meta.env.DEV) {
               // @ts-ignore
               window.player = groupRef.current!
             }

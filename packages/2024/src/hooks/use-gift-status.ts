@@ -31,7 +31,7 @@ const useGiftStatus = create(
         giftsVisited: [],
       }),
       {
-        enabled: process.env.NODE_ENV !== 'production',
+        enabled: import.meta.env.DEV,
         name: 'gift-status',
       },
     ),
@@ -66,12 +66,12 @@ const opening = () => {
         giftsVisited: giftsVisited.includes(gift)
           ? giftsVisited
           : gift === 'all'
-          ? [
-              ...giftsVisited,
-              gift,
-              ...getAllIds().filter((v) => !giftsVisited.includes(v) && v !== gift),
-            ]
-          : [...giftsVisited, gift],
+            ? [
+                ...giftsVisited,
+                gift,
+                ...getAllIds().filter((v) => !giftsVisited.includes(v) && v !== gift),
+              ]
+            : [...giftsVisited, gift],
       },
       undefined,
       'opening',

@@ -21,10 +21,10 @@
   "dependencies": {
     "@babel/runtime": "^7.14.6",
     "animejs": "^3.2.0",
-    "bootstrap": "^4.5.0"
+    "bootstrap": "^5.0.0"
   },
   "devDependencies": {
-    "@melchor629/hny-scripts": "^0.2.0",
+    "@melchor629/hny-scripts": "^0.3.0",
     "@types/animejs": "^3.1.1"
   },
   "homepage": "/2019/",

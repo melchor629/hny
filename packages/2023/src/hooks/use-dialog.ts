@@ -166,7 +166,7 @@ const useDialog = createStore(
         set(() => ({ finished: true }), false, { type: 'dialog:finished' })
       },
     }),
-    { enabled: process.env.NODE_ENV !== 'production', name: 'dialog' },
+    { enabled: import.meta.env.DEV, name: 'dialog' },
   ),
 )
 

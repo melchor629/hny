@@ -1,4 +1,4 @@
-import { OrbitControls, Preload, Stars } from '@react-three/drei'
+import { OrbitControls, Preload, SoftShadows, Stars } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
 import { DirectionalLight, PCFSoftShadowMap } from 'three'
@@ -20,6 +20,7 @@ export default function App() {
           scene.add(camera)
         }}
       >
+        <SoftShadows samples={16} size={16} />
         <Stars radius={500} depth={50} count={5000} factor={20} saturation={0} fade speed={1} />
         <ambientLight args={['white', 0.05]} />
 

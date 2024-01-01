@@ -1,6 +1,6 @@
 import { debounce } from 'lodash-es'
 
-const opacityClass = 'o-0'
+const opacityClass = 'opacity-0'
 
 /**
  * Starts event listeners for the container.

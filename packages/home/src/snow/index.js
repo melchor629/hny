@@ -14,6 +14,7 @@ const camera = new PerspectiveCamera(75, getAspectRatio(), 0.1, 50)
 const renderer = new WebGLRenderer({
   antialias: false,
   powerPreference: 'low-power',
+  stencil: false,
 })
 
 renderer.setClearColor('rgb(25, 25, 25)')

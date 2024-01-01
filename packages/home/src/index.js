@@ -1,7 +1,5 @@
 import snow from './snow'
 import hnyContainer from './hny-container'
-import 'tachyons'
-import './home.css'
 
 const fromYear = 2018
 const now = new Date()
@@ -9,7 +7,7 @@ const years = [...Array(now.getFullYear() - fromYear + 1)].map((_, i) => fromYea
 
 ;(async () => {
   const month = now.getMonth() + 1
-  if (process.env.NODE_ENV === 'production' && month === 1 && now.getDate() <= 6) {
+  if (import.meta.env.PROD && month === 1 && now.getDate() <= 6) {
     const year = now.getFullYear() + (month === 1 ? 0 : 1)
     const res = await fetch(`/${year}/`, { method: 'HEAD' })
     if (res.ok) {
@@ -24,19 +22,20 @@ const years = [...Array(now.getFullYear() - fromYear + 1)].map((_, i) => fromYea
     linkElement.target = '_blank'
     linkElement.text = year.toString()
     linkElement.classList.add(
-      'dib',
+      'inline-block',
       'w-100',
-      'pv2',
-      'ph4',
-      'br3',
+      'py-2',
+      'px-4',
+      'rounded-lg',
       'no-underline',
-      'white',
-      'bg-dark-green',
-      'dim',
+      'text-white',
+      'bg-green-800',
+      'hover:opacity-70',
+      'transition-opacity',
     )
 
     const liElement = document.createElement('li')
-    liElement.classList.add('lh-copy', 'mb2')
+    liElement.classList.add('leading-normal', 'mb-2')
     liElement.appendChild(linkElement)
 
     yearsListElement.appendChild(liElement)

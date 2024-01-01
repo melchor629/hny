@@ -14,16 +14,24 @@
       content="Collection of different 'Happy New Year' web pages - melchor9000/fan"
     />
     <meta property="og:url" content="https://fan.melchor9000.me" />
+
+    <link rel="stylesheet" href="src/home.css" />
   </head>
 
-  <body class="ma0 sans-serif">
-    <div class="w-100 h-100 absolute top-0 left-0 z--1" id="canvas-container"></div>
+  <body class="m-0 font-sans">
+    <div class="w-full h-full absolute top-0 left-0 -z-[1]" id="canvas-container"></div>
     <div
-      class="container flex flex-column justify-center items-center h-100 z-1 o-0 o-animate anim-1000"
+      class="w-full h-full flex flex-col justify-center items-center h-100 z-[1] opacity-0 transition-opacity duration-1000"
       id="hny-container"
     >
-      <h1 class="green no-select">Happy new years</h1>
-      <ul id="years-list" class="list pl0 measure center"></ul>
+      <h1
+        class="text-2xl text-green-100 px-2 py-1 rounded-md bg-green-700 mb-2 select-none pointer-events-none"
+      >
+        Happy new years
+      </h1>
+      <ul id="years-list" class="pl-0"></ul>
     </div>
+
+    <script type="module" src="src/index.js"></script>
   </body>
 </html>

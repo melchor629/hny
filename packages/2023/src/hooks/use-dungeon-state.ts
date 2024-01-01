@@ -194,7 +194,7 @@ const useDungeonState = createStore(
           set(() => initialState, false, { type: 'dungeon:reset' })
         },
       }),
-      { enabled: process.env.NODE_ENV !== 'production', name: 'dungeon-state' },
+      { enabled: import.meta.env.DEV, name: 'dungeon-state' },
     ),
     {
       name: 'fan:2023:dungeon',

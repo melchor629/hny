@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
-import { softShadows } from '@react-three/drei'
+import { SoftShadows } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import * as THREE from 'three'
 import { FullscreenButton, Scene } from './components'
 import styles from './app.module.css'
-import './styles.css'
-
-softShadows()
 
 export default function App() {
   const [container, setRef] = useState()
@@ -23,9 +20,8 @@ export default function App() {
           antialias: false,
           stencil: false,
           depth: false,
-          physicallyCorrectLights: true,
         }}
-        dpr={process.env.NODE_ENV === 'development' ? 1 : window.devicePixelRatio}
+        dpr={import.meta.env.DEV ? 1 : window.devicePixelRatio}
         onCreated={({ gl, camera }) => {
           camera.position.set(-1.81241, 1.21982, 8.148)
           camera.lookAt(-1.81241, 2.21982, 0)
@@ -34,6 +30,7 @@ export default function App() {
           gl.toneMapping = THREE.NoToneMapping
         }}
       >
+        <SoftShadows />
         {container && <Scene container={container} />}
       </Canvas>
       {container && <FullscreenButton target={container} />}

@@ -38,7 +38,7 @@ const renderLoop = (delta, camera) => {
 
   geometry.attributes.position.needsUpdate = true
 
-  if (process.env.NODE_ENV !== 'production') {
+  if (import.meta.env.DEV) {
     if (!window.project) window.project = (x, y, z = 0) => new Vector3(x, y, z).project(camera)
     if (!window.unproject)
       window.unproject = (x, y, z = 0) => new Vector3(x, y, z).unproject(camera)

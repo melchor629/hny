@@ -1,6 +1,7 @@
 import { Preload } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
+import { OrthographicCamera } from 'three'
 import RenderloopPauser from './objects/renderloop-pauser'
 import GlobalScenario from './scenarios/global'
 
@@ -23,13 +24,13 @@ export default function GameCanvas({ width, height, scale }: GameCanvasProps) {
       dpr={1}
       onCreated={(state) => {
         const rescale = (w: number, h: number, s: number) => {
-          if (state.camera.type === 'PerspectiveCamera') {
-            state.camera.aspect = w / h
-          } else {
+          if (state.camera instanceof OrthographicCamera) {
             state.camera.top = h
             state.camera.left = 0
             state.camera.right = w
             state.camera.bottom = 0
+          } else {
+            state.camera.aspect = w / h
           }
           state.camera.updateProjectionMatrix()
         }
@@ -43,7 +44,7 @@ export default function GameCanvas({ width, height, scale }: GameCanvasProps) {
         state.scene.matrixAutoUpdate = false
         state.scene.matrixWorldAutoUpdate = false
 
-        if (process.env.NODE_ENV !== 'production') {
+        if (import.meta.env.DEV) {
           // @ts-ignore
           window.camera = state.camera
           // @ts-ignore

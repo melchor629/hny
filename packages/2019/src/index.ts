@@ -3,8 +3,6 @@ import anime from 'animejs'
 import { EventListener, PressListener } from './press-listener'
 import { wait, randomPosOnScreen } from './utils'
 
-import './styles.scss'
-
 let PreTextsAnimation: typeof import('./texts').PreTextsAnimation
 let HappyNewYearAnimation: typeof import('./texts').HappyNewYearAnimation
 let Fireworks: typeof import('./fireworks').Fireworks

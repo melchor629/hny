@@ -1,23 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  background-color: rgb(25, 25, 25);
-}
-
-.no-select {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  pointer-events: none;
-}
-
-.o-animate {
-  transition-property: opacity;
-}
-
-.anim-1000 {
-  transition-duration: 1s;
-}
-
-.z--1 {
-  z-index: -1;
+  background-color: rgb(25 25 25);
 }

@@ -4,7 +4,10 @@ import { Color, Vector3 } from 'three'
 import { temperatureToColour } from '../fns'
 import { usePartyStore, usePartStore } from '../stores'
 
-const starColour = new Color(...Object.values(temperatureToColour(4500.0)).map((c) => c / 255.0))
+const [starColourR, starColourG, starColourB] = Object.values(temperatureToColour(4500.0)).map(
+  (c) => c / 255.0,
+)
+const starColour = new Color().setRGB(starColourR, starColourG, starColourB, 'srgb-linear')
 
 const TheStar = () => {
   const partyEnded = usePartyStore((s) => s.endParty)
@@ -24,8 +27,8 @@ const TheStar = () => {
 
   return (
     <>
-      <ambientLight args={[starColour, 0.05]} />
-      <directionalLight args={[starColour, 0.5]} position={[0.5, 1, 1.5]} />
+      <ambientLight args={[starColour, 0.1]} />
+      <directionalLight args={[starColour, 1]} position={[0.5, 1, 1.5]} />
       <mesh
         name="the-star"
         position={[0.5 * 100, 1 * 100, 1.5 * 100]}

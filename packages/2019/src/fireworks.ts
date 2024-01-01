@@ -281,7 +281,7 @@ export class Fireworks implements IFireworks {
 
   private renderTimeline(anim: anime.AnimeInstance) {
     for (let animatable of anim.animatables) {
-      ;(<any>animatable).target.draw(this.ctx)
+      ;(animatable as any).target.draw(this.ctx)
     }
   }
 }

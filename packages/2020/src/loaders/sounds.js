@@ -1,4 +1,4 @@
-import { camelCase } from 'lodash-es'
+import camelCase from 'lodash-es/camelCase'
 import { Audio, AudioLoader } from 'three'
 
 const audios = [

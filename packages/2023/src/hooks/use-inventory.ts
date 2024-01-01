@@ -213,7 +213,7 @@ const useInventory = createStore(
           )
         },
       }),
-      { enabled: process.env.NODE_ENV !== 'production', name: 'inventory' },
+      { enabled: import.meta.env.DEV, name: 'inventory' },
     ),
     {
       name: 'fan:2023:inventory',

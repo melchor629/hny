@@ -8,16 +8,17 @@ import ThePositionalAudio from '../the-positional-audio'
 // 0.4445
 const timing = [0.0, 0.41, 0.4445],
   values = [1, 0.95, 1]
-const beatAnimationClip = new THREE.AnimationClip(null, timing.slice(-1)[0], [
+const beatAnimationClip = new THREE.AnimationClip(null, timing.at(-1), [
   new THREE.NumberKeyframeTrack('.scale[x]', timing, values, THREE.InterpolateSmooth),
   new THREE.NumberKeyframeTrack('.scale[y]', timing, values, THREE.InterpolateSmooth),
   new THREE.NumberKeyframeTrack('.scale[z]', timing, values, THREE.InterpolateSmooth),
 ])
+const clips = []
 
 const TheFullObject = (props) => {
   const group = useRef()
   const { scene } = useGLTF(objectOkUrl)
-  const { mixer } = useAnimations([], group)
+  const { mixer } = useAnimations(clips, group)
   const party = usePartyStore()
 
   useEffect(() => {

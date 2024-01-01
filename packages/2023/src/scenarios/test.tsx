@@ -76,7 +76,7 @@ function TestScenario({ onMapUpdate }: { onMapUpdate: OnMapUpdateCallback }) {
 
 export default memo(TestScenario)
 
-if (process.env.NODE_ENV !== 'production') {
+if (import.meta.env.DEV) {
   // @ts-ignore
   window.changeScenario = (scenario: string) => useScenario.getState().change(scenario)
 }

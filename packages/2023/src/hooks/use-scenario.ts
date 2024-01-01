@@ -58,7 +58,7 @@ const useScenario = createStore(
         return state.loading && state.scenario === scenario && state.nextScenario === null
       },
     }),
-    { enabled: process.env.NODE_ENV !== 'production', name: 'scenario' },
+    { enabled: import.meta.env.DEV, name: 'scenario' },
   ),
 )
 
