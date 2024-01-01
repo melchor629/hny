@@ -1,4 +1,6 @@
-FROM node:20 AS builder
+# syntax=docker/dockerfile:1
+
+FROM --platform=$BUILDPLATFORM node:20 AS builder
 
 WORKDIR /app
 COPY package.json package-lock.json .npmrc ./
