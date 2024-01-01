@@ -23,6 +23,7 @@ const createFastifyApp = async () => {
     keyPrefix: 'hny:2022:',
     enableOfflineQueue: true,
     connectTimeout: 4000,
+    tls: !!process.env.VERCEL_ENV,
   })
   await app.register(import('@fastify/rate-limit'), {
     max: 15,
