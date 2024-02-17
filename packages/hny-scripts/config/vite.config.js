@@ -7,7 +7,7 @@ const host = process.env.HOST || '0.0.0.0'
 const port = parseInt(process.env.PORT || '3000', 10)
 
 export default defineConfig({
-  plugins: [react(), checker({ typescript: paths.useTypeScript })],
+  plugins: [react(), ...(paths.useTypeScript ? [checker({ typescript: true })] : [])],
   root: paths.projectPath,
   base: paths.publicPath,
   build: {
