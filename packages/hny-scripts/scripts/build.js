@@ -14,7 +14,7 @@ try {
   console.log(green('  ➜ Built succesfully.'))
   console.log(`  ➜  Public URL is ${cyan(config.base)}`)
   console.log(`  ➜  Files are located inside ${cyan(config.build.outDir)}`)
-} catch (e) {
+} catch (err) {
   console.error(red('\nBuild failed!\n'))
   console.error(err.message)
   console.error(err.stack)

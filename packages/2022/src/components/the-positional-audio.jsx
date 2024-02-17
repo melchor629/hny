@@ -1,5 +1,5 @@
 import { useLoader } from '@react-three/fiber'
-import mergeRefs from 'react-merge-refs'
+import { mergeRefs } from 'react-merge-refs'
 import { forwardRef, useEffect, useRef } from 'react'
 import { AudioLoader } from 'three'
 import { useAudioListener } from '../hooks'
