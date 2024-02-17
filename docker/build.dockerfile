@@ -13,7 +13,7 @@ COPY ./scripts/ /app/scripts/
 RUN npm run dist
 
 
-FROM nginx:alpine
+FROM nginx:alpine-slim
 
 COPY docker/nginx/ /etc/nginx/conf.d/
 COPY --from=builder --chown=nginx:nginx /app/dist/ /usr/share/nginx/html
