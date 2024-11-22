@@ -12,7 +12,7 @@
     "./packages/*"
   ],
   "scripts": {
-    "clean": "rm -rf dist && npm run clean --workspaces",
+    "clean": "rm -rf dist && npm run clean --workspaces --if-present",
     "dist": "./scripts/copy-to-dist.sh && ./scripts/compress-dist-files.sh",
     "serve": "serve -l 3000 dist",
     "docker": "docker image build -t melchor9000/hny -f docker/build.dockerfile .",
