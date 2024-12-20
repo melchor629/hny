@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "lodash-es": "^4.17.20",
-    "three": "0.160.0"
+    "three": "0.171.0"
   },
   "homepage": "/",
   "browserslist": {

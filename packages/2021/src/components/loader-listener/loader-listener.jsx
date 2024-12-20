@@ -1,7 +1,7 @@
 import { Html, useProgress } from '@react-three/drei'
 import PropTypes from 'prop-types'
 import React, { useLayoutEffect, useState } from 'react'
-import shallow from 'zustand/shallow'
+import { shallow } from 'zustand/shallow'
 import { usePhasesStore } from '../../stores'
 import styles from './loader-listener.module.css'
 

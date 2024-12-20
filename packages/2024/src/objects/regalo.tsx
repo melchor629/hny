@@ -2,10 +2,11 @@ import { AnimatedProps, animated } from '@react-spring/three'
 import { useGLTF } from '@react-three/drei'
 import type { GroupProps } from '@react-three/fiber'
 import { forwardRef, useImperativeHandle, useMemo } from 'react'
+import type { Group, Object3D } from 'three'
 
 type RefType = {
-  caja: THREE.Object3D
-  tapa: THREE.Object3D
+  caja: Object3D
+  tapa: Object3D
 }
 
 type Props = AnimatedProps<GroupProps> & {
@@ -19,11 +20,11 @@ const Regalo = forwardRef<RefType, Props>(function Regalo({ cajaProps, tapaProps
   const { scene } = useGLTF(glbPath)
 
   const caja = useMemo(
-    () => scene.getObjectByName('caja_regalo')!.clone() as unknown as THREE.Group,
+    () => scene.getObjectByName('caja_regalo')!.clone() as unknown as Group,
     [scene],
   )
   const tapa = useMemo(
-    () => scene.getObjectByName('tapa_regalo')!.clone() as unknown as THREE.Group,
+    () => scene.getObjectByName('tapa_regalo')!.clone() as unknown as Group,
     [scene],
   )
 

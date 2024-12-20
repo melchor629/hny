@@ -1,6 +1,6 @@
 import { Html, useProgress } from '@react-three/drei'
 import React from 'react'
-import shallow from 'zustand/shallow'
+import { shallow } from 'zustand/shallow'
 import styles from './loader.module.css'
 
 const Loader = ({ container }) => {

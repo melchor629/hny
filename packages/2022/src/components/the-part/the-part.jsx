@@ -1,7 +1,7 @@
 import { animated, useTransition } from '@react-spring/web'
 import { noop } from 'lodash-es'
 import { useCallback, useEffect, useState } from 'react'
-import shallow from 'zustand/shallow'
+import { shallow } from 'zustand/shallow'
 import { getTrackInfo } from '../../fns'
 import { useParts } from '../../hooks'
 import { usePartStore } from '../../stores'

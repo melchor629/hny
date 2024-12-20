@@ -8,24 +8,25 @@
   "private": true,
   "dependencies": {
     "@react-spring/three": "~9.7.0",
-    "@react-three/drei": "~9.97.6",
-    "@react-three/fiber": "~8.15.0",
-    "@react-three/postprocessing": "~2.15.0",
+    "@react-three/drei": "~9.116.0",
+    "@react-three/fiber": "~8.17.0",
+    "@react-three/postprocessing": "~2.16.0",
     "@styled-icons/material": "^10.28.0",
     "detect-gpu": "^5.0.28",
     "lodash-es": "^4.17.20",
     "prop-types": "^15.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "three": "0.160.0",
+    "three": "0.171.0",
     "use-asset": "^1.0.4",
-    "zustand": "~4.4.0"
+    "use-sync-external-store": "^1.4.0",
+    "zustand": "^5.0.0"
   },
   "devDependencies": {
     "@melchor629/hny-scripts": "^0.3.0",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
-    "@types/three": "0.160.0"
+    "@types/three": "0.171.0"
   },
   "scripts": {
     "start": "hny-scripts start",

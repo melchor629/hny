@@ -1,6 +1,7 @@
 import type { AnimatedProps } from '@react-spring/three'
 import type { GroupProps } from '@react-three/fiber'
 import { forwardRef, useEffect, useState } from 'react'
+import type { Group } from 'three'
 import {
   Caja1,
   Catto,
@@ -53,7 +54,7 @@ const objects = Object.freeze([
   Yubikey,
 ])
 
-const AllObjects = forwardRef<THREE.Group, AnimatedProps<GroupProps>>(function AllObjects(
+const AllObjects = forwardRef<Group, AnimatedProps<GroupProps>>(function AllObjects(
   props,
   ref,
 ) {
