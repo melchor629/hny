@@ -1,4 +1,8 @@
-import getCachedValue from './get-cached-value.js'
+import type { FastifyBaseLogger } from 'fastify'
+import getCachedValue from './get-cached-value.ts'
+import ApiError from './api-error.ts'
+
+type Redis = import('ioredis').Redis
 
 const spotifyClientSettings = {
   refreshToken: process.env.SPOTIFY_REFRESH_TOKEN,
@@ -6,34 +10,31 @@ const spotifyClientSettings = {
   clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
 }
 
-/**
- * @param {Response} response
- */
-const checkInvalidContentType = async (response) => {
+const checkInvalidContentType = async (response: Response) => {
   if (!response.headers.get('Content-Type').startsWith('application/json')) {
-    const error = new Error('Unexpected error from Spotify API: not a json')
-    error.status = response.status
-    error.headers = Object.fromEntries(response.headers.entries())
-    error.body = await response.text()
+    const error = new ApiError(
+      'Unexpected error from Spotify API: not a json',
+      response.status,
+      Object.fromEntries(response.headers.entries()),
+      await response.text(),
+    )
     throw error
   }
 }
 
-/**
- * @param {Response} response
- * @param {any} body
- */
-const checkBadStatusCode = async (response, body) => {
+const checkBadStatusCode = async (response: Response, body: any) => {
   if (!response.ok) {
-    const error = new Error(`Spotify API failed with ${response.status} ${response.statusText}`)
-    error.status = response.status
-    error.headers = Object.fromEntries(response.headers.entries())
-    error.body = body
+    const error = new ApiError(
+      `Spotify API failed with ${response.status} ${response.statusText}`,
+      response.status,
+      Object.fromEntries(response.headers.entries()),
+      body,
+    )
     throw error
   }
 }
 
-const getAccessToken = (redis, log) =>
+const getAccessToken = (redis: Redis, log: FastifyBaseLogger) =>
   getCachedValue(
     'sak',
     async () => {
@@ -51,11 +52,11 @@ const getAccessToken = (redis, log) =>
         },
       })
 
-      await checkInvalidContentType(res, log)
+      await checkInvalidContentType(res)
 
       const response = await res.json()
 
-      await checkBadStatusCode(res, response, log)
+      await checkBadStatusCode(res, response)
 
       return {
         data: response.access_token,
@@ -65,7 +66,7 @@ const getAccessToken = (redis, log) =>
     redis,
   )
 
-const getTrackInfo = (trackId, redis, log) =>
+const getTrackInfo = (trackId: string, redis: Redis, log: FastifyBaseLogger) =>
   getCachedValue(
     `st:${trackId}`,
     async () => {
@@ -78,11 +79,11 @@ const getTrackInfo = (trackId, redis, log) =>
         },
       })
 
-      await checkInvalidContentType(response, log)
+      await checkInvalidContentType(response)
 
       const trackInfo = await response.json()
 
-      await checkBadStatusCode(response, trackInfo, log)
+      await checkBadStatusCode(response, trackInfo)
 
       return {
         expiresIn: 24 * 60 * 60 * 1000,

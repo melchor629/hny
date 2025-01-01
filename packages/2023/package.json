@@ -13,7 +13,7 @@
     "byte-base64": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "three": "0.171.0",
+    "three": "0.172.0",
     "ts-chacha20": "^1.2.0",
     "use-sync-external-store": "^1.4.0",
     "zustand": "^5.0.0"

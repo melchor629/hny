@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "description": "APIs for HNY projects",
-  "exports": "./api/hny-scripts.js",
+  "exports": "./api/index.js",
   "type": "module",
   "repository": {
     "type": "git",
@@ -11,21 +11,23 @@
     "directory": "packages/hny-api"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22.0.0"
   },
   "author": "melchor9000",
   "license": "MIT",
   "scripts": {
-    "lint": "prettier -c '{api,src}/**'",
+    "lint": "prettier -c '{api,src}/**' && tsc -p .",
     "format": "prettier '{api,src}/**/*.js' --write",
-    "start": "cd ../.. ; npx vercel dev --listen=3001"
+    "start": "node --env-file-if-exists=.env --experimental-strip-types ./api/index.ts"
   },
   "dependencies": {
-    "dotenv": "^16.0.3",
     "fastify": "^5.0.0",
     "@fastify/cors": "^10.0.0",
     "@fastify/rate-limit": "^10.0.0",
     "@fastify/redis": "^7.0.0",
     "ioredis": "^5.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0"
   }
 }

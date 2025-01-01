@@ -15,13 +15,14 @@
     "clean": "rm -rf dist && npm run clean --workspaces --if-present",
     "dist": "./scripts/copy-to-dist.sh && ./scripts/compress-dist-files.sh",
     "serve": "serve -l 3000 dist",
-    "docker": "docker image build -t melchor9000/hny -f docker/build.dockerfile .",
+    "docker": "doit() { npm run docker:api -- \"$@\" && npm run docker:nginx -- \"$@\"; }; doit",
+    "docker:api": "docker image build --platform linux/amd64,linux/arm64 -t melchor9000/hny-api -f docker/api.dockerfile .",
+    "docker:nginx": "docker image build --platform linux/amd64,linux/arm64 -t melchor9000/hny -f docker/nginx.dockerfile .",
     "serve:docker": "docker container run --rm -p 3000:80 -v $PWD/docker/nginx:/etc/nginx/conf.d:ro -v $PWD/dist:/usr/share/nginx/html:ro nginx:alpine"
   },
   "devDependencies": {
     "prettier": "^3.1.1",
     "serve": "^14.0.1",
-    "typescript": "^5.3.3",
-    "vercel": "*"
+    "typescript": "^5.3.3"
   }
 }
