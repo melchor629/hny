@@ -1,0 +1,21 @@
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  top: 0;
+  left: 0;
+  animation: appear 4s ease-in;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

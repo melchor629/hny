@@ -25,6 +25,7 @@ Have fun :)
 - [2022][11] ([see it in action][12])
 - [2023][13] ([see it in action][14])
 - [2024][15] ([see it in action][16])
+- [2024][17] ([see it in action][18])
 
 [1]: https://github.com/melchor629/hny/tree/master/packages/2018
 [2]: https://github.com/melchor629/hny/tree/master/packages/2019
@@ -42,3 +43,5 @@ Have fun :)
 [14]: https://fan.melchor9000.me/2023/
 [15]: https://github.com/melchor629/hny/tree/master/packages/2024
 [16]: https://fan.melchor9000.me/2024/
+[15]: https://github.com/melchor629/hny/tree/master/packages/2025
+[16]: https://fan.melchor9000.me/2025/

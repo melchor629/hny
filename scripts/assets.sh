@@ -8,7 +8,7 @@ if [[ $# -ne 1 ]]; then
 fi
 
 PUBLIC_URL="https://casita.melchor9000.me"
-PRIVATE_PATH="/private/lobo/chelm0r/web"
+PRIVATE_PATH="/mnt/lobo/chelm0r/web"
 
 if [[ "$1" = "pull" ]]; then
   for package in packages/*; do
