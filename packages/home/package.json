@@ -20,7 +20,6 @@
   },
   "devDependencies": {
     "@melchor629/hny-scripts": "^0.3.0",
-    "@tailwindcss/vite": "^4.0.17",
     "@types/lodash-es": "^4.17.4",
     "@types/three": "0.171.0",
     "tailwindcss": "^4.0.17"

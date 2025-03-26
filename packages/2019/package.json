@@ -19,7 +19,6 @@
     "format": "hny-scripts lint --format"
   },
   "dependencies": {
-    "@babel/runtime": "^7.26.10",
     "animejs": "^3.2.0",
     "bootstrap": "^5.0.0"
   },
