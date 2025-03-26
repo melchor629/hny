@@ -7,7 +7,13 @@ const host = process.env.HOST || '0.0.0.0'
 const port = parseInt(process.env.PORT || '3000', 10)
 
 export default defineConfig({
-  plugins: [react(), ...(paths.useTypeScript ? [checker({ typescript: true })] : [])],
+  plugins: [
+    react(),
+    ...(paths.useTypeScript ? [checker({ typescript: true })] : []),
+    ...('tailwind' in paths.packageJson.dependencies
+      ? [(await import('@tailwind/vite')).default()]
+      : []),
+  ],
   root: paths.projectPath,
   base: paths.publicPath,
   build: {

@@ -23,7 +23,6 @@ const years = [...Array(now.getFullYear() - fromYear + 1)].map((_, i) => fromYea
     linkElement.text = year.toString()
     linkElement.classList.add(
       'inline-block',
-      'w-100',
       'py-2',
       'px-4',
       'rounded-lg',

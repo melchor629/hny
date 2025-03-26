@@ -84,7 +84,7 @@ export default (container) => {
   container.appendChild(renderer.domElement)
 
   window.addEventListener('resize', resize, { passive: true })
-  window.addEventListener('blur', blur, { passive: true })
+  window.addEventListener('blur-sm', blur, { passive: true })
   window.addEventListener('focus', focus, { passive: true })
 
   if (document.fullscreenEnabled || document.webkitFullscreenEnabled) {
