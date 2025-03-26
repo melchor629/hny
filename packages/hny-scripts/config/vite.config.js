@@ -1,5 +1,5 @@
 import react from '@vitejs/plugin-react-swc'
-import tailwind from '@tailwind/vite'
+import tailwind from '@tailwindcss/vite'
 import { defineConfig } from 'vite'
 import checker from 'vite-plugin-checker'
 import * as paths from './paths.js'
