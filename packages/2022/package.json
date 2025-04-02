@@ -26,7 +26,8 @@
     "@types/lodash-es": "^4.17.5",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
-    "@types/three": "0.171.0"
+    "@types/three": "0.171.0",
+    "sass-embedded": "^1.86.0"
   },
   "scripts": {
     "start": "hny-scripts start",
