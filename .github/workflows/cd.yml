@@ -81,7 +81,7 @@ jobs:
           tags: tag:ci
 
       - name: SSH Setup
-        uses: MrSquaare/ssh-setup-action@v3.1.0
+        uses: MrSquaare/ssh-setup-action@v3.1.1
         with:
           host: pi.cama-bass.ts.net
           private-key: ${{ secrets.SSH_PRIVATE_KEY }}
