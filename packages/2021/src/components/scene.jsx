@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types'
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 import { Background, Card, CardsLight, CardsShadow, Effects, Loader, LoaderListener } from './'
 
 const Scene = ({ container }) => (
@@ -34,9 +33,5 @@ const Scene = ({ container }) => (
     </Suspense>
   </>
 )
-
-Scene.propTypes = {
-  container: PropTypes.instanceOf(HTMLDivElement).isRequired,
-}
 
 export default Scene

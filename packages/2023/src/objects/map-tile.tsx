@@ -1,4 +1,3 @@
-import { useFrame } from '@react-three/fiber'
 import { memo, useCallback, useContext, useEffect, useMemo, useRef } from 'react'
 import { Matrix3, Mesh, PlaneGeometry, ShaderMaterial, Vector4 } from 'three'
 import floorTileFragmentShader from '../data/shaders/floor-tile.frag.glsl?raw'

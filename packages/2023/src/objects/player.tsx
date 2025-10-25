@@ -93,10 +93,10 @@ interface Player extends Object3D {
 }
 
 const Player = forwardRef<Player, PlayerProps>(function Player({ collisions }, ref) {
-  const groupRef = useRef<Player | null>()
-  const playerBoundingBoxRef = useRef<Box2>()
-  const boxAfterXRef = useRef<Box2>()
-  const boxAfterYRef = useRef<Box2>()
+  const groupRef = useRef<Player | null>(null)
+  const playerBoundingBoxRef = useRef<Box2>(undefined)
+  const boxAfterXRef = useRef<Box2>(undefined)
+  const boxAfterYRef = useRef<Box2>(undefined)
   const dirRef = useRef({ up: false, down: false, left: false, right: false, faster: false })
   const moveAnimationTimeRef = useRef(0)
   const triggerRef = useRef<Trigger | null>(null)

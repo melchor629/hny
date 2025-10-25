@@ -34,7 +34,7 @@ export default function TouchInputHandler({
 }) {
   const [joystickCenter, setJoystickCenter] = useState<readonly [number, number] | null>(null)
   const stickRef = useRef<HTMLDivElement>(null)
-  const touchIdRef = useRef<number>()
+  const touchIdRef = useRef<number>(undefined)
   const touchStateRef = useRef<{ x: -1 | 0 | 1; y: -1 | 0 | 1 }>({ x: 0, y: 0 })
   const hasScenario = useScenario(useCallback((s) => (s.nextScenario || s.scenario) != null, []))
   const [isFullscreen, setFullscreen] = useState(false)

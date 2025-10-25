@@ -2,8 +2,7 @@ import { a, useSpring } from '@react-spring/three'
 import { useGLTF } from '@react-three/drei'
 import { useLoader, useThree } from '@react-three/fiber'
 import { debounce } from 'lodash-es'
-import PropTypes from 'prop-types'
-import React, { useCallback, useEffect, useMemo } from 'react'
+import { useCallback, useEffect, useMemo } from 'react'
 import { TextureLoader } from 'three'
 import useGameSettings from '../hooks/use-game-settings/use-game-settings'
 import { useCardsStore, usePhasesStore } from '../stores'
@@ -11,7 +10,12 @@ import { useCardsStore, usePhasesStore } from '../stores'
 const canOpen = () => usePhasesStore.getState().phase === 4
 const isOpen = (cardName) => useCardsStore.getState().openCard?.name === cardName
 
-function Card({ position, rotation, scale, cardName }) {
+function Card({
+  position = [0, 0, 0],
+  rotation = [(Math.PI / 180) * -1, (Math.PI / 180) * -35, 0],
+  scale = [3, 3, 3],
+  cardName,
+}) {
   const { gl, camera } = useThree()
   const { cardSuffix } = useGameSettings()
   const cosa = useGLTF('assets/models/card.glb')
@@ -42,18 +46,18 @@ function Card({ position, rotation, scale, cardName }) {
     position: [0, 0, 0.004079808946698904],
     rotation: [0, -Math.PI * 0.1, 0],
     config: { mass: 1, tension: 280, friction: 120 },
-  }))
+  }), [])
   const [backProps, setBackProps] = useSpring(() => ({
     position: [0, 0, 0],
     rotation: [0, 0, 0],
     config: { mass: 1, tension: 280, friction: 120 },
-  }))
+  }), [])
   const [groupProps, setGroupProps] = useSpring(() => ({
     position,
     rotation,
     scale,
     config: { mass: 1, tension: 280, friction: 120 },
-  }))
+  }), [position, rotation])
 
   const open = useCallback(() => {
     cardFront.userData.open = true
@@ -188,19 +192,6 @@ function Card({ position, rotation, scale, cardName }) {
       <a.primitive object={cardFront} {...backProps} />
     </a.group>
   )
-}
-
-Card.propTypes = {
-  position: PropTypes.arrayOf(PropTypes.number.isRequired),
-  rotation: PropTypes.arrayOf(PropTypes.number.isRequired),
-  scale: PropTypes.arrayOf(PropTypes.number.isRequired),
-  cardName: PropTypes.string.isRequired,
-}
-
-Card.defaultProps = {
-  position: [0, 0, 0],
-  rotation: [(Math.PI / 180) * -1, (Math.PI / 180) * -35, 0],
-  scale: [3, 3, 3],
 }
 
 export default Card

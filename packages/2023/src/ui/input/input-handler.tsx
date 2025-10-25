@@ -49,7 +49,7 @@ function initState(stateRef: { current?: InputHandlerState }): InputHandlerState
 }
 
 export default function InputHandler({ children }: PropsWithChildren) {
-  const stateRef = useRef<InputHandlerState>()
+  const stateRef = useRef<InputHandlerState>(undefined)
   const [showTouchBack, setShowTouchBack] = useState(false)
 
   const contextValue = useMemo((): InputHandlerContextType => {

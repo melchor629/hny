@@ -33,7 +33,7 @@ const MapContext = createContext<(element: Tile | TileProp | TileNpc | Trigger) 
 MapContext.displayName = 'MapContext'
 
 function Map({ children, onMapUpdate }: MapProps) {
-  const map = useRef<IMap>()
+  const map = useRef<IMap>(undefined)
   const triggerMapUpdate = useRef<boolean>(false)
 
   const registerMapElement = useCallback(

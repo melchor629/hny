@@ -7,20 +7,20 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@react-spring/three": "~9.7.0",
-    "@react-spring/web": "~9.7.0",
-    "@react-three/drei": "~9.116.0",
-    "@react-three/fiber": "~8.17.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@react-spring/three": "~10.0.0",
+    "@react-spring/web": "~10.0.0",
+    "@react-three/drei": "~10.7.0",
+    "@react-three/fiber": "~9.4.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "three": "0.172.0",
     "use-sync-external-store": "^1.4.0",
     "zustand": "^5.0.0"
   },
   "devDependencies": {
     "@melchor629/hny-scripts": "^0.3.0",
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "@types/three": "0.171.0",
     "sass-embedded": "^1.86.0",
     "typescript": "^5.1.3"

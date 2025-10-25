@@ -1,6 +1,6 @@
 import { AnimatedProps, animated } from '@react-spring/three'
 import { useGLTF } from '@react-three/drei'
-import type { GroupProps } from '@react-three/fiber'
+import type { ThreeElements } from '@react-three/fiber'
 import { forwardRef, useImperativeHandle, useMemo } from 'react'
 import type { Group, Object3D } from 'three'
 
@@ -9,9 +9,9 @@ type RefType = {
   tapa: Object3D
 }
 
-type Props = AnimatedProps<GroupProps> & {
-  cajaProps?: AnimatedProps<GroupProps>
-  tapaProps?: AnimatedProps<GroupProps>
+type Props = AnimatedProps<ThreeElements['group']> & {
+  cajaProps?: AnimatedProps<ThreeElements['group']>
+  tapaProps?: AnimatedProps<ThreeElements['group']>
 }
 
 const glbPath = './regalo.glb'

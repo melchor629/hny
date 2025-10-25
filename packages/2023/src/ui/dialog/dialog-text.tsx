@@ -138,7 +138,7 @@ export default forwardRef<DialogTextRef, DialogTextProps>(function DialogText({}
     state.setFinished,
   ])
   const input = useInput()
-  const nextSignalRef = useRef<AbortController>()
+  const nextSignalRef = useRef<AbortController>(undefined)
 
   useImperativeHandle(
     ref,

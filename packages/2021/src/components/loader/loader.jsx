@@ -1,12 +1,13 @@
 import { Html, useProgress } from '@react-three/drei'
-import React from 'react'
-import { shallow } from 'zustand/shallow'
+import { useCallback } from 'react'
+import { useShallow } from 'zustand/shallow'
 import styles from './loader.module.css'
 
 const Loader = ({ container }) => {
-  const { progress, errors } = useProgress(
-    (p) => ({ progress: p.active ? p.progress : 100, errors: p.errors }),
-    shallow,
+  const { errors } = useProgress(
+    useShallow(
+      useCallback((p) => ({ errors: p.errors }), []),
+    ),
   )
   if (errors?.length) {
     return null
@@ -14,7 +15,7 @@ const Loader = ({ container }) => {
 
   return (
     <Html portal={container} fullscreen position={[-1.81241, 2.21982, 0]}>
-      <div className={styles['loader-container']}>Cargando... ({progress.toFixed(1)}%)</div>
+      <div className={styles['loader-container']}>Cargando...</div>
     </Html>
   )
 }

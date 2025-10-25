@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types'
-import React, { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Fullscreen } from '@styled-icons/material/Fullscreen'
 import { FullscreenExit } from '@styled-icons/material/FullscreenExit'
 import styles from './styles.module.css'
@@ -36,10 +35,6 @@ const FullscreenButton = ({ target }) => {
       {isFullscreen ? <FullscreenExit /> : <Fullscreen />}
     </button>
   )
-}
-
-FullscreenButton.propTypes = {
-  target: PropTypes.instanceOf(HTMLElement).isRequired,
 }
 
 export default FullscreenButton

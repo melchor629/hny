@@ -1,7 +1,6 @@
 import { Html, useProgress } from '@react-three/drei'
-import PropTypes from 'prop-types'
-import React, { useLayoutEffect, useState } from 'react'
-import { shallow } from 'zustand/shallow'
+import { useCallback, useLayoutEffect, useState } from 'react'
+import { useShallow } from 'zustand/shallow'
 import { usePhasesStore } from '../../stores'
 import styles from './loader-listener.module.css'
 
@@ -9,8 +8,9 @@ const LoaderListener = ({ container }) => {
   const { start } = usePhasesStore()
   const [isClicked, setClicked] = useState(false)
   const { progress, errors } = useProgress(
-    (p) => ({ progress: p.active ? p.progress : 100, errors: p.errors }),
-    shallow,
+    useShallow(
+      useCallback((p) => ({ progress: p.active ? p.progress : 100, errors: p.errors }), []),
+    ),
   )
 
   useLayoutEffect(() => {
@@ -63,10 +63,6 @@ const LoaderListener = ({ container }) => {
       </div>
     </Html>
   )
-}
-
-LoaderListener.propTypes = {
-  container: PropTypes.instanceOf(HTMLDivElement).isRequired,
 }
 
 export default LoaderListener
