@@ -71,7 +71,7 @@ const getTrackInfo = (trackId: string, redis: Redis, log: FastifyBaseLogger) =>
     `st:${trackId}`,
     async () => {
       const accessToken = await getAccessToken(redis, log)
-      log.debug('Sending request to get track info', { trackId })
+      log.debug({ trackId }, 'Sending request to get track info')
       const response = await fetch(`https://api.spotify.com/v1/tracks/${trackId}?market=ES`, {
         method: 'GET',
         headers: {
