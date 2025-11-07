@@ -1,5 +1,4 @@
-import { useThree } from '@react-three/fiber'
-import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useMemo, useRef, useState } from 'react'
 import { context as PlayerRefContext } from '../hooks/use-player-ref'
 import useScenario from '../hooks/use-scenario'
 import CollisionsDebugger from '../objects/collisions-debugger'

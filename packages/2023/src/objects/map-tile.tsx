@@ -1,4 +1,4 @@
-import { memo, useCallback, useContext, useEffect, useMemo, useRef } from 'react'
+import { memo, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { Matrix3, Mesh, PlaneGeometry, ShaderMaterial, Vector4 } from 'three'
 import floorTileFragmentShader from '../data/shaders/floor-tile.frag.glsl?raw'
 import floorTileVertexShader from '../data/shaders/floor-tile.vert.glsl?raw'
@@ -13,6 +13,7 @@ import usePlayerRef from '../hooks/use-player-ref'
 import Map from './map'
 
 const tileSize = 32.0
+// TODO borken
 
 // create one shader to reuse between tiles
 const floorMaterial = new ShaderMaterial({
@@ -123,9 +124,12 @@ interface MapTileProps extends Tile {
 
 function MapTile({ wall, corners, collisionWall, x, y }: MapTileProps) {
   const playerRef = usePlayerRef()
-  const mesh1Ref = useRef<Mesh>(null)
-  const mesh2Ref = useRef<Mesh>(null)
-  const mesh3Ref = useRef<Mesh>(null)
+  const [mesh1, setMesh1] = useState<Mesh | null>()
+  const [mesh2, setMesh2] = useState<Mesh | null>()
+  const [mesh3, setMesh3] = useState<Mesh | null>()
+  const tileGeometry1 = useMemo(() => tileGeometry.clone(), [])
+  const tileGeometry2 = useMemo(() => tileGeometry.clone(), [])
+  const tileGeometry3 = useMemo(() => tileGeometry.clone(), [])
   const mapUpdater = useContext(Map.Context)
   const wallName = useMemo(() => wallTransform[wall] ?? wall, [wall])
   const cornerName = useMemo(
@@ -222,10 +226,10 @@ function MapTile({ wall, corners, collisionWall, x, y }: MapTileProps) {
   )
 
   useEffect(() => {
-    mesh1Ref.current?.updateMatrixWorld()
-    mesh2Ref.current?.updateMatrixWorld()
-    mesh3Ref.current?.updateMatrixWorld()
-  }, [x, y])
+    mesh1?.updateMatrixWorld()
+    mesh2?.updateMatrixWorld()
+    mesh3?.updateMatrixWorld()
+  }, [x, y, mesh1, mesh2, mesh3])
 
   useEffect(() => {
     if (brickFloorTexture) {
@@ -272,25 +276,25 @@ function MapTile({ wall, corners, collisionWall, x, y }: MapTileProps) {
   return (
     <>
       {afterTopWall && <MapTile wall={afterTopWall} x={x} y={y - 1} />}
-      <mesh ref={mesh1Ref} position={[x * tileSize, -y * tileSize, 0]}>
-        <primitive object={tileGeometry} />
+      <mesh ref={setMesh1} position={[x * tileSize, -y * tileSize, 0]}>
+        <primitive object={tileGeometry1} />
         <primitive object={floorShader} />
       </mesh>
       <mesh
-        ref={mesh2Ref}
+        ref={setMesh2}
         position={[x * tileSize, -y * tileSize, 0]}
         renderOrder={(y - 0.7) * tileSize}
       >
-        <primitive object={tileGeometry} />
+        <primitive object={tileGeometry2} />
         <primitive object={wallUpShader} />
       </mesh>
       <mesh
-        ref={mesh3Ref}
+        ref={setMesh3}
         position={[x * tileSize, -y * tileSize, 0]}
         renderOrder={(y + 0.1) * tileSize}
         onBeforeRender={onBeforeRenderWallDown}
       >
-        <primitive object={tileGeometry} />
+        <primitive object={tileGeometry3} />
         <primitive object={wallDownShader} />
       </mesh>
     </>
