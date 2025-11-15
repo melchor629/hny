@@ -11,7 +11,7 @@
     "@react-three/drei": "~10.7.0",
     "@react-three/fiber": "~9.4.0",
     "@react-three/postprocessing": "~3.0.0",
-    "js-yaml": "^4.1.0",
+    "js-yaml": "^4.1.1",
     "lodash-es": "^4.17.21",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
