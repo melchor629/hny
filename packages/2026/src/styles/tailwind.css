@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Asimovian&display=swap');
+@import 'tailwindcss';
+@import './animations.css';
+
+@theme {
+  --animate-uperino: uperino 1ms linear both;
+  --animate-lefterino: lefterino 1ms linear both;
+  --animate-righterino: righterino 1ms linear both;
+  --animate-scalerino: scalerino 1ms linear both;
+  --animate-opaciterino: opaciterino 1ms linear both;
+  --animate-notification: notification 6s ease-in-out 0.5s 1 both;
+
+  --font-futuristic: 'Asimovian', sans-serif;
+}
+
+@custom-variant timeline-view {
+  @supports (animation-timeline: view(block 0%)) {
+    @slot;
+    animation-timeline: view(block 0%);
+  }
+}
+
+html,
+:host {
+  color-scheme: dark;
+  font-size: 12px;
+
+  @variant md {
+    font-size: 14px;
+  }
+  @variant lg {
+    font-size: 16px;
+  }
+}
