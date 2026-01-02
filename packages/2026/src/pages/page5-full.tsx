@@ -9,17 +9,25 @@ const isPhone =
   navigator.userAgentData &&
   typeof navigator.userAgentData === 'object'
     ? 'isMobile' in navigator.userAgentData && navigator.userAgentData.isMobile === true
-    : navigator.platform === 'iPhone' || navigator.userAgent.includes('Android ')
+    : navigator.platform === 'iPhone' || navigator.userAgent.includes('Android')
 export default function Page5Full() {
   const cancelRef = useRef<AbortController | null>(null)
   const { sliders } = useSliderStore()
   const [mode, setMode] = useState<'init' | 'scripted' | 'off' | 'on'>('init')
+  const [perc, setPerc] = useState(0)
 
   const changeMode = useCallback(() => {
     if (mode === 'init') {
       setMode('scripted')
       if (!isPhone) {
         cancelRef.current = new AbortController()
+        const start = Date.now()
+        const n = setInterval(() => {
+          setPerc((Date.now() - start) / 1000)
+        }, 500)
+        cancelRef.current.signal.addEventListener('abort', () => {
+          clearInterval(n)
+        })
         startScripted(cancelRef.current.signal)
           .then(() => setMode('on'))
           .catch(() => {})
@@ -59,7 +67,7 @@ export default function Page5Full() {
         {mode === 'on' && '🎶'}
       </button>
 
-      <div className="flex flex-col gap-1 mt-4 timeline-view:animate-opaciterino">
+      <div className="flex flex-col gap-1 my-4 timeline-view:animate-opaciterino">
         {isPhone && mode === 'scripted' && (
           <audio
             autoPlay
@@ -72,6 +80,16 @@ export default function Page5Full() {
         )}
         {isPhone && mode === 'on' && (
           <p className="text-lg">Para la experiencia completa, visitame en un escritorio :)</p>
+        )}
+        {!isPhone && mode === 'scripted' && (
+          <label className="flex gap-1 items-center text-slate-300">
+            <input id="played" type="range" min={0} max={242} value={perc} step={1} disabled />
+            <span>{`${Math.trunc(perc / 60)
+              .toFixed(0)
+              .padStart(2, '0')}:${Math.trunc(perc % 60)
+              .toFixed(0)
+              .padStart(2, '0')} / 04:02`}</span>
+          </label>
         )}
         {sliders.map(({ id, min, max, value, step }) => (
           <label key={id} className="flex gap-1 items-center text-slate-300">

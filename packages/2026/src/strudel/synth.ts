@@ -67,7 +67,7 @@ const sliderSnareDry = 'slider_699'
 const sliderSnareGain = 'slider_720'
 export const sliderMappings = Object.freeze({
   [sliderBeatGain]: 'beat (dB)',
-  [sliderBassEnv]: 'bass (env))',
+  [sliderBassEnv]: 'bass (env)',
   [sliderBassGain]: 'bass (dB)',
   [sliderWaveGain]: 'wave (dB)',
   [sliderPulseEnv]: 'pulse (env)',
@@ -142,6 +142,7 @@ export const startScripted = async (signal: AbortSignal) => {
     intpBeats(signal, 0.5, 4, sliderBeatGain, inOutSine),
     intpBeats(signal, 0, 4, sliderBassGain, inOutSine),
     intpBeats(signal, 0, 2, sliderSnareGain, inOutSine),
+    intpBeats(signal, 0, 2, sliderPulseGain, inOutSine),
   ])
   await waitBeats(4, signal)
 
