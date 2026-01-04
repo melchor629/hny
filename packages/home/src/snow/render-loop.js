@@ -18,13 +18,10 @@ const renderLoop = (delta, camera) => {
   const pos = geometry.attributes.position.array
 
   for (let i = 0; i < pos.length; i += 3) {
-    geometry.accumSpeed[i + 0] += accel.x * delta
-    geometry.accumSpeed[i + 1] += accel.y * delta
-    geometry.accumSpeed[i + 2] += accel.z * delta
-    geometry.accumSpeed[i + 1] = Math.max(geometry.accumSpeed[i + 1], -0.5)
+    geometry.accumSpeed[i + 0] = Math.min(geometry.accumSpeed[i + 0] + accel.x * delta, 0.75)
+    geometry.accumSpeed[i + 1] = Math.max(geometry.accumSpeed[i + 1] + accel.y * delta, -0.3)
     pos[i + 0] += (speed.x + geometry.accumSpeed[i + 0]) * delta
     pos[i + 1] += (speed.y + geometry.accumSpeed[i + 1]) * delta
-    pos[i + 2] += (speed.z + geometry.accumSpeed[i + 2]) * delta
 
     const projected = new Vector3(pos[i + 0], pos[i + 1], pos[i + 2]).project(camera)
     if (!inRange(projected.x, -1.7, 1.35) || !inRange(projected.y, -1.05, 4.5)) {

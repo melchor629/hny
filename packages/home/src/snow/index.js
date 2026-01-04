@@ -3,18 +3,17 @@ import particles from './particles'
 import createPostProcessComposer from './post-process'
 import renderLoop from './render-loop'
 
-const getAspectRatio = () => window.innerWidth / window.innerHeight
-
 let blurred = false
 let lastTime = 0
 let renderLoopHandle = null
 
 const scene = new Scene()
-const camera = new PerspectiveCamera(75, getAspectRatio(), 0.1, 50)
+const camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 50)
 const renderer = new WebGLRenderer({
   antialias: false,
   powerPreference: 'low-power',
   stencil: false,
+  precision: 'mediump',
 })
 
 renderer.setClearColor('rgb(25, 25, 25)')
@@ -29,15 +28,15 @@ const changePixelRatio = (pixelRatio) => {
   particles.changeDevicePixelRatio(pixelRatio)
 }
 
-const resize = () => {
-  renderer.setSize(window.innerWidth, window.innerHeight)
+const resize = ({ width, height }) => {
+  renderer.setSize(width, height)
   changePixelRatio(window.devicePixelRatio)
 
-  camera.aspect = getAspectRatio()
+  camera.aspect = width / height
   camera.updateMatrixWorld()
   camera.updateProjectionMatrix()
 
-  composer.setSize(window.innerWidth, window.innerHeight)
+  composer.setSize(width, height)
 }
 
 const blur = () => {
@@ -80,11 +79,13 @@ const animate = (time) => {
  * @param container {HTMLDivElement} container
  */
 export default (container) => {
-  resize()
   container.appendChild(renderer.domElement)
 
-  window.addEventListener('resize', resize, { passive: true })
-  window.addEventListener('blur-sm', blur, { passive: true })
+  resize(container.getBoundingClientRect())
+  const resizeObserver = new ResizeObserver(([entry]) => resize(entry.contentRect))
+  resizeObserver.observe(container)
+
+  window.addEventListener('blur', blur, { passive: true })
   window.addEventListener('focus', focus, { passive: true })
 
   if (document.fullscreenEnabled || document.webkitFullscreenEnabled) {
@@ -93,10 +94,8 @@ export default (container) => {
       (e) => {
         const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement
         if (e.key.toLowerCase() === 'f' && !fullscreenElement) {
-          ;('requestFullscreen' in container
-            ? container.requestFullscreen({ navigationUI: 'hide' })
-            : container.webkitRequestFullscreen({ navigationUI: 'hide' }) || Promise.resolve()
-          ).then(() => container.requestPointerLock())
+          container.requestFullscreen({ navigationUI: 'hide' })
+            .then(() => container.requestPointerLock())
         }
       },
       false,
