@@ -18,7 +18,7 @@
   "scripts": {
     "lint": "prettier -c '{api,src}/**' && tsc -p .",
     "format": "prettier '{api,src}/**/*.js' --write",
-    "start": "node --env-file-if-exists=.env --experimental-strip-types ./api/index.ts"
+    "start": "node --env-file-if-exists=.env ./api/index.ts"
   },
   "dependencies": {
     "fastify": "^5.3.2",
