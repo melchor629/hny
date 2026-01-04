@@ -1,0 +1,26 @@
+.container .anime {
+  &.intro {
+    --color: rgb(200, 220, 240);
+    flex-direction: column;
+    color: --color;
+
+    .btn {
+      color: --color;
+    }
+  }
+
+  &.text-gone,
+  &.text-newcome,
+  &.text-extra,
+  &.text-click,
+  &.text-y,
+  &.pato {
+    transform: scale(0.1);
+    width: initial;
+  }
+
+  &.end {
+    color: rgb(98, 116, 126);
+    opacity: 0;
+  }
+}

@@ -1,4 +1,5 @@
-@import 'bootstrap/scss/bootstrap-reboot';
+@import 'tailwindcss';
+@import './_anime.css';
 
 body {
   background: #161722;
@@ -7,8 +8,9 @@ body {
 
 .container {
   background: #161722;
-  width: calc(100vw);
-  height: calc(100vh);
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
 
   .anime {
     position: absolute;
@@ -17,8 +19,6 @@ body {
     color: #eee;
     font-size: 2rem;
     visibility: hidden;
-    -webkit-user-select: none;
-    -moz-user-select: none;
     user-select: none;
 
     &.bottom-center {
@@ -26,8 +26,6 @@ body {
       justify-content: center;
       text-align: center;
     }
-
-    @import '_anime';
   }
 }
 
@@ -42,8 +40,6 @@ body {
   vertical-align: middle;
   text-align: center;
   font-size: 1.2rem;
-  -webkit-user-select: none;
-  -moz-user-select: none;
   user-select: none;
   outline: none;
   transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
