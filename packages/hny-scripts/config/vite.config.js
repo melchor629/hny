@@ -15,10 +15,7 @@ export default defineConfig({
   plugins: [
     ...(hasReact ? [react()] : []),
     ...(paths.useTypeScript ? [checker({ typescript: true })] : []),
-    ...('tailwindcss' in paths.packageJson.dependencies ||
-    'tailwindcss' in paths.packageJson.devDependencies
-      ? [tailwind()]
-      : []),
+    ...(hasTailwind ? [tailwind()] : []),
   ],
   root: paths.projectPath,
   base: paths.publicPath,
