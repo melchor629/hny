@@ -50,7 +50,7 @@ jobs:
 
       # Build and push Docker image with Buildx (don't push on PR)
       - name: Build and push static files Docker image
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           file: ./docker/nginx.dockerfile
@@ -59,7 +59,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64,linux/arm64
       - name: Build and push API Docker image
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           file: ./docker/api.dockerfile
