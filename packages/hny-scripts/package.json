@@ -29,7 +29,7 @@
     "chalk": "^5.2.0",
     "fs-extra": "^11.1.0",
     "klaw": "^4.0.1",
-    "vite": "^7.0.0",
+    "vite": "^7.3.2",
     "vite-plugin-checker": "^0.12.0"
   },
   "peerDependencies": {
