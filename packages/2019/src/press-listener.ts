@@ -1,28 +1,46 @@
-export class EventListener<EventType extends Event = Event> {
-  private callback: (this: Element, e: EventType) => any
+type EventType<
+  Elem extends Element | Document,
+  EventKey extends keyof (Elem extends Element ? HTMLElementEventMap : DocumentEventMap),
+> = Elem extends Element
+  ? EventKey extends keyof HTMLElementEventMap
+    ? HTMLElementEventMap[EventKey]
+    : never
+  : EventKey extends keyof DocumentEventMap
+    ? DocumentEventMap[EventKey]
+    : never
+
+export class EventListener<
+  const Elem extends Element | Document,
+  const EventKey extends keyof (Elem extends Element ? HTMLElementEventMap : DocumentEventMap) &
+    string,
+> {
+  private callback: ((this: Elem, e: EventType<Elem, EventKey>) => any) | undefined
   private _times: number = 0
 
-  constructor(private elem: Element | Document, private event: string) {
+  constructor(
+    private readonly elem: Elem,
+    private readonly event: EventKey,
+  ) {
     this._timesImpl = this._timesImpl.bind(this)
   }
 
-  public once(callback: (this: Element, e: EventType) => any) {
+  public once(callback: (this: Elem, e: EventType<Elem, EventKey>) => any) {
     this.times(callback, 1)
   }
 
-  public oncePromise(): Promise<EventType> {
+  public oncePromise(): Promise<EventType<Elem, EventKey>> {
     return new Promise((resolve) => {
       this.once((e) => resolve(e))
     })
   }
 
-  public times(callback: (this: Element, e: EventType) => any, times: number) {
+  public times(callback: (this: Elem, e: EventType<Elem, EventKey>) => any, times: number) {
     this.callback = callback
     this._times = times
     this.elem.addEventListener(this.event, this._timesImpl, false)
   }
 
-  public forever(callback: (this: Element, e: EventType) => any) {
+  public forever(callback: (this: Elem, e: EventType<Elem, EventKey>) => any) {
     this.times(callback, Infinity)
   }
 
@@ -31,8 +49,8 @@ export class EventListener<EventType extends Event = Event> {
     this.elem.removeEventListener(this.event, this._timesImpl, false)
   }
 
-  public _timesImpl(e: EventType) {
-    this.callback.call(e.target, e)
+  public _timesImpl(e: Event) {
+    this.callback?.call(this.elem, e as EventType<Elem, EventKey>)
     this._times -= 1
     if (this._times === 0) {
       this.elem.removeEventListener(this.event, this._timesImpl, false)
@@ -40,11 +58,16 @@ export class EventListener<EventType extends Event = Event> {
   }
 }
 
-export class PressListener extends EventListener<TouchEvent | MouseEvent> {
+export class PressListener<const Elem extends Element | Document> extends EventListener<
+  Elem,
+  'touchstart' | 'mousedown'
+> {
   private static event =
-    'ontouchstart' in window || navigator.maxTouchPoints ? 'touchstart' : 'mousedown'
+    'ontouchstart' in window || navigator.maxTouchPoints
+      ? ('touchstart' as const)
+      : ('mousedown' as const)
 
-  constructor(elem: Element | Document) {
+  constructor(elem: Elem) {
     super(elem, PressListener.event)
   }
 }

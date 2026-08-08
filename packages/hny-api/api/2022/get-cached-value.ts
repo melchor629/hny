@@ -1,4 +1,4 @@
-const _key = (key) => `c:${key}`
+const _key = (key: string) => `c:${key}`
 
 /**
  * Gets some value from the cache or loads it using the function.

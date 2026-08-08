@@ -136,6 +136,7 @@ export class Fireworks implements IFireworks {
   private clearCanvas: anime.AnimeInstance
   private pixelRatio: number = Fireworks._pixelRatio()
   private pressListener = new PressListener(document)
+  private readonly numberOfParticules: number
 
   private static _pixelRatio() {
     const ctx = <any>document.createElement('canvas').getContext('2d')!
@@ -153,11 +154,11 @@ export class Fireworks implements IFireworks {
 
   constructor(
     private canvasEl: HTMLCanvasElement,
-    private readonly numberOfParticules?: number,
+    numberOfParticules?: number,
     private readonly colors: Color[] = ['#FF1461', '#18FF92', '#5A87FF', '#FBF38C'].map(Color.hex),
   ) {
-    this.ctx = canvasEl.getContext('2d')
-    this.numberOfParticules = this.numberOfParticules || 40
+    this.ctx = canvasEl.getContext('2d')!
+    this.numberOfParticules = numberOfParticules || 40
 
     this.renderTimeline = this.renderTimeline.bind(this)
     this.setCanvasSize = this.setCanvasSize.bind(this)

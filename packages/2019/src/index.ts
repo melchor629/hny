@@ -28,7 +28,7 @@ const F = (e: KeyboardEvent) => {
 
 function enterFullscreen(): Promise<void> {
   const elem = document.querySelector('body')
-  if (elem.requestFullscreen) {
+  if (elem?.requestFullscreen) {
     return elem.requestFullscreen()
   } else if ((<any>elem).webkitRequestFullscreen) {
     ;(<any>elem).webkitRequestFullscreen()
@@ -48,7 +48,7 @@ function start(e: Event) {
   })
 
   const func = async () => {
-    const canvas: HTMLCanvasElement = document.querySelector('canvas#fireworks')
+    const canvas: HTMLCanvasElement = document.querySelector('canvas#fireworks')!
     const fireworks = new Fireworks(canvas)
     const texts = new PreTextsAnimation(fireworks)
     const hny = new HappyNewYearAnimation(fireworks, canvas)

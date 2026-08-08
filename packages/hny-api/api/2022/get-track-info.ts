@@ -11,7 +11,7 @@ const spotifyClientSettings = {
 }
 
 const checkInvalidContentType = async (response: Response) => {
-  if (!response.headers.get('Content-Type').startsWith('application/json')) {
+  if (!response.headers.get('Content-Type')?.startsWith('application/json')) {
     const error = new ApiError(
       'Unexpected error from Spotify API: not a json',
       response.status,
@@ -43,7 +43,7 @@ const getAccessToken = (redis: Redis, log: FastifyBaseLogger) =>
         method: 'POST',
         body: new URLSearchParams({
           grant_type: 'refresh_token',
-          refresh_token: spotifyClientSettings.refreshToken,
+          refresh_token: spotifyClientSettings.refreshToken!,
         }),
         headers: {
           Authorization: `Basic ${Buffer.from(

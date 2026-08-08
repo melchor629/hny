@@ -17,7 +17,7 @@ export default class Color {
 
   static hex(color: string): Color {
     if (color.startsWith('#')) {
-      color = color.substr(1)
+      color = color.slice(1)
     }
 
     if (color.length === 3) {
@@ -30,10 +30,10 @@ export default class Color {
         Number(`0x${hexBlue}`) / 255,
       )
     } else if (color.length === 6 || color.length === 8) {
-      const hexRed = color.substr(0, 2)
-      const hexGreen = color.substr(2, 2)
-      const hexBlue = color.substr(4, 2)
-      const hexAlpha = color.substr(6, 2)
+      const hexRed = color.slice(0, 2)
+      const hexGreen = color.slice(2, 4)
+      const hexBlue = color.slice(4, 6)
+      const hexAlpha = color.slice(6, 8)
       return new Color(
         Number(`0x${hexRed}`) / 255,
         Number(`0x${hexGreen}`) / 255,
@@ -41,13 +41,15 @@ export default class Color {
         hexAlpha ? Number(`0x${hexAlpha}`) / 255 : undefined,
       )
     }
+
+    return null!
   }
 
   constructor(r: number, g: number, b: number, a?: number) {
-    this.r = r
-    this.g = g
-    this.b = b
-    this.a = a
+    this.red = r
+    this.green = g
+    this.blue = b
+    this.alpha = a
   }
 
   public get r(): number {

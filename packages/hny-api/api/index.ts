@@ -4,7 +4,7 @@ import Fastify from 'fastify'
 const app = Fastify({
   logger: true,
   trustProxy: true,
-  rewriteUrl: (req) => req.url.replace(/^\/api/, ''),
+  rewriteUrl: (req) => req.url?.replace(/^\/api/, '') ?? '/',
   return503OnClosing: true,
 })
 

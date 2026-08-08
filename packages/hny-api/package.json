@@ -23,11 +23,11 @@
   "dependencies": {
     "fastify": "^5.8.5",
     "@fastify/cors": "^11.0.0",
-    "@fastify/rate-limit": "^10.0.0",
-    "@fastify/redis": "^7.0.0",
+    "@fastify/rate-limit": "^11.0.0",
+    "@fastify/redis": "^8.0.0",
     "ioredis": "^5.2.3"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0"
+    "@types/node": "^24.0.0"
   }
 }

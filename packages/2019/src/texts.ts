@@ -58,10 +58,10 @@ export class PreTextsAnimation extends TextAnimation {
 
   constructor(fireworks: IFireworks) {
     super(fireworks)
-    this.textContainer1 = document.querySelector('.text-gone')
-    this.textContainer2 = document.querySelector('.text-newcome')
-    this.textContainer3 = document.querySelector('.text-extra')
-    this.textContainer4 = document.querySelector('.text-click')
+    this.textContainer1 = document.querySelector('.text-gone')!
+    this.textContainer2 = document.querySelector('.text-newcome')!
+    this.textContainer3 = document.querySelector('.text-extra')!
+    this.textContainer4 = document.querySelector('.text-click')!
     this.checkExtras()
   }
 
@@ -69,7 +69,7 @@ export class PreTextsAnimation extends TextAnimation {
     await this.doAnimation(this.textContainer1)
     await wait(anime.random(1000, 2000))
     await this.doAnimation(this.textContainer2)
-    if (this.textContainer3.querySelector('p').textContent !== '') {
+    if (this.textContainer3.querySelector('p')!.textContent !== '') {
       await wait(anime.random(1000, 2000))
       await this.doAnimation(this.textContainer3)
     }
@@ -100,10 +100,10 @@ export class PreTextsAnimation extends TextAnimation {
   }
 
   private addThird(text: string) {
-    this.textContainer3.querySelector('p').innerText = text
+    this.textContainer3.querySelector('p')!.innerText = text
   }
 
-  private __cry_my_ip__: string = null
+  private __cry_my_ip__: string | null = null
   private async domainAndItselfIpMatches(domain: string): Promise<boolean> {
     const dnsPromise = fetch(`https://cloudflare-dns.com/dns-query?name=${domain}&type=A`, {
       headers: { Accept: 'application/dns-json' },
@@ -170,7 +170,7 @@ export class HappyNewYearAnimation extends TextAnimation {
         div.classList.add('text-y')
         div.style.fontSize = '3rem'
         div.innerText = char
-        document.body.querySelector('.container').insertBefore(div, canvas)
+        document.body.querySelector('.container')!.insertBefore(div, canvas)
         lineContainers.push(div)
       }
       this.textContainers.push(lineContainers)
