@@ -11,7 +11,7 @@
     "directory": "packages/hny-api"
   },
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=24.0.0"
   },
   "author": "melchor9000",
   "license": "MIT",
@@ -24,8 +24,8 @@
     "fastify": "^5.12.1",
     "@fastify/cors": "^11.0.0",
     "@fastify/rate-limit": "^11.0.0",
-    "@fastify/redis": "^8.0.0",
-    "ioredis": "^5.2.3"
+    "@fastify/redis": "^9.0.0",
+    "ioredis": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "^24.0.0"
