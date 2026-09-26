@@ -76,7 +76,7 @@ jobs:
       contents: read
     steps:
       - name: Checkout actions
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: melchor629/actions
           ref: main
