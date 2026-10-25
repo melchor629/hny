@@ -88,3 +88,4 @@ jobs:
         uses: ./.github/actions/deploy/md
         with:
           project: melchor9000.me
+          service: hny-api hny-nginx
