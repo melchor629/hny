@@ -1,4 +1,4 @@
-import { type FastifyPluginCallback } from 'fastify'
+import type { FastifyPluginCallback } from 'fastify'
 import getTrackInfo from './get-track-info.ts'
 
 const create2022Api: FastifyPluginCallback = async (app) => {

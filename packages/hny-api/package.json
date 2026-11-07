@@ -11,7 +11,7 @@
     "directory": "packages/hny-api"
   },
   "engines": {
-    "node": ">=24.0.0"
+    "node": ">=26.0.0"
   },
   "author": "melchor9000",
   "license": "MIT",
@@ -28,6 +28,6 @@
     "ioredis": "^6.0.0"
   },
   "devDependencies": {
-    "@types/node": "^24.0.0"
+    "@types/node": "^26.0.0"
   }
 }
