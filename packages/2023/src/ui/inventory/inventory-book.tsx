@@ -118,7 +118,10 @@ export default function InventoryBook({ hasFocus }: { hasFocus: boolean }) {
   if (book.length === 0) {
     // this should never happen, but while developing... shit happens
     return (
-      <div ref={containerRef} className={styles.container}>
+      <div
+        ref={containerRef}
+        className={styles.container}
+      >
         <div className={styles.empty}>
           <span>Empty, but there should be something here...</span>
         </div>
@@ -128,7 +131,10 @@ export default function InventoryBook({ hasFocus }: { hasFocus: boolean }) {
 
   return (
     <>
-      <div ref={containerRef} className={styles.container}>
+      <div
+        ref={containerRef}
+        className={styles.container}
+      >
         {book.map(([photo, info]) => (
           <div
             key={photo.id}
@@ -188,7 +194,10 @@ function NicePhoto({ photoId }: { photoId: string | null }) {
       {transition((values, item) => {
         if (item === 'photo-21') {
           return (
-            <animated.div className={styles['big-photo']} style={values}>
+            <animated.div
+              className={styles['big-photo']}
+              style={values}
+            >
               <figure>
                 <Video src="photo-21" />
                 <figcaption>
@@ -208,9 +217,15 @@ function NicePhoto({ photoId }: { photoId: string | null }) {
 
         if (item) {
           return (
-            <animated.div className={styles['big-photo']} style={values}>
+            <animated.div
+              className={styles['big-photo']}
+              style={values}
+            >
               <figure>
-                <img src={photos[item].path} alt={`Fotografía ${photoId}`} />
+                <img
+                  src={photos[item].path}
+                  alt={`Fotografía ${photoId}`}
+                />
                 <figcaption>
                   {photos[item].text}
                   {photos[item].who && (

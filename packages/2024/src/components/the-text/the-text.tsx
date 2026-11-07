@@ -67,7 +67,11 @@ export default function TheText() {
           Quiero otro…
         </TheButton>
         {giftsVisited.length > 1 && (
-          <TheButton className={`${styles.button} ${styles.bg}`} type="button" onClick={openDialog}>
+          <TheButton
+            className={`${styles.button} ${styles.bg}`}
+            type="button"
+            onClick={openDialog}
+          >
             {`${giftsVisited.length} de ${getTotalObjects()}`}
           </TheButton>
         )}
@@ -78,7 +82,10 @@ export default function TheText() {
         <span>{giftInfo.name}</span>
       </div>
       <div className={styles.giftDescription}>{giftInfo.description}</div>
-      <TheDialog isOpen={dialogIsOpen} close={closeDialog} />
+      <TheDialog
+        isOpen={dialogIsOpen}
+        close={closeDialog}
+      />
     </animated.div>
   )
 }

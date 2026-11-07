@@ -2,6 +2,7 @@ const _key = (key: string) => `c:${key}`
 
 /**
  * Gets some value from the cache or loads it using the function.
+ *
  * @param key The key of the element
  * @param fn Load function
  * @param redis The redis connection

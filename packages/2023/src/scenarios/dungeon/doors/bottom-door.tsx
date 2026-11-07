@@ -38,8 +38,18 @@ export default function BottomDoor({
 
   return (
     <>
-      <MapProp x={x * 32 - 12} y={y * 32} prop={doorClosedBottomLeftProp} onInteraction={toggle} />
-      <MapProp x={x * 32 - 1} y={y * 32} prop={doorClosedBottomRightProp} onInteraction={toggle} />
+      <MapProp
+        x={x * 32 - 12}
+        y={y * 32}
+        prop={doorClosedBottomLeftProp}
+        onInteraction={toggle}
+      />
+      <MapProp
+        x={x * 32 - 1}
+        y={y * 32}
+        prop={doorClosedBottomRightProp}
+        onInteraction={toggle}
+      />
     </>
   )
 }

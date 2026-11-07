@@ -1,6 +1,6 @@
 import { ShaderMaterial, AdditiveBlending } from 'three'
-import vertexShader from './vertex.glsl?raw'
 import fragmentShader from './fragment.glsl?raw'
+import vertexShader from './vertex.glsl?raw'
 
 const material = new ShaderMaterial({
   uniforms: {

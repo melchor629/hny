@@ -16,10 +16,21 @@ const AnimalPicture = forwardRef<HTMLElement, AnimalPictureProps>(function Anima
   const animal = animals[animalKey]
 
   return (
-    <animated.figure ref={ref} className={styles.figure} onClick={nextAnimal} style={effectStyles}>
+    <animated.figure
+      ref={ref}
+      className={styles.figure}
+      onClick={nextAnimal}
+      style={effectStyles}
+    >
       <picture>
-        <source srcSet={`./imgs/${animal.imageName}.avif`} type="image/avif" />
-        <img src={`./imgs/${animal.imageName}.webp`} alt={animalKey} />
+        <source
+          srcSet={`./imgs/${animal.imageName}.avif`}
+          type="image/avif"
+        />
+        <img
+          src={`./imgs/${animal.imageName}.webp`}
+          alt={animalKey}
+        />
       </picture>
       <figcaption>
         {animal.name} | 📷 {animal.photographer}

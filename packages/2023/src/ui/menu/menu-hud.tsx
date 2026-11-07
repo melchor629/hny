@@ -129,7 +129,11 @@ export default function MenuHud({ gameScale }: { gameScale: number }) {
           style={containerStyles}
           onPointerDown={input.focus}
         >
-          <Video onStartPlaying={onStartPlaying} src={layout} fadeIn />
+          <Video
+            onStartPlaying={onStartPlaying}
+            src={layout}
+            fadeIn
+          />
 
           {optionsTransition((optionsStyles, kind) => {
             if (kind === 'menu') {
@@ -140,13 +144,25 @@ export default function MenuHud({ gameScale }: { gameScale: number }) {
                 >
                   <h1>Un juego de año nuevo</h1>
                   <div className={styles.buttons}>
-                    <button ref={startButtonRef} type="button" onClick={startGame}>
+                    <button
+                      ref={startButtonRef}
+                      type="button"
+                      onClick={startGame}
+                    >
                       {introDone ? 'Continuar' : 'Empezar'}
                     </button>
-                    <button ref={controlsButtonRef} type="button" onClick={showControls}>
+                    <button
+                      ref={controlsButtonRef}
+                      type="button"
+                      onClick={showControls}
+                    >
                       Controles
                     </button>
-                    <button ref={exitButtonRef} type="button" onClick={exit}>
+                    <button
+                      ref={exitButtonRef}
+                      type="button"
+                      onClick={exit}
+                    >
                       Salir
                     </button>
                   </div>
@@ -160,7 +176,10 @@ export default function MenuHud({ gameScale }: { gameScale: number }) {
                   className={clsx(styles.controls, styles[layout])}
                   style={optionsStyles}
                 >
-                  <InventoryControls hasFocus gameScale={gameScale} />
+                  <InventoryControls
+                    hasFocus
+                    gameScale={gameScale}
+                  />
                 </animated.div>
               )
             }

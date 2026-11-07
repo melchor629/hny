@@ -336,8 +336,8 @@ const Player = forwardRef<Player, PlayerProps>(function Player({ collisions }, r
 
       const animDuration = faster ? 0.175 : 0.25
       const index =
-        Math.trunc(moveAnimationTimeRef.current / animDuration + 1) %
-        dirToTexture[player.dir].length
+        Math.trunc(moveAnimationTimeRef.current / animDuration + 1)
+        % dirToTexture[player.dir].length
       changeSprite(dirToTexture[player.dir][index])
       moveAnimationTimeRef.current += delta
     } else {

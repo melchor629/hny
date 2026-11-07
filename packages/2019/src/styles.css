@@ -42,7 +42,9 @@ body {
   font-size: 1.2rem;
   user-select: none;
   outline: none;
-  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  transition:
+    background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out;
 
   &:hover {
     cursor: pointer;

@@ -20,16 +20,36 @@ export default function TopDoor({
   if (isOpen) {
     return (
       <>
-        <MapProp x={x * 32 - 12} y={y * 32} prop={doorOpenedTopLeftProp} onInteraction={toggle} />
-        <MapProp x={x * 32 + 6} y={y * 32} prop={doorOpenedTopRightProp} onInteraction={toggle} />
+        <MapProp
+          x={x * 32 - 12}
+          y={y * 32}
+          prop={doorOpenedTopLeftProp}
+          onInteraction={toggle}
+        />
+        <MapProp
+          x={x * 32 + 6}
+          y={y * 32}
+          prop={doorOpenedTopRightProp}
+          onInteraction={toggle}
+        />
       </>
     )
   }
 
   return (
     <>
-      <MapProp x={x * 32 - 12} y={y * 32} prop={doorClosedTopLeftProp} onInteraction={toggle} />
-      <MapProp x={x * 32 - 1} y={y * 32} prop={doorClosedTopRightProp} onInteraction={toggle} />
+      <MapProp
+        x={x * 32 - 12}
+        y={y * 32}
+        prop={doorClosedTopLeftProp}
+        onInteraction={toggle}
+      />
+      <MapProp
+        x={x * 32 - 1}
+        y={y * 32}
+        prop={doorClosedTopRightProp}
+        onInteraction={toggle}
+      />
     </>
   )
 }

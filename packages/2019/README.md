@@ -65,10 +65,9 @@ The next timeline is the "¡Feliz año nuevo 2019!" (_Happy new year 2019!_) tex
 
 When **6.** happens, the app is back at `start(e: Event)` function (at `index.ts`). Now it waits a bit and starts the "modo fiesta" (aka random fireworks thrown like a screensaver). This function (`modoFiesta(fireworks: any)` [yes it should have `IFireworks` type instead of `any` but in the moment the function was written, it didn't exist, so it will be kept this way]). It's an infinite loop that waits between 0.3 and 1.5 seconds, gets a random position on the screen and throws a firework.
 
-
-  [1]: https://www.typescriptlang.org
-  [2]: http://webpack.github.io
-  [3]: http://animejs.com/
-  [4]: http://animejs.com/documentation/assets/js/fireworks.js
-  [5]: http://sass-lang.com
-  [6]: https://fan.melchor9000.me/2019
+[1]: https://www.typescriptlang.org
+[2]: http://webpack.github.io
+[3]: http://animejs.com/
+[4]: http://animejs.com/documentation/assets/js/fireworks.js
+[5]: http://sass-lang.com
+[6]: https://fan.melchor9000.me/2019

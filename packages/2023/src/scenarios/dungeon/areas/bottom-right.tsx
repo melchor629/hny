@@ -48,59 +48,251 @@ export default function BottomRight() {
   return (
     <>
       {/* main hall > branch bottom right */}
-      <MapTile wall="center-both" x={55} y={46} />
-      <MapTile wall="center-both" x={56} y={46} />
-      <MapTile wall="center-both" x={57} y={46} />
-      <MapTile wall="center-both" x={58} y={46} />
-      <MapTile wall="center-both" x={59} y={46} />
-      <MapTile wall="center-both" x={60} y={46} />
+      <MapTile
+        wall="center-both"
+        x={55}
+        y={46}
+      />
+      <MapTile
+        wall="center-both"
+        x={56}
+        y={46}
+      />
+      <MapTile
+        wall="center-both"
+        x={57}
+        y={46}
+      />
+      <MapTile
+        wall="center-both"
+        x={58}
+        y={46}
+      />
+      <MapTile
+        wall="center-both"
+        x={59}
+        y={46}
+      />
+      <MapTile
+        wall="center-both"
+        x={60}
+        y={46}
+      />
 
       {/* main hall > branch bottom right > room */}
-      <MapTile wall="top" corners={['left-bottom']} x={61} y={46} />
-      <MapTile wall="top" x={62} y={46} />
-      <MapTile wall="right-top" x={63} y={46} />
-      <MapTile wall="left" x={61} y={47} />
-      <MapTile wall="center" x={62} y={47} />
-      <MapTile wall="right" x={63} y={47} />
-      <MapTile wall="left" x={61} y={48} />
-      <MapTile wall="center" x={62} y={48} />
-      <MapTile wall="right" x={63} y={48} />
-      <MapTile wall="left" x={61} y={49} />
-      <MapTile wall="center" x={62} y={49} />
-      <TomeuQuely x={62} y={49} />
-      <MapTile wall="right" x={63} y={49} />
-      <MapTile wall="left-bottom" x={61} y={50} />
-      <MapTile wall="center" corners={['left-bottom', 'right-bottom']} x={62} y={50} />
-      <MapTile wall="right-bottom" x={63} y={50} />
+      <MapTile
+        wall="top"
+        corners={['left-bottom']}
+        x={61}
+        y={46}
+      />
+      <MapTile
+        wall="top"
+        x={62}
+        y={46}
+      />
+      <MapTile
+        wall="right-top"
+        x={63}
+        y={46}
+      />
+      <MapTile
+        wall="left"
+        x={61}
+        y={47}
+      />
+      <MapTile
+        wall="center"
+        x={62}
+        y={47}
+      />
+      <MapTile
+        wall="right"
+        x={63}
+        y={47}
+      />
+      <MapTile
+        wall="left"
+        x={61}
+        y={48}
+      />
+      <MapTile
+        wall="center"
+        x={62}
+        y={48}
+      />
+      <MapTile
+        wall="right"
+        x={63}
+        y={48}
+      />
+      <MapTile
+        wall="left"
+        x={61}
+        y={49}
+      />
+      <MapTile
+        wall="center"
+        x={62}
+        y={49}
+      />
+      <TomeuQuely
+        x={62}
+        y={49}
+      />
+      <MapTile
+        wall="right"
+        x={63}
+        y={49}
+      />
+      <MapTile
+        wall="left-bottom"
+        x={61}
+        y={50}
+      />
+      <MapTile
+        wall="center"
+        corners={['left-bottom', 'right-bottom']}
+        x={62}
+        y={50}
+      />
+      <MapTile
+        wall="right-bottom"
+        x={63}
+        y={50}
+      />
 
       {/* main hall > branch bottom right > room > branch bottom */}
-      <BottomDoor x={62} y={49.45} isOpen={isDoorNpc1Open} />
-      <MapTile wall="both-center" x={62} y={51} />
-      <MapTile wall="both-center" x={62} y={52} />
-      <MapTile wall="both-center" x={62} y={53} />
-      <MapTile wall="both-center" corners={['right-aftertop']} x={62} y={54} />
-      <MapTile wall="left" corners={['right-top', 'right-bottom']} x={62} y={55} />
-      <MapTile wall="both-center" x={62} y={56} />
-      <MapTile wall="both-center" x={62} y={57} />
-      <MapTile wall="both-bottom" x={62} y={58} />
-      <WritenPaper paperId="magic-wizard-license" x={62} y={58} />
+      <BottomDoor
+        x={62}
+        y={49.45}
+        isOpen={isDoorNpc1Open}
+      />
+      <MapTile
+        wall="both-center"
+        x={62}
+        y={51}
+      />
+      <MapTile
+        wall="both-center"
+        x={62}
+        y={52}
+      />
+      <MapTile
+        wall="both-center"
+        x={62}
+        y={53}
+      />
+      <MapTile
+        wall="both-center"
+        corners={['right-aftertop']}
+        x={62}
+        y={54}
+      />
+      <MapTile
+        wall="left"
+        corners={['right-top', 'right-bottom']}
+        x={62}
+        y={55}
+      />
+      <MapTile
+        wall="both-center"
+        x={62}
+        y={56}
+      />
+      <MapTile
+        wall="both-center"
+        x={62}
+        y={57}
+      />
+      <MapTile
+        wall="both-bottom"
+        x={62}
+        y={58}
+      />
+      <WritenPaper
+        paperId="magic-wizard-license"
+        x={62}
+        y={58}
+      />
 
       {/* main hall > branch bottom right > room > branch bottom > branch right */}
-      <MapTile wall="center-both" x={63} y={55} />
-      <MapTile wall="center-both" x={64} y={55} />
-      <MapTile wall="center-both" x={65} y={55} />
-      <MapTile wall="right-bottom" corners={['left-top']} x={66} y={55} />
-      <MapTile wall="both-center" corners={['left-aftertop']} x={66} y={54} />
-      <MapTile wall="both-center" collisionWall="left" x={66} y={53} />
-      <MapTile wall="both-center" x={66} y={52} />
-      <MapTile wall="both-center" x={66} y={51} />
-      <MapTile wall="both-center" x={66} y={50} />
-      <MapTile wall="both-center" x={66} y={49} />
-      <MapTile wall="both-center" x={66} y={48} />
-      <MapTile wall="right-top" corners={['left-bottom']} x={66} y={47} />
-      <MapTile wall="left-both" x={65} y={47} />
+      <MapTile
+        wall="center-both"
+        x={63}
+        y={55}
+      />
+      <MapTile
+        wall="center-both"
+        x={64}
+        y={55}
+      />
+      <MapTile
+        wall="center-both"
+        x={65}
+        y={55}
+      />
+      <MapTile
+        wall="right-bottom"
+        corners={['left-top']}
+        x={66}
+        y={55}
+      />
+      <MapTile
+        wall="both-center"
+        corners={['left-aftertop']}
+        x={66}
+        y={54}
+      />
+      <MapTile
+        wall="both-center"
+        collisionWall="left"
+        x={66}
+        y={53}
+      />
+      <MapTile
+        wall="both-center"
+        x={66}
+        y={52}
+      />
+      <MapTile
+        wall="both-center"
+        x={66}
+        y={51}
+      />
+      <MapTile
+        wall="both-center"
+        x={66}
+        y={50}
+      />
+      <MapTile
+        wall="both-center"
+        x={66}
+        y={49}
+      />
+      <MapTile
+        wall="both-center"
+        x={66}
+        y={48}
+      />
+      <MapTile
+        wall="right-top"
+        corners={['left-bottom']}
+        x={66}
+        y={47}
+      />
+      <MapTile
+        wall="left-both"
+        x={65}
+        y={47}
+      />
 
-      <Photo alt={2} photoId="photo-4" x={65} y={47} />
+      <Photo
+        alt={2}
+        photoId="photo-4"
+        x={65}
+        y={47}
+      />
       <MapTrigger
         boundingBox={useMemo(
           () => ({ x1: 60.5 * 32, x2: 63.5 * 32, y1: 48.5 * 32, y2: 48.55 * 32 }),

@@ -1,5 +1,5 @@
-import spritesheet from '../spritesheets/tomeu.json'
 import type { Npc } from '../../types/map'
+import spritesheet from '../spritesheets/tomeu.json'
 
 const tomeuQuely: Npc = {
   id: 'tomeu-quely',

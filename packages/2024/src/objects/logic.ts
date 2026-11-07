@@ -182,8 +182,8 @@ const getRandomObject = (alreadyVisitedObjects: readonly GiftObject['id'][]) => 
     alreadyVisitedObjects.length <= objects.length * 0.5
       ? epicProbability
       : alreadyVisitedObjects.length <= objects.length * 0.75
-      ? legendaryProbability
-      : mithicProbability
+        ? legendaryProbability
+        : mithicProbability
   const patchedObjects = objects.map((obj) => ({
     id: obj.id,
     p: alreadyVisitedObjects.includes(obj.id) ? visitedProbability : obj.p,

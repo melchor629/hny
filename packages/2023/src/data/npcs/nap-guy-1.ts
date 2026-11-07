@@ -1,5 +1,5 @@
-import spritesheet from '../spritesheets/nap-guy-1.json'
 import type { Npc } from '../../types/map'
+import spritesheet from '../spritesheets/nap-guy-1.json'
 
 const napGuy1: Npc = {
   id: 'nap-guy-1',

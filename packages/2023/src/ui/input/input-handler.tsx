@@ -167,7 +167,10 @@ export default function InputHandler({ children }: PropsWithChildren) {
 
       <GamepadInputHandler fns={handlerFns} />
       <KeyboardInputHandler fns={handlerFns} />
-      <TouchInputHandler fns={handlerFns} showTouchBack={showTouchBack} />
+      <TouchInputHandler
+        fns={handlerFns}
+        showTouchBack={showTouchBack}
+      />
     </context.Provider>
   )
 }

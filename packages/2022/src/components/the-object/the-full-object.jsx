@@ -47,7 +47,10 @@ const TheFullObject = (props) => {
 
   return (
     <group {...props}>
-      <primitive ref={group} object={scene} />
+      <primitive
+        ref={group}
+        object={scene}
+      />
       <ThePositionalAudio
         url={farBeatUrl}
         distance={1}

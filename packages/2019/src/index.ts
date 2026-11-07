@@ -1,5 +1,4 @@
 import anime from 'animejs'
-
 import { EventListener, PressListener } from './press-listener'
 import { wait, randomPosOnScreen } from './utils'
 

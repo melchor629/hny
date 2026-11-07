@@ -1,11 +1,19 @@
 {
   "name": "@melchor629/hny-2025",
   "version": "1.0.0",
-  "description": "Feliz año nuevo 2025",
-  "main": "src/index.html",
-  "author": "melchor9000",
-  "license": "MIT",
   "private": true,
+  "description": "Feliz año nuevo 2025",
+  "homepage": "/2025/",
+  "license": "MIT",
+  "author": "melchor9000",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "hny-scripts start",
+    "build": "hny-scripts build",
+    "clean": "hny-scripts clean",
+    "lint": "hny-scripts lint",
+    "format": "hny-scripts lint --format"
+  },
   "dependencies": {
     "@react-spring/web": "~10.0.0",
     "@react-three/drei": "~10.7.0",
@@ -24,14 +32,6 @@
     "@types/three": "0.171.0",
     "typescript": "^6.0.0"
   },
-  "scripts": {
-    "start": "hny-scripts start",
-    "build": "hny-scripts build",
-    "clean": "hny-scripts clean",
-    "lint": "hny-scripts lint",
-    "format": "hny-scripts lint --format"
-  },
-  "homepage": "/2025/",
   "browserslist": {
     "production": [
       ">1%",

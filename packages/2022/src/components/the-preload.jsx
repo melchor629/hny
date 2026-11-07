@@ -14,9 +14,8 @@ import {
 import { pingToApi } from '../fns'
 
 /**
- * This component preloads the objects into the GPU (or it should do it),
- * and setups the materials of the objects. References are shared across
- * components :)
+ * This component preloads the objects into the GPU (or it should do it), and setups the materials
+ * of the objects. References are shared across components :)
  */
 const ThePreload = () => {
   const { scene: obj1 } = useGLTF(objectBrokenUrl)

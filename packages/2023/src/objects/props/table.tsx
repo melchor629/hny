@@ -37,7 +37,14 @@ interface TableProps {
 
 function Table({ kind, onInteraction, x, y }: TableProps) {
   const prop = useMemo(() => props[kind], [kind])
-  return <MapProp prop={prop} x={x * 32 - 16} y={y * 32 - 16} onInteraction={onInteraction} />
+  return (
+    <MapProp
+      prop={prop}
+      x={x * 32 - 16}
+      y={y * 32 - 16}
+      onInteraction={onInteraction}
+    />
+  )
 }
 
 export default memo(Table)

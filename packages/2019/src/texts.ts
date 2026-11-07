@@ -1,5 +1,4 @@
 import anime from 'animejs'
-
 import { IFireworks, FireworkEvents } from './fireworks.interfaces'
 import { randomPosOnScreen, centerElementOn, wait } from './utils'
 
@@ -198,8 +197,8 @@ export class HappyNewYearAnimation extends TextAnimation {
       for (let x = 0; x < this.textContainers[y].length; x++) {
         const prevChars = this.textContainers[y].slice(0, x)
         const w =
-          (width - linesWidths[y]) / 2 +
-          prevChars.reduce((prev, curr) => prev + curr.clientWidth + leftPadding, 0)
+          (width - linesWidths[y]) / 2
+          + prevChars.reduce((prev, curr) => prev + curr.clientWidth + leftPadding, 0)
 
         animationPromises.push(
           this.doAnimation(this.textContainers[y][x], 3000, anime.random(0, 100), [w, h]),

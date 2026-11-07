@@ -51,16 +51,28 @@ export default function InventoryHeader({ hasFocus }: { hasFocus?: boolean }) {
 
   return (
     <div className={styles.container}>
-      <InventoryHeaderButton tab="book" hasFocus={hasFocus}>
+      <InventoryHeaderButton
+        tab="book"
+        hasFocus={hasFocus}
+      >
         Libro
       </InventoryHeaderButton>
-      <InventoryHeaderButton tab="items" hasFocus={hasFocus}>
+      <InventoryHeaderButton
+        tab="items"
+        hasFocus={hasFocus}
+      >
         Inventario
       </InventoryHeaderButton>
-      <InventoryHeaderButton tab="controls" hasFocus={hasFocus}>
+      <InventoryHeaderButton
+        tab="controls"
+        hasFocus={hasFocus}
+      >
         Controles
       </InventoryHeaderButton>
-      <InventoryHeaderButton tab="about" hasFocus={hasFocus}>
+      <InventoryHeaderButton
+        tab="about"
+        hasFocus={hasFocus}
+      >
         &lt;3
       </InventoryHeaderButton>
       <div

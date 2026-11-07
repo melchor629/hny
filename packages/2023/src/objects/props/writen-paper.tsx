@@ -22,7 +22,12 @@ function WritenPaper({ paperId, x, y }: KeyProps) {
   }
 
   return (
-    <MapProp prop={writenPaperProp} x={x * 32 - 8} y={y * 32 - 8} onInteraction={onInteraction} />
+    <MapProp
+      prop={writenPaperProp}
+      x={x * 32 - 8}
+      y={y * 32 - 8}
+      onInteraction={onInteraction}
+    />
   )
 }
 

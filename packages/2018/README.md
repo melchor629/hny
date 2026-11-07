@@ -34,6 +34,5 @@ In `showText()` the images `hns.png` and `3742.png` appears, at the top left of 
 
 Here is when it gets worse the webpage. It starts playing a very rusian hard bass and everything and the background changes with the beats of the song (`t = t / 1000 * 145 / 60;` + `const tt = Math.trunc(t) % 7 + 1;` + `const tCycle = t - Math.trunc(t);`). `tt` holds which is the background color should be using. `tCycle` holds a vaule between [0, 1) to show the beats in the images. The function applied to `t` is to change the value of `t i m e` to match the beats of the song (145) and the FPS (60) in seconds (/1000). When the songs ends, the page goes to `about:blank` because there's nothing else to see :) (there's a workaround for Safari too).
 
-
-  [1]: https://popmotion.io
-  [2]: https://fan.melchor9000.me/2018
+[1]: https://popmotion.io
+[2]: https://fan.melchor9000.me/2018

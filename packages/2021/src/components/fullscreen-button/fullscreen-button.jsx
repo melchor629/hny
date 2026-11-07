@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useState } from 'react'
 import { Fullscreen } from '@styled-icons/material/Fullscreen'
 import { FullscreenExit } from '@styled-icons/material/FullscreenExit'
-import styles from './styles.module.css'
+import { useCallback, useEffect, useState } from 'react'
 import fullscreenChangeEventName from './fullscreen-pollyfill'
+import styles from './styles.module.css'
 
 const FullscreenButton = ({ target }) => {
   const [isFullscreen, setFullscreen] = useState()
@@ -31,7 +31,11 @@ const FullscreenButton = ({ target }) => {
   if (!document.fullscreenEnabled) return null
 
   return (
-    <button type="button" className={styles.button} onClick={toggleFullscreen}>
+    <button
+      type="button"
+      className={styles.button}
+      onClick={toggleFullscreen}
+    >
       {isFullscreen ? <FullscreenExit /> : <Fullscreen />}
     </button>
   )

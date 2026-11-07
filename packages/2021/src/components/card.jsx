@@ -42,22 +42,31 @@ function Card({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const [frontProps, setFrontProps] = useSpring(() => ({
-    position: [0, 0, 0.004079808946698904],
-    rotation: [0, -Math.PI * 0.1, 0],
-    config: { mass: 1, tension: 280, friction: 120 },
-  }), [])
-  const [backProps, setBackProps] = useSpring(() => ({
-    position: [0, 0, 0],
-    rotation: [0, 0, 0],
-    config: { mass: 1, tension: 280, friction: 120 },
-  }), [])
-  const [groupProps, setGroupProps] = useSpring(() => ({
-    position,
-    rotation,
-    scale,
-    config: { mass: 1, tension: 280, friction: 120 },
-  }), [position, rotation])
+  const [frontProps, setFrontProps] = useSpring(
+    () => ({
+      position: [0, 0, 0.004079808946698904],
+      rotation: [0, -Math.PI * 0.1, 0],
+      config: { mass: 1, tension: 280, friction: 120 },
+    }),
+    [],
+  )
+  const [backProps, setBackProps] = useSpring(
+    () => ({
+      position: [0, 0, 0],
+      rotation: [0, 0, 0],
+      config: { mass: 1, tension: 280, friction: 120 },
+    }),
+    [],
+  )
+  const [groupProps, setGroupProps] = useSpring(
+    () => ({
+      position,
+      rotation,
+      scale,
+      config: { mass: 1, tension: 280, friction: 120 },
+    }),
+    [position, rotation],
+  )
 
   const open = useCallback(() => {
     cardFront.userData.open = true
@@ -187,9 +196,18 @@ function Card({
   }, [cardName, gl, setGroupProps])
 
   return (
-    <a.group onPointerUp={toggleOpen} {...groupProps}>
-      <a.primitive object={cardBack} {...frontProps} />
-      <a.primitive object={cardFront} {...backProps} />
+    <a.group
+      onPointerUp={toggleOpen}
+      {...groupProps}
+    >
+      <a.primitive
+        object={cardBack}
+        {...frontProps}
+      />
+      <a.primitive
+        object={cardFront}
+        {...backProps}
+      />
     </a.group>
   )
 }

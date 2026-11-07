@@ -8,7 +8,11 @@ const Effects = () => {
   return (
     <EffectComposer>
       {useSSAO && <SSAO />}
-      <Bloom luminanceThreshold={0.5} luminanceSmoothing={0.9} height={300} />
+      <Bloom
+        luminanceThreshold={0.5}
+        luminanceSmoothing={0.9}
+        height={300}
+      />
       <Noise opacity={0.03} />
     </EffectComposer>
   )

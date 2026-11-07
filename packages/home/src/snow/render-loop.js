@@ -8,10 +8,11 @@ const accel = new Vector3(0.01, -0.02, 0)
 /**
  * Updates the particles position and acceleration. If a particle falls outside the screen, it is
  * assigned a new random position and acceleration to be reused in the loop of infinite particle
- * fall. Y acceleration is limited so particles don't go as fast as sonic on the screen. When
- * a particle goes outside the screen, the Y acceleration is slow down a bit instead of reset, to
- * keep the momentum of all the particles.
- * @param {number} delta delta time for that frame
+ * fall. Y acceleration is limited so particles don't go as fast as sonic on the screen. When a
+ * particle goes outside the screen, the Y acceleration is slow down a bit instead of reset, to keep
+ * the momentum of all the particles.
+ *
+ * @param {number} delta Delta time for that frame
  * @param {Camera} camera Camera for the scene
  */
 const renderLoop = (delta, camera) => {

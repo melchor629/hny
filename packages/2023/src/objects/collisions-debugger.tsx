@@ -77,7 +77,11 @@ export default memo(function CollisionsDebugger({ collisions }: { collisions: Co
   return (
     <group renderOrder={9999}>
       {collisions.map((collision) => (
-        <Collision key={collision.toString()} collision={collision} show={show} />
+        <Collision
+          key={collision.toString()}
+          collision={collision}
+          show={show}
+        />
       ))}
     </group>
   )

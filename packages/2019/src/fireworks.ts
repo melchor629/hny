@@ -1,5 +1,4 @@
 import anime from 'animejs'
-
 import Color from './color'
 import { IFireworks, FireworkEvents } from './fireworks.interfaces'
 import { PressListener } from './press-listener'
@@ -90,9 +89,9 @@ function createCircle(x: number, y: number): Circle {
 function createTrail(x: number, y: number): Trail {
   const trail: Trail = {
     x:
-      x +
-      (Math.random() < 0.5 ? -1 : 1) *
-        anime.random(0.3 * window.innerWidth, 0.1 * window.innerWidth),
+      x
+      + (Math.random() < 0.5 ? -1 : 1)
+        * anime.random(0.3 * window.innerWidth, 0.1 * window.innerWidth),
     y: window.innerHeight + anime.random(5, 105),
     trail: [],
     t: 0,
@@ -142,12 +141,12 @@ export class Fireworks implements IFireworks {
     const ctx = <any>document.createElement('canvas').getContext('2d')!
     const dpr = window.devicePixelRatio || 1
     const bsr =
-      ctx['webkitBackingStorePixelRatio'] ||
-      ctx['mozBackingStorePixelRatio'] ||
-      ctx['msBackingStorePixelRatio'] ||
-      ctx['oBackingStorePixelRatio'] ||
-      ctx['backingStorePixelRatio'] ||
-      1
+      ctx['webkitBackingStorePixelRatio']
+      || ctx['mozBackingStorePixelRatio']
+      || ctx['msBackingStorePixelRatio']
+      || ctx['oBackingStorePixelRatio']
+      || ctx['backingStorePixelRatio']
+      || 1
 
     return dpr / bsr
   }

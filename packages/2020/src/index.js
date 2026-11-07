@@ -1,3 +1,5 @@
+import { easeCubicIn } from 'd3-ease'
+import clamp from 'lodash-es/clamp'
 import {
   AudioListener,
   Cache,
@@ -10,8 +12,6 @@ import {
   Vector3,
   WebGLRenderer,
 } from 'three'
-import clamp from 'lodash-es/clamp'
-import { easeCubicIn } from 'd3-ease'
 import Stats from 'three/examples/jsm/libs/stats.module'
 import colors from './colors'
 import loadData from './loaders'

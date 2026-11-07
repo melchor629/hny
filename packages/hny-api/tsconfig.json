@@ -6,8 +6,6 @@
     "rewriteRelativeImportExtensions": true,
     "verbatimModuleSyntax": true,
     "noEmit": true,
-    "types": [
-      "node"
-    ]
+    "types": ["node"]
   }
 }

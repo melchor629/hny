@@ -6,10 +6,10 @@ import wallTileFragmentShader from '../data/shaders/wall-tile.frag.glsl?raw'
 import wallTileVertexShader from '../data/shaders/wall-tile.vert.glsl?raw'
 import bricksFloorManifest from '../data/spritesheets/bricks-floor.json'
 import wallsManifest from '../data/spritesheets/Walls.json'
-import useSpritesheet from '../hooks/use-spritesheet'
 import { useTexture } from '../hooks/use-asset'
-import type { CornerPosition, Tile, WallPosition } from '../types/map'
 import usePlayerRef from '../hooks/use-player-ref'
+import useSpritesheet from '../hooks/use-spritesheet'
+import type { CornerPosition, Tile, WallPosition } from '../types/map'
 import Map from './map'
 
 const tileSize = 32.0
@@ -193,10 +193,10 @@ function MapTile({ wall, corners, collisionWall, x, y }: MapTileProps) {
 
   useEffect(() => {
     const applyMask =
-      wall.includes('bottom') ||
-      wall.endsWith('both') ||
-      wall.endsWith('aftertop') ||
-      corners?.some((corner) => corner.includes('bottom') || corner.endsWith('both'))
+      wall.includes('bottom')
+      || wall.endsWith('both')
+      || wall.endsWith('aftertop')
+      || corners?.some((corner) => corner.includes('bottom') || corner.endsWith('both'))
     if (applyMask) {
       // calculate wall clip for mask (the section where the mask will apply)
       wallDownShader.uniforms.wallClip.value.set(
@@ -275,8 +275,17 @@ function MapTile({ wall, corners, collisionWall, x, y }: MapTileProps) {
   const afterTopWall = afterTop[wall]
   return (
     <>
-      {afterTopWall && <MapTile wall={afterTopWall} x={x} y={y - 1} />}
-      <mesh ref={setMesh1} position={[x * tileSize, -y * tileSize, 0]}>
+      {afterTopWall && (
+        <MapTile
+          wall={afterTopWall}
+          x={x}
+          y={y - 1}
+        />
+      )}
+      <mesh
+        ref={setMesh1}
+        position={[x * tileSize, -y * tileSize, 0]}
+      >
         <primitive object={tileGeometry1} />
         <primitive object={floorShader} />
       </mesh>
@@ -304,13 +313,13 @@ function MapTile({ wall, corners, collisionWall, x, y }: MapTileProps) {
 export default memo(
   MapTile,
   (prev, next) =>
-    prev.wall === next.wall &&
-    prev.x === next.x &&
-    prev.y === next.y &&
-    prev.collisionWall === next.collisionWall &&
-    ((!prev.corners && !next.corners) ||
-      (!!prev.corners &&
-        !!next.corners &&
-        prev.corners.length === next.corners.length &&
-        prev.corners.every((c) => next.corners!.includes(c)))),
+    prev.wall === next.wall
+    && prev.x === next.x
+    && prev.y === next.y
+    && prev.collisionWall === next.collisionWall
+    && ((!prev.corners && !next.corners)
+      || (!!prev.corners
+        && !!next.corners
+        && prev.corners.length === next.corners.length
+        && prev.corners.every((c) => next.corners!.includes(c)))),
 )

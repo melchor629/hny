@@ -11,8 +11,8 @@ type EventType<
 
 export class EventListener<
   const Elem extends Element | Document,
-  const EventKey extends keyof (Elem extends Element ? HTMLElementEventMap : DocumentEventMap) &
-    string,
+  const EventKey extends keyof (Elem extends Element ? HTMLElementEventMap : DocumentEventMap)
+    & string,
 > {
   private callback: ((this: Elem, e: EventType<Elem, EventKey>) => any) | undefined
   private _times: number = 0

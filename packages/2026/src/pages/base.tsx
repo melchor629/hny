@@ -9,7 +9,7 @@ export default function BasePage({
   return (
     <div
       {...props}
-      className={`relative h-lvh p-8 flex flex-col justify-start items-center select-none text-center ${className || ''}`}
+      className={`relative flex h-lvh flex-col items-center justify-start p-8 text-center select-none ${className || ''}`}
       ref={ref}
     >
       {children}

@@ -1,16 +1,17 @@
 {
   "name": "@melchor629/hny-2020",
   "version": "1.0.0",
+  "private": true,
   "description": "Feliz año nuevo 2020",
-  "main": "src/index.html",
+  "homepage": "/2020/",
+  "license": "MIT",
+  "author": "melchor9000",
   "repository": {
     "type": "git",
     "url": "https://github.com/melchor629/hny",
     "directory": "packages/2020"
   },
-  "author": "melchor9000",
-  "license": "MIT",
-  "private": true,
+  "main": "src/index.html",
   "scripts": {
     "start": "hny-scripts start",
     "build": "hny-scripts build",
@@ -24,12 +25,11 @@
     "three": "0.172.0"
   },
   "devDependencies": {
-    "@types/three": "0.171.0",
+    "@melchor629/hny-scripts": "^0.3.0",
     "@types/d3-ease": "^3.0.0",
     "@types/lodash-es": "^4.17.4",
-    "@melchor629/hny-scripts": "^0.3.0"
+    "@types/three": "0.171.0"
   },
-  "homepage": "/2020/",
   "browserslist": {
     "production": [
       ">1%",

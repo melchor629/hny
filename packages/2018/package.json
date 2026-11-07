@@ -1,16 +1,17 @@
 {
   "name": "@melchor629/hny-2018",
   "version": "1.0.0",
+  "private": true,
   "description": "Feliz Año Nuevo 2018",
-  "main": "src/index.js",
+  "homepage": "/2018/",
+  "license": "MIT",
+  "author": "melchor9000",
   "repository": {
     "type": "git",
     "url": "https://github.com/melchor629/hny",
     "directory": "packages/2018"
   },
-  "author": "melchor9000",
-  "license": "MIT",
-  "private": true,
+  "main": "src/index.js",
   "scripts": {
     "start": "hny-scripts start",
     "build": "hny-scripts build",
@@ -24,7 +25,6 @@
   "devDependencies": {
     "@melchor629/hny-scripts": "^0.3.0"
   },
-  "homepage": "/2018/",
   "browserslist": {
     "production": [
       ">1%",

@@ -28,7 +28,10 @@ const TheStar = () => {
   return (
     <>
       <ambientLight args={[starColour, 0.1]} />
-      <directionalLight args={[starColour, 1]} position={[0.5, 1, 1.5]} />
+      <directionalLight
+        args={[starColour, 1]}
+        position={[0.5, 1, 1.5]}
+      />
       <mesh
         name="the-star"
         position={[0.5 * 100, 1 * 100, 1.5 * 100]}
@@ -36,7 +39,10 @@ const TheStar = () => {
         raycast={meshBounds}
       >
         <sphereGeometry args={[2, 16, 8]} />
-        <meshStandardMaterial color={starColour} emissive={starColour} />
+        <meshStandardMaterial
+          color={starColour}
+          emissive={starColour}
+        />
       </mesh>
     </>
   )

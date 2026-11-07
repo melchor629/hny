@@ -1,6 +1,6 @@
 import { memo } from 'react'
-import AnimalsContainer from './hud/animals-container'
 import GlCanvas from './gl/glcanvas'
+import AnimalsContainer from './hud/animals-container'
 import Text from './hud/text'
 
 const App = memo(function App() {

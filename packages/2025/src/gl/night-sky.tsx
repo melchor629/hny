@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { Color, DoubleSide, ShaderMaterial } from 'three'
-import vertexShader from './night-sky.vert.glsl?raw'
 import fragmentShader from './night-sky.frag.glsl?raw'
+import vertexShader from './night-sky.vert.glsl?raw'
 
 // https://discourse.threejs.org/t/starry-shader-for-sky-sphere/7578/17
 // https://stackblitz.com/edit/starry-skydome-t1j7od?file=index.js
@@ -26,7 +26,10 @@ export default function NightSky({ radius = 500.01 }) {
   return (
     <mesh>
       <sphereGeometry args={[radius, 20, 20]} />
-      <primitive object={starrySkyShader} attach="material" />
+      <primitive
+        object={starrySkyShader}
+        attach="material"
+      />
     </mesh>
   )
 }

@@ -22,8 +22,16 @@ function main() {
         onPointerDown={onPointerDown}
       >
         <InputHandler>
-          <GameCanvas width={rect.w} height={rect.h} scale={rect.s} />
-          <Hud width={rect.w} height={rect.h} scale={rect.s} />
+          <GameCanvas
+            width={rect.w}
+            height={rect.h}
+            scale={rect.s}
+          />
+          <Hud
+            width={rect.w}
+            height={rect.h}
+            scale={rect.s}
+          />
         </InputHandler>
       </div>
     </StrictMode>,

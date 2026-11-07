@@ -41,7 +41,12 @@ export default function TheCatto(props: React.ComponentPropsWithoutRef<typeof Ca
   return (
     <group ref={group}>
       <Catto {...props} />
-      <PositionalAudio ref={audioRef} url={fileName} loop autoplay />
+      <PositionalAudio
+        ref={audioRef}
+        url={fileName}
+        loop
+        autoplay
+      />
     </group>
   )
 }

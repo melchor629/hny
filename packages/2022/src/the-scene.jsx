@@ -6,8 +6,8 @@ import {
   TheStar,
   TheWelcome,
 } from './components'
-import { usePartyStore } from './stores'
 import { AudioListenerProvider } from './hooks/use-audio-listener'
+import { usePartyStore } from './stores'
 
 const TheScene = () => {
   const hasThePartyStarted = usePartyStore(({ partyStarted }) => partyStarted)
@@ -18,7 +18,10 @@ const TheScene = () => {
         <>
           <TheOrbitControls />
           <TheStar />
-          <TheObject position={[0.0, -0.75, 0.0]} rotation={[Math.PI / 2, 0, 0]} />
+          <TheObject
+            position={[0.0, -0.75, 0.0]}
+            rotation={[Math.PI / 2, 0, 0]}
+          />
           <TheMusicPlayer />
         </>
       ) : (

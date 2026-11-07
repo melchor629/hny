@@ -14,7 +14,12 @@ const createBaseObject = (name: string) => {
     useImperativeHandle(ref, () => scene as unknown as Group, [scene])
 
     // @ts-ignore-error
-    return <animated.primitive {...props} object={scene} />
+    return (
+      <animated.primitive
+        {...props}
+        object={scene}
+      />
+    )
   }
   BaseObject.displayName = name
 

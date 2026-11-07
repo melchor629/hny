@@ -2,8 +2,9 @@ import { random } from 'lodash-es'
 import { Vector3, Camera } from 'three'
 
 /**
- * Generates a random position for a particle using either right values from the world space
- * (if camera is provided) or a random position using hardcoded values (if camera is not provided).
+ * Generates a random position for a particle using either right values from the world space (if
+ * camera is provided) or a random position using hardcoded values (if camera is not provided).
+ *
  * @param {Camera} camera Camera to use when calculating the right world positions
  * @returns {[number, number, number]} A (x, y, z) tuple
  */
@@ -26,6 +27,7 @@ export const generateRandomSize = () => random(2, 4, true)
 
 /**
  * Generates a random initial acceleration for a particle.
+ *
  * @returns {[number, number, number]} A (x, y, z) tuple
  */
 export const generateRandomInitialAcceleration = () => [

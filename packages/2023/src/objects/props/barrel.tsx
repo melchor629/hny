@@ -19,7 +19,14 @@ interface BarrelProps {
 
 function Barrel({ dir, onInteraction, x, y }: BarrelProps) {
   const prop = useMemo(() => props[dir], [dir])
-  return <MapProp prop={prop} x={x * 32 - 16} y={y * 32 - 16} onInteraction={onInteraction} />
+  return (
+    <MapProp
+      prop={prop}
+      x={x * 32 - 16}
+      y={y * 32 - 16}
+      onInteraction={onInteraction}
+    />
+  )
 }
 
 export default memo(Barrel)

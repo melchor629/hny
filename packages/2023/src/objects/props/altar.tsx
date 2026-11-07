@@ -33,8 +33,20 @@ export default function Altar({ x, y }: { x: number; y: number }) {
 
   return (
     <>
-      <MapProp prop={altar} x={x * 32 - 16} y={y * 32 - 16} onInteraction={grab} />
-      {!hasGrabbedPhoto && <MapNpc npc={leuhm} state="rest" x={x * 32 + 31} y={y * 32 - 6} />}
+      <MapProp
+        prop={altar}
+        x={x * 32 - 16}
+        y={y * 32 - 16}
+        onInteraction={grab}
+      />
+      {!hasGrabbedPhoto && (
+        <MapNpc
+          npc={leuhm}
+          state="rest"
+          x={x * 32 + 31}
+          y={y * 32 - 6}
+        />
+      )}
     </>
   )
 }

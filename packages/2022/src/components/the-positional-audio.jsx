@@ -1,6 +1,6 @@
 import { useLoader } from '@react-three/fiber'
-import { mergeRefs } from 'react-merge-refs'
 import { forwardRef, useEffect, useRef } from 'react'
+import { mergeRefs } from 'react-merge-refs'
 import { AudioLoader } from 'three'
 import { useAudioListener } from '../hooks'
 
@@ -34,7 +34,13 @@ const ThePositionalAudio = forwardRef(
       }
     }, [])
 
-    return <positionalAudio ref={mergeRefs([ref, audioRef])} args={[listener]} {...props} />
+    return (
+      <positionalAudio
+        ref={mergeRefs([ref, audioRef])}
+        args={[listener]}
+        {...props}
+      />
+    )
   },
 )
 

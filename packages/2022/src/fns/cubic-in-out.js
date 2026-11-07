@@ -1,5 +1,6 @@
 /**
  * Cubic In/Out easing
+ *
  * @param {Number} percentage Time/Percentage from 0 to 1
  */
 const cubicInOut = (percentage) =>

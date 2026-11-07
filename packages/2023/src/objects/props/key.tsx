@@ -29,7 +29,14 @@ function Key({ dir, keyId, x, y }: KeyProps) {
     return null
   }
 
-  return <MapProp prop={prop} x={x * 32 - 4} y={y * 32 - 2} onInteraction={onInteraction} />
+  return (
+    <MapProp
+      prop={prop}
+      x={x * 32 - 4}
+      y={y * 32 - 2}
+      onInteraction={onInteraction}
+    />
+  )
 }
 
 export default memo(Key)

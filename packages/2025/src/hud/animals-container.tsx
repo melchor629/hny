@@ -56,7 +56,11 @@ export default function AnimalsContainer() {
   return (
     <div className={styles.containement}>
       {transitions((style, key) => (
-        <animated.div key={key} className={styles.container} style={style}>
+        <animated.div
+          key={key}
+          className={styles.container}
+          style={style}
+        >
           {key !== '💀' && (
             <AnimalPicture
               ref={changeTargetRef}

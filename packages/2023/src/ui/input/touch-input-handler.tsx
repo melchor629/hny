@@ -252,7 +252,10 @@ export default function TouchInputHandler({
         onTouchEnd={onJoystickTouchEnd}
         onContextMenu={avoidContextMenu}
       >
-        <div ref={stickRef} className={styles.stick}>
+        <div
+          ref={stickRef}
+          className={styles.stick}
+        >
           &nbsp;
         </div>
       </div>

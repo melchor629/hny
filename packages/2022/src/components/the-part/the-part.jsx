@@ -1,14 +1,14 @@
 import { animated, useTransition } from '@react-spring/web'
 import { noop } from 'lodash-es'
 import { useCallback, useEffect, useState } from 'react'
+import { Vector3 } from 'three'
 import { shallow } from 'zustand/shallow'
 import { getTrackInfo } from '../../fns'
 import { useParts } from '../../hooks'
 import { usePartStore } from '../../stores'
 import TheCloseButton from './the-close-button'
-import TheTrack from './the-track'
 import styles from './the-part.module.scss'
-import { Vector3 } from 'three'
+import TheTrack from './the-track'
 
 const reactions = Object.freeze({
   think: 'Reflexión',
@@ -118,9 +118,12 @@ const ThePart = () => {
 
   return transitions(
     (props, show) =>
-      show &&
-      part && (
-        <animated.div className={styles['backdrop-container']} style={props}>
+      show
+      && part && (
+        <animated.div
+          className={styles['backdrop-container']}
+          style={props}
+        >
           <div className={styles.container}>
             <h1>
               {reactions[part.reaction] || reactions.default}
@@ -129,13 +132,25 @@ const ThePart = () => {
             <div className={styles.text}>{part.text}</div>
             {part.image && (
               <div className={styles.image}>
-                {part.image.url && <img src={part.image.url} alt={part.image.description} />}
+                {part.image.url && (
+                  <img
+                    src={part.image.url}
+                    alt={part.image.description}
+                  />
+                )}
                 {part.image.assets && (
                   <picture>
                     {part.image.assets.map(({ url, type }) => (
-                      <source key={type} srcSet={url} type={type} />
+                      <source
+                        key={type}
+                        srcSet={url}
+                        type={type}
+                      />
                     ))}
-                    <img src={part.image.assets.slice(-1)[0].url} alt={part.image.description} />
+                    <img
+                      src={part.image.assets.slice(-1)[0].url}
+                      alt={part.image.description}
+                    />
                   </picture>
                 )}
               </div>
@@ -144,7 +159,10 @@ const ThePart = () => {
             <TheCloseButton onClick={unselectPart} />
           </div>
 
-          <TheCloseButton floating onClick={unselectPart} />
+          <TheCloseButton
+            floating
+            onClick={unselectPart}
+          />
         </animated.div>
       ),
   )

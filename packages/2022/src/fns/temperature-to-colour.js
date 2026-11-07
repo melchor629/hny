@@ -1,9 +1,10 @@
 import { clamp } from 'lodash-es'
 
 /**
- * Converts temperature (black body) to RGBA colour.
- * Adapted from https://github.com/m-lima/temperagb/blob/master/src/lib.rs
- * which is an implementation of https://tannerhelland.com/2012/09/18/convert-temperature-rgb-algorithm-code.html
+ * Converts temperature (black body) to RGBA colour. Adapted from
+ * https://github.com/m-lima/temperagb/blob/master/src/lib.rs which is an implementation of
+ * https://tannerhelland.com/2012/09/18/convert-temperature-rgb-algorithm-code.html
+ *
  * @param {Number} temp Temperature in Kelvin
  */
 const temperatureToColour = (temp) => {

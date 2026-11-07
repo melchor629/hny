@@ -1,9 +1,8 @@
 {
   "name": "@melchor629/hny",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
   "private": true,
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/melchor629/hny"
@@ -11,6 +10,8 @@
   "workspaces": [
     "./packages/*"
   ],
+  "type": "module",
+  "main": "index.js",
   "scripts": {
     "clean": "rm -rf dist && npm run clean --workspaces --if-present",
     "dist": "./scripts/copy-to-dist.sh && ./scripts/compress-dist-files.sh",
@@ -21,7 +22,8 @@
     "serve:docker": "docker container run --rm -p 3000:80 -v $PWD/docker/nginx:/etc/nginx/conf.d:ro -v $PWD/dist:/usr/share/nginx/html:ro nginx:alpine"
   },
   "devDependencies": {
-    "prettier": "^3.1.1",
+    "@melchor629/oxfmt-config": "^0.1.0",
+    "oxfmt": "^0.77.0",
     "serve": "^14.2.5",
     "typescript": "^6.0.0"
   },

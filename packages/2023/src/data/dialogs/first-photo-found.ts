@@ -4,8 +4,8 @@ import { newDialog } from '../../types/dialogs'
 const firstPhotoDialog = newDialog(
   'first-photo-found',
   () =>
-    useInventory.getState().book.filter((p) => p.discovered).length /
-    useInventory.getState().book.length,
+    useInventory.getState().book.filter((p) => p.discovered).length
+    / useInventory.getState().book.length,
 )
   .addEntry('found', 'player', (builder) =>
     builder.setText((b) =>

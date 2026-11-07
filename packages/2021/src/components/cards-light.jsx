@@ -28,7 +28,13 @@ const CardsLight = () => {
       />
       {lightRef.current && <primitive object={lightRef.current} />}
 
-      <pointLight ref={light2Ref} color="#6EC963" intensity={0.1} decay={2} position={[-5, 2, 0]} />
+      <pointLight
+        ref={light2Ref}
+        color="#6EC963"
+        intensity={0.1}
+        decay={2}
+        position={[-5, 2, 0]}
+      />
     </>
   )
 }

@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
 import { SoftShadows } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
+import React, { useState } from 'react'
 import * as THREE from 'three'
-import { FullscreenButton, Scene } from './components'
 import styles from './app.module.css'
+import { FullscreenButton, Scene } from './components'
 
 export default function App() {
   const [container, setRef] = useState()
 
   return (
-    <div className={styles['app-container']} ref={setRef}>
+    <div
+      className={styles['app-container']}
+      ref={setRef}
+    >
       <Canvas
         className={styles.canvas}
         style={{ width: '', height: '' }}

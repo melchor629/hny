@@ -4,6 +4,7 @@ const opacityClass = 'opacity-0'
 
 /**
  * Starts event listeners for the container.
+ *
  * @param container {HTMLDivElement} container
  */
 const init = (container) => {

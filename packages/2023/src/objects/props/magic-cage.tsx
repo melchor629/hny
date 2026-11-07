@@ -7,5 +7,11 @@ interface MagicCageProps {
 }
 
 export default function MagicCage({ x, y }: MagicCageProps) {
-  return <MapProp prop={magicCage} x={x * 32 - 9 - 9} y={y * 32 - 9 - 9} />
+  return (
+    <MapProp
+      prop={magicCage}
+      x={x * 32 - 9 - 9}
+      y={y * 32 - 9 - 9}
+    />
+  )
 }

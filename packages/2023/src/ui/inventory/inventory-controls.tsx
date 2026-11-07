@@ -61,7 +61,10 @@ export default function InventoryControls({ hasFocus, gameScale }: Props) {
   }, [hasFocus, scrollBy])
 
   return (
-    <div ref={containerRef} className={styles.container}>
+    <div
+      ref={containerRef}
+      className={styles.container}
+    >
       <h1>Teclado</h1>
       <table aria-label="Combinaciones de teclas">
         <thead>
@@ -152,10 +155,16 @@ export default function InventoryControls({ hasFocus, gameScale }: Props) {
         de mandos.
       </p>
       <figure>
-        <img src={new URL('./standard_gamepad.svg', import.meta.url).toString()} width="100%" />
+        <img
+          src={new URL('./standard_gamepad.svg', import.meta.url).toString()}
+          width="100%"
+        />
         <figcaption>
           Imagen obtenida de&nbsp;
-          <a href="https://w3c.github.io/gamepad/#remapping" target="_blank">
+          <a
+            href="https://w3c.github.io/gamepad/#remapping"
+            target="_blank"
+          >
             https://w3c.github.io/gamepad/#remapping
           </a>
           &nbsp;- modificada para el juego

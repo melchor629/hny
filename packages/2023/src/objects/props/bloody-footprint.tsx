@@ -27,8 +27,16 @@ export default function BloodyFootprint({ x, y, r }: { x: number; y: number; r?:
   }, [rotation, position])
 
   return (
-    <group ref={groupRef} rotation={rotation} position={position}>
-      <MapProp prop={bloodyFootprint} x={-16} y={-16} />
+    <group
+      ref={groupRef}
+      rotation={rotation}
+      position={position}
+    >
+      <MapProp
+        prop={bloodyFootprint}
+        x={-16}
+        y={-16}
+      />
     </group>
   )
 }

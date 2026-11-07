@@ -40,8 +40,14 @@ const Regalo = forwardRef<RefType, Props>(function Regalo({ cajaProps, tapaProps
   return (
     <animated.group {...props}>
       {/** @ts-ignore-error */}
-      <animated.primitive {...cajaProps} object={caja} />
-      <animated.primitive {...tapaProps} object={tapa} />
+      <animated.primitive
+        {...cajaProps}
+        object={caja}
+      />
+      <animated.primitive
+        {...tapaProps}
+        object={tapa}
+      />
     </animated.group>
   )
 })

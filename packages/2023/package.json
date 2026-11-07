@@ -1,11 +1,20 @@
 {
   "name": "@melchor629/hny-2023",
   "version": "1.0.0",
-  "description": "Feliz año nuevo 2023",
-  "main": "src/index.html",
-  "author": "melchor9000",
-  "license": "MIT",
   "private": true,
+  "description": "Feliz año nuevo 2023",
+  "homepage": "/2023/",
+  "license": "MIT",
+  "author": "melchor9000",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "hny-scripts start",
+    "build": "hny-scripts build",
+    "clean": "hny-scripts clean",
+    "lint": "hny-scripts lint",
+    "format": "hny-scripts lint --format",
+    "gen-tiles": "python3 ./src/gen_types.py"
+  },
   "dependencies": {
     "@react-spring/web": "~10.0.0",
     "@react-three/drei": "~10.7.0",
@@ -26,15 +35,6 @@
     "sass-embedded": "^1.86.0",
     "typescript": "^6.0.0"
   },
-  "scripts": {
-    "start": "hny-scripts start",
-    "build": "hny-scripts build",
-    "clean": "hny-scripts clean",
-    "lint": "hny-scripts lint",
-    "format": "hny-scripts lint --format",
-    "gen-tiles": "python3 ./src/gen_types.py"
-  },
-  "homepage": "/2023/",
   "browserslist": {
     "production": [
       ">1%",

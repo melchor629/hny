@@ -34,7 +34,14 @@ function Key({ alt, photoId, x, y }: KeyProps) {
     return null
   }
 
-  return <MapProp prop={prop} x={x * 32 - 8} y={y * 32 - 8} onInteraction={onInteraction} />
+  return (
+    <MapProp
+      prop={prop}
+      x={x * 32 - 8}
+      y={y * 32 - 8}
+      onInteraction={onInteraction}
+    />
+  )
 }
 
 export default memo(Key)

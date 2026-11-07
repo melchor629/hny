@@ -13,7 +13,10 @@ export default function Notification({ styles, notification, gameScale }: any) {
   }, [notification])
 
   return (
-    <animated.div className={s.notification} style={styles}>
+    <animated.div
+      className={s.notification}
+      style={styles}
+    >
       {typeof notification.icon === 'string' && <img src={notification.icon} />}
       {typeof notification.icon === 'object' && (
         <SpritesheetImage

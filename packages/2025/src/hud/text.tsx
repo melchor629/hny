@@ -1,8 +1,8 @@
 import { type PropsWithChildren, useCallback, useState } from 'react'
-import styles from './text.module.css'
-import useGameState from '../use-game-state'
 import { useShallow } from 'zustand/shallow'
+import useGameState from '../use-game-state'
 import AnimatedText from './animated-text'
+import styles from './text.module.css'
 
 const Typography = ({
   children,
@@ -40,19 +40,29 @@ export default function Text() {
   return (
     <div className={styles.container}>
       {text === 'greeting' && (
-        <AnimatedText delay={4_000} onEnd={onTextEnd}>
+        <AnimatedText
+          delay={4_000}
+          onEnd={onTextEnd}
+        >
           <Typography variant="1">Otro año más pasa...</Typography>
           <Typography>Otro año más de experiencias y vivencias...</Typography>
         </AnimatedText>
       )}
       {text === 'onegai' && (
-        <AnimatedText delay={5_000} onEnd={onTextEnd}>
+        <AnimatedText
+          delay={5_000}
+          onEnd={onTextEnd}
+        >
           <Typography>Espero que todos podamos seguir viviendo</Typography>
           <Typography>nuevas experiencias durante muchos años más...</Typography>
         </AnimatedText>
       )}
       {text === 'hny' && (
-        <AnimatedText delay={7_000} onEnd={onTextEnd} pause={10_000}>
+        <AnimatedText
+          delay={7_000}
+          onEnd={onTextEnd}
+          pause={10_000}
+        >
           <Typography variant="1">
             <span className={styles.reverte}>🎉</span>
             &nbsp;
@@ -62,13 +72,20 @@ export default function Text() {
         </AnimatedText>
       )}
       {text === 'waiting' && (
-        <AnimatedText delay={2_000} onEnd={onTextEnd} pause={15_000}>
+        <AnimatedText
+          delay={2_000}
+          onEnd={onTextEnd}
+          pause={15_000}
+        >
           <Typography variant="1">¿Esperando a que ocurra algo?</Typography>
           <Typography variant="neko">🐈</Typography>
         </AnimatedText>
       )}
       {text === 'present' && (
-        <AnimatedText delay={500} onEnd={onTextEnd}>
+        <AnimatedText
+          delay={500}
+          onEnd={onTextEnd}
+        >
           <Typography variant="1">Venga</Typography>
           <Typography>toma un animalillo graciosillo</Typography>
         </AnimatedText>

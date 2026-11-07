@@ -47,9 +47,9 @@ export default class SnowFall {
       rnd(-this.#canvas.height * 0.25, this.#canvas.height * (initial ? 0.75 : 0)),
       r,
       this.#maxRadius > 1
-        ? this.#minSpeed +
-          ((this.#maxSpeed - this.#minSpeed) * (r - 1)) /
-            (this.#maxRadius * window.devicePixelRatio - 1)
+        ? this.#minSpeed
+            + ((this.#maxSpeed - this.#minSpeed) * (r - 1))
+              / (this.#maxRadius * window.devicePixelRatio - 1)
         : rnd(this.#minSpeed, this.#maxSpeed),
       rnd(0.01, 0.09),
     )

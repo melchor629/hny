@@ -12,6 +12,11 @@ const props = { 1: brokenFloor1, 2: brokenFloor2, 3: brokenFloor3 }
 
 export default function BrokenFloor({ stage, x, y, onInteraction }: BrokenFloorProps) {
   return (
-    <MapProp prop={props[stage]} x={x * 32 - 16} y={y * 32 - 16} onInteraction={onInteraction} />
+    <MapProp
+      prop={props[stage]}
+      x={x * 32 - 16}
+      y={y * 32 - 16}
+      onInteraction={onInteraction}
+    />
   )
 }

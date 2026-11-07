@@ -1,12 +1,12 @@
-import { Chacha20 } from 'ts-chacha20'
 import { bytesToBase64, base64ToBytes } from 'byte-base64'
+import { Chacha20 } from 'ts-chacha20'
 
-// prettier-ignore
+// oxfmt-ignore
 const key = new Uint8Array([
   147, 212, 118, 179,  75, 131, 227, 206,  80, 202,  34,  76,  32,  16,  34,  98,
    73,  89, 196,  87, 209, 202, 231, 175, 243, 132,  23, 168,  88, 180, 233, 121,
 ])
-// prettier-ignore
+// oxfmt-ignore
 const nonce = new Uint8Array([
    16, 196, 251, 115, 154, 226, 225,  76, 125, 208, 119, 144,
 ])

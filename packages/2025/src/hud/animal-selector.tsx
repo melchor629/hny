@@ -69,10 +69,16 @@ export default function AnimalSelector() {
       {transitions(
         (trStyles, show) =>
           show && (
-            <animated.div style={trStyles} className={styles['selector-container']}>
+            <animated.div
+              style={trStyles}
+              className={styles['selector-container']}
+            >
               <ul className={styles['selector-list']}>
                 {animalKeys.map((animalKey) => (
-                  <AnimalItemSelector key={animalKey} animalKey={animalKey} />
+                  <AnimalItemSelector
+                    key={animalKey}
+                    animalKey={animalKey}
+                  />
                 ))}
               </ul>
             </animated.div>

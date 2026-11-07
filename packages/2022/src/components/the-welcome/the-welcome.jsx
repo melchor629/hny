@@ -7,8 +7,8 @@ import styles from './the-welcome.module.scss'
 
 const appleRegex = /iPhone|iPad/g
 const isApple =
-  ['iPhone', 'iPad'].includes(window.navigator.platform) ||
-  appleRegex.exec(window.navigator.userAgent)
+  ['iPhone', 'iPad'].includes(window.navigator.platform)
+  || appleRegex.exec(window.navigator.userAgent)
 
 const TheWelcome = () => {
   const letsParty = usePartyStore((state) => state.letsParty)
@@ -28,7 +28,10 @@ const TheWelcome = () => {
   }, [letsParty, audioListener])
 
   return (
-    <Html fullscreen className={styles.container}>
+    <Html
+      fullscreen
+      className={styles.container}
+    >
       <h1 className={styles.title}>¡Bienvenido!</h1>
       <div className={styles['text-container']}>
         Estas a punto de empezar con la fiesta, pero antes debes saber que hay sonidos y música
@@ -57,7 +60,11 @@ const TheWelcome = () => {
         </small>
       </div>
       <div className={styles['text-ready-container']}>¿Empezamos?</div>
-      <button type="button" className={styles.button} onClick={letsPartyThePre}>
+      <button
+        type="button"
+        className={styles.button}
+        onClick={letsPartyThePre}
+      >
         Empezar la fiesta
       </button>
     </Html>

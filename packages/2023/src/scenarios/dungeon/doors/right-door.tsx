@@ -20,16 +20,36 @@ export default function RightDoor({
   if (isOpen) {
     return (
       <>
-        <MapProp x={x * 32} y={y * 32 - 10} prop={doorOpenedRightUpProp} onInteraction={toggle} />
-        <MapProp x={x * 32} y={y * 32 + 10} prop={doorOpenedRightDownProp} onInteraction={toggle} />
+        <MapProp
+          x={x * 32}
+          y={y * 32 - 10}
+          prop={doorOpenedRightUpProp}
+          onInteraction={toggle}
+        />
+        <MapProp
+          x={x * 32}
+          y={y * 32 + 10}
+          prop={doorOpenedRightDownProp}
+          onInteraction={toggle}
+        />
       </>
     )
   }
 
   return (
     <>
-      <MapProp x={x * 32} y={y * 32 - 1} prop={doorClosedRightUpProp} onInteraction={toggle} />
-      <MapProp x={x * 32} y={y * 32 + 11} prop={doorClosedRightDownProp} onInteraction={toggle} />
+      <MapProp
+        x={x * 32}
+        y={y * 32 - 1}
+        prop={doorClosedRightUpProp}
+        onInteraction={toggle}
+      />
+      <MapProp
+        x={x * 32}
+        y={y * 32 + 11}
+        prop={doorClosedRightDownProp}
+        onInteraction={toggle}
+      />
     </>
   )
 }

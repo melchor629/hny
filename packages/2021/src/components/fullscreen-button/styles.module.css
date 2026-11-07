@@ -8,7 +8,9 @@
   border: none;
   background-color: rgb(200 200 200 / 0.88);
   opacity: 0.44;
-  transition: background-color 75ms ease-in-out, opacity 75ms ease-in-out;
+  transition:
+    background-color 75ms ease-in-out,
+    opacity 75ms ease-in-out;
 }
 
 .button:hover {

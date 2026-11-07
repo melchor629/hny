@@ -1,7 +1,7 @@
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer'
-import { CopyShader } from 'three/examples/jsm/shaders/CopyShader'
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass'
 import { SSAARenderPass } from 'three/examples/jsm/postprocessing/SSAARenderPass'
+import { CopyShader } from 'three/examples/jsm/shaders/CopyShader'
 
 export default (renderer, scene, camera) => {
   const composer = new EffectComposer(renderer)

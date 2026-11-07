@@ -76,6 +76,7 @@ const animate = (time) => {
 
 /**
  * Initializes the snow background
+ *
  * @param container {HTMLDivElement} container
  */
 export default (container) => {
@@ -94,7 +95,8 @@ export default (container) => {
       (e) => {
         const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement
         if (e.key.toLowerCase() === 'f' && !fullscreenElement) {
-          container.requestFullscreen({ navigationUI: 'hide' })
+          container
+            .requestFullscreen({ navigationUI: 'hide' })
             .then(() => container.requestPointerLock())
         }
       },

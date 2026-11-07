@@ -30,15 +30,55 @@ export default function LeftBottomLeftDown() {
   return (
     <>
       {/* main hall > branch left > branch bottom > branch left > branch down */}
-      <BottomDoor x={26} y={56.45} isOpen={isOpen} toggle={toggleDoor2} />
-      <MapTile wall="both-center" x={26} y={58} />
-      <MapTile wall="both-center" corners={['right-aftertop']} x={26} y={59} />
-      <MapTile wall="left-bottom" corners={['right-top']} x={26} y={60} />
-      <MapTile wall="center-both" x={27} y={60} />
-      <MapTile wall="center-both" x={28} y={60} />
-      <MapTile wall="center-both" x={29} y={60} />
-      <MapTile wall="right-top" corners={['left-bottom']} x={30} y={60} />
-      <MapTile wall="both-bottom" x={30} y={61} />
+      <BottomDoor
+        x={26}
+        y={56.45}
+        isOpen={isOpen}
+        toggle={toggleDoor2}
+      />
+      <MapTile
+        wall="both-center"
+        x={26}
+        y={58}
+      />
+      <MapTile
+        wall="both-center"
+        corners={['right-aftertop']}
+        x={26}
+        y={59}
+      />
+      <MapTile
+        wall="left-bottom"
+        corners={['right-top']}
+        x={26}
+        y={60}
+      />
+      <MapTile
+        wall="center-both"
+        x={27}
+        y={60}
+      />
+      <MapTile
+        wall="center-both"
+        x={28}
+        y={60}
+      />
+      <MapTile
+        wall="center-both"
+        x={29}
+        y={60}
+      />
+      <MapTile
+        wall="right-top"
+        corners={['left-bottom']}
+        x={30}
+        y={60}
+      />
+      <MapTile
+        wall="both-bottom"
+        x={30}
+        y={61}
+      />
       <Lever
         orientation="behind"
         activated={door4.isOpen}

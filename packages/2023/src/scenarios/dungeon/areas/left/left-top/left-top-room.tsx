@@ -147,59 +147,267 @@ export default function LeftTopRoom() {
 
   return (
     <>
-      <MapTile wall="left-both" x={30} y={36} />
-      <Table kind="butcher" x={30} y={35.8} />
-      <MapTile wall="bottom" corners={['left-top']} x={31} y={36} />
-      <MapTile wall="bottom" x={32} y={36} />
-      <Shelf kind="back" x={32} y={36} />
-      <MapTile wall="bottom" x={33} y={36} />
-      <Shelf kind="back" x={33} y={36} />
-      <TopDoor x={34} y={35.45} isOpen={isDoor5Open} toggle={onDoor5Open} />
-      <MapTile wall="center" corners={['left-bottom', 'right-bottom']} x={34} y={36} />
-      <MapTile wall="bottom" x={35} y={36} />
-      <Shelf kind="back" x={35} y={36} />
-      <MapTile wall="bottom" x={36} y={36} />
-      <Shelf kind="back" x={36} y={36} />
-      <MapTile wall="bottom" corners={['right-top']} x={37} y={36} />
-      <Table kind="alchemist" x={38} y={35.8} />
-      <MapTile wall="right-both" x={38} y={36} />
+      <MapTile
+        wall="left-both"
+        x={30}
+        y={36}
+      />
+      <Table
+        kind="butcher"
+        x={30}
+        y={35.8}
+      />
+      <MapTile
+        wall="bottom"
+        corners={['left-top']}
+        x={31}
+        y={36}
+      />
+      <MapTile
+        wall="bottom"
+        x={32}
+        y={36}
+      />
+      <Shelf
+        kind="back"
+        x={32}
+        y={36}
+      />
+      <MapTile
+        wall="bottom"
+        x={33}
+        y={36}
+      />
+      <Shelf
+        kind="back"
+        x={33}
+        y={36}
+      />
+      <TopDoor
+        x={34}
+        y={35.45}
+        isOpen={isDoor5Open}
+        toggle={onDoor5Open}
+      />
+      <MapTile
+        wall="center"
+        corners={['left-bottom', 'right-bottom']}
+        x={34}
+        y={36}
+      />
+      <MapTile
+        wall="bottom"
+        x={35}
+        y={36}
+      />
+      <Shelf
+        kind="back"
+        x={35}
+        y={36}
+      />
+      <MapTile
+        wall="bottom"
+        x={36}
+        y={36}
+      />
+      <Shelf
+        kind="back"
+        x={36}
+        y={36}
+      />
+      <MapTile
+        wall="bottom"
+        corners={['right-top']}
+        x={37}
+        y={36}
+      />
+      <Table
+        kind="alchemist"
+        x={38}
+        y={35.8}
+      />
+      <MapTile
+        wall="right-both"
+        x={38}
+        y={36}
+      />
 
-      <MapTile wall="left" corners={['left-aftertop']} x={31} y={35} />
-      <MapTile wall="center" x={32} y={35} />
-      <MapTile wall="center" x={33} y={35} />
-      <MapTile wall="center" x={34} y={35} />
-      <MapTile wall="center" x={35} y={35} />
-      <MapTile wall="center" x={36} y={35} />
-      <MapTile wall="right" corners={['right-aftertop']} x={37} y={35} />
+      <MapTile
+        wall="left"
+        corners={['left-aftertop']}
+        x={31}
+        y={35}
+      />
+      <MapTile
+        wall="center"
+        x={32}
+        y={35}
+      />
+      <MapTile
+        wall="center"
+        x={33}
+        y={35}
+      />
+      <MapTile
+        wall="center"
+        x={34}
+        y={35}
+      />
+      <MapTile
+        wall="center"
+        x={35}
+        y={35}
+      />
+      <MapTile
+        wall="center"
+        x={36}
+        y={35}
+      />
+      <MapTile
+        wall="right"
+        corners={['right-aftertop']}
+        x={37}
+        y={35}
+      />
 
-      <MapTile wall="left" x={31} y={34} />
-      <MapTile wall="center" x={32} y={34} />
-      <MapTile wall="center" x={33} y={34} />
-      <MapTile wall="center" x={34} y={34} />
-      {showCage && <MagicCage x={34.25} y={34.5} />}
-      <MapTile wall="center" x={35} y={34} />
-      <MapTile wall="center" x={36} y={34} />
-      <MapTile wall="right" x={37} y={34} />
+      <MapTile
+        wall="left"
+        x={31}
+        y={34}
+      />
+      <MapTile
+        wall="center"
+        x={32}
+        y={34}
+      />
+      <MapTile
+        wall="center"
+        x={33}
+        y={34}
+      />
+      <MapTile
+        wall="center"
+        x={34}
+        y={34}
+      />
+      {showCage && (
+        <MagicCage
+          x={34.25}
+          y={34.5}
+        />
+      )}
+      <MapTile
+        wall="center"
+        x={35}
+        y={34}
+      />
+      <MapTile
+        wall="center"
+        x={36}
+        y={34}
+      />
+      <MapTile
+        wall="right"
+        x={37}
+        y={34}
+      />
 
-      <MapTile wall="left-both" x={30} y={33} />
-      <Table kind="magic" x={30} y={32.8} />
-      <MapTile wall="top" corners={['left-bottom']} x={31} y={33} />
-      <MapTile wall="top" x={32} y={33} />
-      <Shelf kind="books" x={32.5} y={32.45} />
-      <MapTile wall="top" x={33} y={33} />
-      <MapTile wall="center" corners={['left-top', 'right-top']} x={34} y={33} />
-      <MapTile wall="top" x={35} y={33} />
-      <Shelf kind="forgotten" x={35.5} y={32.45} />
-      <MapTile wall="top" x={36} y={33} />
-      <MapTile wall="top" corners={['right-bottom']} x={37} y={33} />
-      <Table kind="empty" x={38} y={32.8} />
-      <MapTile wall="right-both" x={38} y={33} />
+      <MapTile
+        wall="left-both"
+        x={30}
+        y={33}
+      />
+      <Table
+        kind="magic"
+        x={30}
+        y={32.8}
+      />
+      <MapTile
+        wall="top"
+        corners={['left-bottom']}
+        x={31}
+        y={33}
+      />
+      <MapTile
+        wall="top"
+        x={32}
+        y={33}
+      />
+      <Shelf
+        kind="books"
+        x={32.5}
+        y={32.45}
+      />
+      <MapTile
+        wall="top"
+        x={33}
+        y={33}
+      />
+      <MapTile
+        wall="center"
+        corners={['left-top', 'right-top']}
+        x={34}
+        y={33}
+      />
+      <MapTile
+        wall="top"
+        x={35}
+        y={33}
+      />
+      <Shelf
+        kind="forgotten"
+        x={35.5}
+        y={32.45}
+      />
+      <MapTile
+        wall="top"
+        x={36}
+        y={33}
+      />
+      <MapTile
+        wall="top"
+        corners={['right-bottom']}
+        x={37}
+        y={33}
+      />
+      <Table
+        kind="empty"
+        x={38}
+        y={32.8}
+      />
+      <MapTile
+        wall="right-both"
+        x={38}
+        y={33}
+      />
 
-      <TopDoor x={34} y={31.6} isOpen={isDoorNpc2Open} />
-      <MapTile wall="both-center" corners={['left-aftertop', 'right-aftertop']} x={34} y={32} />
-      <MapTile wall="both-center" x={34} y={31} />
-      <MapTile wall="both-center" x={34} y={30} />
-      <MapTile wall="top" corners={['left-bottom', 'right-bottom']} x={34} y={29} />
+      <TopDoor
+        x={34}
+        y={31.6}
+        isOpen={isDoorNpc2Open}
+      />
+      <MapTile
+        wall="both-center"
+        corners={['left-aftertop', 'right-aftertop']}
+        x={34}
+        y={32}
+      />
+      <MapTile
+        wall="both-center"
+        x={34}
+        y={31}
+      />
+      <MapTile
+        wall="both-center"
+        x={34}
+        y={30}
+      />
+      <MapTile
+        wall="top"
+        corners={['left-bottom', 'right-bottom']}
+        x={34}
+        y={29}
+      />
 
       <Marina />
       <Marisa />

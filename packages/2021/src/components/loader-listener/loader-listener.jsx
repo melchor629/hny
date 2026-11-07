@@ -33,7 +33,11 @@ const LoaderListener = ({ container }) => {
 
   if (errors?.length) {
     return (
-      <Html portal={container} fullscreen position={[-1.81241, 2.21982, 0]}>
+      <Html
+        portal={container}
+        fullscreen
+        position={[-1.81241, 2.21982, 0]}
+      >
         <div className={styles['loaded-container']}>
           Ha habido un problema cargando
           <br />
@@ -49,7 +53,11 @@ const LoaderListener = ({ container }) => {
   }
 
   return (
-    <Html portal={container} fullscreen position={[-1.81241, 2.21982, 0]}>
+    <Html
+      portal={container}
+      fullscreen
+      position={[-1.81241, 2.21982, 0]}
+    >
       <div className={styles['loaded-container']}>
         Click para empezar
         <br />

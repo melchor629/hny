@@ -4,6 +4,7 @@ const loadingValues = {}
 
 /**
  * Gets some value from the cache or loads it using the function.
+ *
  * @param {string} key The key of the element
  * @param {() => Promise<({ expiresAt?: Date, expiresIn?: number, data: any }>} fn Load function
  * @param {Storage} storage The storage interface

@@ -44,7 +44,12 @@ function GlobalScenario() {
     <PlayerRefContext.Provider value={playerRef}>
       {Scenario && <Scenario onMapUpdate={onMapUpdate} />}
 
-      {bvh && <Player ref={playerRef} collisions={bvh} />}
+      {bvh && (
+        <Player
+          ref={playerRef}
+          collisions={bvh}
+        />
+      )}
 
       {collisions && <CollisionsDebugger collisions={collisions} />}
       <LeFundido />

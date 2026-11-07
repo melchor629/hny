@@ -10,8 +10,16 @@ interface DungeonStairsProps {
 function DungeonStairs({ x, y }: DungeonStairsProps) {
   return (
     <>
-      <MapProp prop={dungeonStairsLeft} x={x * 32 - 16} y={y * 32 - 16} />
-      <MapProp prop={dungeonStairsRight} x={x * 32 + 16} y={y * 32 - 16} />
+      <MapProp
+        prop={dungeonStairsLeft}
+        x={x * 32 - 16}
+        y={y * 32 - 16}
+      />
+      <MapProp
+        prop={dungeonStairsRight}
+        x={x * 32 + 16}
+        y={y * 32 - 16}
+      />
     </>
   )
 }

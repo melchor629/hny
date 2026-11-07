@@ -10,8 +10,16 @@ interface JailBarsProps {
 export default function JailBars({ x, y }: JailBarsProps) {
   return (
     <>
-      <MapProp prop={barsLeft} x={x * 32 - 16} y={y * 32 - 11} />
-      <MapProp prop={barsRight} x={x * 32 + 16} y={y * 32 - 11} />
+      <MapProp
+        prop={barsLeft}
+        x={x * 32 - 16}
+        y={y * 32 - 11}
+      />
+      <MapProp
+        prop={barsRight}
+        x={x * 32 + 16}
+        y={y * 32 - 11}
+      />
     </>
   )
 }

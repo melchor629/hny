@@ -69,19 +69,52 @@
 }
 
 @keyframes yay {
-  0% { color: hsl(0deg 70% 60%); border-color: hsl(0deg 70% 60%); }
-  12% { color: hsl(45deg 70% 60%); border-color: hsl(45deg 70% 60%); }
-  25% { color: hsl(90deg 70% 60%); border-color: hsl(90deg 70% 60%); }
-  37% { color: hsl(135deg 70% 60%); border-color: hsl(135deg 70% 60%); }
-  50% { color: hsl(180deg 70% 60%); border-color: hsl(180deg 70% 60%); }
-  62% { color: hsl(225deg 70% 60%); border-color: hsl(225deg 70% 60%); }
-  75% { color: hsl(270deg 70% 60%); border-color: hsl(270deg 70% 60%); }
-  87% { color: hsl(315deg 70% 60%); border-color: hsl(315deg 70% 60%); }
-  100% { color: hsl(360deg 70% 60%); border-color: hsl(360deg 70% 60%); }
+  0% {
+    color: hsl(0deg 70% 60%);
+    border-color: hsl(0deg 70% 60%);
+  }
+  12% {
+    color: hsl(45deg 70% 60%);
+    border-color: hsl(45deg 70% 60%);
+  }
+  25% {
+    color: hsl(90deg 70% 60%);
+    border-color: hsl(90deg 70% 60%);
+  }
+  37% {
+    color: hsl(135deg 70% 60%);
+    border-color: hsl(135deg 70% 60%);
+  }
+  50% {
+    color: hsl(180deg 70% 60%);
+    border-color: hsl(180deg 70% 60%);
+  }
+  62% {
+    color: hsl(225deg 70% 60%);
+    border-color: hsl(225deg 70% 60%);
+  }
+  75% {
+    color: hsl(270deg 70% 60%);
+    border-color: hsl(270deg 70% 60%);
+  }
+  87% {
+    color: hsl(315deg 70% 60%);
+    border-color: hsl(315deg 70% 60%);
+  }
+  100% {
+    color: hsl(360deg 70% 60%);
+    border-color: hsl(360deg 70% 60%);
+  }
 }
 
 @keyframes yay2 {
-  0% { background-position: 0% 50% }
-  50% { background-position: 100% 50% }
-  100% { background-position: 0% 50% }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

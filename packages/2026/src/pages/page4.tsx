@@ -1,8 +1,8 @@
 import confetti from 'canvas-confetti'
 import { useCallback, useMemo, useState } from 'react'
-import BasePage from './base'
 import useIntersectionObserver from '../use-intersaction-observer'
 import useResizeObserver from '../use-resize-observer'
+import BasePage from './base'
 
 export default function Page4({ startParty }: { startParty: () => void }) {
   const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null)
@@ -77,7 +77,10 @@ export default function Page4({ startParty }: { startParty: () => void }) {
   }, [counter, startParty])
 
   return (
-    <BasePage ref={setDiv} className="justify-center!">
+    <BasePage
+      ref={setDiv}
+      className="justify-center!"
+    >
       <h1
         ref={setRef}
         className={`
@@ -100,7 +103,7 @@ export default function Page4({ startParty }: { startParty: () => void }) {
       </h1>
       <canvas
         ref={setCanvas}
-        className="w-full h-[120%] absolute left-0 right-0 translate-y-[-10lvh] pointer-events-none"
+        className="pointer-events-none absolute right-0 left-0 h-[120%] w-full translate-y-[-10lvh]"
       />
     </BasePage>
   )

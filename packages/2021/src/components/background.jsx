@@ -39,8 +39,14 @@ const Background = (props) => {
   }, [phase, bg1, bg2, bg3, bg4])
 
   return (
-    <sprite {...props} onUpdate={onBackgroundUpdate}>
-      <spriteMaterial map={bg} sizeAttenuation={false} />
+    <sprite
+      {...props}
+      onUpdate={onBackgroundUpdate}
+    >
+      <spriteMaterial
+        map={bg}
+        sizeAttenuation={false}
+      />
     </sprite>
   )
 }

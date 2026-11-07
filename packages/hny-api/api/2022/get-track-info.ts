@@ -1,6 +1,6 @@
 import type { FastifyBaseLogger } from 'fastify'
-import getCachedValue from './get-cached-value.ts'
 import ApiError from './api-error.ts'
+import getCachedValue from './get-cached-value.ts'
 
 type Redis = import('ioredis').Redis
 

@@ -20,16 +20,36 @@ export default function LeftDoor({
   if (isOpen) {
     return (
       <>
-        <MapProp x={x * 32} y={y * 32 - 10} prop={doorOpenedLeftUpProp} onInteraction={toggle} />
-        <MapProp x={x * 32} y={y * 32 + 10} prop={doorOpenedLeftDownProp} onInteraction={toggle} />
+        <MapProp
+          x={x * 32}
+          y={y * 32 - 10}
+          prop={doorOpenedLeftUpProp}
+          onInteraction={toggle}
+        />
+        <MapProp
+          x={x * 32}
+          y={y * 32 + 10}
+          prop={doorOpenedLeftDownProp}
+          onInteraction={toggle}
+        />
       </>
     )
   }
 
   return (
     <>
-      <MapProp x={x * 32} y={y * 32 - 1} prop={doorClosedLeftUpProp} onInteraction={toggle} />
-      <MapProp x={x * 32} y={y * 32 + 11} prop={doorClosedLeftDownProp} onInteraction={toggle} />
+      <MapProp
+        x={x * 32}
+        y={y * 32 - 1}
+        prop={doorClosedLeftUpProp}
+        onInteraction={toggle}
+      />
+      <MapProp
+        x={x * 32}
+        y={y * 32 + 11}
+        prop={doorClosedLeftDownProp}
+        onInteraction={toggle}
+      />
     </>
   )
 }

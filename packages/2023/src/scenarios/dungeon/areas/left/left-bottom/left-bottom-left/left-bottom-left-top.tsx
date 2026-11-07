@@ -125,78 +125,329 @@ export default function LeftBottomLeftTop() {
   return (
     <>
       {/* main hall > branch left > branch bottom > branch left > branch top */}
-      <MapTile wall="both-center" corners={['right-aftertop']} x={14} y={56} />
-      <MapTile wall="both-center" x={14} y={55} />
-      <MapTile wall="both-center" x={14} y={54} />
-      <MapTile wall="both-center" x={14} y={53} />
-      <MapTile wall="right-top" corners={['left-bottom']} x={14} y={52} />
-      <MapTile wall="center-both" x={13} y={52} />
-      <MapTile wall="center-both" x={12} y={52} />
-      <MapTile wall="left-top" corners={['right-bottom']} x={11} y={52} />
-      <MapTile wall="both-center" corners={['left-aftertop']} x={11} y={53} />
-      <MapTile wall="right-bottom" corners={['left-top']} x={11} y={54} />
-      <MapTile wall="center-both" x={10} y={54} />
-      <MapTile wall="center-both" x={9} y={54} />
+      <MapTile
+        wall="both-center"
+        corners={['right-aftertop']}
+        x={14}
+        y={56}
+      />
+      <MapTile
+        wall="both-center"
+        x={14}
+        y={55}
+      />
+      <MapTile
+        wall="both-center"
+        x={14}
+        y={54}
+      />
+      <MapTile
+        wall="both-center"
+        x={14}
+        y={53}
+      />
+      <MapTile
+        wall="right-top"
+        corners={['left-bottom']}
+        x={14}
+        y={52}
+      />
+      <MapTile
+        wall="center-both"
+        x={13}
+        y={52}
+      />
+      <MapTile
+        wall="center-both"
+        x={12}
+        y={52}
+      />
+      <MapTile
+        wall="left-top"
+        corners={['right-bottom']}
+        x={11}
+        y={52}
+      />
+      <MapTile
+        wall="both-center"
+        corners={['left-aftertop']}
+        x={11}
+        y={53}
+      />
+      <MapTile
+        wall="right-bottom"
+        corners={['left-top']}
+        x={11}
+        y={54}
+      />
+      <MapTile
+        wall="center-both"
+        x={10}
+        y={54}
+      />
+      <MapTile
+        wall="center-both"
+        x={9}
+        y={54}
+      />
       <MapTile
         wall="center"
         corners={['left-top', 'right-top', 'left-bottom', 'right-bottom']}
         x={8}
         y={54}
       />
-      <MapTile wall="left-both" x={7} y={54} />
+      <MapTile
+        wall="left-both"
+        x={7}
+        y={54}
+      />
 
       {/* main hall > branch left > branch bottom > branch left > branch top > branch top */}
-      <MapTile wall="both-center" corners={['left-aftertop', 'right-aftertop']} x={8} y={53} />
-      <MapTile wall="both-center" x={8} y={52} />
-      <MapTile wall="left-top" corners={['right-bottom']} x={8} y={51} />
-      <MapTile wall="center-both" x={9} y={51} />
-      <MapTile wall="right-bottom" corners={['left-top']} x={10} y={51} />
-      <MapTile wall="both-center" corners={['left-aftertop']} x={10} y={50} />
-      <MapTile wall="both-center" x={10} y={49} />
-      <MapTile wall="both-center" x={10} y={48} />
-      <MapTile wall="both-top" x={10} y={47} />
-      <Photo alt={4} photoId="photo-8" x={10} y={47} />
+      <MapTile
+        wall="both-center"
+        corners={['left-aftertop', 'right-aftertop']}
+        x={8}
+        y={53}
+      />
+      <MapTile
+        wall="both-center"
+        x={8}
+        y={52}
+      />
+      <MapTile
+        wall="left-top"
+        corners={['right-bottom']}
+        x={8}
+        y={51}
+      />
+      <MapTile
+        wall="center-both"
+        x={9}
+        y={51}
+      />
+      <MapTile
+        wall="right-bottom"
+        corners={['left-top']}
+        x={10}
+        y={51}
+      />
+      <MapTile
+        wall="both-center"
+        corners={['left-aftertop']}
+        x={10}
+        y={50}
+      />
+      <MapTile
+        wall="both-center"
+        x={10}
+        y={49}
+      />
+      <MapTile
+        wall="both-center"
+        x={10}
+        y={48}
+      />
+      <MapTile
+        wall="both-top"
+        x={10}
+        y={47}
+      />
+      <Photo
+        alt={4}
+        photoId="photo-8"
+        x={10}
+        y={47}
+      />
 
       {/* main hall > branch left > branch bottom > branch left > branch top > branch bottom */}
-      <BottomDoor x={8} y={53.45} isOpen={isOpen} />
-      <MapTile wall="both-center" corners={['right-aftertop']} x={8} y={55} />
-      <MapTile wall="left-bottom" corners={['right-top']} x={8} y={56} />
-      <MapTile wall="center-both" x={9} y={56} />
-      <MapTile wall="center-both" x={10} y={56} />
-      <MapTile wall="right-top" corners={['left-bottom']} x={11} y={56} />
-      <MapTile wall="both-center" x={11} y={57} />
-      <MapTile wall="both-center" x={11} y={58} />
-      <MapTile wall="both-center" corners={['left-aftertop']} x={11} y={59} />
-      <MapTile wall="right-bottom" corners={['left-top']} x={11} y={60} />
-      <MapTile wall="center-both" x={10} y={60} />
-      <MapTile wall="center-both" x={9} y={60} />
-      <MapTile wall="center-both" x={8} y={60} />
-      <MapTile wall="center-both" x={7} y={60} />
-      <MapTile wall="center-both" x={6} y={60} />
-      <MapTile wall="center-both" x={5} y={60} />
+      <BottomDoor
+        x={8}
+        y={53.45}
+        isOpen={isOpen}
+      />
+      <MapTile
+        wall="both-center"
+        corners={['right-aftertop']}
+        x={8}
+        y={55}
+      />
+      <MapTile
+        wall="left-bottom"
+        corners={['right-top']}
+        x={8}
+        y={56}
+      />
+      <MapTile
+        wall="center-both"
+        x={9}
+        y={56}
+      />
+      <MapTile
+        wall="center-both"
+        x={10}
+        y={56}
+      />
+      <MapTile
+        wall="right-top"
+        corners={['left-bottom']}
+        x={11}
+        y={56}
+      />
+      <MapTile
+        wall="both-center"
+        x={11}
+        y={57}
+      />
+      <MapTile
+        wall="both-center"
+        x={11}
+        y={58}
+      />
+      <MapTile
+        wall="both-center"
+        corners={['left-aftertop']}
+        x={11}
+        y={59}
+      />
+      <MapTile
+        wall="right-bottom"
+        corners={['left-top']}
+        x={11}
+        y={60}
+      />
+      <MapTile
+        wall="center-both"
+        x={10}
+        y={60}
+      />
+      <MapTile
+        wall="center-both"
+        x={9}
+        y={60}
+      />
+      <MapTile
+        wall="center-both"
+        x={8}
+        y={60}
+      />
+      <MapTile
+        wall="center-both"
+        x={7}
+        y={60}
+      />
+      <MapTile
+        wall="center-both"
+        x={6}
+        y={60}
+      />
+      <MapTile
+        wall="center-both"
+        x={5}
+        y={60}
+      />
 
-      <MapTile wall="left-bottom" x={0} y={60} />
-      <MapTile wall="bottom" x={1} y={60} />
-      <MapTile wall="bottom" x={2} y={60} />
-      <MapTile wall="bottom" x={3} y={60} />
-      <MapTile wall="bottom" corners={['right-top']} x={4} y={60} />
+      <MapTile
+        wall="left-bottom"
+        x={0}
+        y={60}
+      />
+      <MapTile
+        wall="bottom"
+        x={1}
+        y={60}
+      />
+      <MapTile
+        wall="bottom"
+        x={2}
+        y={60}
+      />
+      <MapTile
+        wall="bottom"
+        x={3}
+        y={60}
+      />
+      <MapTile
+        wall="bottom"
+        corners={['right-top']}
+        x={4}
+        y={60}
+      />
 
-      <MapTile wall="left" x={0} y={59} />
-      <MapTile wall="center" x={1} y={59} />
-      <MapTile wall="center" x={2} y={59} />
-      <MapTile wall="center" x={3} y={59} />
-      <MapTile wall="right" corners={['right-aftertop']} x={4} y={59} />
+      <MapTile
+        wall="left"
+        x={0}
+        y={59}
+      />
+      <MapTile
+        wall="center"
+        x={1}
+        y={59}
+      />
+      <MapTile
+        wall="center"
+        x={2}
+        y={59}
+      />
+      <MapTile
+        wall="center"
+        x={3}
+        y={59}
+      />
+      <MapTile
+        wall="right"
+        corners={['right-aftertop']}
+        x={4}
+        y={59}
+      />
 
-      <MapTile wall="left" x={0} y={58} />
-      <MapTile wall="center" x={1} y={58} />
-      <MapTile wall="center" x={2} y={58} />
-      <MapTile wall="center" corners={['right-top']} x={3} y={58} />
-      <MapTile wall="right-top" x={4} y={58} />
+      <MapTile
+        wall="left"
+        x={0}
+        y={58}
+      />
+      <MapTile
+        wall="center"
+        x={1}
+        y={58}
+      />
+      <MapTile
+        wall="center"
+        x={2}
+        y={58}
+      />
+      <MapTile
+        wall="center"
+        corners={['right-top']}
+        x={3}
+        y={58}
+      />
+      <MapTile
+        wall="right-top"
+        x={4}
+        y={58}
+      />
 
-      <MapTile wall="left-top" x={0} y={57} />
-      <MapTile wall="top" x={1} y={57} />
-      <MapTile wall="top" x={2} y={57} />
-      <MapTile wall="right-top" corners={['right-aftertop']} x={3} y={57} />
+      <MapTile
+        wall="left-top"
+        x={0}
+        y={57}
+      />
+      <MapTile
+        wall="top"
+        x={1}
+        y={57}
+      />
+      <MapTile
+        wall="top"
+        x={2}
+        y={57}
+      />
+      <MapTile
+        wall="right-top"
+        corners={['right-aftertop']}
+        x={3}
+        y={57}
+      />
 
       <MapTrigger
         boundingBox={useMemo(
@@ -206,43 +457,119 @@ export default function LeftBottomLeftTop() {
         onPlayerInside={startPuzzleTrigger}
       />
 
-      <Rubbish x={0.0} y={60.1} />
-      <Rubbish x={1.8 + rubbishPosition4 * 0.7} y={60.1} onInteraction={pushRubbish4} />
+      <Rubbish
+        x={0.0}
+        y={60.1}
+      />
+      <Rubbish
+        x={1.8 + rubbishPosition4 * 0.7}
+        y={60.1}
+        onInteraction={pushRubbish4}
+      />
 
-      <Rubbish x={3.2} y={59.8} />
-      <Rubbish x={2.5} y={59.8} />
+      <Rubbish
+        x={3.2}
+        y={59.8}
+      />
+      <Rubbish
+        x={2.5}
+        y={59.8}
+      />
 
-      <Rubbish x={3.9} y={59.4 - rubbishPosition1 * 0.4} onInteraction={pushRubbish1} />
-      <Rubbish x={3.2} y={59.4} />
-      <Rubbish x={2.5} y={59.4} />
-      <Rubbish x={1.8} y={59.4} />
-      <Rubbish x={0.7} y={59.4} />
-      <Rubbish x={0} y={59.4} />
+      <Rubbish
+        x={3.9}
+        y={59.4 - rubbishPosition1 * 0.4}
+        onInteraction={pushRubbish1}
+      />
+      <Rubbish
+        x={3.2}
+        y={59.4}
+      />
+      <Rubbish
+        x={2.5}
+        y={59.4}
+      />
+      <Rubbish
+        x={1.8}
+        y={59.4}
+      />
+      <Rubbish
+        x={0.7}
+        y={59.4}
+      />
+      <Rubbish
+        x={0}
+        y={59.4}
+      />
 
-      <Rubbish x={3.2 + rubbishPosition2 * 0.7} y={59} onInteraction={pushRubbish2} />
-      <Rubbish x={0.7} y={59} />
+      <Rubbish
+        x={3.2 + rubbishPosition2 * 0.7}
+        y={59}
+        onInteraction={pushRubbish2}
+      />
+      <Rubbish
+        x={0.7}
+        y={59}
+      />
 
       <Rubbish
         x={3.2 + rubbishPosition3[0] * 0.7}
         y={58.6 + rubbishPosition3[1] * 0.4}
         onInteraction={pushRubbish3}
       />
-      <Rubbish x={1.8} y={58.6} />
-      <Rubbish x={1.1} y={58.6} />
+      <Rubbish
+        x={1.8}
+        y={58.6}
+      />
+      <Rubbish
+        x={1.1}
+        y={58.6}
+      />
 
-      <Rubbish x={0} y={58.2 + rubbishPosition5 * 0.4} onInteraction={pushRubbish5} />
+      <Rubbish
+        x={0}
+        y={58.2 + rubbishPosition5 * 0.4}
+        onInteraction={pushRubbish5}
+      />
 
-      <Rubbish x={3.9} y={57.8} />
-      <Rubbish x={3.2} y={57.8} />
-      <Rubbish x={2.5} y={57.8} />
-      <Rubbish x={1.8} y={57.8} />
-      <Rubbish x={1.1} y={57.8} />
-      <Rubbish x={0.5} y={57.8} />
+      <Rubbish
+        x={3.9}
+        y={57.8}
+      />
+      <Rubbish
+        x={3.2}
+        y={57.8}
+      />
+      <Rubbish
+        x={2.5}
+        y={57.8}
+      />
+      <Rubbish
+        x={1.8}
+        y={57.8}
+      />
+      <Rubbish
+        x={1.1}
+        y={57.8}
+      />
+      <Rubbish
+        x={0.5}
+        y={57.8}
+      />
 
-      <Rubbish x={2.5} y={57.4} />
-      <Rubbish x={1.1} y={57.4} />
+      <Rubbish
+        x={2.5}
+        y={57.4}
+      />
+      <Rubbish
+        x={1.1}
+        y={57.4}
+      />
 
-      <Rubbish x={1.8} y={56.8} />
+      <Rubbish
+        x={1.8}
+        y={56.8}
+      />
       <SmallWeirdChest
         open={isSmallWeirdChestOpen}
         onInteraction={openSmallChest}

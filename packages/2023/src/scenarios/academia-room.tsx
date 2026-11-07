@@ -221,8 +221,18 @@ function AcademiaRoomScenario({ onMapUpdate }: ScenarioProps) {
       <LeMap />
       <LeCollision />
 
-      <Shelf kind="books" x={0.65} y={1.87} onInteraction={fuckTheGame} />
-      <Table kind="player" x={1.66} y={2.025} onInteraction={myTable} />
+      <Shelf
+        kind="books"
+        x={0.65}
+        y={1.87}
+        onInteraction={fuckTheGame}
+      />
+      <Table
+        kind="player"
+        x={1.66}
+        y={2.025}
+        onInteraction={myTable}
+      />
       <Table
         kind={ending ? 'schoolMateFixed' : 'schoolMate'}
         x={2.76}
@@ -230,21 +240,79 @@ function AcademiaRoomScenario({ onMapUpdate }: ScenarioProps) {
         onInteraction={herTable}
       />
 
-      <Shelf kind="side" x={3.75} y={1.95} />
-      <Shelf kind="side" x={3.75} y={2.25} />
-      <Shelf kind="side" x={3.75} y={2.55} />
-      <Shelf kind="side" x={3.75} y={2.85} />
-      <Shelf kind="side" x={3.75} y={3.15} />
-      {!dungeonOpen && <Shelf kind="side" x={3.75} y={3.45} onInteraction={openDungeon} />}
-      {dungeonOpen && <Shelf kind="empty" x={4.06} y={3.4} />}
+      <Shelf
+        kind="side"
+        x={3.75}
+        y={1.95}
+      />
+      <Shelf
+        kind="side"
+        x={3.75}
+        y={2.25}
+      />
+      <Shelf
+        kind="side"
+        x={3.75}
+        y={2.55}
+      />
+      <Shelf
+        kind="side"
+        x={3.75}
+        y={2.85}
+      />
+      <Shelf
+        kind="side"
+        x={3.75}
+        y={3.15}
+      />
+      {!dungeonOpen && (
+        <Shelf
+          kind="side"
+          x={3.75}
+          y={3.45}
+          onInteraction={openDungeon}
+        />
+      )}
+      {dungeonOpen && (
+        <Shelf
+          kind="empty"
+          x={4.06}
+          y={3.4}
+        />
+      )}
 
-      <Table kind="empty2" x={1.66} y={3.575} />
-      <Table kind="empty2" x={2.76} y={3.575} />
+      <Table
+        kind="empty2"
+        x={1.66}
+        y={3.575}
+      />
+      <Table
+        kind="empty2"
+        x={2.76}
+        y={3.575}
+      />
 
-      <Shelf kind="side" x={0.25} y={2.55} flip />
-      <Shelf kind="side" x={0.25} y={2.85} flip />
+      <Shelf
+        kind="side"
+        x={0.25}
+        y={2.55}
+        flip
+      />
+      <Shelf
+        kind="side"
+        x={0.25}
+        y={2.85}
+        flip
+      />
 
-      {finalPhoto && <Photo alt={6} photoId="photo-21" x={2} y={3} />}
+      {finalPhoto && (
+        <Photo
+          alt={6}
+          photoId="photo-21"
+          x={2}
+          y={3}
+        />
+      )}
 
       <MapTrigger
         boundingBox={useMemo(() => ({ x1: 128 + 70, x2: 128 + 118, y1: 90, y2: 92 }), [])}
@@ -354,9 +422,15 @@ function LeMap() {
   }, [])
 
   return (
-    <mesh ref={meshRef} position={[128, -64, 0]}>
+    <mesh
+      ref={meshRef}
+      position={[128, -64, 0]}
+    >
       <planeGeometry args={[256, 128]} />
-      <meshBasicMaterial map={texture} transparent />
+      <meshBasicMaterial
+        map={texture}
+        transparent
+      />
     </mesh>
   )
 }

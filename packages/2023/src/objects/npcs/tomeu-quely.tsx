@@ -9,5 +9,12 @@ export default function TomeuQuely({ x, y }: { x: number; y: number }) {
     return null
   }
 
-  return <MapNpc npc={tomeuQuely} state={npcState} x={x * 32 - 10.5} y={y * 32 - 16} />
+  return (
+    <MapNpc
+      npc={tomeuQuely}
+      state={npcState}
+      x={x * 32 - 10.5}
+      y={y * 32 - 16}
+    />
+  )
 }

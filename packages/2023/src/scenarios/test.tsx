@@ -32,26 +32,99 @@ function TestScenario({ onMapUpdate }: { onMapUpdate: OnMapUpdateCallback }) {
 
   return (
     <Map onMapUpdate={onMapUpdate}>
-      <MapTile wall="left-aftertop" x={0} y={-1} />
-      <MapTile wall="left-top" x={0} y={0} />
-      <MapTile wall="left" x={0} y={1} />
-      <MapTile wall="left" corners={['right-bottom']} x={0} y={2} />
-      <MapTile wall="both-center" x={0} y={3} />
-      <MapTile wall="both-bottom" x={0} y={4} />
-      <MapTile wall="both-top" x={0} y={5} />
-      <MapTile wall="both-bottom" x={0} y={6} />
+      <MapTile
+        wall="left-aftertop"
+        x={0}
+        y={-1}
+      />
+      <MapTile
+        wall="left-top"
+        x={0}
+        y={0}
+      />
+      <MapTile
+        wall="left"
+        x={0}
+        y={1}
+      />
+      <MapTile
+        wall="left"
+        corners={['right-bottom']}
+        x={0}
+        y={2}
+      />
+      <MapTile
+        wall="both-center"
+        x={0}
+        y={3}
+      />
+      <MapTile
+        wall="both-bottom"
+        x={0}
+        y={4}
+      />
+      <MapTile
+        wall="both-top"
+        x={0}
+        y={5}
+      />
+      <MapTile
+        wall="both-bottom"
+        x={0}
+        y={6}
+      />
 
-      <MapTile wall="right-aftertop" x={1} y={-1} />
-      <MapTile wall="right-top" corners={['right-aftertop']} x={1} y={0} />
-      <MapTile wall="center" corners={['right-top']} x={1} y={1} />
-      <MapTile wall="bottom" x={1} y={2} />
+      <MapTile
+        wall="right-aftertop"
+        x={1}
+        y={-1}
+      />
+      <MapTile
+        wall="right-top"
+        corners={['right-aftertop']}
+        x={1}
+        y={0}
+      />
+      <MapTile
+        wall="center"
+        corners={['right-top']}
+        x={1}
+        y={1}
+      />
+      <MapTile
+        wall="bottom"
+        x={1}
+        y={2}
+      />
 
-      <MapTile wall="right-aftertop" x={2} y={0} />
-      <MapTile wall="right-top" corners={['right-aftertop']} x={2} y={1} />
-      <MapTile wall="bottom" corners={['right-top']} x={2} y={2} />
+      <MapTile
+        wall="right-aftertop"
+        x={2}
+        y={0}
+      />
+      <MapTile
+        wall="right-top"
+        corners={['right-aftertop']}
+        x={2}
+        y={1}
+      />
+      <MapTile
+        wall="bottom"
+        corners={['right-top']}
+        x={2}
+        y={2}
+      />
 
-      <MapTile wall="right-aftertop" x={3} y={1} />
-      <MapTile wall="right-both" x={3} y={2} />
+      <MapTile
+        wall="right-aftertop"
+        x={3}
+        y={1}
+      />
+      <MapTile
+        wall="right-both"
+        x={3}
+        y={2}
+      />
 
       <MapProp
         x={32}
@@ -59,7 +132,13 @@ function TestScenario({ onMapUpdate }: { onMapUpdate: OnMapUpdateCallback }) {
         prop={prop}
         onInteraction={() => useDialog.getState().reset(testDialog)}
       />
-      {inside && <MapProp x={0} y={64} prop={prop} />}
+      {inside && (
+        <MapProp
+          x={0}
+          y={64}
+          prop={prop}
+        />
+      )}
 
       <MapTrigger
         boundingBox={{ x1: -16, y1: 4 * 32 + 16, x2: 16, y2: 4 * 32 + 17 }}

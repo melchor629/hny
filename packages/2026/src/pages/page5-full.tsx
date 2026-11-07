@@ -5,9 +5,9 @@ import { init, sliderMappings, startScripted, startSolo, stop } from '../strudel
 await init()
 
 const isPhone =
-  'userAgentData' in navigator &&
-  navigator.userAgentData &&
-  typeof navigator.userAgentData === 'object'
+  'userAgentData' in navigator
+  && navigator.userAgentData
+  && typeof navigator.userAgentData === 'object'
     ? 'isMobile' in navigator.userAgentData && navigator.userAgentData.isMobile === true
     : navigator.platform === 'iPhone' || navigator.userAgent.includes('Android')
 export default function Page5Full() {
@@ -59,7 +59,7 @@ export default function Page5Full() {
       <button
         type="button"
         onClick={changeMode}
-        className="rounded-lg border border-transparent outline outline-transparent outline-solid outline-offset-2 p-2 text-base font-bold bg-slate-900/80 backdrop-blur-sm cursor-pointer transition-all timeline-view:animate-opaciterino hover:border-slate-600 focus:outline-3 focus:outline-slate-700"
+        className="timeline-view:animate-opaciterino cursor-pointer rounded-lg border border-transparent bg-slate-900/80 p-2 text-base font-bold outline outline-offset-2 outline-transparent backdrop-blur-sm transition-all outline-solid hover:border-slate-600 focus:outline-3 focus:outline-slate-700"
       >
         {mode === 'init' && '🤔'}
         {mode === 'off' && '🎵'}
@@ -67,7 +67,7 @@ export default function Page5Full() {
         {mode === 'on' && '🎶'}
       </button>
 
-      <div className="flex flex-col gap-1 my-4 timeline-view:animate-opaciterino">
+      <div className="timeline-view:animate-opaciterino my-4 flex flex-col gap-1">
         {isPhone && mode === 'scripted' && (
           <audio
             autoPlay
@@ -82,8 +82,16 @@ export default function Page5Full() {
           <p className="text-lg">Para la experiencia completa, visitame en un escritorio :)</p>
         )}
         {!isPhone && mode === 'scripted' && (
-          <label className="flex gap-1 items-center text-slate-300">
-            <input id="played" type="range" min={0} max={242} value={perc} step={1} disabled />
+          <label className="flex items-center gap-1 text-slate-300">
+            <input
+              id="played"
+              type="range"
+              min={0}
+              max={242}
+              value={perc}
+              step={1}
+              disabled
+            />
             <span>{`${Math.trunc(perc / 60)
               .toFixed(0)
               .padStart(2, '0')}:${Math.trunc(perc % 60)
@@ -92,7 +100,10 @@ export default function Page5Full() {
           </label>
         )}
         {sliders.map(({ id, min, max, value, step }) => (
-          <label key={id} className="flex gap-1 items-center text-slate-300">
+          <label
+            key={id}
+            className="flex items-center gap-1 text-slate-300"
+          >
             <input
               id={id}
               type="range"

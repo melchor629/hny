@@ -1274,55 +1274,43 @@ export const moreLoreChrisDialog = newDialog('more-lore-chris', () => Math.trunc
   )
   .build()
 
-/** LORE QA
- * - is he in love with his tragically dead companion?
- *      yep
- * - but, ANOTHER ONE?
- *      I don't care, it is cool to have this kind of representation. But you are not forced to know
- *      that if you don't ask. cope
- * - what is the emotion that moves the spell and the special object?
- *      LOVE, in this case, they are aware of it (as Chris mentions)
- *      (SPOILER) the way they handle love differs from Marina and Marisa.
- * - why did the supreme wizard not managed to get the object work?
- *      because he loves no one but himself - love is the key of the spell
- * - why did he not managed to improve the powers?
- *      he needs his love. he is in some kind of "post-depression" which he has accepted what happened
- *      but he still miss his love...
- * - so, the spy-thing does not work because of love?
- *      more or less. love is key in the spell. the spell only works with people (or living things)
- *      the wizard knows. but works best if they care about the target (has some love relationship,
- *      but not romantic!!). work/school mates, friends, family, his loved one...
- * - did you put a Fernando Alonso reference?
- *      yes, I did :)
- * - confirmed chris was jailed after marina/marisa, but...
- *      what chris said in one of the dialogs, is that he (they in fact) did not think much about
- *      what happened with marisa and marina. perhaps if chris thought for a bit, they would be
- *      in another place, together... they could have fled together...
- * - what is the name of the other one?
- *      did not think of any name, sorry :(
- * - is he powerful? how does he compare with marina and marisa?
- *      he is really powerful too. but he was even more with his love. they power resided in their
- *      love they shared. so now he is less powerful (yet he really still is).
- *      compared to the girls, he even mentioned that they are more powerful than him (for obvious
- *      reasons).
- * - does he hate the supreme wizard?
- *      he had. but he has accepted and understands him. yet does not like what the supreme wizard
- *      did to them. just understands how he is and why did what he did.
- * - why chris?
- *      I am bad with names. always. so this name came across due to some circumstances I recently
- *      experienced (around december), and I kind like it :)
- *      no game references this time
+/**
+ * LORE QA
  *
- * - influences around the LOVE topic on the spells?
- *      if I have to say something, maybe the experiences during the year, and the content I consumed
- *      may have something to to. during the year, I've watched "Komi-san can't communicate",
- *      "Weathering with you", "A silent voice" and "Steven Universe". Also played "OMORI".
- *      nice music has come out this year too, mainly "Life is Yours" (from The Foals).
- *      probably all these experiences combined, made this.
- *      don't know :)
- *
- * - wait a second, does the protagonist have a crush??
- *      :)
+ * - Is he in love with his tragically dead companion? yep
+ * - But, ANOTHER ONE? I don't care, it is cool to have this kind of representation. But you are not
+ *   forced to know that if you don't ask. cope
+ * - What is the emotion that moves the spell and the special object? LOVE, in this case, they are
+ *   aware of it (as Chris mentions) (SPOILER) the way they handle love differs from Marina and
+ *   Marisa.
+ * - Why did the supreme wizard not managed to get the object work? because he loves no one but
+ *   himself - love is the key of the spell
+ * - Why did he not managed to improve the powers? he needs his love. he is in some kind of
+ *   "post-depression" which he has accepted what happened but he still miss his love...
+ * - So, the spy-thing does not work because of love? more or less. love is key in the spell. the
+ *   spell only works with people (or living things) the wizard knows. but works best if they care
+ *   about the target (has some love relationship, but not romantic!!). work/school mates, friends,
+ *   family, his loved one...
+ * - Did you put a Fernando Alonso reference? yes, I did :)
+ * - Confirmed chris was jailed after marina/marisa, but... what chris said in one of the dialogs, is
+ *   that he (they in fact) did not think much about what happened with marisa and marina. perhaps
+ *   if chris thought for a bit, they would be in another place, together... they could have fled
+ *   together...
+ * - What is the name of the other one? did not think of any name, sorry :(
+ * - Is he powerful? how does he compare with marina and marisa? he is really powerful too. but he was
+ *   even more with his love. they power resided in their love they shared. so now he is less
+ *   powerful (yet he really still is). compared to the girls, he even mentioned that they are more
+ *   powerful than him (for obvious reasons).
+ * - Does he hate the supreme wizard? he had. but he has accepted and understands him. yet does not
+ *   like what the supreme wizard did to them. just understands how he is and why did what he did.
+ * - Why chris? I am bad with names. always. so this name came across due to some circumstances I
+ *   recently experienced (around december), and I kind like it :) no game references this time
+ * - Influences around the LOVE topic on the spells? if I have to say something, maybe the experiences
+ *   during the year, and the content I consumed may have something to to. during the year, I've
+ *   watched "Komi-san can't communicate", "Weathering with you", "A silent voice" and "Steven
+ *   Universe". Also played "OMORI". nice music has come out this year too, mainly "Life is Yours"
+ *   (from The Foals). probably all these experiences combined, made this. don't know :)
+ * - Wait a second, does the protagonist have a crush?? :)
  *
  * DO NOT FORGET TO SEE Marina & Marisa QA TOO!!
  */

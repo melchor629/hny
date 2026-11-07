@@ -14,8 +14,8 @@ const handleFullscreen = (element?: HTMLElement) => {
   if ((document.webkitFullscreenElement ?? document.fullscreenElement) == null) {
     const el: ThanksAppleHTMLElement = (element ?? document.body) as any
     return (
-      (el.requestFullscreen ?? el.webkitRequestFullscreen).call(el, { navigationUI: 'hide' }) ??
-      Promise.resolve()
+      (el.requestFullscreen ?? el.webkitRequestFullscreen).call(el, { navigationUI: 'hide' })
+      ?? Promise.resolve()
     )
   } else {
     return (

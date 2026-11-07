@@ -45,24 +45,53 @@ export default function Portal({ dir, x, y, toX, toY, onTeleport }: PortalProps)
 
   const portal = useMemo(() => {
     if (dir === 'top') {
-      return <MapProp prop={portalFront} x={x * 32 - 16} y={(y - 1.36) * 32} />
+      return (
+        <MapProp
+          prop={portalFront}
+          x={x * 32 - 16}
+          y={(y - 1.36) * 32}
+        />
+      )
     }
 
     if (dir === 'bottom') {
-      return <MapProp prop={portalFront} x={x * 32 - 16} y={(y - 0.5) * 32} flipVertical />
+      return (
+        <MapProp
+          prop={portalFront}
+          x={x * 32 - 16}
+          y={(y - 0.5) * 32}
+          flipVertical
+        />
+      )
     }
 
     if (dir === 'right') {
-      return <MapProp prop={portalSide} x={x * 32 - 2} y={y * 32 - 30} />
+      return (
+        <MapProp
+          prop={portalSide}
+          x={x * 32 - 2}
+          y={y * 32 - 30}
+        />
+      )
     }
 
-    return <MapProp prop={portalSide} x={x * 32 - 30} y={y * 32 - 30} flipHorizontal />
+    return (
+      <MapProp
+        prop={portalSide}
+        x={x * 32 - 30}
+        y={y * 32 - 30}
+        flipHorizontal
+      />
+    )
   }, [dir, x, y])
 
   return (
     <>
       {portal}
-      <MapTrigger boundingBox={boundingBox} onPlayerInside={playerOnPortal} />
+      <MapTrigger
+        boundingBox={boundingBox}
+        onPlayerInside={playerOnPortal}
+      />
     </>
   )
 }

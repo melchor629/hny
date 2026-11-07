@@ -54,19 +54,23 @@ const objects = Object.freeze([
   Yubikey,
 ])
 
-const AllObjects = forwardRef<Group, AnimatedProps<ThreeElements['group']>>(function AllObjects(
-  props,
-  ref,
-) {
-  const [index, setIndex] = useState(0)
+const AllObjects = forwardRef<Group, AnimatedProps<ThreeElements['group']>>(
+  function AllObjects(props, ref) {
+    const [index, setIndex] = useState(0)
 
-  useEffect(() => {
-    const id = setInterval(() => setIndex((v) => (v + 1) % objects.length), 2000)
-    return () => clearInterval(id)
-  }, [])
+    useEffect(() => {
+      const id = setInterval(() => setIndex((v) => (v + 1) % objects.length), 2000)
+      return () => clearInterval(id)
+    }, [])
 
-  const Component = objects[index]
-  return <Component {...props} ref={ref} />
-})
+    const Component = objects[index]
+    return (
+      <Component
+        {...props}
+        ref={ref}
+      />
+    )
+  },
+)
 
 export default AllObjects

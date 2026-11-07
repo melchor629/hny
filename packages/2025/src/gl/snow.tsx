@@ -1,12 +1,8 @@
 import { useFrame } from '@react-three/fiber'
 import { useMemo } from 'react'
-import {
-  AdditiveBlending,
-  Color,
-  ShaderMaterial,
-} from 'three'
-import vertexShader from './snow.vert.glsl?raw'
+import { AdditiveBlending, Color, ShaderMaterial } from 'three'
 import fragmentShader from './snow.frag.glsl?raw'
+import vertexShader from './snow.vert.glsl?raw'
 
 // based on this work https://github.com/sole/three.js-tutorials/blob/master/snow_shader/step10.js
 // alterations: using plain colour and using a rounded effect in the particles, parameters changed too
@@ -26,7 +22,7 @@ export default function Snow({ width = 300.0, height = 300.0, depth = 200.0 }: P
       transparent: true,
       depthTest: true,
       uniforms: {
-        color: { value: new Color(0xFFFFFF) },
+        color: { value: new Color(0xffffff) },
         height: { value: height },
         elapsedTime: { value: 0.0 },
         radiusX: { value: 2.5 },
@@ -53,16 +49,28 @@ export default function Snow({ width = 300.0, height = 300.0, depth = 200.0 }: P
     return new Float32Array(vertices)
   }, [width, height, depth])
 
-  useFrame(useMemo(() => ({ clock }) => {
-    snowShaderMaterial.uniforms.elapsedTime.value = clock.getElapsedTime() * 10.0
-  }, [snowShaderMaterial]))
+  useFrame(
+    useMemo(
+      () =>
+        ({ clock }) => {
+          snowShaderMaterial.uniforms.elapsedTime.value = clock.getElapsedTime() * 10.0
+        },
+      [snowShaderMaterial],
+    ),
+  )
 
   return (
     <points position={[0, -height / 2, 0]}>
       <bufferGeometry>
-        <bufferAttribute attach="attributes-position" args={[snowPositionArray, 3]} />
+        <bufferAttribute
+          attach="attributes-position"
+          args={[snowPositionArray, 3]}
+        />
       </bufferGeometry>
-      <primitive attach="material" object={snowShaderMaterial} />
+      <primitive
+        attach="material"
+        object={snowShaderMaterial}
+      />
     </points>
   )
 }

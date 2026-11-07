@@ -54,7 +54,11 @@ export default function DialogPicture({ who }: { who: string }) {
   if (picture) {
     return (
       <div className={styles.npc}>
-        <img src={picture.src} alt={who} style={{ borderColor: picture.borderColor }} />
+        <img
+          src={picture.src}
+          alt={who}
+          style={{ borderColor: picture.borderColor }}
+        />
       </div>
     )
   }

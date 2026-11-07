@@ -38,9 +38,9 @@ const types = [
 const getAudioExts = async () => {
   // Safari has a weird implementation, to avoid it, this condition must be used
   if (
-    navigator.mediaCapabilities &&
-    navigator.mediaCapabilities.encodingInfo &&
-    navigator.mediaCapabilities.decodingInfo
+    navigator.mediaCapabilities
+    && navigator.mediaCapabilities.encodingInfo
+    && navigator.mediaCapabilities.decodingInfo
   ) {
     return (
       await Promise.all(

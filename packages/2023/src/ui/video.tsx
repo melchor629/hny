@@ -32,8 +32,14 @@ export default function Video({ fadeIn, onStartPlaying, src }: VideoProps) {
       onLoad={onLoad}
       onPlay={onLoad}
     >
-      <source src={`./assets/videos/${src}.webm`} type="video/webm; codecs=vp9" />
-      <source src={`./assets/videos/${src}.mp4`} type="video/mp4; codecs=hvc1t" />
+      <source
+        src={`./assets/videos/${src}.webm`}
+        type="video/webm; codecs=vp9"
+      />
+      <source
+        src={`./assets/videos/${src}.mp4`}
+        type="video/mp4; codecs=hvc1t"
+      />
     </animated.video>
   )
 }

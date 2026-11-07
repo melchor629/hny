@@ -10,13 +10,11 @@
     "allowSyntheticDefaultImports": true,
     "rootDir": ".",
     "paths": {
-      "src/*": [ "./src/*", "./src/*.js" ]
+      "src/*": ["./src/*", "./src/*.js"]
     },
     "moduleResolution": "bundler",
     "lib": ["es6", "dom"],
-    "resolveJsonModule": true,
+    "resolveJsonModule": true
   },
-  "include": [
-    "./src/**/*"
-  ]
+  "include": ["./src/**/*"]
 }

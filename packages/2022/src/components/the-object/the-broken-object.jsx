@@ -119,7 +119,11 @@ const TheBrokenObject = (props) => {
 
   return (
     <group {...props}>
-      <primitive ref={group} object={scene} onPointerUp={up} />
+      <primitive
+        ref={group}
+        object={scene}
+        onPointerUp={up}
+      />
       <ThePositionalAudio
         url={farExplosionUrl}
         distance={1}

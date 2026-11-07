@@ -1,5 +1,5 @@
-import spritesheet from '../spritesheets/marisa.json'
 import type { Npc } from '../../types/map'
+import spritesheet from '../spritesheets/marisa.json'
 
 const marisa: Npc = {
   id: 'marisa',

@@ -1,6 +1,6 @@
 import { useCallback, useLayoutEffect, useState } from 'react'
-import SnowFall from './snow-fall'
 import useResizeObserver from '../use-resize-observer'
+import SnowFall from './snow-fall'
 
 export default function Snow() {
   const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null)
@@ -43,7 +43,10 @@ export default function Snow() {
   }, [canvas])
 
   return (
-    <div className="w-full h-full absolute top-0 left-0 -z-1 pointer-events-none" ref={setDiv}>
+    <div
+      className="pointer-events-none absolute top-0 left-0 -z-1 h-full w-full"
+      ref={setDiv}
+    >
       <canvas ref={setCanvas} />
     </div>
   )

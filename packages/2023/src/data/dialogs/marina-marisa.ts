@@ -1486,49 +1486,39 @@ export const marisaDialog = newDialog('marisa', () => Math.trunc(Math.random() *
   )
   .build()
 
-/** LORE QA
- * - are they a couple?
- *      yes
- * - but..
- *      yep, I know. why this could be a problem?
- * - is the supreme wizard gelous of their investigation line?
- *      yes
- * - did he manage to use those spells?
- *      no, that's part of why they are here
- * - why marisa speaks japanese sometimes?
- *      why not?
- * - is marina gelous about the player?
- *      no, she is protective of her love, and marina does not know you and your intentions
- * - is marina a tsundere?
- *      ... in the past, probably
- * - is this healing/regeneration power related to marisa feelings to marina?
- *      in a way, yes. marisa do not want to see marina wounded. but also both like to help others
- *      the best way they can: healing!
- *      also note that marina can also help with fighting, but she would rather not use this way...
- * - but wait, why marina, which loves fighting, changed so much?
- *      my friend, love, that's all what you need
- * - did they know chris?
- *      yep
- * - do they hate the supreme wizard?
- *      marina do hate him. marisa, instead, do not hate him, but do not like the decision he took
- *      against them.
- * - are they really powerful?
- *      healing/regeneration requires a lot of "energy". So yeah, they really are powerful. remember
- *      too that marina is a good fighter, but focus more on they main power instead.
- * - what do you mean with "witchers" (male)?
- *      it is a reference to Andrzej Sapkowski "The Witcher Saga" (la saga del brujo) and
- *      "The Witcher" games.
- * - why marina and marisa?
- *      look how the common part of their names, the begining in fact. does it remind you of
- *      someone? (another reference to OMORI)
- *      in fact, the colour scheme is stracted from the slime girls boss.
- * - marisa changed marina a lot, no?
- *      asi es. marina learned to share his love to the rest, even though she still has some trust
- *      issues with the people. as marisa said, marina still has a big heart and will show to you
- *      (a su tiempo)
- * - so, love is the base of their spells?
- *      indeed. but they are not fully aware of it.
- *      (SPOILER) the way they handle love differs from Chris.
+/**
+ * LORE QA
+ *
+ * - Are they a couple? yes
+ * - But.. yep, I know. why this could be a problem?
+ * - Is the supreme wizard gelous of their investigation line? yes
+ * - Did he manage to use those spells? no, that's part of why they are here
+ * - Why marisa speaks japanese sometimes? why not?
+ * - Is marina gelous about the player? no, she is protective of her love, and marina does not know
+ *   you and your intentions
+ * - Is marina a tsundere? ... in the past, probably
+ * - Is this healing/regeneration power related to marisa feelings to marina? in a way, yes. marisa do
+ *   not want to see marina wounded. but also both like to help others the best way they can:
+ *   healing! also note that marina can also help with fighting, but she would rather not use this
+ *   way...
+ * - But wait, why marina, which loves fighting, changed so much? my friend, love, that's all what you
+ *   need
+ * - Did they know chris? yep
+ * - Do they hate the supreme wizard? marina do hate him. marisa, instead, do not hate him, but do not
+ *   like the decision he took against them.
+ * - Are they really powerful? healing/regeneration requires a lot of "energy". So yeah, they really
+ *   are powerful. remember too that marina is a good fighter, but focus more on they main power
+ *   instead.
+ * - What do you mean with "witchers" (male)? it is a reference to Andrzej Sapkowski "The Witcher
+ *   Saga" (la saga del brujo) and "The Witcher" games.
+ * - Why marina and marisa? look how the common part of their names, the begining in fact. does it
+ *   remind you of someone? (another reference to OMORI) in fact, the colour scheme is stracted from
+ *   the slime girls boss.
+ * - Marisa changed marina a lot, no? asi es. marina learned to share his love to the rest, even
+ *   though she still has some trust issues with the people. as marisa said, marina still has a big
+ *   heart and will show to you (a su tiempo)
+ * - So, love is the base of their spells? indeed. but they are not fully aware of it. (SPOILER) the
+ *   way they handle love differs from Chris.
  *
  * DO NOT FORGET TO SEE Chris QA TOO!!
  */

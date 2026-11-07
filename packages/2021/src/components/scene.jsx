@@ -3,8 +3,14 @@ import { Background, Card, CardsLight, CardsShadow, Effects, Loader, LoaderListe
 
 const Scene = ({ container }) => (
   <>
-    <color attach="background" args={['#000000']} />
-    <ambientLight intensity={0.01} color="#F6FFEE" />
+    <color
+      attach="background"
+      args={['#000000']}
+    />
+    <ambientLight
+      intensity={0.01}
+      color="#F6FFEE"
+    />
 
     <CardsLight />
     <pointLight
@@ -18,13 +24,34 @@ const Scene = ({ container }) => (
     <CardsShadow />
 
     <Suspense fallback={<Loader container={container} />}>
-      <Card position={[0.5, 0, 0]} cardName="jarai" />
-      <Card position={[0, 0, 0]} cardName="memes" />
-      <Card position={[-0.5, 0, 0]} cardName="landi" />
-      <Card position={[-1, 0, 0]} cardName="john-lles" />
-      <Card position={[-1.5, 0, 0]} cardName="eduardo-doble-h" />
-      <Card position={[-2, 0, 0]} cardName="music" />
-      <Card position={[-2.5, 0, 0]} cardName="pato" />
+      <Card
+        position={[0.5, 0, 0]}
+        cardName="jarai"
+      />
+      <Card
+        position={[0, 0, 0]}
+        cardName="memes"
+      />
+      <Card
+        position={[-0.5, 0, 0]}
+        cardName="landi"
+      />
+      <Card
+        position={[-1, 0, 0]}
+        cardName="john-lles"
+      />
+      <Card
+        position={[-1.5, 0, 0]}
+        cardName="eduardo-doble-h"
+      />
+      <Card
+        position={[-2, 0, 0]}
+        cardName="music"
+      />
+      <Card
+        position={[-2.5, 0, 0]}
+        cardName="pato"
+      />
 
       <Background />
       <LoaderListener container={container} />

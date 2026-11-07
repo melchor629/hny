@@ -15,7 +15,11 @@ export default function NotificationHud({ gameScale }: { gameScale: number }) {
   return (
     <div className={s.container}>
       {transitions((styles, item) => (
-        <Notification styles={styles} notification={item} gameScale={gameScale} />
+        <Notification
+          styles={styles}
+          notification={item}
+          gameScale={gameScale}
+        />
       ))}
     </div>
   )

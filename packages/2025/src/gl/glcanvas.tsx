@@ -13,15 +13,31 @@ export default function GlCanvas() {
   }, [])
 
   return (
-    <div className={styles.container} onAnimationEnd={onCanvasAnimationEnd}>
+    <div
+      className={styles.container}
+      onAnimationEnd={onCanvasAnimationEnd}
+    >
       <Canvas
         gl={{ stencil: false }}
         camera={{ far: 10000, position: new Vector3(0, 0, 50) }}
         shadows={{ enabled: false }}
       >
-        {import.meta.env.DEV && <OrbitControls target={new Vector3(0, 0, 0)} enablePan={false} />}
+        {import.meta.env.DEV && (
+          <OrbitControls
+            target={new Vector3(0, 0, 0)}
+            enablePan={false}
+          />
+        )}
         <NightSky radius={1200} />
-        <Stars radius={500} depth={50} count={2500} factor={16} saturation={0} fade speed={1} />
+        <Stars
+          radius={500}
+          depth={50}
+          count={2500}
+          factor={16}
+          saturation={0}
+          fade
+          speed={1}
+        />
         <Snow />
       </Canvas>
     </div>

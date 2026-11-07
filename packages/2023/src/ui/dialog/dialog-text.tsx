@@ -240,7 +240,10 @@ export default forwardRef<DialogTextRef, DialogTextProps>(function DialogText({}
           >
             {style.effect
               ? text.split('').map((v, i) => (
-                  <span key={i} className={effectClassGenerator(style.effect, i)}>
+                  <span
+                    key={i}
+                    className={effectClassGenerator(style.effect, i)}
+                  >
                     {v === ' ' ? <>&nbsp;</> : v}
                   </span>
                 ))
@@ -255,7 +258,10 @@ export default forwardRef<DialogTextRef, DialogTextProps>(function DialogText({}
       </div>
 
       {!dialogEntry.choices && finished && (
-        <span className={nextClassName} aria-label="Next">
+        <span
+          className={nextClassName}
+          aria-label="Next"
+        >
           &gt;
         </span>
       )}

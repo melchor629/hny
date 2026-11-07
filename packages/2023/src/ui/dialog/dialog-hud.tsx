@@ -36,9 +36,15 @@ export default function DialogHud() {
 
   const itsMe = currentEntry.who === 'player'
   return (
-    <section className={styles.container} onClick={onContainerClick}>
+    <section
+      className={styles.container}
+      onClick={onContainerClick}
+    >
       {itsMe && <DialogPicture who="player" />}
-      <DialogText ref={dialogTextRef} dialogEntry={currentEntry} />
+      <DialogText
+        ref={dialogTextRef}
+        dialogEntry={currentEntry}
+      />
       {!itsMe && <DialogPicture who={currentEntry.who} />}
     </section>
   )

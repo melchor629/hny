@@ -144,77 +144,370 @@ export function TopJail() {
   return (
     <>
       {/* main hall > branch top > jail */}
-      <MapTile wall="left" corners={['right-bottom']} x={49} y={26} />
-      <MapTile wall="bottom" x={50} y={26} />
-      <MapTile wall="bottom" x={51} y={26} />
-      <MapTile wall="bottom" x={52} y={26} />
-      <MapTile wall="bottom" x={53} y={26} />
-      <MapTile wall="bottom" x={54} y={26} />
-      <MapTile wall="bottom" x={55} y={26} />
-      <MapTile wall="bottom" x={56} y={26} />
-      <MapTile wall="bottom" x={57} y={26} />
-      <MapTile wall="bottom" x={58} y={26} />
-      <MapTile wall="bottom" x={59} y={26} />
-      <MapTile wall="bottom" x={60} y={26} />
-      <MapTile wall="bottom" x={61} y={26} />
-      <MapTile wall="bottom" x={62} y={26} />
-      <MapTile wall="bottom" x={63} y={26} />
-      <MapTile wall="bottom" x={64} y={26} />
-      <MapTile wall="bottom" x={65} y={26} />
-      <MapTile wall="bottom" x={66} y={26} />
-      <MapTile wall="bottom" corners={['right-top']} x={67} y={26} />
+      <MapTile
+        wall="left"
+        corners={['right-bottom']}
+        x={49}
+        y={26}
+      />
+      <MapTile
+        wall="bottom"
+        x={50}
+        y={26}
+      />
+      <MapTile
+        wall="bottom"
+        x={51}
+        y={26}
+      />
+      <MapTile
+        wall="bottom"
+        x={52}
+        y={26}
+      />
+      <MapTile
+        wall="bottom"
+        x={53}
+        y={26}
+      />
+      <MapTile
+        wall="bottom"
+        x={54}
+        y={26}
+      />
+      <MapTile
+        wall="bottom"
+        x={55}
+        y={26}
+      />
+      <MapTile
+        wall="bottom"
+        x={56}
+        y={26}
+      />
+      <MapTile
+        wall="bottom"
+        x={57}
+        y={26}
+      />
+      <MapTile
+        wall="bottom"
+        x={58}
+        y={26}
+      />
+      <MapTile
+        wall="bottom"
+        x={59}
+        y={26}
+      />
+      <MapTile
+        wall="bottom"
+        x={60}
+        y={26}
+      />
+      <MapTile
+        wall="bottom"
+        x={61}
+        y={26}
+      />
+      <MapTile
+        wall="bottom"
+        x={62}
+        y={26}
+      />
+      <MapTile
+        wall="bottom"
+        x={63}
+        y={26}
+      />
+      <MapTile
+        wall="bottom"
+        x={64}
+        y={26}
+      />
+      <MapTile
+        wall="bottom"
+        x={65}
+        y={26}
+      />
+      <MapTile
+        wall="bottom"
+        x={66}
+        y={26}
+      />
+      <MapTile
+        wall="bottom"
+        corners={['right-top']}
+        x={67}
+        y={26}
+      />
 
-      <MapTile wall="left-top" x={49} y={25} />
-      <MapTile wall="center" corners={['left-top']} x={50} y={25} />
-      <MapTile wall="center" corners={['right-top']} x={51} y={25} />
-      <MapTile wall="top" x={52} y={25} />
-      <MapTile wall="center" corners={['left-top']} x={53} y={25} />
-      <MapTile wall="center" corners={['right-top']} x={54} y={25} />
-      <MapTile wall="top" x={55} y={25} />
-      <MapTile wall="center" corners={['left-top']} x={56} y={25} />
-      <MapTile wall="center" corners={['right-top']} x={57} y={25} />
-      <MapTile wall="top" x={58} y={25} />
-      <MapTile wall="center" corners={['left-top']} x={59} y={25} />
-      <MapTile wall="center" corners={['right-top']} x={60} y={25} />
-      <MapTile wall="top" x={61} y={25} />
-      <MapTile wall="center" corners={['left-top']} x={62} y={25} />
-      <MapTile wall="center" corners={['right-top']} x={63} y={25} />
-      <MapTile wall="top" x={64} y={25} />
-      <MapTile wall="center" corners={['left-top']} x={65} y={25} />
-      <MapTile wall="center" corners={['right-top']} x={66} y={25} />
-      <MapTile wall="right-top" corners={['right-aftertop']} x={67} y={25} />
+      <MapTile
+        wall="left-top"
+        x={49}
+        y={25}
+      />
+      <MapTile
+        wall="center"
+        corners={['left-top']}
+        x={50}
+        y={25}
+      />
+      <MapTile
+        wall="center"
+        corners={['right-top']}
+        x={51}
+        y={25}
+      />
+      <MapTile
+        wall="top"
+        x={52}
+        y={25}
+      />
+      <MapTile
+        wall="center"
+        corners={['left-top']}
+        x={53}
+        y={25}
+      />
+      <MapTile
+        wall="center"
+        corners={['right-top']}
+        x={54}
+        y={25}
+      />
+      <MapTile
+        wall="top"
+        x={55}
+        y={25}
+      />
+      <MapTile
+        wall="center"
+        corners={['left-top']}
+        x={56}
+        y={25}
+      />
+      <MapTile
+        wall="center"
+        corners={['right-top']}
+        x={57}
+        y={25}
+      />
+      <MapTile
+        wall="top"
+        x={58}
+        y={25}
+      />
+      <MapTile
+        wall="center"
+        corners={['left-top']}
+        x={59}
+        y={25}
+      />
+      <MapTile
+        wall="center"
+        corners={['right-top']}
+        x={60}
+        y={25}
+      />
+      <MapTile
+        wall="top"
+        x={61}
+        y={25}
+      />
+      <MapTile
+        wall="center"
+        corners={['left-top']}
+        x={62}
+        y={25}
+      />
+      <MapTile
+        wall="center"
+        corners={['right-top']}
+        x={63}
+        y={25}
+      />
+      <MapTile
+        wall="top"
+        x={64}
+        y={25}
+      />
+      <MapTile
+        wall="center"
+        corners={['left-top']}
+        x={65}
+        y={25}
+      />
+      <MapTile
+        wall="center"
+        corners={['right-top']}
+        x={66}
+        y={25}
+      />
+      <MapTile
+        wall="right-top"
+        corners={['right-aftertop']}
+        x={67}
+        y={25}
+      />
 
-      <MapTile wall="left" corners={['left-aftertop']} x={50} y={24} />
-      <JailBars x={50} y={24} />
-      <MapTile wall="right" corners={['right-aftertop']} x={51} y={24} />
-      <MapTile wall="left" corners={['left-aftertop']} x={53} y={24} />
-      <JailBars x={53} y={24} />
-      <MapTile wall="right" corners={['right-aftertop']} x={54} y={24} />
-      <MapTile wall="left" corners={['left-aftertop']} x={56} y={24} />
-      <JailBars x={56} y={24} />
-      <MapTile wall="right" corners={['right-aftertop']} x={57} y={24} />
-      <MapTile wall="left" corners={['left-aftertop']} x={59} y={24} />
-      <JailBars x={59} y={24} />
-      <MapTile wall="right" corners={['right-aftertop']} x={60} y={24} />
-      <MapTile wall="left" corners={['left-aftertop']} x={62} y={24} />
-      <JailBars x={62} y={24} />
-      <MapTile wall="right" corners={['right-aftertop']} x={63} y={24} />
-      <MapTile wall="left" corners={['left-aftertop']} x={65} y={24} />
-      <JailBars x={65} y={24} />
-      <MapTile wall="right" corners={['right-aftertop']} x={66} y={24} />
+      <MapTile
+        wall="left"
+        corners={['left-aftertop']}
+        x={50}
+        y={24}
+      />
+      <JailBars
+        x={50}
+        y={24}
+      />
+      <MapTile
+        wall="right"
+        corners={['right-aftertop']}
+        x={51}
+        y={24}
+      />
+      <MapTile
+        wall="left"
+        corners={['left-aftertop']}
+        x={53}
+        y={24}
+      />
+      <JailBars
+        x={53}
+        y={24}
+      />
+      <MapTile
+        wall="right"
+        corners={['right-aftertop']}
+        x={54}
+        y={24}
+      />
+      <MapTile
+        wall="left"
+        corners={['left-aftertop']}
+        x={56}
+        y={24}
+      />
+      <JailBars
+        x={56}
+        y={24}
+      />
+      <MapTile
+        wall="right"
+        corners={['right-aftertop']}
+        x={57}
+        y={24}
+      />
+      <MapTile
+        wall="left"
+        corners={['left-aftertop']}
+        x={59}
+        y={24}
+      />
+      <JailBars
+        x={59}
+        y={24}
+      />
+      <MapTile
+        wall="right"
+        corners={['right-aftertop']}
+        x={60}
+        y={24}
+      />
+      <MapTile
+        wall="left"
+        corners={['left-aftertop']}
+        x={62}
+        y={24}
+      />
+      <JailBars
+        x={62}
+        y={24}
+      />
+      <MapTile
+        wall="right"
+        corners={['right-aftertop']}
+        x={63}
+        y={24}
+      />
+      <MapTile
+        wall="left"
+        corners={['left-aftertop']}
+        x={65}
+        y={24}
+      />
+      <JailBars
+        x={65}
+        y={24}
+      />
+      <MapTile
+        wall="right"
+        corners={['right-aftertop']}
+        x={66}
+        y={24}
+      />
 
-      <MapTile wall="left-top" x={50} y={23} />
-      <MapTile wall="right-top" x={51} y={23} />
-      <MapTile wall="left-top" x={53} y={23} />
-      <MapTile wall="right-top" x={54} y={23} />
-      <MapTile wall="left-top" x={56} y={23} />
-      <MapTile wall="right-top" x={57} y={23} />
-      <MapTile wall="left-top" x={59} y={23} />
-      <MapTile wall="right-top" x={60} y={23} />
-      <MapTile wall="left-top" x={62} y={23} />
-      <MapTile wall="right-top" x={63} y={23} />
-      <MapTile wall="left-top" x={65} y={23} />
-      <MapTile wall="right-top" x={66} y={23} />
+      <MapTile
+        wall="left-top"
+        x={50}
+        y={23}
+      />
+      <MapTile
+        wall="right-top"
+        x={51}
+        y={23}
+      />
+      <MapTile
+        wall="left-top"
+        x={53}
+        y={23}
+      />
+      <MapTile
+        wall="right-top"
+        x={54}
+        y={23}
+      />
+      <MapTile
+        wall="left-top"
+        x={56}
+        y={23}
+      />
+      <MapTile
+        wall="right-top"
+        x={57}
+        y={23}
+      />
+      <MapTile
+        wall="left-top"
+        x={59}
+        y={23}
+      />
+      <MapTile
+        wall="right-top"
+        x={60}
+        y={23}
+      />
+      <MapTile
+        wall="left-top"
+        x={62}
+        y={23}
+      />
+      <MapTile
+        wall="right-top"
+        x={63}
+        y={23}
+      />
+      <MapTile
+        wall="left-top"
+        x={65}
+        y={23}
+      />
+      <MapTile
+        wall="right-top"
+        x={66}
+        y={23}
+      />
 
       <Chris />
       <MapTrigger

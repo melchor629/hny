@@ -9,7 +9,12 @@ const stop = (e: any) => e.stopPropagation()
 
 function Link({ children, href }: PropsWithChildren<{ href: string }>) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" onPointerDown={stop}>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onPointerDown={stop}
+    >
       {children}
     </a>
   )
@@ -99,7 +104,10 @@ export default function InventoryLove({
 
   if (!hasLastPhoto) {
     return (
-      <div ref={containerRef} className={styles.container}>
+      <div
+        ref={containerRef}
+        className={styles.container}
+      >
         <div className={styles.fan2023}>
           <h1 className={styles[`c${n + 1}`]}>¡Feliz Año Nuevo 2023!</h1>
         </div>
@@ -118,7 +126,10 @@ export default function InventoryLove({
   }
 
   return (
-    <div ref={containerRef} className={styles.container}>
+    <div
+      ref={containerRef}
+      className={styles.container}
+    >
       <div className={styles.fan2023}>
         <h1 className={styles[`c${n + 1}`]}>¡Feliz Año Nuevo 2023!</h1>
       </div>

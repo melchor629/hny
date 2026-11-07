@@ -90,12 +90,23 @@ export default function InventoryHud({ gameScale }: { gameScale: number }) {
           >
             {tab === 'book' && <InventoryBook hasFocus={!headerFocus} />}
             {tab === 'items' && (
-              <InventoryTheRealOne hasFocus={!headerFocus} gameScale={gameScale} />
+              <InventoryTheRealOne
+                hasFocus={!headerFocus}
+                gameScale={gameScale}
+              />
             )}
             {tab === 'controls' && (
-              <InventoryControls hasFocus={!headerFocus} gameScale={gameScale} />
+              <InventoryControls
+                hasFocus={!headerFocus}
+                gameScale={gameScale}
+              />
             )}
-            {tab === 'about' && <InventoryLove hasFocus={!headerFocus} gameScale={gameScale} />}
+            {tab === 'about' && (
+              <InventoryLove
+                hasFocus={!headerFocus}
+                gameScale={gameScale}
+              />
+            )}
           </div>
         </animated.div>
       ),

@@ -12,5 +12,12 @@ export default function Chris() {
   const npcState = useDungeonState((state) => state.chrisState)
   const [x, y] = positions[npcState]
 
-  return <MapNpc npc={chris} state={npcState} x={x * 32 - 16} y={y * 32 - 16} />
+  return (
+    <MapNpc
+      npc={chris}
+      state={npcState}
+      x={x * 32 - 16}
+      y={y * 32 - 16}
+    />
+  )
 }

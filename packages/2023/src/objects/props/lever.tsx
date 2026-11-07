@@ -26,5 +26,12 @@ export default function Lever({ orientation, activated, x, y, onInteraction }: L
   const prop = useMemo(() => props[orientation][`${activated}`], [orientation, activated])
   const fx = useMemo(() => x * 32 + (orientation === 'front' ? -2 : -8), [x])
   const fy = useMemo(() => y * 32 + (orientation === 'front' ? -29 : -6), [y])
-  return <MapProp prop={prop} x={fx} y={fy} onInteraction={onInteraction} />
+  return (
+    <MapProp
+      prop={prop}
+      x={fx}
+      y={fy}
+      onInteraction={onInteraction}
+    />
+  )
 }

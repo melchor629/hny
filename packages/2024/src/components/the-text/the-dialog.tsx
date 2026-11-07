@@ -1,10 +1,10 @@
 import { a, config, useSpring } from '@react-spring/web'
 import { useCallback, useMemo } from 'react'
+import { createPortal } from 'react-dom'
 import { changingClosing, useGiftStatus } from '../../hooks/use-gift-status'
 import { getObject } from '../../objects'
 import { getRarity, getTotalObjects } from '../../objects/logic'
 import styles from './styles.module.scss'
-import { createPortal } from 'react-dom'
 
 type Props = {
   isOpen: boolean
@@ -49,13 +49,20 @@ export default function TheDialog({ close, isOpen }: Props) {
         aria-labelledby="dialog-title"
         onClick={useCallback((e: any) => e.stopPropagation(), [])}
       >
-        <h2 role="heading" id="dialog-title">
+        <h2
+          role="heading"
+          id="dialog-title"
+        >
           Regalos descubiertos&nbsp;
           <small>{`(${giftsWithInfo.length} de ${getTotalObjects()})`}</small>
         </h2>
         <ul>
           {giftsWithInfo.map(([gift, rarity, onClick]) => (
-            <li key={gift.id} className={styles[rarity]} onClick={onClick}>
+            <li
+              key={gift.id}
+              className={styles[rarity]}
+              onClick={onClick}
+            >
               <div className={styles.rarity} />
               <span>&nbsp;{gift.name}</span>
             </li>

@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef } from 'react'
 import { shallow } from 'zustand/shallow'
-import TheFullObject from './the-full-object'
-import TheBrokenObject from './the-broken-object'
 import { usePartyStore } from '../../stores'
+import TheBrokenObject from './the-broken-object'
+import TheFullObject from './the-full-object'
 
 const TheObject = (props) => {
   const [partyEnded, markExploding] = usePartyStore(

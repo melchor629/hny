@@ -1,15 +1,15 @@
 import { useLoader } from '@react-three/fiber'
 import { Suspense, useEffect } from 'react'
 import { Audio, AudioLoader } from 'three'
-import { usePartStore } from '../stores'
 import { useAudioListener } from '../hooks'
+import { usePartStore } from '../stores'
 
 const fadeDuration = 3
 const initialFadeValue = 0.001
 const finalFadeValue = 0.15
 
 /**
- * @param {{ url: string }} props props
+ * @param {{ url: string }} props Props
  */
 const TheRealMusicPlayer = ({ url }) => {
   const audioListener = useAudioListener()

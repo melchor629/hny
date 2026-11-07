@@ -1,7 +1,7 @@
+import { animated, config, useSpringValue } from '@react-spring/web'
 import { useCallback, useEffect } from 'react'
 import { appearing, useGiftStatus } from '../../hooks/use-gift-status'
 import styles from './styles.module.scss'
-import { animated, config, useSpringValue } from '@react-spring/web'
 
 export default function TheWelcome() {
   const state = useGiftStatus(useCallback((s) => s.state, []))
@@ -33,20 +33,38 @@ export default function TheWelcome() {
   }
 
   return (
-    <animated.div className={styles.container} style={{ opacity: opacitySpringValue }}>
-      <animated.div className={styles.text1} style={{ transform: text1SpringValue }}>
+    <animated.div
+      className={styles.container}
+      style={{ opacity: opacitySpringValue }}
+    >
+      <animated.div
+        className={styles.text1}
+        style={{ transform: text1SpringValue }}
+      >
         Ha llegado un nuevo año…
       </animated.div>
-      <animated.div className={styles.text1} style={{ transform: text3SpringValue }}>
+      <animated.div
+        className={styles.text1}
+        style={{ transform: text3SpringValue }}
+      >
         Espero que éste sea bueno para tí :)
       </animated.div>
-      <animated.div className={styles.text2} style={{ transform: text4SpringValue }}>
+      <animated.div
+        className={styles.text2}
+        style={{ transform: text4SpringValue }}
+      >
         ¡Feliz año 2024!
       </animated.div>
-      <animated.div className={styles.text1} style={{ transform: text5SpringValue }}>
+      <animated.div
+        className={styles.text1}
+        style={{ transform: text5SpringValue }}
+      >
         Por tanto, te mereces un regalo
         <br />
-        <button className={styles.button} onClick={onButtonClick}>
+        <button
+          className={styles.button}
+          onClick={onButtonClick}
+        >
           ¡Quiero mi regalo!
         </button>
       </animated.div>
